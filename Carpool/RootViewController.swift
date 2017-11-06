@@ -46,6 +46,7 @@ class RootViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Yes!", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Not Yet!", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        //pushing again
     }
 }
 
