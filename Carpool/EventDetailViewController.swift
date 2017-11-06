@@ -47,7 +47,6 @@ class EventDetailViewController: UIViewController {
         
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(trip.event.location) { placemarks, error in
-            //Change to address
             if let state = placemarks?.first?.administrativeArea, let city = placemarks?.first?.locality{
                 self.eventLocationLabel.text = "\(city), \(state)"
             }
