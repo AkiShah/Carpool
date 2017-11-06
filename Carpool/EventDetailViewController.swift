@@ -23,7 +23,7 @@ class EventDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(trip)
         eventDescriptionLabel.text = trip.event.description
         eventPickupDriverLabel.text = trip.pickUp.driver?.name
         eventDropoffDriverLabel.text = trip.dropOff.driver?.name

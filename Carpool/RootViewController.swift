@@ -25,10 +25,9 @@ class RootViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let trip = sender as? Trip{
+        guard let trip = sender as? Trip else { return }
             let eventDetailVC = segue.destination as! EventDetailViewController
             eventDetailVC.trip = trip
-        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,7 +47,21 @@ class RootViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "segueToEventDetailVC", sender: trips[indexPath.row])
+        
+        let trip = trips[indexPath.row]
+        if !trip.dropOff.isClaimed || !trip.pickUp.isClaimed {
+            let alert = UIAlertController(title: "Claim this Trip", message: "Would you like to claim this pickup/dropoff?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Claim", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Not Now", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            self.performSegue(withIdentifier: "segueToEventDetailVC", sender: trip)
+//            let alert = UIAlertController(title: "Unclaim this Trip", message: "Would you like to UNclaim this pickup/dropoff?", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Unclaim", style: .default, handler: nil))
+//            alert.addAction(UIAlertAction(title: "Keep this trip", style: .default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
