@@ -12,9 +12,11 @@
 		733E30001FB0E79C005E9AFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733E2FFE1FB0E79C005E9AFD /* Main.storyboard */; };
 		733E30021FB0E79C005E9AFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 733E30011FB0E79C005E9AFD /* Assets.xcassets */; };
 		733E30051FB0E79C005E9AFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733E30031FB0E79C005E9AFD /* LaunchScreen.storyboard */; };
+		DA22EC9196721EEC17B366B4 /* Pods_Carpool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBC503E4FFD20DF4FB31BCB6 /* Pods_Carpool.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36CE04F4A1B0B43F44F57A64 /* Pods-Carpool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.debug.xcconfig"; sourceTree = "<group>"; };
 		733E2FF71FB0E79C005E9AFD /* Carpool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carpool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		733E2FFA1FB0E79C005E9AFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		733E2FFC1FB0E79C005E9AFD /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		733E30011FB0E79C005E9AFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		733E30041FB0E79C005E9AFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		733E30061FB0E79C005E9AFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A5EBFA6D1B05B21D53BE329 /* Pods-Carpool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.release.xcconfig"; sourceTree = "<group>"; };
+		BBC503E4FFD20DF4FB31BCB6 /* Pods_Carpool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA22EC9196721EEC17B366B4 /* Pods_Carpool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6055D86B47ABC2B098444971 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36CE04F4A1B0B43F44F57A64 /* Pods-Carpool.debug.xcconfig */,
+				9A5EBFA6D1B05B21D53BE329 /* Pods-Carpool.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		733E2FEE1FB0E79C005E9AFD = {
 			isa = PBXGroup;
 			children = (
 				733E2FF91FB0E79C005E9AFD /* Carpool */,
 				733E2FF81FB0E79C005E9AFD /* Products */,
+				6055D86B47ABC2B098444971 /* Pods */,
+				EFA50AED230D0DA708B79660 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = Carpool;
 			sourceTree = "<group>";
 		};
+		EFA50AED230D0DA708B79660 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBC503E4FFD20DF4FB31BCB6 /* Pods_Carpool.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 733E30091FB0E79C005E9AFD /* Build configuration list for PBXNativeTarget "Carpool" */;
 			buildPhases = (
+				F077A52B676CF161343E0795 /* [CP] Check Pods Manifest.lock */,
 				733E2FF31FB0E79C005E9AFD /* Sources */,
 				733E2FF41FB0E79C005E9AFD /* Frameworks */,
 				733E2FF51FB0E79C005E9AFD /* Resources */,
+				49705671377270E86A9F79A9 /* [CP] Embed Pods Frameworks */,
+				F7F4AEDF62E73164201B0726 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49705671377270E86A9F79A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Carpool/Pods-Carpool-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CarpoolKit/CarpoolKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CarpoolKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carpool/Pods-Carpool-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F077A52B676CF161343E0795 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Carpool-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7F4AEDF62E73164201B0726 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carpool/Pods-Carpool-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		733E2FF31FB0E79C005E9AFD /* Sources */ = {
@@ -272,6 +353,7 @@
 		};
 		733E300A1FB0E79C005E9AFD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36CE04F4A1B0B43F44F57A64 /* Pods-Carpool.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +369,7 @@
 		};
 		733E300B1FB0E79C005E9AFD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A5EBFA6D1B05B21D53BE329 /* Pods-Carpool.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
