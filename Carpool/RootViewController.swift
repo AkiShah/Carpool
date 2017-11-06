@@ -29,7 +29,8 @@ class RootViewController: UITableViewController {
         
         let trip = trips[indexPath.row]
         cell.textLabel?.text = trip.event.description
-        if !trip.dropOff.isClaimed, !trip.pickUp.isClaimed {
+        print("Pickup?:\(trip.pickUp.isClaimed) Dropoff?:\(trip.dropOff.isClaimed)")
+        if !trip.dropOff.isClaimed || !trip.pickUp.isClaimed {
             cell.backgroundColor = UIColor.red
         }
         return cell
