@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730ABE2D1FB0EEAF00146469 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730ABE2C1FB0EEAF00146469 /* EventDetailViewController.swift */; };
 		733E2FFB1FB0E79C005E9AFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E2FFA1FB0E79C005E9AFD /* AppDelegate.swift */; };
 		733E2FFD1FB0E79C005E9AFD /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E2FFC1FB0E79C005E9AFD /* RootViewController.swift */; };
 		733E30001FB0E79C005E9AFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733E2FFE1FB0E79C005E9AFD /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		36CE04F4A1B0B43F44F57A64 /* Pods-Carpool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.debug.xcconfig"; sourceTree = "<group>"; };
+		730ABE2C1FB0EEAF00146469 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		733E2FF71FB0E79C005E9AFD /* Carpool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carpool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		733E2FFA1FB0E79C005E9AFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		733E2FFC1FB0E79C005E9AFD /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				733E2FFA1FB0E79C005E9AFD /* AppDelegate.swift */,
 				733E2FFC1FB0E79C005E9AFD /* RootViewController.swift */,
 				733E2FFE1FB0E79C005E9AFD /* Main.storyboard */,
+				730ABE2C1FB0EEAF00146469 /* EventDetailViewController.swift */,
 				733E30011FB0E79C005E9AFD /* Assets.xcassets */,
 				733E30031FB0E79C005E9AFD /* LaunchScreen.storyboard */,
 				733E30061FB0E79C005E9AFD /* Info.plist */,
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730ABE2D1FB0EEAF00146469 /* EventDetailViewController.swift in Sources */,
 				733E2FFD1FB0E79C005E9AFD /* RootViewController.swift in Sources */,
 				733E2FFB1FB0E79C005E9AFD /* AppDelegate.swift in Sources */,
 			);
