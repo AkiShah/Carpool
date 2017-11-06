@@ -108,7 +108,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ang-4a-5JJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="127" y="170"/>
+            <point key="canvasLocation" x="361" y="170"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="R9X-0u-3A5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MkV-dj-7fN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a4a-DO-eAS">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8I8-3s-4bT" kind="relationship" relationship="rootViewController" id="ngy-dT-ygL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iwL-AM-s8O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1046" y="170"/>
         </scene>
     </scenes>
 </document>
