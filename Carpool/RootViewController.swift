@@ -23,6 +23,13 @@ class RootViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let trip = sender as? Trip{
+            let eventDetailVC = segue.destination as! EventDetailViewController
+            eventDetailVC.trip = trip
+        }
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventList", for: indexPath)
@@ -42,7 +49,7 @@ class RootViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.performSegue(withIdentifier: "segueToEventDetailVC", sender: trips[indexPath.row])
     }
 }
 
