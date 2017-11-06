@@ -29,7 +29,13 @@ class RootViewController: UITableViewController {
             let eventDetailVC = segue.destination as! EventDetailViewController
             eventDetailVC.trip = trip
     }
+    
+    @IBAction func unwindFromEventDetailViewController(segue: UIStoryboardSegue) {
+    }
 
+    @IBAction func unwindFromCreateTripViewController(segue: UIStoryboardSegue) {
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventList", for: indexPath)
         
