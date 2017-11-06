@@ -30,7 +30,7 @@ class RootViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventList", for: indexPath)
         
-        //this is not working yet to turn it red.
+        //this is not working yet to turn it red. writing something else 
         if cell.isSelected == true {
             cell.backgroundColor = UIColor.red
         }
