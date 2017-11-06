@@ -47,21 +47,8 @@ class RootViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let trip = trips[indexPath.row]
-        if !trip.dropOff.isClaimed || !trip.pickUp.isClaimed {
-            let alert = UIAlertController(title: "Claim this Trip", message: "Would you like to claim this pickup/dropoff?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Claim", style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: "Not Now", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            
-        } else {
-            self.performSegue(withIdentifier: "segueToEventDetailVC", sender: trip)
-//            let alert = UIAlertController(title: "Unclaim this Trip", message: "Would you like to UNclaim this pickup/dropoff?", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Unclaim", style: .default, handler: nil))
-//            alert.addAction(UIAlertAction(title: "Keep this trip", style: .default, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
-        }
+        self.performSegue(withIdentifier: "segueToEventDetailVC", sender: trip)
     }
 }
 

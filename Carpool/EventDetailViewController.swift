@@ -23,7 +23,7 @@ class EventDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(trip)
+
         eventDescriptionLabel.text = trip.event.description
         eventPickupDriverLabel.text = trip.pickUp.driver?.name
         eventDropoffDriverLabel.text = trip.dropOff.driver?.name
@@ -40,5 +40,14 @@ class EventDetailViewController: UIViewController {
         formatter.dateFormat = "h : m"
         eventTimeLabel.text = formatter.string(from: trip.event.time)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !trip.dropOff.isClaimed || !trip.pickUp.isClaimed {
+            let alert = UIAlertController(title: "Claim this Trip", message: "Would you like to claim this pickup/dropoff?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Claim", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Not Now", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
