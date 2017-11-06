@@ -26,9 +26,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Ind-D3-ceY" kind="show" id="m9t-wc-EZw"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -42,10 +42,16 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let alert = UIAlertController(title: "Claiming a Trip?", message: "Would you like to claim this trip?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes!", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Not Yet!", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        let trip = trips[indexPath.row]
+        if trip.dropOff.isClaimed {
+            
+        } else if !trip.dropOff.isClaimed {
+            let alert = UIAlertController(title: "Claiming a Trip?", message: "Would you like to claim this trip?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes!", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Not Yet!", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         //pushing again
     }
 }
