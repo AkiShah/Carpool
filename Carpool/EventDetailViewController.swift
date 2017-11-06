@@ -26,6 +26,21 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if !trip.pickUp.isClaimed{
+            pickupButton.isEnabled = true
+            pickupButton.setTitle("Claim Pickup", for: .normal)
+        } else {
+            pickupButton.isEnabled = false
+            pickupButton.setTitle("Pickup Claimed", for: .normal)
+        }
+        if !trip.dropOff.isClaimed{
+            dropoffButton.isEnabled = true
+            dropoffButton.setTitle("Claim Drop Off", for: .normal)
+        } else {
+            dropoffButton.isEnabled = false
+            dropoffButton.setTitle("Drop Off Claimed", for: .normal)
+        }
+        
         eventDescriptionLabel.text = trip.event.description
         eventPickupDriverLabel.text = trip.pickUp.driver?.name
         eventDropoffDriverLabel.text = trip.dropOff.driver?.name
