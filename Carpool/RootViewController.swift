@@ -43,9 +43,13 @@ class RootViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let trip = trips[indexPath.row]
-        if trip.dropOff.isClaimed {
-            
-        } else if !trip.dropOff.isClaimed {
+        if trip.dropOff.isClaimed || trip.pickUp.isClaimed {
+            let alert = UIAlertController(title: "Unconfirm this trip?", message: "Would you like to cancel this trip?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel Trip", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Keep Trip", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+
+        } else if !trip.dropOff.isClaimed || !trip.pickUp.isClaimed {
             let alert = UIAlertController(title: "Claiming a Trip?", message: "Would you like to claim this trip?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes!", style: .default, handler: nil))
             alert.addAction(UIAlertAction(title: "Not Yet!", style: .default, handler: nil))
