@@ -13,9 +13,6 @@ import CoreLocation
 class RootViewController: UITableViewController {
     
     var trips: [Trip] = []
-    var events: [Event] = []
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +27,16 @@ class RootViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventList", for: indexPath)
         
-        //this is not working yet to turn it red. writing something else 
-        if cell.isSelected == true {
+        let trip = trips[indexPath.row]
+        cell.textLabel?.text = trip.event.description
+        if !trip.dropOff.isClaimed, !trip.pickUp.isClaimed {
             cell.backgroundColor = UIColor.red
         }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return trips.count
         
     }
     
