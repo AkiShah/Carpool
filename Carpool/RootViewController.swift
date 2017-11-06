@@ -2,7 +2,7 @@
 //  RootViewController.swift
 //  Carpool
 //
-//  Created by Akash Shah on 11/6/17.
+//  Created by Akash Shah and Shannon Zaller on 11/6/17.
 //  Copyright © 2017 Codebase. All rights reserved.
 //
 
