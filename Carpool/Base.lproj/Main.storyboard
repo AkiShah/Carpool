@@ -42,6 +42,24 @@
             </objects>
             <point key="canvasLocation" x="-348" y="169.56521739130437"/>
         </scene>
+        <!--Create Trip View Controller-->
+        <scene sceneID="SER-Zw-3Ol">
+            <objects>
+                <viewController id="4SA-71-PnC" customClass="CreateTripViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4fb-0N-AOx"/>
+                        <viewControllerLayoutGuide type="bottom" id="CYt-mt-NvN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7UN-Fe-OgZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZsI-j6-vV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-359" y="853"/>
+        </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="qF7-f9-gQi">
             <objects>
