@@ -18,6 +18,8 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var eventDescriptionLabel: UILabel!
     @IBOutlet weak var eventPickupDriverLabel: UILabel!
     @IBOutlet weak var eventDropoffDriverLabel: UILabel!
+    @IBOutlet weak var pickupButton: UIButton!
+    @IBOutlet weak var dropoffButton: UIButton!
     
     var trip: Trip!
     
@@ -49,5 +51,9 @@ class EventDetailViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Not Now", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    @IBAction func onPickupButtonPressed(_ sender: UIButton) {
+    }
+    @IBAction func onDropoffButtonPressed(_ sender: UIButton) {
     }
 }

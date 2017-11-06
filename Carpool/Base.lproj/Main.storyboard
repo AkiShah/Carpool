@@ -101,25 +101,51 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KJ7-LV-ERt">
+                                <rect key="frame" x="16" y="595" width="343" height="42"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VE7-Bn-arT">
+                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Pickup"/>
+                                        <connections>
+                                            <action selector="onPickupButtonPressed:" destination="Ind-D3-ceY" eventType="touchUpInside" id="cH7-QM-Wkf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d3-yF-yuO">
+                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Dropoff"/>
+                                        <connections>
+                                            <action selector="onDropoffButtonPressed:" destination="Ind-D3-ceY" eventType="touchUpInside" id="bNm-wE-6zP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="KJ7-LV-ERt" secondAttribute="trailing" id="0FC-9r-Hau"/>
+                            <constraint firstItem="KJ7-LV-ERt" firstAttribute="leading" secondItem="QJ0-zm-uiS" secondAttribute="leadingMargin" id="1VL-vr-Dmh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xZw-co-anL" secondAttribute="trailing" constant="10" id="32e-EY-S8B"/>
                             <constraint firstItem="xZw-co-anL" firstAttribute="centerY" secondItem="QJ0-zm-uiS" secondAttribute="centerY" id="8ug-y8-SMb"/>
+                            <constraint firstItem="rfH-E5-q3b" firstAttribute="top" secondItem="KJ7-LV-ERt" secondAttribute="bottom" constant="30" id="fKv-WT-77e"/>
                             <constraint firstItem="xZw-co-anL" firstAttribute="leading" secondItem="QJ0-zm-uiS" secondAttribute="leadingMargin" constant="10" id="sR8-sO-2j4"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dropoffButton" destination="6d3-yF-yuO" id="vJs-Fp-bZ0"/>
                         <outlet property="eventDescriptionLabel" destination="V9N-gy-y98" id="vSm-sm-fTI"/>
                         <outlet property="eventDropoffDriverLabel" destination="KXK-Wd-pTw" id="sHr-jZ-Vso"/>
                         <outlet property="eventLocationLabel" destination="Ssa-zl-M0q" id="i4w-6g-rk1"/>
                         <outlet property="eventPickupDriverLabel" destination="h9K-aV-u1y" id="6Va-u0-ame"/>
                         <outlet property="eventTimeLabel" destination="yo2-Cq-17O" id="bvM-CW-D6s"/>
+                        <outlet property="pickupButton" destination="VE7-Bn-arT" id="qdw-TW-6Us"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ang-4a-5JJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="170"/>
+            <point key="canvasLocation" x="360.80000000000001" y="169.56521739130437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R9X-0u-3A5">
