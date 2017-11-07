@@ -25,18 +25,19 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func onCreateTripPressed(_ sender: UIButton) {
+        if let time = time, desc != ""{
+            API.createTrip(eventDescription: description, eventTime: time, eventLocation: location) { trip in
+                print(trip)
+            }
+        }
     }
     
     @IBAction func onSearchRouteEntered(_ sender: UITextField) {
     }
      
     @IBAction func onNewTripDescriptionUpdated(_ sender: UITextField) {
-    }
-    
-    func createNewTrip(at location: CLLocation, for description: String, when time: Date ){
-        
-        API.createTrip(eventDescription: description, eventTime: time, eventLocation: location) { trip in
-            print(trip)
+        if let text = sender.text {
+            desc = text
         }
     }
 }
