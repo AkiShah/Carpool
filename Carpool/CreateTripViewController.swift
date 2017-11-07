@@ -12,11 +12,12 @@ import CoreLocation
 
 class CreateTripViewController: UIViewController {
     
-    
+    @IBOutlet weak var destinationDisplayed: UILabel!
+    @IBOutlet weak var onSearchForRouteEntered: UITextField!
     
     let location: CLLocation = CLLocation()
     var desc: String = ""
-    var time: Date = Date()
+    var time: Date!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +26,12 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func onCreateTripPressed(_ sender: UIButton) {
-    }
-    
-    @IBOutlet weak var onSearchForRouteEntered: UITextField!
-    
-    func createNewTrip(at location: CLLocation, for description: String, when time: Date ){
-        
-        API.createTrip(eventDescription: description, eventTime: time, eventLocation: location) { trip in
-            print(trip)
+        if let time = time, desc != "" {
+            API.createTrip(eventDescription: description, eventTime: time, eventLocation: location) { trip in
+                print(trip)
+            }
         }
     }
-    @IBOutlet weak var destinationDisplayed: UILabel!
+   
     
 }
