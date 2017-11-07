@@ -12,6 +12,7 @@ import CoreLocation
 
 class CreateTripViewController: UIViewController {
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var destinationDisplayed: UILabel!
     @IBOutlet weak var onSearchForRouteEntered: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
