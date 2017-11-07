@@ -19,6 +19,12 @@ extension Trip: Comparable {
     }
 }
 
+extension Trip: Hashable {
+    public var hashValue: Int {
+        return key.hashValue
+    }
+}
+
 extension Trip {
     static func make(key: String, json: [String: Any]) -> Promise<Trip> {
         do {

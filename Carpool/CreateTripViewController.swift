@@ -29,7 +29,7 @@ class CreateTripViewController: UIViewController {
     @IBAction func onCreateTripPressed(_ sender: UIButton) {
         print("Time\(time), Description\(desc)")
         if let time = time, desc != ""{
-            API.createTrip(eventDescription: description, eventTime: time, eventLocation: location) { trip in
+            API.createTrip(eventDescription: desc, eventTime: time, eventLocation: location) { trip in
                 print(trip)
                 print("Trip created")
                 self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)

@@ -55,15 +55,13 @@ class RootViewController: UITableViewController {
         let trip = trips[indexPath.row]
         
         cell.descriptionLabel.text = trip.event.description
-        cell.dropoffLabel = labelFor(tripLeg: trip.dropOff)
-        cell.pickupLabel = labelFor(tripLeg: trip.pickUp)
+        setProps(cell.dropoffLabel, forTripLeg: trip.dropOff)
+        setProps(cell.pickupLabel, forTripLeg: trip.pickUp)
         
         return cell
     }
     
-    func labelFor(tripLeg leg: Leg? ) -> UILabel {
-        let label: UILabel = UILabel()
-        
+    func setProps(_ label: UILabel, forTripLeg leg: Leg? ) {
         if let leg = leg {
             label.text = leg.driver.name
             label.textColor = UIColor.black
@@ -75,8 +73,6 @@ class RootViewController: UITableViewController {
             label.backgroundColor = UIColor.red
             label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
         }
-        
-        return label
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
