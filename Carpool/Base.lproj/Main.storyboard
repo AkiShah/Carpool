@@ -94,7 +94,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="onSearchRouteEntered:" destination="4SA-71-PnC" eventType="editingDidEnd" id="dMp-NG-1qh"/>
+                                    <action selector="onNewTripTitleAdded:" destination="4SA-71-PnC" eventType="editingDidEndOnExit" id="cnE-vM-cgB"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lst-D4-fZj">
@@ -128,7 +128,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="onNewTripDescriptionUpdated:" destination="4SA-71-PnC" eventType="editingDidEnd" id="HsE-Ca-qs7"/>
+                                    <action selector="onNewTripDescriptionAdded:" destination="4SA-71-PnC" eventType="editingDidEndOnExit" id="c3v-jg-AOD"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick Up Leg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSj-Kg-wbA">

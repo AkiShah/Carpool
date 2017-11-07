@@ -36,12 +36,13 @@ class CreateTripViewController: UIViewController {
         time = sender.date
     }
     
-    @IBAction func onSearchRouteEntered(_ sender: UITextField) {
+    @IBAction func onNewTripTitleAdded(_ sender: UITextField) {
     }
-     
-    @IBAction func onNewTripDescriptionUpdated(_ sender: UITextField) {
+    @IBAction func onNewTripDescriptionAdded(_ sender: UITextField) {
         if let text = sender.text {
             desc = text
         }
     }
 }
+
+
