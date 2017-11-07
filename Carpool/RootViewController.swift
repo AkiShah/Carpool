@@ -31,6 +31,7 @@ class RootViewController: UITableViewController {
     }
     
     @IBAction func unwindFromEventDetailViewController(segue: UIStoryboardSegue) {
+        self.tableView.reloadData()
     }
 
     @IBAction func unwindFromCreateTripViewController(segue: UIStoryboardSegue) {
@@ -44,6 +45,8 @@ class RootViewController: UITableViewController {
         print("Pickup?:\(trip.pickUp.isClaimed) Dropoff?:\(trip.dropOff.isClaimed)")
         if !trip.dropOff.isClaimed || !trip.pickUp.isClaimed {
             cell.backgroundColor = UIColor.red
+        } else {
+            cell.backgroundColor = UIColor.clear
         }
         return cell
     }

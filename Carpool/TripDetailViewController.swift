@@ -65,6 +65,9 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Claim Pickup", style: .default, handler: { _ in
             API.claimLeg(leg: self.trip.pickUp, trip: self.trip, completion: { (error) in
                 print("completed")
+                
+                self.eventPickupDriverLabel.text = "Aki"
+                
                 if let error = error{
                     print(error)
                 }
@@ -79,6 +82,7 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Claim Dropoff", style: .default, handler: {_ in
             API.claimLeg(leg: self.trip.dropOff, trip: self.trip, completion: { (error) in
                 print("completed")
+             self.eventDropoffDriverLabel.text = "Shannon"
                 if let error = error{
                     print(error)
                 }
