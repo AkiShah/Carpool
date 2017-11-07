@@ -104,6 +104,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onSearchRouteEntered:" destination="4SA-71-PnC" eventType="editingDidEnd" id="dMp-NG-1qh"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lst-D4-fZj">
                                 <rect key="frame" x="136" y="605" width="102" height="30"/>
@@ -134,7 +137,6 @@
                     </view>
                     <connections>
                         <outlet property="destinationDisplayed" destination="tCT-sA-5iv" id="JUu-qF-iWo"/>
-                        <outlet property="onSearchForRouteEntered" destination="6fc-gq-YE6" id="RPY-G5-nN4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZsI-j6-vV9" userLabel="First Responder" sceneMemberID="firstResponder"/>

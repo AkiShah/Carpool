@@ -27,7 +27,9 @@ class CreateTripViewController: UIViewController {
     @IBAction func onCreateTripPressed(_ sender: UIButton) {
     }
     
-    @IBOutlet weak var onSearchForRouteEntered: UITextField!
+    @IBAction func onSearchRouteEntered(_ sender: UITextField) {
+    }
+    
     
     func createNewTrip(at location: CLLocation, for description: String, when time: Date ){
         
