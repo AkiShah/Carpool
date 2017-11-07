@@ -62,7 +62,15 @@ class TripDetailViewController: UIViewController {
     
     @IBAction func onPickupButtonPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Claim this Pickup", message: "Would you like to claim this pickup?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Claim Pickup", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Claim Pickup", style: .default, handler: { _ in
+                    API.claimLeg(leg: self.trip.pickUp, trip: self.trip, completion: { (error) in
+                        print("completed")
+                        if let error = error{
+                            print(error)
+                        }
+                    })
+        }))
+        //alert.addAction(UIAlertAction(title: "Claim Pickup", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Not Now", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
 
