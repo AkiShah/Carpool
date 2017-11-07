@@ -15,10 +15,13 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var destinationDisplayed: UILabel!
     @IBOutlet weak var onSearchForRouteEntered: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var mapButton: UIButton!
     
     let location: CLLocation = CLLocation()
     var desc: String = ""
     var time: Date!
+    var enteredLocation: String = ""
+    var childName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +44,16 @@ class CreateTripViewController: UIViewController {
         
     }
     
-    @IBAction func onNewTripTitleAdded(_ sender: UITextField) {
+    @IBAction func onChildNameEntered(_ sender: UITextField) {
+    }
+    @IBAction func onDestinationAdded(_ sender: UITextField) {
+        if let enteredText = sender.text {
+            mapButton.isHidden = false
+            enteredLocation = enteredText
+        }
+    }
+    @IBAction func onMapItPressed(_ sender: UIButton) {
+        //TODO take entered text from destination added and add it to CL Location
     }
     @IBAction func onNewTripDescriptionAdded(_ sender: UITextField) {
         print(sender.text)
@@ -49,6 +61,6 @@ class CreateTripViewController: UIViewController {
             desc = text
         }
     }
+    @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
+    }
 }
-
-
