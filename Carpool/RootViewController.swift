@@ -17,9 +17,9 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //would like to create a title for header in section splitting out which trips already have both legs claimed, and another section that displays which routes still have an unclaimed leg. That way you don't click on a trip that has both legs already accounted for. 
-        API.fetchTripsOnce { (givenTrips) in
-            self.trips = givenTrips
+        //would like to create a title for header in section splitting out which trips already have both legs claimed, and another section that displays which routes still have an unclaimed leg. That way you don't click on a trip that has both legs already accounted for.
+        API.observeTrips { (trips) in
+            self.trips = trips
             self.tableView.reloadData()
         }
     }

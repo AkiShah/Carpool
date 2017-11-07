@@ -22,10 +22,12 @@ class CreateTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        datePicker.minimumDate = Date()
         
     }
     
     @IBAction func onCreateTripPressed(_ sender: UIButton) {
+        print("Time\(time), Description\(desc)")
         if let time = time, desc != ""{
             API.createTrip(eventDescription: description, eventTime: time, eventLocation: location) { trip in
                 print(trip)
@@ -35,12 +37,13 @@ class CreateTripViewController: UIViewController {
     }
     @IBAction func onDatePickerChanged(_ sender: UIDatePicker) {
         time = sender.date
-        datePicker.minimumDate = Date()
+        
     }
     
     @IBAction func onNewTripTitleAdded(_ sender: UITextField) {
     }
     @IBAction func onNewTripDescriptionAdded(_ sender: UITextField) {
+        print(sender.text)
         if let text = sender.text {
             desc = text
         }
