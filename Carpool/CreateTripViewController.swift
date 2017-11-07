@@ -12,6 +12,8 @@ import CoreLocation
 
 class CreateTripViewController: UIViewController {
     
+    
+    
     let location: CLLocation = CLLocation()
     var desc: String = ""
     var time: Date = Date()
@@ -21,6 +23,11 @@ class CreateTripViewController: UIViewController {
         
         
     }
+    
+    @IBAction func onCreateTripPressed(_ sender: UIButton) {
+    }
+    
+    @IBOutlet weak var onSearchForRouteEntered: UITextField!
     
     func createNewTrip(at location: CLLocation, for description: String, when time: Date ){
         
