@@ -14,6 +14,7 @@ class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var destinationDisplayed: UILabel!
     @IBOutlet weak var onSearchForRouteEntered: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     let location: CLLocation = CLLocation()
     var desc: String = ""
@@ -34,6 +35,7 @@ class CreateTripViewController: UIViewController {
     }
     @IBAction func onDatePickerChanged(_ sender: UIDatePicker) {
         time = sender.date
+        datePicker.minimumDate = Date()
     }
     
     @IBAction func onNewTripTitleAdded(_ sender: UITextField) {

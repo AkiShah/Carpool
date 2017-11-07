@@ -66,9 +66,6 @@
                                 <date key="date" timeIntervalSinceReferenceDate="531759154.72849399">
                                     <!--2017-11-07 14:52:34 +0000-->
                                 </date>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="531223200">
-                                    <!--2017-11-01 10:00:00 +0000-->
-                                </date>
                                 <connections>
                                     <action selector="onDatePickerChanged:" destination="4SA-71-PnC" eventType="valueChanged" id="Hxm-fd-1w5"/>
                                 </connections>
@@ -149,6 +146,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="datePicker" destination="cdi-wb-Dvm" id="PBa-B6-bUT"/>
                         <outlet property="destinationDisplayed" destination="tCT-sA-5iv" id="JUu-qF-iWo"/>
                     </connections>
                 </viewController>
