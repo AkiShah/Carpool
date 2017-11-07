@@ -35,5 +35,6 @@ class CreateTripViewController: UIViewController {
             print(trip)
         }
     }
+    @IBOutlet weak var destinationDisplayed: UILabel!
     
 }
