@@ -65,7 +65,7 @@ class RootViewController: UITableViewController {
         let label: UILabel = UILabel()
         
         if let leg = leg {
-            label.text = leg.driver?.name
+            label.text = leg.driver.name
             label.textColor = UIColor.black
             label.backgroundColor = UIColor.clear
             label.font = UIFont.systemFont(ofSize: label.font.pointSize)

@@ -31,7 +31,7 @@ class TripDetailViewController: UIViewController {
         if let leg = trip.pickUp {
             pickupButton.isEnabled = false
             pickupButton.setTitle("Pickup Claimed", for: .normal)
-            eventPickupDriverLabel.text = leg.driver?.name
+            eventPickupDriverLabel.text = leg.driver.name
         } else {
             pickupButton.isEnabled = true
             pickupButton.setTitle("Claim Pickup", for: .normal)
@@ -39,7 +39,7 @@ class TripDetailViewController: UIViewController {
         if let leg = trip.dropOff {
             dropoffButton.isEnabled = false
             dropoffButton.setTitle("Drop Off Claimed", for: .normal)
-            eventDropoffDriverLabel.text = leg.driver?.name
+            eventDropoffDriverLabel.text = leg.driver.name
         } else {
             dropoffButton.isEnabled = true
             dropoffButton.setTitle("Claim Drop Off", for: .normal)
