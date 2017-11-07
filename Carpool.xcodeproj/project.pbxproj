@@ -13,9 +13,9 @@
 		733E30001FB0E79C005E9AFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733E2FFE1FB0E79C005E9AFD /* Main.storyboard */; };
 		733E30021FB0E79C005E9AFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 733E30011FB0E79C005E9AFD /* Assets.xcassets */; };
 		733E30051FB0E79C005E9AFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733E30031FB0E79C005E9AFD /* LaunchScreen.storyboard */; };
-		73440E101FB243DE00BDD640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73440E0F1FB243B500BDD640 /* GoogleService-Info.plist */; };
 		D22071811FB114AF004B1B36 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22071801FB114AF004B1B36 /* CreateTripViewController.swift */; };
 		D2FFE75F1FB2241400641577 /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFE75E1FB2241400641577 /* TripCell.swift */; };
+		D2FFE7631FB2518F00641577 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2FFE7621FB2518F00641577 /* GoogleService-Info.plist */; };
 		DA22EC9196721EEC17B366B4 /* Pods_Carpool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBC503E4FFD20DF4FB31BCB6 /* Pods_Carpool.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,11 +29,11 @@
 		733E30011FB0E79C005E9AFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		733E30041FB0E79C005E9AFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		733E30061FB0E79C005E9AFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73440E0F1FB243B500BDD640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "/Users/Aimee/Desktop/Codebase/Carpool/Carpool/GoogleService-Info.plist"; sourceTree = "<absolute>"; };
 		9A5EBFA6D1B05B21D53BE329 /* Pods-Carpool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.release.xcconfig"; sourceTree = "<group>"; };
 		BBC503E4FFD20DF4FB31BCB6 /* Pods_Carpool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22071801FB114AF004B1B36 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
 		D2FFE75E1FB2241400641577 /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
+		D2FFE7621FB2518F00641577 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +85,8 @@
 				730ABE2C1FB0EEAF00146469 /* TripDetailViewController.swift */,
 				733E2FFE1FB0E79C005E9AFD /* Main.storyboard */,
 				733E30011FB0E79C005E9AFD /* Assets.xcassets */,
+				D2FFE7621FB2518F00641577 /* GoogleService-Info.plist */,
 				733E30031FB0E79C005E9AFD /* LaunchScreen.storyboard */,
-				73440E0F1FB243B500BDD640 /* GoogleService-Info.plist */,
 				733E30061FB0E79C005E9AFD /* Info.plist */,
 			);
 			path = Carpool;
@@ -163,8 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				733E30051FB0E79C005E9AFD /* LaunchScreen.storyboard in Resources */,
+				D2FFE7631FB2518F00641577 /* GoogleService-Info.plist in Resources */,
 				733E30021FB0E79C005E9AFD /* Assets.xcassets in Resources */,
-				73440E101FB243DE00BDD640 /* GoogleService-Info.plist in Resources */,
 				733E30001FB0E79C005E9AFD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
