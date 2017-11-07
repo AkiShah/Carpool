@@ -28,10 +28,12 @@ class CreateTripViewController: UIViewController {
         if let time = time, desc != ""{
             API.createTrip(eventDescription: description, eventTime: time, eventLocation: location) { trip in
                 print(trip)
+                print("Trip created")
             }
         }
     }
     @IBAction func onDatePickerChanged(_ sender: UIDatePicker) {
+        time = sender.date
     }
     
     @IBAction func onSearchRouteEntered(_ sender: UITextField) {
