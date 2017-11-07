@@ -32,6 +32,8 @@ class CreateTripViewController: UIViewController {
      
     @IBAction func onNewTripDescriptionUpdated(_ sender: UITextField) {
     }
+    @IBAction func onDatePickerChanged(_ sender: UIDatePicker) {
+    }
     
     func createNewTrip(at location: CLLocation, for description: String, when time: Date ){
         

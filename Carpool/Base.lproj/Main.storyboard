@@ -69,11 +69,14 @@
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="531223200">
                                     <!--2017-11-01 10:00:00 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="onDatePickerChanged:" destination="4SA-71-PnC" eventType="valueChanged" id="XVb-xR-EEZ"/>
+                                </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a trip:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Jg-wd-97I">
-                                <rect key="frame" x="16" y="51" width="343" height="21"/>
+                                <rect key="frame" x="16" y="39" width="343" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
