@@ -34,23 +34,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-e2-27c">
-                                            <rect key="frame" x="16" y="20" width="343" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-e2-27c">
+                                            <rect key="frame" x="16" y="19" width="343" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Nio-tE-Yyl">
-                                            <rect key="frame" x="16" y="48.5" width="343" height="20.5"/>
+                                            <rect key="frame" x="16" y="47.5" width="343" height="21.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dropoff" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NS-4P-LCT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="171.5" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="171.5" height="21.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21.5" id="mFq-Tv-fKC"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLx-X2-HrB">
-                                                    <rect key="frame" x="171.5" y="0.0" width="171.5" height="20.5"/>
+                                                    <rect key="frame" x="171.5" y="0.0" width="171.5" height="21.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21.5" id="8qD-14-7El"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -59,10 +65,13 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Nio-tE-Yyl" secondAttribute="trailing" id="8Ba-Nd-Fbk"/>
-                                        <constraint firstItem="Nio-tE-Yyl" firstAttribute="top" secondItem="NNd-e2-27c" secondAttribute="bottom" constant="8" id="GPH-15-Wku"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Nio-tE-Yyl" secondAttribute="bottom" constant="8" id="n8k-vO-uQU"/>
-                                        <constraint firstItem="Nio-tE-Yyl" firstAttribute="leading" secondItem="I4p-tX-Nff" secondAttribute="leadingMargin" id="wag-3Z-QHJ"/>
+                                        <constraint firstItem="NNd-e2-27c" firstAttribute="trailing" secondItem="I4p-tX-Nff" secondAttribute="trailingMargin" id="3ev-Ad-qQf"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Nio-tE-Yyl" secondAttribute="bottom" constant="8" id="ASV-HW-RsX"/>
+                                        <constraint firstItem="Nio-tE-Yyl" firstAttribute="leading" secondItem="I4p-tX-Nff" secondAttribute="leadingMargin" id="GS9-Md-Ujx"/>
+                                        <constraint firstItem="NNd-e2-27c" firstAttribute="top" secondItem="I4p-tX-Nff" secondAttribute="topMargin" constant="8" id="LK5-i5-fKJ"/>
+                                        <constraint firstItem="Nio-tE-Yyl" firstAttribute="top" secondItem="NNd-e2-27c" secondAttribute="bottom" constant="8" id="ZSV-Nm-HlK"/>
+                                        <constraint firstItem="Nio-tE-Yyl" firstAttribute="trailing" secondItem="I4p-tX-Nff" secondAttribute="trailingMargin" id="nP9-jk-0vj"/>
+                                        <constraint firstItem="NNd-e2-27c" firstAttribute="leading" secondItem="I4p-tX-Nff" secondAttribute="leadingMargin" id="zFi-0y-uhH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

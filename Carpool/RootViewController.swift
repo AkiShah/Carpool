@@ -38,16 +38,18 @@ class RootViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eventList", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as! TripCell
         let trip = trips[indexPath.row]
-        cell.textLabel?.text = trip.event.description
-        print("Pickup?:\(trip.pickUp.isClaimed) Dropoff?:\(trip.dropOff.isClaimed)")
-        if !trip.dropOff.isClaimed || !trip.pickUp.isClaimed {
-            cell.backgroundColor = UIColor.red
-        } else {
-            cell.backgroundColor = UIColor.clear
-        }
+        
+        cell.descriptionLabel.text = trip.event.description
+        cell.dropoffLabel.text = trip.dropOff.driver?.name
+        cell.pickupLabel.text = trip.pickUp.driver?.name
+        print("Dropoff?:\(trip.dropOff.isClaimed), Pickup?:\(trip.pickUp.isClaimed)")
+        
+        cell.dropoffLabel.backgroundColor = trip.dropOff.isClaimed ? UIColor.clear : UIColor.red
+        print(cell.dropoffLabel.backgroundColor)
+        cell.pickupLabel.backgroundColor = trip.pickUp.isClaimed ? UIColor.clear : UIColor.red
+        print(cell.pickupLabel.backgroundColor)
         return cell
     }
     
