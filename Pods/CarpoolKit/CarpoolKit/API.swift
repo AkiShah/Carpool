@@ -50,6 +50,7 @@ public enum API {
         }
         fakeTrips[index] = trip
 
+        completion(nil)
         globalCompletion?(fakeTrips)
     }
 
