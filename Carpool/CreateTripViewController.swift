@@ -22,7 +22,6 @@ class CreateTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
     
     @IBAction func onCreateTripPressed(_ sender: UIButton) {
@@ -32,6 +31,4 @@ class CreateTripViewController: UIViewController {
             }
         }
     }
-   
-    
 }
