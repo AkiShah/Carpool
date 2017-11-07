@@ -46,10 +46,31 @@ class RootViewController: UITableViewController {
         cell.pickupLabel.text = trip.pickUp.driver?.name
         print("Dropoff?:\(trip.dropOff.isClaimed), Pickup?:\(trip.pickUp.isClaimed)")
         
-        cell.dropoffLabel.backgroundColor = trip.dropOff.isClaimed ? UIColor.clear : UIColor.red
-        print(cell.dropoffLabel.backgroundColor)
-        cell.pickupLabel.backgroundColor = trip.pickUp.isClaimed ? UIColor.clear : UIColor.red
-        print(cell.pickupLabel.backgroundColor)
+        if !trip.dropOff.isClaimed {
+            cell.dropoffLabel.text = "Not Claimed"
+            cell.dropoffLabel.textColor = UIColor.white
+            cell.dropoffLabel.backgroundColor = UIColor.red
+            cell.dropoffLabel.font = UIFont.boldSystemFont(ofSize: cell.dropoffLabel.font.pointSize)
+        } else {
+            cell.dropoffLabel.text = trip.dropOff.driver?.name
+            cell.dropoffLabel.textColor = UIColor.black
+            cell.dropoffLabel.backgroundColor = UIColor.clear
+            cell.dropoffLabel.font = UIFont.systemFont(ofSize: cell.dropoffLabel.font.pointSize)
+        }
+        
+        if !trip.pickUp.isClaimed {
+            cell.pickupLabel.text = "Not Claimed"
+            cell.pickupLabel.textColor = UIColor.white
+            cell.pickupLabel.backgroundColor = UIColor.red
+            cell.pickupLabel.font = UIFont.boldSystemFont(ofSize: cell.pickupLabel.font.pointSize)
+        } else {
+            cell.pickupLabel.text = trip.pickUp.driver?.name
+            cell.pickupLabel.textColor = UIColor.black
+            cell.pickupLabel.backgroundColor = UIColor.clear
+            cell.pickupLabel.font = UIFont.systemFont(ofSize: cell.pickupLabel.font.pointSize)
+        }
+        
+        
         return cell
     }
     
