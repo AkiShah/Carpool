@@ -224,7 +224,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZF-Yy-lrb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZF-Yy-lrb">
                                 <rect key="frame" x="26" y="28" width="90" height="30"/>
                                 <state key="normal" title="Back to Trips"/>
                                 <connections>
@@ -239,7 +239,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="xZw-co-anL" secondAttribute="trailing" constant="10" id="32e-EY-S8B"/>
                             <constraint firstItem="xZw-co-anL" firstAttribute="centerY" secondItem="QJ0-zm-uiS" secondAttribute="centerY" id="8ug-y8-SMb"/>
                             <constraint firstItem="rfH-E5-q3b" firstAttribute="top" secondItem="KJ7-LV-ERt" secondAttribute="bottom" constant="30" id="fKv-WT-77e"/>
-                            <constraint firstItem="xZF-Yy-lrb" firstAttribute="centerX" secondItem="QJ0-zm-uiS" secondAttribute="centerX" id="kNn-Nm-gFu"/>
+                            <constraint firstItem="xZF-Yy-lrb" firstAttribute="centerX" secondItem="QJ0-zm-uiS" secondAttribute="centerX" constant="-116.5" id="kNn-Nm-gFu"/>
                             <constraint firstItem="xZw-co-anL" firstAttribute="leading" secondItem="QJ0-zm-uiS" secondAttribute="leadingMargin" constant="10" id="sR8-sO-2j4"/>
                             <constraint firstItem="xZF-Yy-lrb" firstAttribute="top" secondItem="LHg-Y2-SkK" secondAttribute="bottom" constant="8" id="yXC-lV-qmf"/>
                         </constraints>
