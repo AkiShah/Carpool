@@ -9,6 +9,7 @@
 import UIKit
 import CarpoolKit
 import CoreLocation
+import FirebaseCommunity
 
 class RootViewController: UITableViewController {
     
@@ -18,10 +19,22 @@ class RootViewController: UITableViewController {
         super.viewDidLoad()
         
         //would like to create a title for header in section splitting out which trips already have both legs claimed, and another section that displays which routes still have an unclaimed leg. That way you don't click on a trip that has both legs already accounted for.
-        API.observeTrips { (trips) in
-            self.trips = trips
-            self.tableView.reloadData()
+        
+        
+        API.observeTrips { result in
+            
+            print(result)
+            switch result {
+                
+            case .success(let trips):
+                self.trips = trips
+                self.tableView.reloadData()
+            case .failure(_):
+                //TODO Error handling
+                break
+            }
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,36 +55,28 @@ class RootViewController: UITableViewController {
         let trip = trips[indexPath.row]
         
         cell.descriptionLabel.text = trip.event.description
-        cell.dropoffLabel.text = trip.dropOff.driver?.name
-        cell.pickupLabel.text = trip.pickUp.driver?.name
-        print("Dropoff?:\(trip.dropOff.isClaimed), Pickup?:\(trip.pickUp.isClaimed)")
-        
-        if !trip.dropOff.isClaimed {
-            cell.dropoffLabel.text = "Not Claimed"
-            cell.dropoffLabel.textColor = UIColor.white
-            cell.dropoffLabel.backgroundColor = UIColor.red
-            cell.dropoffLabel.font = UIFont.boldSystemFont(ofSize: cell.dropoffLabel.font.pointSize)
-        } else {
-            cell.dropoffLabel.text = trip.dropOff.driver?.name
-            cell.dropoffLabel.textColor = UIColor.black
-            cell.dropoffLabel.backgroundColor = UIColor.clear
-            cell.dropoffLabel.font = UIFont.systemFont(ofSize: cell.dropoffLabel.font.pointSize)
-        }
-        
-        if !trip.pickUp.isClaimed {
-            cell.pickupLabel.text = "Not Claimed"
-            cell.pickupLabel.textColor = UIColor.white
-            cell.pickupLabel.backgroundColor = UIColor.red
-            cell.pickupLabel.font = UIFont.boldSystemFont(ofSize: cell.pickupLabel.font.pointSize)
-        } else {
-            cell.pickupLabel.text = trip.pickUp.driver?.name
-            cell.pickupLabel.textColor = UIColor.black
-            cell.pickupLabel.backgroundColor = UIColor.clear
-            cell.pickupLabel.font = UIFont.systemFont(ofSize: cell.pickupLabel.font.pointSize)
-        }
-        
+        cell.dropoffLabel = labelFor(tripLeg: trip.dropOff)
+        cell.pickupLabel = labelFor(tripLeg: trip.pickUp)
         
         return cell
+    }
+    
+    func labelFor(tripLeg leg: Leg? ) -> UILabel {
+        let label: UILabel = UILabel()
+        
+        if let leg = leg {
+            label.text = leg.driver?.name
+            label.textColor = UIColor.black
+            label.backgroundColor = UIColor.clear
+            label.font = UIFont.systemFont(ofSize: label.font.pointSize)
+        } else {
+            label.text = "Not Claimed"
+            label.textColor = UIColor.white
+            label.backgroundColor = UIColor.red
+            label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
+        }
+        
+        return label
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

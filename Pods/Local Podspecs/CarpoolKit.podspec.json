@@ -6,10 +6,10 @@
     "PromiseKit": [
 
     ],
-    "FirebaseDatabase": [
+    "FirebaseCommunity/Database": [
 
     ],
-    "FirebaseAuth": [
+    "FirebaseCommunity/Auth": [
 
     ]
   },

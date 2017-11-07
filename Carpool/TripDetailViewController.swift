@@ -26,29 +26,32 @@ class TripDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if !trip.pickUp.isClaimed{
-            pickupButton.isEnabled = true
-            pickupButton.setTitle("Claim Pickup", for: .normal)
-        } else {
+        eventDescriptionLabel.text = trip.event.description
+        
+        if let leg = trip.pickUp {
             pickupButton.isEnabled = false
             pickupButton.setTitle("Pickup Claimed", for: .normal)
-        }
-        if !trip.dropOff.isClaimed{
-            dropoffButton.isEnabled = true
-            dropoffButton.setTitle("Claim Drop Off", for: .normal)
+            eventPickupDriverLabel.text = leg.driver?.name
         } else {
+            pickupButton.isEnabled = true
+            pickupButton.setTitle("Claim Pickup", for: .normal)
+        }
+        if let leg = trip.dropOff {
             dropoffButton.isEnabled = false
             dropoffButton.setTitle("Drop Off Claimed", for: .normal)
+            eventDropoffDriverLabel.text = leg.driver?.name
+        } else {
+            dropoffButton.isEnabled = true
+            dropoffButton.setTitle("Claim Drop Off", for: .normal)
         }
         
-        eventDescriptionLabel.text = trip.event.description
-        eventPickupDriverLabel.text = trip.pickUp.driver?.name
-        eventDropoffDriverLabel.text = trip.dropOff.driver?.name
-        
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(trip.event.location) { placemarks, error in
+        geocoder.reverseGeocodeLocation(trip.event.location!) { placemarks, error in
             if let state = placemarks?.first?.administrativeArea, let city = placemarks?.first?.locality{
                 self.eventLocationLabel.text = "\(city), \(state)"
+            } else {
+                //TODO FOR MAX
+                //PS: thats a joke, it will be probably us
             }
         }
         let formatter = DateFormatter()
@@ -57,15 +60,13 @@ class TripDetailViewController: UIViewController {
         eventTimeLabel.text = formatter.string(from: trip.event.time)
         
     }
-    
-    
+
     
     @IBAction func onPickupButtonPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Claim this Pickup", message: "Would you like to claim this pickup?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Claim Pickup", style: .default, handler: { _ in
-            API.claimLeg(leg: self.trip.pickUp, trip: self.trip, completion: { (error) in
-                print("completed")
-                
+            
+            API.claimPickUp(trip: self.trip, completion: { error in
                 if let error = error{
                     print(error)
                 } else {
@@ -81,8 +82,7 @@ class TripDetailViewController: UIViewController {
     @IBAction func onDropoffButtonPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Claim this Dropoff", message: "Would you like to claim this dropoff?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Claim Dropoff", style: .default, handler: {_ in
-            API.claimLeg(leg: self.trip.dropOff, trip: self.trip, completion: { (error) in
-                print("completed")
+            API.claimDropOff(trip: self.trip, completion: { error in
                 if let error = error{
                     print(error)
                 } else {
@@ -90,6 +90,7 @@ class TripDetailViewController: UIViewController {
                     self.dropoffButton.isEnabled = false
                 }
             })
+            
         }))
         alert.addAction(UIAlertAction(title: "Not Now", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
