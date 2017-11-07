@@ -24,6 +24,20 @@ class CreateTripViewController: UIViewController {
     var enteredLocation: String = ""
     var childName: String = ""
     
+    enum selectedLeg: Int {
+        case dropoff
+        case pickup
+        
+        var descComponent: String {
+            switch self {
+            case .dropoff:
+                return "dropped off at"
+            case .pickup:
+                return "picked up by"
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.minimumDate = Date()
@@ -67,7 +81,8 @@ class CreateTripViewController: UIViewController {
     }
     func generateDescription() -> String{
         //        “On Monday, Johnny needs to be picked up from Savannah Soccer Fields by 8pm”
-        let desc = "On \(time.day), \(childName) needs to be picked up from \(enteredLocation) by \(time.time)"
+        //ToggleState(rawValue: sender.selectedSegmentIndex)
+        let desc = "On \(time.day), \(childName) needs to be \(selectedLeg(rawValue: segmentedControl.selectedSegmentIndex)!.descComponent) \(enteredLocation) by \(time.time)"
         return desc
     }
 }
