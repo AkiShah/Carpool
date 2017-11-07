@@ -28,8 +28,8 @@ let fakeEvents = [
 var fakeTrips = fakeEvents.enumerated().map {
     Trip(key: "\($0.0)",
         event: $0.1,
-        pickUp: Leg(driver: fakeUsers.maybe),
-        dropOff: Leg(driver: fakeUsers.maybe))
+        pickUp: fakeUsers.maybe.map(Leg.init),
+        dropOff: fakeUsers.maybe.map(Leg.init))
 }
 
 
