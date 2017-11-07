@@ -64,9 +64,10 @@ class CreateTripViewController: UIViewController {
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
         
     }
-    func generateDescription() {
+    func generateDescription() -> String{
         //        “On Monday, Johnny needs to be picked up from Savannah Soccer Fields by 8pm”
-        
+        let desc = "On \(time.day), \(childName) needs to be picked up from \(enteredLocation) by \(time.time)"
+        return desc
     }
 }
 
