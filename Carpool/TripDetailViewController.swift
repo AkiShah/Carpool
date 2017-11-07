@@ -66,10 +66,11 @@ class TripDetailViewController: UIViewController {
             API.claimLeg(leg: self.trip.pickUp, trip: self.trip, completion: { (error) in
                 print("completed")
                 
-                self.eventPickupDriverLabel.text = "Aki"
-                
                 if let error = error{
                     print(error)
+                } else {
+                    self.eventPickupDriverLabel.text = "Aki"
+                    self.pickupButton.isEnabled = false
                 }
             })
         }))
@@ -82,9 +83,11 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Claim Dropoff", style: .default, handler: {_ in
             API.claimLeg(leg: self.trip.dropOff, trip: self.trip, completion: { (error) in
                 print("completed")
-             self.eventDropoffDriverLabel.text = "Shannon"
                 if let error = error{
                     print(error)
+                } else {
+                    self.eventDropoffDriverLabel.text = "Shannon"
+                    self.dropoffButton.isEnabled = false
                 }
             })
         }))

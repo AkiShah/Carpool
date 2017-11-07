@@ -32,6 +32,7 @@ class CreateTripViewController: UIViewController {
             API.createTrip(eventDescription: description, eventTime: time, eventLocation: location) { trip in
                 print(trip)
                 print("Trip created")
+                self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
             }
         }
     }
