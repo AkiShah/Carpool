@@ -14,6 +14,7 @@
 		733E30021FB0E79C005E9AFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 733E30011FB0E79C005E9AFD /* Assets.xcassets */; };
 		733E30051FB0E79C005E9AFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733E30031FB0E79C005E9AFD /* LaunchScreen.storyboard */; };
 		D22071811FB114AF004B1B36 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22071801FB114AF004B1B36 /* CreateTripViewController.swift */; };
+		D2FFE75F1FB2241400641577 /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFE75E1FB2241400641577 /* TripCell.swift */; };
 		DA22EC9196721EEC17B366B4 /* Pods_Carpool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBC503E4FFD20DF4FB31BCB6 /* Pods_Carpool.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		9A5EBFA6D1B05B21D53BE329 /* Pods-Carpool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.release.xcconfig"; sourceTree = "<group>"; };
 		BBC503E4FFD20DF4FB31BCB6 /* Pods_Carpool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22071801FB114AF004B1B36 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
+		D2FFE75E1FB2241400641577 /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				733E2FFA1FB0E79C005E9AFD /* AppDelegate.swift */,
 				733E2FFC1FB0E79C005E9AFD /* RootViewController.swift */,
 				733E2FFE1FB0E79C005E9AFD /* Main.storyboard */,
+				D2FFE75E1FB2241400641577 /* TripCell.swift */,
 				D22071801FB114AF004B1B36 /* CreateTripViewController.swift */,
 				730ABE2C1FB0EEAF00146469 /* TripDetailViewController.swift */,
 				733E30011FB0E79C005E9AFD /* Assets.xcassets */,
@@ -227,6 +230,7 @@
 				733E2FFD1FB0E79C005E9AFD /* RootViewController.swift in Sources */,
 				733E2FFB1FB0E79C005E9AFD /* AppDelegate.swift in Sources */,
 				D22071811FB114AF004B1B36 /* CreateTripViewController.swift in Sources */,
+				D2FFE75F1FB2241400641577 /* TripCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
