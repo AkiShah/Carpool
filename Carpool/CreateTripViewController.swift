@@ -49,6 +49,24 @@ class CreateTripViewController: UIViewController {
             desc = text
         }
     }
+    
+    func generateDescription() {
+//        “On Monday, Johnny needs to be picked up from Savannah Soccer Fields by 8pm”
+        
+    }
+    
 }
 
+extension Date {
+    var day: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self)
+    }
+    var time: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hha"
+        return dateFormatter.string(from: self)
+    }
+}
 
