@@ -12,9 +12,21 @@ import CoreLocation
 
 class CreateTripViewController: UIViewController {
     
+    let location: CLLocation = CLLocation()
+    var desc: String = ""
+    var time: Date = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
     }
+    
+    func createNewTrip(at location: CLLocation, for description: String, when time: Date ){
+        
+        API.createTrip(eventDescription: description, eventTime: time, eventLocation: location) { trip in
+            print(trip)
+        }
+    }
+    
 }
