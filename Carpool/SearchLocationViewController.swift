@@ -14,7 +14,8 @@ class SearchLocationViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var selectLocationButton: UIButton!
     
-    var query: String = "SCAD"
+    
+    var annotations: [MKAnnotation] = []
     let locationManager = CLLocationManager()
     var selectedLocation: CLLocation?
     
@@ -40,26 +41,14 @@ class SearchLocationViewController: UIViewController {
         selectedLocation = nil
         performSegue(withIdentifier: "unwindToCreateTrip", sender: self)
     }
-    
-    
-    func search(for query: String) {
-        let searchRequest = MKLocalSearchRequest()
-        searchRequest.naturalLanguageQuery = query
-        
-        let search = MKLocalSearch(request: searchRequest)
-        search.start { (searchResp, error) in
-            if let searchResp = searchResp {
-                self.mapView.addAnnotations(searchResp.mapItems.map({ $0.placemark }))
-                print(searchResp.mapItems.map({ $0.placemark }))
-            }
-        }
-    }
 }
 
 extension SearchLocationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 6000, 6000)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 60000, 60000)
         mapView.setRegion(coordinateRegion, animated: true)
+        mapView.addAnnotations(annotations)
+        print(annotations)
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -71,10 +60,6 @@ extension SearchLocationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         selectLocationButton.isEnabled = false
         selectedLocation = nil
-    }
-    
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        self.search(for: self.query)
     }
 }
 
