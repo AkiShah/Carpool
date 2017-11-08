@@ -85,6 +85,13 @@ class CreateTripViewController: UIViewController {
         let desc = "On \(time.day), \(childName) needs to be \(selectedLeg(rawValue: segmentedControl.selectedSegmentIndex)!.descComponent) \(enteredLocation) by \(time.time)"
         return desc
     }
+    
+    //not sure this is correct. I'm pretty bad at this. 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let searchLocationVC = segue.destination as! CreateTripViewController
+        searchLocationVC.destinationDisplayed = destinationDisplayed
+    }
 }
 
 extension Date {

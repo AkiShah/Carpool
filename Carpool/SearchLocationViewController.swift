@@ -17,8 +17,7 @@ class SearchLocationViewController: UIViewController {
         super.viewDidLoad()
         
     }
-    
-    
+
 }
 
 
