@@ -249,6 +249,33 @@
             </objects>
             <point key="canvasLocation" x="-348" y="883.80809595202402"/>
         </scene>
+        <!--Search Location View Controller-->
+        <scene sceneID="nJY-f1-24v">
+            <objects>
+                <viewController id="9ep-Jo-buX" customClass="SearchLocationViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uUk-lt-nfU"/>
+                        <viewControllerLayoutGuide type="bottom" id="XVr-4l-ygx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g1v-2e-LlS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SrQ-nJ-zVx">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="SrQ-nJ-zVx" id="qOp-zn-SnL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WcC-mW-wqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368.80000000000001" y="879.31034482758628"/>
+        </scene>
         <!--Trip Detail View Controller-->
         <scene sceneID="qF7-f9-gQi">
             <objects>
