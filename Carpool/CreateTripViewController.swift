@@ -86,13 +86,7 @@ class CreateTripViewController: UIViewController {
     @IBAction func onMapItPressed(_ sender: UIButton) {
         //TODO take entered text from destination added and add it to CL Location
     }
-    @IBAction func onNewTripDescriptionAdded(_ sender: UITextField) {
-        print(sender.text)
-        if let text = sender.text {
-            desc = text
-            mapButton.isEnabled = true
-        }
-    }
+    
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
         
     }
