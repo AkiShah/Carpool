@@ -108,7 +108,7 @@ public enum API {
         }
     }
 
-    static func add(child: Child, to trip: Trip) throws {
+    public static func add(child: Child, to trip: Trip) throws {
         Database.database().reference().child("trips").child(trip.key).child("children").updateChildValues([
             child.key: try child.json()
         ])
