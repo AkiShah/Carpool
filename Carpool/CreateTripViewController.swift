@@ -24,6 +24,7 @@ class CreateTripViewController: UIViewController {
     var enteredLocation: String = ""
     var childName: String = ""
     
+    
     enum selectedLeg: Int {
         case dropoff
         case pickup
@@ -60,11 +61,18 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func onChildNameEntered(_ sender: UITextField) {
+        
+       //TODO error handling
     }
     @IBAction func onDestinationAdded(_ sender: UITextField) {
         if let enteredText = sender.text {
             mapButton.isHidden = false
             enteredLocation = enteredText
+        }
+        if destinationDisplayed.text?.isEmpty ?? true {
+            let alert = UIAlertController(title: "Whoops", message: "Please enter a valid destination", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Thanks, I'll do that!", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     @IBAction func onMapItPressed(_ sender: UIButton) {
@@ -86,7 +94,6 @@ class CreateTripViewController: UIViewController {
         return desc
     }
     
-    //not sure this is correct. I'm pretty bad at this. 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let searchLocationVC = segue.destination as! CreateTripViewController
