@@ -30,7 +30,7 @@ class RootViewController: UITableViewController {
                 self.trips = trips
                 self.tableView.reloadData()
             case .failure(_):
-                //TODO Error handling
+                //TODO Error Handling
                 break
             }
         }

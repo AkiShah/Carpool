@@ -50,8 +50,7 @@ class TripDetailViewController: UIViewController {
             if let state = placemarks?.first?.administrativeArea, let city = placemarks?.first?.locality{
                 self.eventLocationLabel.text = "\(city), \(state)"
             } else {
-                //TODO FOR MAX
-                //PS: thats a joke, it will be probably us
+                self.errorMessages(error: error)
             }
         }
         let formatter = DateFormatter()
@@ -95,4 +94,20 @@ class TripDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Not Now", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func errorMessages(error: Error?) {
+        if let msg = error?.localizedDescription {
+            let alert = UIAlertController(title: "Whoops", message: msg, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "I'll try again", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+
+        } else {
+            title = "OOOOHH NOOOOO"
+        }
+    }
 }
+
+
+
+
+
