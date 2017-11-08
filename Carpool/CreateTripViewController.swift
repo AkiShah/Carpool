@@ -89,8 +89,8 @@ class CreateTripViewController: UIViewController {
     //not sure this is correct. I'm pretty bad at this. 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let searchLocationVC = segue.destination as! CreateTripViewController
-        searchLocationVC.destinationDisplayed = destinationDisplayed
+        let searchLocationVC = segue.destination as! SearchLocationViewController
+        searchLocationVC.query = enteredLocation
     }
 }
 

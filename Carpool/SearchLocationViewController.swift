@@ -13,7 +13,7 @@ class SearchLocationViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    let query: String = "SCAD"
+    var query: String = "SCAD"
     let locationManager = CLLocationManager()
     var selectedLocation: CLLocation?
     
