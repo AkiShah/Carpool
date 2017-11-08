@@ -13,7 +13,7 @@ class SearchLocationViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    let query: String = ""
+    let query: String = "SCAD"
     let locationManager = CLLocationManager()
     var selectedLocation: CLLocation?
     
@@ -48,6 +48,11 @@ extension SearchLocationViewController: MKMapViewDelegate {
         
         search(for: "Pizza")
         
+    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        //view.annotation
+        selectedLocation = view.annotation as? CLLocation
+        print(selectedLocation?.coordinate)
     }
     
 }
