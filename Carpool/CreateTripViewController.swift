@@ -27,7 +27,6 @@ class CreateTripViewController: UIViewController {
     var currentLocation = CLLocation()
     var annotations: [MKAnnotation] = []
     var child: Child?
-    var user: User?
     
     
     enum selectedLeg: Int {
@@ -57,12 +56,21 @@ class CreateTripViewController: UIViewController {
             API.createTrip(eventDescription: desc, eventTime: time, eventLocation: locationFromMap) { result in
                 switch result {
                 case .success(let trip):
-//                    API.fetchUser(id: user, completion: <#T##(Result<User>) -> Void#>)
-                    break
+                    if let child = self.child {
+                        do {
+                            try API.add(child: child, to: trip)
+                        } catch {
+                            let alert = UIAlertController(title: "Whoops", message: "Child was not added", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "I'll try again!", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    }
                 case .failure(_):
-                    //TODO Error Handling
-                    break
+                    let alert = UIAlertController(title: "Whoops", message: "Trip Creation Failed", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Okay, I'll try again!", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
+                
                 self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
             }
         }
@@ -74,9 +82,17 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func onChildNameEntered(_ sender: UITextField) {
-        let enteredText = sender.text
-        
-        if enteredText?.isEmpty ?? true {
+        if let enteredText = sender.text {
+            API.addChild(name: enteredText, completion: { (result) in
+                switch result {
+                    
+                case .success(let child):
+                    self.child = child
+                case .failure(_):
+                    break//TODO error
+                }
+            })
+        } else {
             let alert = UIAlertController(title: "Whoops", message: "Please enter a child's name", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Thanks, I'll do that!", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -109,11 +125,6 @@ class CreateTripViewController: UIViewController {
                 }
             }
         }
-//        if destinationDisplayed.text?.isEmpty ?? true {
-//            let alert = UIAlertController(title: "Whoops", message: "Please enter a valid destination", preferredStyle: UIAlertControllerStyle.alert)
-//            alert.addAction(UIAlertAction(title: "Thanks, I'll do that!", style: UIAlertActionStyle.default, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
-//        }
     }
     @IBAction func onMapItPressed(_ sender: UIButton) {
         //TODO take entered text from destination added and add it to CL Location
