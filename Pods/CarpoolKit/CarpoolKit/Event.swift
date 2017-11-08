@@ -14,7 +14,6 @@ public struct Event: Codable, Keyed {
 
 extension Event {
     init(json: [String: Any], key: String) throws {
-        print(#function, json)
         guard let (key, json) = (json["event"] as? [String: Any])?.first else {
             throw API.Error.decode
         }

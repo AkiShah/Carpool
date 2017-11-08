@@ -1,10 +1,25 @@
+import FirebaseCommunity
 import PromiseKit
 
 public struct Trip: Codable, Keyed {
     var key: String!
     public let event: Event
-    public let pickUp: Leg?
+
+    /// the leg for dropping off children at the event
     public let dropOff: Leg?
+
+    /// the leg for picking up children from the event
+    public let pickUp: Leg?
+
+    enum CodingKeys: String, CodingKey {
+        case key, event, pickUp, dropOff
+        case _children = "children"
+    }
+
+    public var children: [Child] {
+        return _children ?? []
+    }
+    let _children: [Child]?
 }
 
 extension Trip: Equatable {
@@ -28,18 +43,21 @@ extension Trip: Hashable {
 extension Trip {
     static func make(key: String, json: [String: Any]) -> Promise<Trip> {
         do {
-            func get(key: String) -> User? {
-                guard let json = json[key] as? [String: String] else { return nil }
-                guard let item = json.first else { return nil }
-                return User(key: item.key, name: item.value)
+            func getLeg(key: String) -> Promise<User?> {
+                guard let json = json[key] as? [String: String] else { return Promise(value: nil) }
+                guard let item = json.first else { return Promise(value: nil) }
+                return API.fetchUser(id: item.key).then(on: zalgo){ $0 }
             }
 
-            //guard let owner = get(key: "owner") else { throw API.Error.decode }
-            let dropOff = get(key: "dropOff")
-            let pickUp = get(key: "pickUp")
+            let dropOff = getLeg(key: "dropOff")
+            let pickUp = getLeg(key: "pickUp")
             let event = try Event(json: json, key: "event")
 
-            return Promise(value: Trip(key: key, event: event, pickUp: pickUp.map(Leg.init), dropOff: dropOff.map(Leg.init)))
+            return firstly {
+                when(fulfilled: dropOff, pickUp)
+            }.then { dropOff, pickUp in
+                Trip(key: key, event: event, dropOff: dropOff.map(Leg.init), pickUp: pickUp.map(Leg.init), _children: [])
+            }
         } catch {
             return Promise(error: error)
         }
