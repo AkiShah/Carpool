@@ -23,6 +23,9 @@ class CreateTripViewController: UIViewController {
     var enteredLocation: String = ""
     var childName: String = ""
     var locationFromMap: CLLocation?
+    let locationManager = CLLocationManager()
+    var currentLocation = CLLocation()
+    var annotations: [MKAnnotation] = []
     
     
     enum selectedLeg: Int {
@@ -42,15 +45,16 @@ class CreateTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.minimumDate = Date()
-        
+        locationManager.delegate = self
+        locationManager.requestLocation()
     }
     
     @IBAction func onCreateTripPressed(_ sender: UIButton) {
-        print("Time\(time), Description\(desc)")
+        //print("Time\(time), Description\(desc)")
         if desc != ""{
             API.createTrip(eventDescription: desc, eventTime: time, eventLocation: locationFromMap) { trip in
-                print(trip)
-                print("Trip created")
+                //print(trip)
+                //print("Trip created")
                 self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
             }
         }
@@ -72,12 +76,30 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func onDestinationAdded(_ sender: UITextField) {
-        let mappableDestination = MK
-        
+    
         if let enteredText = sender.text {
-            mapButton.isHidden = false
+            
             enteredLocation = enteredText
             desc = enteredText
+            
+            let searchRequest = MKLocalSearchRequest()
+            searchRequest.naturalLanguageQuery = enteredText
+            searchRequest.region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 20000, 20000)
+            
+            let search = MKLocalSearch(request: searchRequest)
+
+            search.start { (searchResp, error) in
+                if let searchResp = searchResp {
+                    print("WE HAVE THE STUFF!")
+                    self.annotations = searchResp.mapItems.map({ $0.placemark })
+                    self.mapButton.isHidden = false
+                    //we have annotations
+                } else {
+                    print("Haha, you've been swindled")
+                    self.mapButton.isHidden = true
+                    //we don't have annotations, todo errors
+                }
+            }
         }
 //        if destinationDisplayed.text?.isEmpty ?? true {
 //            let alert = UIAlertController(title: "Whoops", message: "Please enter a valid destination", preferredStyle: UIAlertControllerStyle.alert)
@@ -96,7 +118,7 @@ class CreateTripViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let searchLocationVC = segue.destination as? SearchLocationViewController {
-            searchLocationVC.query = enteredLocation
+            searchLocationVC.annotations = annotations
         }
     }
     
@@ -128,6 +150,25 @@ extension Event {
     var generateSmartDescription: String {
         //let desc = "On \(time.day), Kai needs to be \(selectedLeg(rawValue: segmentedControl.selectedSegmentIndex)!.descComponent) \(description) by \(time.time)"
         return "On \(time.day), Kai will be going to \(time.time)"
+    }
+}
+
+extension CreateTripViewController: MKMapViewDelegate {
+    
+}
+
+
+extension CreateTripViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        guard status == .authorizedWhenInUse else { return }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations.first)
     }
 }
 
