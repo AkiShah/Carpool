@@ -20,7 +20,17 @@ class SearchLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        search(for: query)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
     
     func search(for query: String) {
@@ -31,6 +41,7 @@ class SearchLocationViewController: UIViewController {
         search.start { (searchResp, error) in
             if let searchResp = searchResp {
                 self.mapView.addAnnotations(searchResp.mapItems.map({ $0.placemark }))
+                print(searchResp.mapItems.map({ $0.placemark }))
             }
         }
     }
@@ -39,22 +50,19 @@ class SearchLocationViewController: UIViewController {
 
 extension SearchLocationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        //userLocation.coordinate
-        //guard let UserCoordinate = userLocation.location?.coordinate else { return }
-        //let coordinateRegion = MKCoordinateRegionMakeWithDistance(UserCoordinate, 10000, 10000)
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
-        
         mapView.setRegion(coordinateRegion, animated: true)
-        
-        search(for: "Pizza")
-        
     }
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        //view.annotation
-        selectedLocation = view.annotation as? CLLocation
+        guard let coordinate = view.annotation?.coordinate else { return }
+        selectedLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         print(selectedLocation?.coordinate)
     }
     
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        self.search(for: self.query)
+    }
 }
 
 extension SearchLocationViewController: CLLocationManagerDelegate {
@@ -62,6 +70,8 @@ extension SearchLocationViewController: CLLocationManagerDelegate {
         guard status == .authorizedWhenInUse else { return }
         mapView.showsUserLocation = true
     }
+    
+    
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
