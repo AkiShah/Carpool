@@ -72,7 +72,7 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func onDestinationAdded(_ sender: UITextField) {
-        let mappableDestination = MK
+        //let mappableDestination = MK
         
         if let enteredText = sender.text {
             mapButton.isHidden = false
