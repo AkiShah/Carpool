@@ -58,12 +58,20 @@ class CreateTripViewController: UIViewController {
     @IBAction func onDatePickerChanged(_ sender: UIDatePicker) {
         time = sender.date
         
+        
+        
     }
     
     @IBAction func onChildNameEntered(_ sender: UITextField) {
+        let enteredText = sender.text
         
-       //TODO error handling
+        if enteredText?.isEmpty ?? true {
+            let alert = UIAlertController(title: "Whoops", message: "Please enter a child's name", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Thanks, I'll do that!", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
+    
     @IBAction func onDestinationAdded(_ sender: UITextField) {
         if let enteredText = sender.text {
             mapButton.isHidden = false
