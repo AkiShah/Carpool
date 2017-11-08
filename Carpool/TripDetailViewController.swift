@@ -68,6 +68,7 @@ class TripDetailViewController: UIViewController {
             API.claimPickUp(trip: self.trip, completion: { error in
                 if let error = error{
                     print(error)
+                    self.errorMessages(error: error)
                 } else {
                     self.eventPickupDriverLabel.text = "Aki"
                     self.pickupButton.isEnabled = false
@@ -84,6 +85,7 @@ class TripDetailViewController: UIViewController {
             API.claimDropOff(trip: self.trip, completion: { error in
                 if let error = error{
                     print(error)
+                    self.errorMessages(error: error)
                 } else {
                     self.eventDropoffDriverLabel.text = "Shannon"
                     self.dropoffButton.isEnabled = false
