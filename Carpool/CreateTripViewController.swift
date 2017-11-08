@@ -26,6 +26,8 @@ class CreateTripViewController: UIViewController {
     let locationManager = CLLocationManager()
     var currentLocation = CLLocation()
     var annotations: [MKAnnotation] = []
+    var child: Child?
+    var user: User?
     
     
     enum selectedLeg: Int {
@@ -54,11 +56,12 @@ class CreateTripViewController: UIViewController {
         if desc != ""{
             API.createTrip(eventDescription: desc, eventTime: time, eventLocation: locationFromMap) { result in
                 switch result {
-                    
                 case .success(let trip):
-                    API.add()
+//                    API.fetchUser(id: user, completion: <#T##(Result<User>) -> Void#>)
+                    break
                 case .failure(_):
-                    <#code#>
+                    //TODO Error Handling
+                    break
                 }
                 self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
             }

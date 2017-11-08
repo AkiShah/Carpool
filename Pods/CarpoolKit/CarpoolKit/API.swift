@@ -184,13 +184,27 @@ public enum API {
         }
     }
 
-    public func addChild(name: String, parent user: User) {
-        let ref1 = Database.database().reference().child("children").childByAutoId()
-        ref1.setValue(["name": name])
-
-        Database.database().reference().child("users").child(user.key).child("children").updateChildValues([
-            ref1.key: name
-        ])
+    /// adds children to the logged in user
+    /// if a child already exists with that name, returns the existing child
+    public static func addChild(name: String, completion: @escaping (Result<Child>) -> Void) {
+        firstly {
+            fetchCurrentUser()
+        }.then { user -> Child in
+            if let child = user.children.first(where: { $0.name == name }) {
+                return child
+            } else {
+                let ref1 = Database.database().reference().child("children").childByAutoId()
+                ref1.setValue(["name": name])
+                Database.database().reference().child("users").child(user.key).child("children").updateChildValues([
+                    ref1.key: name
+                ])
+                return Child(key: ref1.key, name: name)
+            }
+        }.then {
+            completion(.success($0))
+        }.catch {
+            completion(.failure($0))
+        }
     }
 }
 
