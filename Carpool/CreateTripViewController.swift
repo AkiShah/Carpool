@@ -9,6 +9,7 @@
 import Foundation
 import CarpoolKit
 import CoreLocation
+import MapKit
 
 class CreateTripViewController: UIViewController {
     
@@ -71,9 +72,7 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func onDestinationAdded(_ sender: UITextField) {
-        guard let coordinate = view.annotation?.coordinate else { return }
-        selectedLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        selectLocationButton.isEnabled = true
+        let mappableDestination = MK
         
         if let enteredText = sender.text {
             mapButton.isHidden = false
