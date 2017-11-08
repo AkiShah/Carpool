@@ -63,7 +63,16 @@ public enum API {
                 guard let foo = snapshot.value as? [String: [String: Any]] else {
                     return completion(.failure(API.Error.noChildren))
                 }
-                when(fulfilled: foo.map{ Trip.make(key: $0, json: $1) }).join(joint)
+                firstly {
+                    when(resolved: foo.map{ Trip.make(key: $0, json: $1) })
+                }.then { results -> [Trip] in
+                    var trips: [Trip] = []
+                    for case .fulfilled(let trip) in results { trips.append(trip) }
+                    if trips.isEmpty && !results.isEmpty {
+                        throw Error.noChildren
+                    }
+                    return trips
+                }.join(joint)
             }
             return promise
         }.then {

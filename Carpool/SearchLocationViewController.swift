@@ -45,7 +45,7 @@ class SearchLocationViewController: UIViewController {
 
 extension SearchLocationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 60000, 60000)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 6000, 6000)
         mapView.setRegion(coordinateRegion, animated: true)
         mapView.addAnnotations(annotations)
         print(annotations)

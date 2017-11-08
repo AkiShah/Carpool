@@ -17,16 +17,16 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var mapButton: UIButton!
     
-    let location: CLLocation = CLLocation()
     var desc: String = ""
     var time: Date = Date()
     var enteredLocation: String = ""
-    var childName: String = ""
     var locationFromMap: CLLocation?
     let locationManager = CLLocationManager()
     var currentLocation = CLLocation()
     var annotations: [MKAnnotation] = []
     var child: Child?
+    
+    
     
     
     enum selectedLeg: Int {
@@ -106,24 +106,38 @@ class CreateTripViewController: UIViewController {
             enteredLocation = enteredText
             desc = enteredText
             
-            let searchRequest = MKLocalSearchRequest()
-            searchRequest.naturalLanguageQuery = enteredText
-            searchRequest.region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 20000, 20000)
+            let geocoder = CLGeocoder()
+            let clRegion = CLCircularRegion(center: currentLocation.coordinate, radius: 20000, identifier: "currentLocation")
             
-            let search = MKLocalSearch(request: searchRequest)
-
-            search.start { (searchResp, error) in
-                if let searchResp = searchResp {
-                    print("WE HAVE THE STUFF!")
-                    self.annotations = searchResp.mapItems.map({ $0.placemark })
+            geocoder.geocodeAddressString(enteredText, in: clRegion, completionHandler: { (placemarks, error) in
+                if let placemarks = placemarks {
+                    self.annotations = placemarks.map({$0.location!})
+                    print("We have locations")
                     self.mapButton.isHidden = false
-                    //we have annotations
                 } else {
-                    print("Haha, you've been swindled")
+                    print(#function, "Something went bad")
                     self.mapButton.isHidden = true
-                    //we don't have annotations, todo errors
                 }
-            }
+            })
+            
+//            let searchRequest = MKLocalSearchRequest()
+//            searchRequest.naturalLanguageQuery = enteredText
+//            searchRequest.region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 20000, 20000)
+//
+//            let search = MKLocalSearch(request: searchRequest)
+//
+//            search.start { (searchResp, error) in
+//                if let searchResp = searchResp {
+//                    print("WE HAVE THE STUFF!")
+//                    self.annotations = searchResp.mapItems.map({ $0.placemark })
+//                    self.mapButton.isHidden = false
+//                    //we have annotations
+//                } else {
+//                    print("Haha, you've been swindled")
+//                    self.mapButton.isHidden = true
+//                    //we don't have annotations, todo errors
+//                }
+//            }
         }
     }
     @IBAction func onMapItPressed(_ sender: UIButton) {
@@ -189,5 +203,9 @@ extension CreateTripViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(locations.first)
     }
+}
+
+extension CLLocation: MKAnnotation {
+
 }
 
