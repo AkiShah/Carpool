@@ -13,14 +13,12 @@ import CoreLocation
 class CreateTripViewController: UIViewController {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var destinationDisplayed: UILabel!
-    @IBOutlet weak var onSearchForRouteEntered: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var mapButton: UIButton!
     
     let location: CLLocation = CLLocation()
     var desc: String = ""
-    var time: Date!
+    var time: Date = Date()
     var enteredLocation: String = ""
     var childName: String = ""
     var locationFromMap: CLLocation?
@@ -48,19 +46,18 @@ class CreateTripViewController: UIViewController {
     
     @IBAction func onCreateTripPressed(_ sender: UIButton) {
         print("Time\(time), Description\(desc)")
-        if let time = time, desc != ""{
-            API.createTrip(eventDescription: desc, eventTime: time, eventLocation: location) { trip in
+        if desc != ""{
+            API.createTrip(eventDescription: desc, eventTime: time, eventLocation: locationFromMap) { trip in
                 print(trip)
                 print("Trip created")
                 self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
             }
         }
     }
+    
     @IBAction func onDatePickerChanged(_ sender: UIDatePicker) {
         time = sender.date
-        
-        
-        
+        //todo error if the date is bad
     }
     
     @IBAction func onChildNameEntered(_ sender: UITextField) {
@@ -74,15 +71,20 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func onDestinationAdded(_ sender: UITextField) {
+        guard let coordinate = view.annotation?.coordinate else { return }
+        selectedLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        selectLocationButton.isEnabled = true
+        
         if let enteredText = sender.text {
             mapButton.isHidden = false
             enteredLocation = enteredText
+            desc = enteredText
         }
-        if destinationDisplayed.text?.isEmpty ?? true {
-            let alert = UIAlertController(title: "Whoops", message: "Please enter a valid destination", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Thanks, I'll do that!", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+//        if destinationDisplayed.text?.isEmpty ?? true {
+//            let alert = UIAlertController(title: "Whoops", message: "Please enter a valid destination", preferredStyle: UIAlertControllerStyle.alert)
+//            alert.addAction(UIAlertAction(title: "Thanks, I'll do that!", style: UIAlertActionStyle.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//        }
     }
     @IBAction func onMapItPressed(_ sender: UIButton) {
         //TODO take entered text from destination added and add it to CL Location

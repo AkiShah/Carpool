@@ -12,6 +12,7 @@ import MapKit
 class SearchLocationViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var selectLocationButton: UIButton!
     
     var query: String = "SCAD"
     let locationManager = CLLocationManager()
@@ -21,6 +22,8 @@ class SearchLocationViewController: UIViewController {
         super.viewDidLoad()
         locationManager.delegate = self
         
+        
+        selectLocationButton.isEnabled = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -35,6 +38,7 @@ class SearchLocationViewController: UIViewController {
     
     @IBAction func onCancelButtonPressed(_ sender: UIButton) {
         selectedLocation = nil
+        performSegue(withIdentifier: "unwindToCreateTrip", sender: self)
     }
     
     
@@ -50,19 +54,23 @@ class SearchLocationViewController: UIViewController {
             }
         }
     }
-    
 }
 
 extension SearchLocationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 6000, 6000)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let coordinate = view.annotation?.coordinate else { return }
         selectedLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        print(selectedLocation?.coordinate)
+        selectLocationButton.isEnabled = true
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        selectLocationButton.isEnabled = false
+        selectedLocation = nil
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
@@ -75,7 +83,6 @@ extension SearchLocationViewController: CLLocationManagerDelegate {
         guard status == .authorizedWhenInUse else { return }
         mapView.showsUserLocation = true
     }
-    
     
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

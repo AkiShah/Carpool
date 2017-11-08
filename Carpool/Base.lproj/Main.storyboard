@@ -131,7 +131,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="row-bV-m6V">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and Time of Trip:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="row-bV-m6V">
                                 <rect key="frame" x="16" y="85" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -267,7 +267,7 @@
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="47"/>
                                         <state key="normal" title="Select Location"/>
                                         <connections>
-                                            <segue destination="I59-Jl-WF9" kind="unwind" unwindAction="unwindFromSearchLocationMapWithSegue:" id="TPb-9M-cnO"/>
+                                            <segue destination="I59-Jl-WF9" kind="unwind" identifier="unwindToCreateTrip" unwindAction="unwindFromSearchLocationMapWithSegue:" id="TPb-9M-cnO"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -295,6 +295,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="SrQ-nJ-zVx" id="qOp-zn-SnL"/>
+                        <outlet property="selectLocationButton" destination="FJU-Lr-Nus" id="331-4S-5aX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WcC-mW-wqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -364,20 +365,20 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KJ7-LV-ERt">
                                 <rect key="frame" x="16" y="601" width="343" height="36"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VE7-Bn-arT">
-                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                        <state key="normal" title="Pickup"/>
-                                        <connections>
-                                            <action selector="onPickupButtonPressed:" destination="Ind-D3-ceY" eventType="touchUpInside" id="cH7-QM-Wkf"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d3-yF-yuO">
-                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Dropoff"/>
                                         <connections>
                                             <action selector="onDropoffButtonPressed:" destination="Ind-D3-ceY" eventType="touchUpInside" id="bNm-wE-6zP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VE7-Bn-arT">
+                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="Pickup"/>
+                                        <connections>
+                                            <action selector="onPickupButtonPressed:" destination="Ind-D3-ceY" eventType="touchUpInside" id="cH7-QM-Wkf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -398,6 +399,8 @@
                             <constraint firstItem="xZw-co-anL" firstAttribute="centerY" secondItem="QJ0-zm-uiS" secondAttribute="centerY" id="8ug-y8-SMb"/>
                             <constraint firstItem="rfH-E5-q3b" firstAttribute="top" secondItem="KJ7-LV-ERt" secondAttribute="bottom" constant="30" id="fKv-WT-77e"/>
                             <constraint firstItem="xZF-Yy-lrb" firstAttribute="centerX" secondItem="QJ0-zm-uiS" secondAttribute="centerX" constant="-116.5" id="kNn-Nm-gFu"/>
+                            <constraint firstItem="xZF-Yy-lrb" firstAttribute="leading" secondItem="QJ0-zm-uiS" secondAttribute="leadingMargin" constant="10" id="oQ8-V7-PO6"/>
+                            <constraint firstItem="xZF-Yy-lrb" firstAttribute="top" secondItem="LHg-Y2-SkK" secondAttribute="bottom" constant="8" id="oka-JZ-Hgy"/>
                             <constraint firstItem="xZw-co-anL" firstAttribute="leading" secondItem="QJ0-zm-uiS" secondAttribute="leadingMargin" constant="10" id="sR8-sO-2j4"/>
                             <constraint firstItem="xZF-Yy-lrb" firstAttribute="top" secondItem="LHg-Y2-SkK" secondAttribute="bottom" constant="8" id="yXC-lV-qmf"/>
                         </constraints>

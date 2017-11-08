@@ -71,7 +71,7 @@ public enum API {
     }
 
     /// claims the initial leg by the current user, so pickUp leg is UNCLAIMED
-    public static func createTrip(eventDescription desc: String, eventTime time: Date, eventLocation location: CLLocation, completion: @escaping (Result<Trip>) -> Void) {
+    public static func createTrip(eventDescription desc: String, eventTime time: Date, eventLocation location: CLLocation?, completion: @escaping (Result<Trip>) -> Void) {
         firstly {
             fetchCurrentUser()
         }.then { user -> Void in
@@ -79,14 +79,14 @@ public enum API {
                 throw Error.notAuthorized
             }
 
-            let geohash = Geohash(location: location).value
+            let geohash = location.flatMap{ Geohash(location: $0) }?.value
 
-            let eventDict: [String: Any] = [
-                "location": geohash,
+            var eventDict: [String: Any] = [
                 "description": desc,
                 "time": time.timeIntervalSince1970,
                 "owner": [uid: user.name]
             ]
+            eventDict["geohash"] = geohash
             let eventRef = Database.database().reference().child("events").childByAutoId()
             eventRef.setValue(eventDict)
 
