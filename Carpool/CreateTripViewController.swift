@@ -25,6 +25,7 @@ class CreateTripViewController: UIViewController {
     var childName: String = ""
     var locationFromMap: CLLocation?
     
+    
     enum selectedLeg: Int {
         case dropoff
         case pickup
@@ -58,31 +59,39 @@ class CreateTripViewController: UIViewController {
     @IBAction func onDatePickerChanged(_ sender: UIDatePicker) {
         time = sender.date
         
+        
+        
     }
     
     @IBAction func onChildNameEntered(_ sender: UITextField) {
+        let enteredText = sender.text
+        
+        if enteredText?.isEmpty ?? true {
+            let alert = UIAlertController(title: "Whoops", message: "Please enter a child's name", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Thanks, I'll do that!", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
+    
     @IBAction func onDestinationAdded(_ sender: UITextField) {
         if let enteredText = sender.text {
             mapButton.isHidden = false
             enteredLocation = enteredText
         }
+        if destinationDisplayed.text?.isEmpty ?? true {
+            let alert = UIAlertController(title: "Whoops", message: "Please enter a valid destination", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Thanks, I'll do that!", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     @IBAction func onMapItPressed(_ sender: UIButton) {
         //TODO take entered text from destination added and add it to CL Location
     }
-    @IBAction func onNewTripDescriptionAdded(_ sender: UITextField) {
-        print(sender.text)
-        if let text = sender.text {
-            desc = text
-            mapButton.isEnabled = true
-        }
-    }
+    
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
         
     }
     
-    //not sure this is correct. I'm pretty bad at this. 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let searchLocationVC = segue.destination as? SearchLocationViewController {
