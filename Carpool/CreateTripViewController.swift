@@ -82,6 +82,7 @@ class CreateTripViewController: UIViewController {
         print(sender.text)
         if let text = sender.text {
             desc = text
+            mapButton.isEnabled = true
         }
     }
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
@@ -96,8 +97,9 @@ class CreateTripViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let searchLocationVC = segue.destination as! CreateTripViewController
-        searchLocationVC.destinationDisplayed = destinationDisplayed
+        if let searchLocationVC = segue.destination as? SearchLocationViewController {
+            searchLocationVC.query = enteredLocation
+        }
     }
 }
 
