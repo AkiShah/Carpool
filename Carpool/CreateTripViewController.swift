@@ -81,12 +81,6 @@ class CreateTripViewController: UIViewController {
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
         
     }
-    func generateDescription() -> String{
-        //        “On Monday, Johnny needs to be picked up from Savannah Soccer Fields by 8pm”
-        //ToggleState(rawValue: sender.selectedSegmentIndex)
-        let desc = "On \(time.day), \(childName) needs to be \(selectedLeg(rawValue: segmentedControl.selectedSegmentIndex)!.descComponent) \(enteredLocation) by \(time.time)"
-        return desc
-    }
     
     //not sure this is correct. I'm pretty bad at this. 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -116,6 +110,14 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hha"
         return dateFormatter.string(from: self)
+    }
+}
+
+extension Event {
+    
+    var generateSmartDescription: String {
+        //let desc = "On \(time.day), Kai needs to be \(selectedLeg(rawValue: segmentedControl.selectedSegmentIndex)!.descComponent) \(description) by \(time.time)"
+        return "On \(time.day), Kai will be going to \(time.time)"
     }
 }
 
