@@ -262,8 +262,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dl9-Ib-Cbe">
+                                <rect key="frame" x="0.0" y="620" width="375" height="47"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2o9-1R-lda">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="47"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="onCancelButtonPressed:" destination="9ep-Jo-buX" eventType="touchUpInside" id="f4G-TK-LZK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJU-Lr-Nus">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="47"/>
+                                        <state key="normal" title="Select Location"/>
+                                        <connections>
+                                            <segue destination="I59-Jl-WF9" kind="unwind" unwindAction="unwindFromSearchLocationMapWithSegue:" id="TPb-9M-cnO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SrQ-nJ-zVx">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="iLw-IF-4p9"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="9ep-Jo-buX" id="Yqa-7w-e3D"/>
                                 </connections>
@@ -271,10 +293,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XVr-4l-ygx" firstAttribute="top" secondItem="SrQ-nJ-zVx" secondAttribute="bottom" id="SCa-Js-IuV"/>
-                            <constraint firstItem="SrQ-nJ-zVx" firstAttribute="leading" secondItem="g1v-2e-LlS" secondAttribute="leading" id="Vpn-2u-71D"/>
-                            <constraint firstItem="SrQ-nJ-zVx" firstAttribute="top" secondItem="uUk-lt-nfU" secondAttribute="bottom" id="fPY-rC-xhe"/>
-                            <constraint firstAttribute="trailing" secondItem="SrQ-nJ-zVx" secondAttribute="trailing" id="jgd-Rm-AYS"/>
+                            <constraint firstItem="dl9-Ib-Cbe" firstAttribute="top" secondItem="SrQ-nJ-zVx" secondAttribute="bottom" id="1Js-ss-Ksr"/>
+                            <constraint firstItem="XVr-4l-ygx" firstAttribute="top" secondItem="dl9-Ib-Cbe" secondAttribute="bottom" id="2il-OA-bUw"/>
+                            <constraint firstItem="SrQ-nJ-zVx" firstAttribute="leading" secondItem="g1v-2e-LlS" secondAttribute="leading" id="EMz-Zu-20k"/>
+                            <constraint firstItem="dl9-Ib-Cbe" firstAttribute="leading" secondItem="g1v-2e-LlS" secondAttribute="leading" id="FwB-hK-qDS"/>
+                            <constraint firstAttribute="trailing" secondItem="dl9-Ib-Cbe" secondAttribute="trailing" id="H3i-kR-LMB"/>
+                            <constraint firstAttribute="trailing" secondItem="SrQ-nJ-zVx" secondAttribute="trailing" id="THJ-LP-Jwv"/>
+                            <constraint firstItem="SrQ-nJ-zVx" firstAttribute="top" secondItem="uUk-lt-nfU" secondAttribute="bottom" id="nT7-WT-XUZ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -282,6 +307,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WcC-mW-wqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="I59-Jl-WF9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="368.80000000000001" y="879.31034482758628"/>
         </scene>

@@ -23,6 +23,7 @@ class CreateTripViewController: UIViewController {
     var time: Date!
     var enteredLocation: String = ""
     var childName: String = ""
+    var locationFromMap: CLLocation?
     
     enum selectedLeg: Int {
         case dropoff
@@ -94,6 +95,15 @@ class CreateTripViewController: UIViewController {
             searchLocationVC.query = enteredLocation
         }
     }
+    
+    @IBAction func unwindFromSearchLocationMap(segue: UIStoryboardSegue) {
+        if let searchLocationVC = segue.destination as? SearchLocationViewController {
+            if let location = searchLocationVC.selectedLocation {
+                locationFromMap = location
+            }
+        }
+    }
+    
 }
 
 extension Date {

@@ -33,6 +33,11 @@ class SearchLocationViewController: UIViewController {
         }
     }
     
+    @IBAction func onCancelButtonPressed(_ sender: UIButton) {
+        selectedLocation = nil
+    }
+    
+    
     func search(for query: String) {
         let searchRequest = MKLocalSearchRequest()
         searchRequest.naturalLanguageQuery = query
