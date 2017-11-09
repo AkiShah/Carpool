@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     var userEmail: String = ""
     var userPassword: String = ""
     var userPasswordConfirm: String = ""
+    var userName: String = ""
     
     enum ToggleState: Int {
         case login
@@ -73,8 +74,8 @@ class LoginViewController: UIViewController {
                 })
             }
         case .signup:
-            if userEmail != "", userPassword != "", userPassword == userPasswordConfirm {
-                API.signUp(email: userEmail, password: userPassword, fullName: "I Refuse to Name Myself", completion: { result in
+            if userEmail != "", userPassword != "", userPassword == userPasswordConfirm, userName != "" {
+                API.signUp(email: userEmail, password: userPassword, fullName: userName, completion: { result in
                     switch result {
                     case .success(let user):
                         print(user)
