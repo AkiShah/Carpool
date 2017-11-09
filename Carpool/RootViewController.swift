@@ -84,7 +84,7 @@ class RootViewController: UITableViewController {
             label.textColor = UIColor.white
             label.backgroundColor = UIColor.red
             label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
-            carImage.alpha = 0.6
+            carImage.alpha = 0.3
             
         }
     }
