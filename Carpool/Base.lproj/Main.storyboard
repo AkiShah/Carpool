@@ -481,7 +481,7 @@
         <!--Login View Controller-->
         <scene sceneID="o6L-71-HWm">
             <objects>
-                <viewController id="uzH-Gh-XhM" customClass="LoginViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="uzH-Gh-XhM" customClass="LoginViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tGh-Cl-bLo"/>
                         <viewControllerLayoutGuide type="bottom" id="SKf-w1-eHb"/>
