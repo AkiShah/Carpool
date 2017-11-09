@@ -19,8 +19,8 @@ class RootViewController: UITableViewController {
     
     
     enum tripLeg: String {
-        case dropoff = "will handle dropoff"
-        case pickup = "will handle pickup"
+        case dropoff = " will handle dropoff"
+        case pickup = " will handle pickup"
     }
     
     override func viewDidLoad() {
