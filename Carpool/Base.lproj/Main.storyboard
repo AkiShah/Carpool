@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Optima.ttc">
+            <string>Optima-ExtraBlack</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--All Trips-->
         <scene sceneID="lPj-xr-VLU">
@@ -164,7 +169,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enG-OH-gQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-348" y="169.56521739130437"/>
+            <point key="canvasLocation" x="-314" y="-222"/>
         </scene>
         <!--Create Trip View Controller-->
         <scene sceneID="SER-Zw-3Ol">
@@ -268,6 +273,27 @@
                                     </segmentedControl>
                                 </subviews>
                             </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sdb-1U-2cH">
+                                <rect key="frame" x="16" y="415" width="343" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jDG-VY-RG8">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="473-RS-iWk">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -297,7 +323,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZsI-j6-vV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qLK-2I-nIy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-348" y="883.80809595202402"/>
+            <point key="canvasLocation" x="-314" y="608"/>
         </scene>
         <!--Search Location View Controller-->
         <scene sceneID="nJY-f1-24v">
@@ -359,7 +385,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WcC-mW-wqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="I59-Jl-WF9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="368.80000000000001" y="879.31034482758628"/>
+            <point key="canvasLocation" x="454" y="608"/>
         </scene>
         <!--Trip Detail View Controller-->
         <scene sceneID="qF7-f9-gQi">
@@ -498,7 +524,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ang-4a-5JJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lpo-cC-zJq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="360.80000000000001" y="169.56521739130437"/>
+            <point key="canvasLocation" x="454" y="-223"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="o6L-71-HWm">
@@ -586,7 +612,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibv-hI-dPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1047.2" y="-543.77811094452773"/>
+            <point key="canvasLocation" x="-1871" y="-526"/>
+        </scene>
+        <!--Home Screen View Controller-->
+        <scene sceneID="uKw-n5-QRi">
+            <objects>
+                <viewController id="jTo-r1-jFk" customClass="HomeScreenViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z9C-7E-Lgc"/>
+                        <viewControllerLayoutGuide type="bottom" id="5H5-kM-sJm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="atg-C3-5ML">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neighborhood" translatesAutoresizingMaskIntoConstraints="NO" id="331-9m-bgE">
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CmV-iT-SJS">
+                                <rect key="frame" x="36" y="124" width="303" height="503"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-pA-wsC">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="241.5"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="35"/>
+                                        <state key="normal" title="View Trips"/>
+                                        <connections>
+                                            <segue destination="8I8-3s-4bT" kind="show" id="Hzz-Ag-Zdz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-aD-s95">
+                                        <rect key="frame" x="0.0" y="261.5" width="303" height="241.5"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="35"/>
+                                        <state key="normal" title="Add A Trip"/>
+                                        <connections>
+                                            <segue destination="4SA-71-PnC" kind="show" id="XMv-Zx-Av8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CmV-iT-SJS" firstAttribute="leading" secondItem="atg-C3-5ML" secondAttribute="leadingMargin" constant="20" id="5fs-E8-JvK"/>
+                            <constraint firstItem="5H5-kM-sJm" firstAttribute="top" secondItem="331-9m-bgE" secondAttribute="bottom" id="J9S-qR-ZqU"/>
+                            <constraint firstItem="5H5-kM-sJm" firstAttribute="top" secondItem="CmV-iT-SJS" secondAttribute="bottom" constant="40" id="KUj-Ps-s3z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="331-9m-bgE" secondAttribute="trailing" id="LDF-PV-eL5"/>
+                            <constraint firstItem="331-9m-bgE" firstAttribute="top" secondItem="Z9C-7E-Lgc" secondAttribute="bottom" id="VoY-Sj-UzF"/>
+                            <constraint firstItem="CmV-iT-SJS" firstAttribute="top" secondItem="Z9C-7E-Lgc" secondAttribute="bottom" constant="60" id="htU-o2-5X5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CmV-iT-SJS" secondAttribute="trailing" constant="20" id="k7k-0h-GJ7"/>
+                            <constraint firstItem="331-9m-bgE" firstAttribute="leading" secondItem="atg-C3-5ML" secondAttribute="leadingMargin" id="yUv-CK-9R8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wTv-zA-dRz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y6Q-vR-4mN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1103" y="170"/>
         </scene>
         <!--Root Navigation Controller-->
         <scene sceneID="R9X-0u-3A5">
@@ -599,16 +682,20 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8I8-3s-4bT" kind="relationship" relationship="rootViewController" id="ngy-dT-ygL"/>
+                        <segue destination="jTo-r1-jFk" kind="relationship" relationship="rootViewController" id="BKN-na-EgS"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iwL-AM-s8O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1046" y="170"/>
+            <point key="canvasLocation" x="-1870" y="170"/>
         </scene>
     </scenes>
     <resources>
         <image name="BlueCarFaceRight" width="3154" height="1217"/>
         <image name="PinkCarFaceLeft" width="1625" height="656"/>
+        <image name="neighborhood" width="420" height="490"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hGt-QR-v3f"/>
+    </inferredMetricsTieBreakers>
 </document>
