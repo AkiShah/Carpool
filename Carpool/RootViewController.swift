@@ -22,8 +22,6 @@ class RootViewController: UITableViewController {
         
         
         API.observeTrips { result in
-            
-            print(result)
             switch result {
             case .success(let trips):
                 self.trips = trips
