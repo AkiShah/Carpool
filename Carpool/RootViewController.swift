@@ -37,7 +37,7 @@ class RootViewController: UITableViewController {
         API.observeTrips { result in
             switch result {
             case .success(let trips):
-                self.downloadedTrips = trips
+                self.trips = trips
                 self.tableView.reloadData()
             case .failure(_):
                 //TODO Error Handling

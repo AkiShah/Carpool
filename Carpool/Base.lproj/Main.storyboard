@@ -441,8 +441,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZF-Yy-lrb">
-                                <rect key="frame" x="16" y="36" width="90" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZF-Yy-lrb">
+                                <rect key="frame" x="24" y="36" width="90" height="30"/>
                                 <state key="normal" title="Back to Trips"/>
                                 <connections>
                                     <segue destination="lpo-cC-zJq" kind="unwind" unwindAction="unwindFromEventDetailViewControllerWithSegue:" id="CCu-ll-Cvy"/>
@@ -458,7 +458,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zM7-vi-RZn">
-                                <rect key="frame" x="246" y="36" width="113" height="30"/>
+                                <rect key="frame" x="238" y="36" width="113" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="113" id="Xrb-iz-0Fa"/>
                                 </constraints>
@@ -470,7 +470,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="KJ7-LV-ERt" secondAttribute="trailing" id="0FC-9r-Hau"/>
                             <constraint firstItem="KJ7-LV-ERt" firstAttribute="leading" secondItem="QJ0-zm-uiS" secondAttribute="leadingMargin" id="1VL-vr-Dmh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xZw-co-anL" secondAttribute="trailing" constant="10" id="32e-EY-S8B"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zM7-vi-RZn" secondAttribute="trailing" id="34d-5Q-s9H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zM7-vi-RZn" secondAttribute="trailing" constant="8" id="34d-5Q-s9H"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xZF-Yy-lrb" secondAttribute="trailingMargin" id="4OB-xK-u3V"/>
                             <constraint firstItem="xZw-co-anL" firstAttribute="centerY" secondItem="QJ0-zm-uiS" secondAttribute="centerY" id="8ug-y8-SMb"/>
                             <constraint firstItem="xZw-co-anL" firstAttribute="top" secondItem="jlE-WM-Gnp" secondAttribute="bottom" constant="90" id="AgM-Bz-qDp"/>
@@ -480,7 +480,7 @@
                             <constraint firstItem="xZF-Yy-lrb" firstAttribute="top" secondItem="LHg-Y2-SkK" secondAttribute="bottom" constant="16" id="Mba-Yt-5wF"/>
                             <constraint firstItem="jlE-WM-Gnp" firstAttribute="trailing" secondItem="xZw-co-anL" secondAttribute="trailing" id="UhO-75-rDp"/>
                             <constraint firstItem="rfH-E5-q3b" firstAttribute="top" secondItem="KJ7-LV-ERt" secondAttribute="bottom" constant="30" id="fKv-WT-77e"/>
-                            <constraint firstItem="xZF-Yy-lrb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QJ0-zm-uiS" secondAttribute="leadingMargin" id="jFP-kY-cks"/>
+                            <constraint firstItem="xZF-Yy-lrb" firstAttribute="leading" secondItem="QJ0-zm-uiS" secondAttribute="leadingMargin" constant="8" id="jFP-kY-cks"/>
                             <constraint firstItem="xZw-co-anL" firstAttribute="leading" secondItem="QJ0-zm-uiS" secondAttribute="leadingMargin" constant="10" id="sR8-sO-2j4"/>
                             <constraint firstItem="jlE-WM-Gnp" firstAttribute="leading" secondItem="xZw-co-anL" secondAttribute="leading" id="zKb-Yr-vSw"/>
                         </constraints>
