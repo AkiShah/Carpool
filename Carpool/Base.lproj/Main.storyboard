@@ -491,6 +491,7 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="Bzi-Es-cDx" id="rIC-ep-qPw"/>
+                        <outlet property="passwordConfirmButton" destination="w0q-HP-ng3" id="qTt-4l-Uem"/>
                         <outlet property="segmentedController" destination="IKf-NW-vFn" id="JzC-i0-CBe"/>
                     </connections>
                 </viewController>
