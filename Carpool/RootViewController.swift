@@ -17,6 +17,7 @@ class RootViewController: UITableViewController {
     
     var downloadedTrips: [Trip] = []
     var trips: [Trip] = []
+    let user = API.fetchCurrentUser()
     
     enum tripLeg: String {
         case dropoff = "will handle dropoff"
@@ -62,22 +63,26 @@ class RootViewController: UITableViewController {
     }
     
     @IBAction func onTripSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-       
-        trips = downloadedTrips
         
-        // switch tripSegment(rawValue: sender.selectedSegmentIndex)! {
-
-            
-//        case .myTrips:
-//            let user = API.fetchCurrentUser()
-//
-//            trips = downloadedTrips.flatMap({
-//
-//                if $0.event.owner
-//            })
-//        case .friendsTrips:
-//            break
-//        }
+        switch tripSegment(rawValue: sender.selectedSegmentIndex)! {
+        case .myTrips:
+            trips = downloadedTrips.flatMap({
+                let owner = $0.event.owner
+                let legDropoff = $0.dropOff?.driver
+                let legPickup = $0.pickUp?.driver
+                let currentUser = self.user.value
+                return owner == currentUser || legDropoff == currentUser || legPickup == currentUser ? $0 : nil
+            })
+        case .friendsTrips:
+            trips = downloadedTrips.flatMap({
+                let owner = $0.event.owner
+                let legDropoff = $0.dropOff?.driver
+                let legPickup = $0.pickUp?.driver
+                let currentUser = self.user.value
+                return owner != currentUser && legDropoff != currentUser && legPickup != currentUser ? $0 : nil
+            })
+        }
+        tableView.reloadData()
     }
     
     
