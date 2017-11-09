@@ -15,4 +15,11 @@ class TripCell: UITableViewCell {
     @IBOutlet weak var pickupLabel: UILabel!
     @IBOutlet weak var dropoffLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var tripDetailInfoButton: UIButton!
+    @IBOutlet weak var dropoffCarBlue: UIImageView!
+    @IBOutlet weak var pickupCarPink: UIImageView!
+    @IBOutlet weak var kidNames: UILabel!
+    
+    
 }

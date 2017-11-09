@@ -34,6 +34,7 @@ class RootViewController: UITableViewController {
         
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let trip = sender as? Trip else { return }
             let eventDetailVC = segue.destination as! TripDetailViewController
