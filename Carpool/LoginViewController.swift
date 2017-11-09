@@ -67,10 +67,12 @@ class LoginViewController: UIViewController {
                     if let user = user {
                         //Sign in Worked
                         print("Signin Worked, \(user)")
+                        NotificationCenter.default.post(name: logMeInNotificationName, object: nil)
                     } else if let error = error {
                         //Signin Didn't work
                         print(#function, error)
                     }
+                    
                 })
             }
         case .signup:
@@ -79,10 +81,12 @@ class LoginViewController: UIViewController {
                     if let user = user {
                         //Signup Worked
                         print("User Created, \(user)")
+                        NotificationCenter.default.post(name: logMeInNotificationName, object: nil)
                     } else if let error = error {
                         //Signup Failed
                         print(#function, error)
                     }
+                    
                 })
             }
         }
