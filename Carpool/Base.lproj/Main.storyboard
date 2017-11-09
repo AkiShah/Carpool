@@ -58,21 +58,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Nio-tE-Yyl">
-                                            <rect key="frame" x="16" y="159" width="343" height="22"/>
+                                            <rect key="frame" x="16" y="149.5" width="343" height="31.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dropoff" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NS-4P-LCT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="171.5" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dropoff" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NS-4P-LCT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="171.5" height="31.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21.5" id="mFq-Tv-fKC"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21.5" id="mFq-Tv-fKC"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLx-X2-HrB">
-                                                    <rect key="frame" x="171.5" y="0.0" width="171.5" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLx-X2-HrB">
+                                                    <rect key="frame" x="171.5" y="0.0" width="171.5" height="31.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21.5" id="8qD-14-7El"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21.5" id="8qD-14-7El"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -81,19 +81,19 @@
                                             </subviews>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kid Name(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btd-eo-DFN">
-                                            <rect key="frame" x="16" y="50" width="343" height="19.5"/>
+                                            <rect key="frame" x="16" y="40.5" width="343" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of Trip" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-e2-27c">
-                                            <rect key="frame" x="16" y="11" width="299" height="31"/>
+                                            <rect key="frame" x="16" y="11" width="299" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.43481864170947787" blue="0.71605329949238583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueCarFaceRight" translatesAutoresizingMaskIntoConstraints="NO" id="c2T-d8-dXP">
-                                            <rect key="frame" x="16" y="99" width="100" height="50"/>
+                                            <rect key="frame" x="16" y="89.5" width="100" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="0AL-bA-Bk4"/>
                                             </constraints>
@@ -105,7 +105,7 @@
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="PinkCarFaceLeft" translatesAutoresizingMaskIntoConstraints="NO" id="WZ7-b3-MhN">
-                                            <rect key="frame" x="259" y="99" width="100" height="50"/>
+                                            <rect key="frame" x="259" y="89.5" width="100" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="0l7-cn-687"/>
                                             </constraints>

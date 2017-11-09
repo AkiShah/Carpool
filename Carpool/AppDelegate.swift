@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CarpoolKit
 import FirebaseCommunity
 
 @UIApplicationMain
@@ -20,7 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
+        API.set(userFullName: "Max's Best Friends")
         return true
+        
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
