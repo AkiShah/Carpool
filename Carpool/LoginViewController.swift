@@ -18,9 +18,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
     }
+    
+    @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
+    }
+    
     @IBAction func onLoginPressed(_ sender: UIButton) {
     }
     

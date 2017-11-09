@@ -429,6 +429,9 @@
                                     <segment title="Login"/>
                                     <segment title="Sign Up"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onSegmentedControlPressed:" destination="uzH-Gh-XhM" eventType="valueChanged" id="7Bm-DK-I8m"/>
+                                </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ITj-TB-MvU">
                                 <rect key="frame" x="16" y="98" width="343" height="172.5"/>
