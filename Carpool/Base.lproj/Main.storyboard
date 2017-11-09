@@ -445,7 +445,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                         <connections>
-                                            <action selector="onEmailEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="upW-jO-Wfs"/>
+                                            <action selector="onEmailEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="2wk-0K-vDE"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFP-r0-7lV">
@@ -454,7 +454,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="onPasswordEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="17r-Ws-kJT"/>
+                                            <action selector="onPasswordEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="baf-pg-FHF"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w0q-HP-ng3">
@@ -463,14 +463,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="onPasswordConfirmedEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="lyy-yE-3Yg"/>
+                                            <action selector="onPasswordConfirmedEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="74u-FL-Ngv"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzi-Es-cDx">
                                         <rect key="frame" x="148.5" y="142.5" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="onLoginPressed:" destination="uzH-Gh-XhM" eventType="touchUpInside" id="JG4-PO-3cR"/>
+                                            <action selector="onLoginPressed:" destination="uzH-Gh-XhM" eventType="touchUpInside" id="PhF-Io-rR1"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -487,8 +487,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="loginButton" destination="Bzi-Es-cDx" id="Slv-oz-Ii4"/>
-                        <outlet property="segmentedController" destination="IKf-NW-vFn" id="dwH-dT-LTp"/>
+                        <outlet property="loginButton" destination="Bzi-Es-cDx" id="rIC-ep-qPw"/>
+                        <outlet property="segmentedController" destination="IKf-NW-vFn" id="JzC-i0-CBe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibv-hI-dPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
