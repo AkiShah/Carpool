@@ -87,7 +87,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of Trip" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-e2-27c">
-                                            <rect key="frame" x="16" y="11" width="343" height="31"/>
+                                            <rect key="frame" x="16" y="11" width="299" height="31"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.43481864170947787" blue="0.71605329949238583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -113,7 +113,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="WZ7-b3-MhN" firstAttribute="bottom" secondItem="c2T-d8-dXP" secondAttribute="bottom" id="2xL-c5-gXT"/>
-                                        <constraint firstItem="NNd-e2-27c" firstAttribute="trailing" secondItem="I4p-tX-Nff" secondAttribute="trailingMargin" id="3ev-Ad-qQf"/>
+                                        <constraint firstItem="NNd-e2-27c" firstAttribute="trailing" secondItem="I4p-tX-Nff" secondAttribute="trailingMargin" constant="-44" id="3ev-Ad-qQf"/>
                                         <constraint firstItem="Nio-tE-Yyl" firstAttribute="top" secondItem="c2T-d8-dXP" secondAttribute="bottom" constant="10" id="7d7-gj-sNI"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Nio-tE-Yyl" secondAttribute="bottom" constant="8" id="ASV-HW-RsX"/>
                                         <constraint firstItem="c2T-d8-dXP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="btd-eo-DFN" secondAttribute="bottom" constant="8" id="Ba1-KG-1S3"/>

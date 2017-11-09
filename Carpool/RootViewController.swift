@@ -19,8 +19,8 @@ class RootViewController: UITableViewController {
     var trips: [Trip] = []
     
     enum tripLeg: String {
-        case dropoff = " will handle dropoff"
-        case pickup = " will handle pickup"
+        case dropoff = " will dropoff"
+        case pickup = " will pickup"
     }
     
     enum tripSegment: Int {
