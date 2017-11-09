@@ -62,18 +62,22 @@ class RootViewController: UITableViewController {
     }
     
     @IBAction func onTripSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        switch tripSegment(rawValue: sender.selectedSegmentIndex)! {
+       
+        trips = downloadedTrips
+        
+        // switch tripSegment(rawValue: sender.selectedSegmentIndex)! {
+
             
-        case .myTrips:
-            //let user = API.fetchUser(id: <#T##String#>, completion: <#T##(Result<User>) -> Void#>)
-            trips = downloadedTrips.flatMap({_ in
-                
-                return nil
-                //if $0.event.owner
-            })
-        case .friendsTrips:
-            break
-        }
+//        case .myTrips:
+//            let user = API.fetchCurrentUser()
+//
+//            trips = downloadedTrips.flatMap({
+//
+//                if $0.event.owner
+//            })
+//        case .friendsTrips:
+//            break
+//        }
     }
     
     
