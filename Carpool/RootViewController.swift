@@ -17,7 +17,7 @@ class RootViewController: UITableViewController {
     
     var downloadedTrips: [Trip] = []
     var trips: [Trip] = []
-    let user = API.fetchCurrentUser()
+    var user: User?
     
     enum tripLeg: String {
         case dropoff = "will handle dropoff"
@@ -34,6 +34,17 @@ class RootViewController: UITableViewController {
         
         //would like to create a title for header in section splitting out which trips already have both legs claimed, and another section that displays which routes still have an unclaimed leg. That way you don't click on a trip that has both legs already accounted for.
         
+        API.fetchCurrentUser { result in
+            switch result {
+                
+            case .success(let user):
+                self.user = user
+                self.TripSegmentedViewController.selectedSegmentIndex = 0
+            case .failure(_):
+                //Failed to get user
+                break
+            }
+        }
         
         API.observeTrips { result in
             switch result {
@@ -64,23 +75,27 @@ class RootViewController: UITableViewController {
     
     @IBAction func onTripSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         
-        switch tripSegment(rawValue: sender.selectedSegmentIndex)! {
-        case .myTrips:
-            trips = downloadedTrips.flatMap({
-                let owner = $0.event.owner
-                let legDropoff = $0.dropOff?.driver
-                let legPickup = $0.pickUp?.driver
-                let currentUser = self.user.value
-                return owner == currentUser || legDropoff == currentUser || legPickup == currentUser ? $0 : nil
-            })
-        case .friendsTrips:
-            trips = downloadedTrips.flatMap({
-                let owner = $0.event.owner
-                let legDropoff = $0.dropOff?.driver
-                let legPickup = $0.pickUp?.driver
-                let currentUser = self.user.value
-                return owner != currentUser && legDropoff != currentUser && legPickup != currentUser ? $0 : nil
-            })
+        if let user = user{
+            switch tripSegment(rawValue: sender.selectedSegmentIndex)! {
+            case .myTrips:
+                trips = downloadedTrips.flatMap({
+                    let owner = $0.event.owner
+                    let legDropoff = $0.dropOff?.driver
+                    let legPickup = $0.pickUp?.driver
+                    let currentUser = self.user
+                    print(" CurrentUser \(currentUser) Owner \(owner) Dropoff \(legDropoff) PickUp \(legPickup)")
+                    return owner == currentUser || legDropoff == currentUser || legPickup == currentUser ? $0 : nil
+                })
+            case .friendsTrips:
+                trips = downloadedTrips.flatMap({
+                    let owner = $0.event.owner
+                    let legDropoff = $0.dropOff?.driver
+                    let legPickup = $0.pickUp?.driver
+                    let currentUser = self.user
+                    print(" CurrentUser \(currentUser) Owner \(owner) Dropoff \(legDropoff) PickUp \(legPickup)")
+                    return owner != currentUser && legDropoff != currentUser && legPickup != currentUser ? $0 : nil
+                })
+            }
         }
         tableView.reloadData()
     }
@@ -110,7 +125,6 @@ class RootViewController: UITableViewController {
             label.backgroundColor = UIColor.red
             label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
             //carImage.image. = UIColor(white: 1, alpha: 0.6)
-            
         }
     }
     

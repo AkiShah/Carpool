@@ -46,13 +46,16 @@ class TripDetailViewController: UIViewController {
         }
         
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(trip.event.clLocation!) { placemarks, error in
-            if let state = placemarks?.first?.administrativeArea, let city = placemarks?.first?.locality{
-                self.eventLocationLabel.text = "\(city), \(state)"
-            } else {
-                self.errorMessages(error: error)
+        if let location = trip.event.clLocation {
+            geocoder.reverseGeocodeLocation(location) { placemarks, error in
+                if let state = placemarks?.first?.administrativeArea, let city = placemarks?.first?.locality{
+                    self.eventLocationLabel.text = "\(city), \(state)"
+                } else {
+                    self.errorMessages(error: error)
+                }
             }
         }
+        
         let formatter = DateFormatter()
         //Need to check if this comes out as Time
         formatter.dateFormat = "h : mm"
