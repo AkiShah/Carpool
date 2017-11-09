@@ -32,32 +32,38 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        API.fetchCurrentUser { result in
+            switch result {
+                
+            case .success(let user):
+                self.user = user
+                self.trips = self.getTrips(for: tripSegment(rawValue: 0)!)
+                self.tableView.reloadData()
+            case .failure(let error):
+                //Failed to get user
+                print("failed to get user")
+                print(error)
+                break
+            }
+        }
+        
         //would like to create a title for header in section splitting out which trips already have both legs claimed, and another section that displays which routes still have an unclaimed leg. That way you don't click on a trip that has both legs already accounted for.
         
         API.observeTrips { result in
             switch result {
             case .success(let trips):
                 self.downloadedTrips = trips
-                self.tableView.reloadData()
-                
-                API.fetchCurrentUser { result in
-                    switch result {
-                        
-                    case .success(let user):
-                        self.user = user
-                        self.trips = self.getTrips(for: tripSegment(rawValue: 0)!)
-                    case .failure(_):
-                        //Failed to get user
-                        break
-                    }
+                if self.user != nil {
+                    self.trips = self.getTrips(for: tripSegment(rawValue: self.TripSegmentedViewController.selectedSegmentIndex)!)
+                        self.tableView.reloadData()
                 }
-                
             case .failure(_):
                 //TODO Error Handling
+                print("failed to observe trips")
                 break
             }
         }
-        
     }
     
     

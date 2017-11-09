@@ -11,3 +11,18 @@ func checkIsValidJsonType(_ any: Any) throws {
         throw API.Error.invalidJsonType
     }
 }
+
+func += <K, V> (left: inout [K:V], right: [K:V]) {
+    for (k, v) in right {
+        left[k] = v
+    }
+}
+
+public enum Result<T> {
+    case success(T)
+    case failure(Swift.Error)
+}
+
+protocol Keyed {
+    var key: String! { get set }
+}

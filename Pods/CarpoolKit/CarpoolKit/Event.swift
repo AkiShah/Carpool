@@ -5,6 +5,7 @@ public struct Event: Codable, Keyed {
     public let description: String
     public let owner: User
     public let time: Date
+    public let endTime: Date?
     let location: String?
 
     public var clLocation: CLLocation? {

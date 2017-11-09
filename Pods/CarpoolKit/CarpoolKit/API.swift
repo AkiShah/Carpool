@@ -174,7 +174,6 @@ public enum API {
             ]
             eventDict["geohash"] = geohash
             let eventRef = Database.database().reference().child("events").childByAutoId()
-            eventRef.setValue(eventDict)
 
             let tripRef = Database.database().reference().child("trips").childByAutoId()
             tripRef.setValue([
@@ -183,7 +182,11 @@ public enum API {
                 "owner": uid
             ])
 
-            let event = Event(key: eventRef.key, description: desc, owner: user, time: time, location: geohash)
+            var eventDict2 = eventDict
+            eventDict2["trips"] = [tripRef.key: true]
+            eventRef.setValue(eventDict2)
+
+            let event = Event(key: eventRef.key, description: desc, owner: user, time: time, endTime: nil, location: geohash)
             let trip = Trip(key: tripRef.key, event: event, dropOff: Leg(driver: user), pickUp: nil, _children: [])
             completion(.success(trip))
         }.catch {
@@ -230,10 +233,16 @@ public enum API {
             auth()
         }.then {
             Database.fetch(path: "users", uid)
-        }.then { snap -> User in
+        }.then { snap -> Promise<User> in
             let name = (try? snap.childSnapshot(forPath: "name").string()) ?? "Anonymous Parent"
-            let kids: [Child] = try snap.childSnapshot(forPath: "children").array()
-            return User(key: uid, name: name, _children: kids)
+
+            return when(fulfilled: snap.childSnapshot(forPath: "children").keys.map { key in
+                Database.fetch(path: "children", key).then {
+                    try $0.value(key: key) as Child
+                }
+            }).then {
+                User(key: uid, name: name, _children: $0)
+            }
         }
     }
 
@@ -317,60 +326,18 @@ public enum API {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         Database.database().reference().child("users").child(uid).child("name").setValue(userFullName)
     }
-}
 
-public enum Result<T> {
-    case success(T)
-    case failure(Swift.Error)
-}
+    public static func set(endTime: Date, for event: Event) {
+        let endTime = endTime.timeIntervalSince1970
+        Database.database().reference().child("events").child(event.key).child("endTime").setValue(endTime)
 
-extension DataSnapshot {
-    func value<T: Decodable & Keyed>(key: String) throws -> T {
-        guard let value = self.value else { throw API.Error.noChild }
-        try checkIsValidJsonType(value)
-        let data = try JSONSerialization.data(withJSONObject: value)
-        var foo: T = try JSONDecoder().decode(T.self, from: data)
-        foo.key = key
-        return foo
-    }
-
-    func array<T: Decodable & Keyed>() throws -> [T] {
-        guard let rawValues = self.value else { return [] }  // nothing there yet, which means empty array
-        if rawValues is NSNull { return [] }  // nothing there yet, which means empty array
-        guard let values = rawValues as? [String: Any] else { throw API.Error.noChildren }
-
-        return try values.map {
-            try checkIsValidJsonType($0.value)
-            let data = try JSONSerialization.data(withJSONObject: $0.value)
-            var foo: T = try JSONDecoder().decode(T.self, from: data)
-            foo.key = $0.key
-            return foo
-        }
-    }
-
-    func string() throws -> String {
-        guard let string = value as? String else { throw API.Error.notAString }
-        return string
-    }
-
-    func string(for key: String) -> String? {
-        guard let values = self.value as? [String: Any] else { return nil }
-        return values[key] as? String
-    }
-}
-
-extension Database {
-    static func fetch(path keys: String...) -> Promise<DataSnapshot> {
-        return Promise<DataSnapshot> { fulfill, reject in
-            var ref = database().reference()
-            for key in keys { ref = ref.child(key) }
-            ref.observeSingleEvent(of: .value) { snapshot in
-                fulfill(snapshot)
+        firstly {
+            Database.fetch(path: "events", event.key, "trips")
+        }.then { snapshot -> Void in
+            let ref = Database.database().reference().child("trips")
+            for key in snapshot.keys {
+                ref.child(key).child("event").child("endTime").setValue(endTime)
             }
         }
     }
-}
-
-protocol Keyed {
-    var key: String! { get set }
 }
