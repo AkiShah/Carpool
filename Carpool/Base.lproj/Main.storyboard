@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--All Trips-->
         <scene sceneID="lPj-xr-VLU">
             <objects>
                 <tableViewController id="8I8-3s-4bT" customClass="RootViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
@@ -127,8 +127,8 @@
                             <outlet property="delegate" destination="8I8-3s-4bT" id="P0x-vc-utA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="QET-NO-B5h">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RdI-Dw-khq">
+                    <navigationItem key="navigationItem" title="All Trips" id="QET-NO-B5h">
+                        <barButtonItem key="rightBarButtonItem" title="+ Add New Trip" id="RdI-Dw-khq">
                             <connections>
                                 <segue destination="4SA-71-PnC" kind="presentation" id="hGt-QR-v3f"/>
                             </connections>
