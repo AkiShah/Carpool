@@ -28,7 +28,7 @@ public enum API {
         return firstly {
             foo()
         }.then { fbuser in
-            Database.fetch(path: "users/\(fbuser.uid)").then {
+            Database.fetch(path: "users", fbuser.uid).then {
                 (fbuser.uid, $0.string(for: "name"))
             }
         }.then { uid, name -> Void in
@@ -40,20 +40,24 @@ public enum API {
         }
     }
 
-    public static func signUp(email: String, password: String, completion: @escaping (Result<User>) -> Void) {
+    public static func signUp(email: String, password: String, fullName: String, completion: @escaping (Result<User>) -> Void) {
         if let user = Auth.auth().currentUser {
             link(user: user, email: email, password: password, completion: completion)
         } else {
-            Auth.auth().createUser(withEmail: email, password: password) { user, error in
-                firstly {
-                    auth()
-                }.then {
-                    fetchCurrentUser()
-                }.then {
-                    completion(.success($0))
-                }.catch {
-                    completion(.failure($0))
+            firstly {
+                PromiseKit.wrap{ Auth.auth().createUser(withEmail: email, password: password, completion: $0) }
+            }.then { user in
+                auth().then {
+                    Database.database().reference().child("users").child(user.uid).updateChildValues([
+                        "name": fullName
+                    ])
                 }
+            }.then {
+                fetchCurrentUser()
+            }.then {
+                completion(.success($0))
+            }.catch {
+                completion(.failure($0))
             }
         }
     }
@@ -79,16 +83,16 @@ public enum API {
         if let user = Auth.auth().currentUser {
             link(user: user, email: email, password: password, completion: completion)
         } else {
-            Auth.auth().signIn(withEmail: email, password: password) { user, error in
-                firstly {
-                    auth()
-                    }.then {
-                        fetchCurrentUser()
-                    }.then {
-                        completion(.success($0))
-                    }.catch {
-                        completion(.failure($0))
-                }
+            firstly {
+                PromiseKit.wrap{ Auth.auth().signIn(withEmail: email, password: password, completion: $0) }
+            }.then { _ in
+                auth()
+            }.then {
+                fetchCurrentUser()
+            }.then {
+                completion(.success($0))
+            }.catch {
+                completion(.failure($0))
             }
         }
     }

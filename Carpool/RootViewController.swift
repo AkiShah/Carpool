@@ -20,8 +20,8 @@ class RootViewController: UITableViewController {
     var user: User?
     
     enum tripLeg: String {
-        case dropoff = "will handle dropoff"
-        case pickup = "will handle pickup"
+        case dropoff = " will handle dropoff"
+        case pickup = " will handle pickup"
     }
     
     enum tripSegment: Int {
@@ -49,7 +49,7 @@ class RootViewController: UITableViewController {
         API.observeTrips { result in
             switch result {
             case .success(let trips):
-                self.downloadedTrips = trips
+                self.trips = trips
                 self.tableView.reloadData()
             case .failure(_):
                 //TODO Error Handling
@@ -106,6 +106,11 @@ class RootViewController: UITableViewController {
         let trip = trips[indexPath.row]
         let dsc = trip.event.description == "" ? "No description given" : trip.event.description
         cell.descriptionLabel.text = dsc
+        if dsc == "" {
+            cell.descriptionLabel.font = UIFont.italicSystemFont(ofSize: (cell.descriptionLabel.font.pointSize))
+        } else {
+            cell.descriptionLabel.font = UIFont.boldSystemFont(ofSize: cell.descriptionLabel.font.pointSize)
+        }
         
         setProps(cell.dropoffLabel, cell.dropoffCarBlue, for: trip.dropOff, as: .dropoff)
         setProps(cell.pickupLabel, cell.pickupCarPink, for: trip.pickUp, as: .pickup)
@@ -119,6 +124,7 @@ class RootViewController: UITableViewController {
             label.textColor = UIColor.black
             label.backgroundColor = UIColor.clear
             label.font = UIFont.systemFont(ofSize: label.font.pointSize)
+            carImage.alpha = 1.0
         } else {
             label.text = "Not Claimed"
             label.textColor = UIColor.white
