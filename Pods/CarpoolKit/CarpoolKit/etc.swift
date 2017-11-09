@@ -26,3 +26,10 @@ public enum Result<T> {
 protocol Keyed {
     var key: String! { get set }
 }
+
+public extension String {
+    func chuzzled() -> String? {
+        let rv = trimmingCharacters(in: .whitespacesAndNewlines)
+        return rv.isEmpty ? nil : rv
+    }
+}

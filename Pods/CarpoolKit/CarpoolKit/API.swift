@@ -14,6 +14,9 @@ public enum API {
         case emptyDescription
         case notAString
         case notYourTripToDelete
+        case anonymousUsersCannotCreateTrips
+        case deprecated
+        case noChildName
 
         /// sign-up or sign-in failed
         case signInFailed(underlyingError: Swift.Error)
@@ -35,7 +38,6 @@ public enum API {
         }.then { uid, name -> Void in
             if name != nil { return }
             Database.database().reference().child("users").child(uid).setValue([
-                "name": "Anonymous Parent",
                 "ctime": Date().timeIntervalSince1970
             ])
         }
@@ -100,29 +102,12 @@ public enum API {
 
     /// returns the current list of trips, once
     public static func fetchTripsOnce(completion: @escaping (Result<[Trip]>) -> Void) {
-        firstly {
-            auth()
-        }.then {
-            Database.fetch(path: "trips")
-        }.then { bar -> [String: [String: Any]] in
-            guard let foo = bar.value as? [String: [String: Any]] else { throw API.Error.decode }
-            return foo
-        }.then {
-            when(resolved: $0.map{ Trip.make(key: $0, json: $1) })
-        }.then { results -> Void in
-            var trips: [Trip] = []
-            for case .fulfilled(let trip) in results { trips.append(trip) }
-
-            if trips.isEmpty && !results.isEmpty {
-                throw Error.noChildren
-            }
-
-            completion(.success(trips))
-        }.catch {
-            completion(.failure($0))
+        DispatchQueue.main.async {
+            completion(.failure(Error.deprecated))
         }
     }
 
+    /// returns all trips, continuously
     public static func observeTrips(completion: @escaping (Result<[Trip]>) -> Void) {
         firstly {
             auth()
@@ -148,7 +133,22 @@ public enum API {
         }.catch {
             completion(.failure($0))
         }
+    }
 
+    /// returns all the current user's trips, continuously
+    public static func observeMyTrips(completion: @escaping (Result<[Trip]>) -> Void) {
+        observeTrips { result in
+            switch result {
+            case .success(let trips):
+                fetchCurrentUser().then { user in
+                    completion(.success(trips.filter{ $0.event.owner == user }))
+                }.catch {
+                    completion(.failure($0))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 
     /// claims the initial leg by the current user, so pickUp leg is UNCLAIMED
@@ -162,8 +162,11 @@ public enum API {
         firstly {
             fetchCurrentUser()
         }.then { user -> Void in
-            guard let uid = Auth.auth().currentUser?.uid else {
+            guard let fbuser = Auth.auth().currentUser else {
                 throw Error.notAuthorized
+            }
+            guard user.name?.chuzzled() != nil, user.name != "Anonymous Parent" else {
+                throw Error.anonymousUsersCannotCreateTrips
             }
 
             let geohash = location.flatMap{ Geohash(location: $0) }?.value
@@ -171,16 +174,16 @@ public enum API {
             var eventDict: [String: Any] = [
                 "description": desc,
                 "time": time.timeIntervalSince1970,
-                "owner": [uid: user.name]
+                "owner": [fbuser.uid: user.name!]
             ]
             eventDict["geohash"] = geohash
             let eventRef = Database.database().reference().child("events").childByAutoId()
 
             let tripRef = Database.database().reference().child("trips").childByAutoId()
             tripRef.setValue([
-                "dropOff": [uid: user.name ?? "Anonymous Parent"],
+                "dropOff": [fbuser.uid: user.name!],
                 "event": [eventRef.key: eventDict],
-                "owner": uid
+                "owner": [fbuser.uid: user.name!]
             ])
 
             var eventDict2 = eventDict
@@ -295,14 +298,28 @@ public enum API {
         }
     }
 
+    public var isCurrentUserAnonymous: Bool {
+        return Auth.auth().currentUser?.isAnonymous ?? true
+    }
+
     public static func delete(trip: Trip) throws {
-        //guard trip.user.key == Auth.auth().currentUser?.uid else { throw Error.notYourTripToDelete }
+        //TODO
+        guard trip.event.owner.key == Auth.auth().currentUser?.uid else {
+            throw Error.notYourTripToDelete
+        }
         Database.database().reference().child("trips").child(trip.key).removeValue()
     }
 
     /// adds children to the logged in user
     /// if a child already exists with that name, returns the existing child
     public static func addChild(name: String, completion: @escaping (Result<Child>) -> Void) {
+
+        guard name.chuzzled() != nil else {
+            return DispatchQueue.main.async {
+                completion(.failure(Error.noChildName))
+            }
+        }
+
         firstly {
             fetchCurrentUser()
         }.then { user -> Child in
@@ -324,8 +341,13 @@ public enum API {
     }
 
     public static func set(userFullName: String) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        Database.database().reference().child("users").child(uid).child("name").setValue(userFullName)
+        guard let user = Auth.auth().currentUser else { return }
+
+        let rq = user.createProfileChangeRequest()
+        rq.displayName = userFullName
+        rq.commitChanges(completion: nil)
+
+        Database.database().reference().child("users").child(user.uid).child("name").setValue(userFullName)
     }
 
     public static func set(endTime: Date, for event: Event) {

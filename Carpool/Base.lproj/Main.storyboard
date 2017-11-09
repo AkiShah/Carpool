@@ -614,6 +614,33 @@
             </objects>
             <point key="canvasLocation" x="-1871" y="-526"/>
         </scene>
+        <!--Profile Page-->
+        <scene sceneID="3Mk-3f-Sci">
+            <objects>
+                <viewController title="Profile Page" id="vbC-iO-mKY" customClass="ProfileViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cbT-Bv-Nm5"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Gn-km-z5B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BbZ-M8-Jba">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYs-xL-ee6">
+                                <rect key="frame" x="105" y="94" width="165" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HIG-pB-mzH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1103" y="-527"/>
+        </scene>
         <!--Home Screen View Controller-->
         <scene sceneID="uKw-n5-QRi">
             <objects>
@@ -652,6 +679,15 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1S-do-eJu">
+                                <rect key="frame" x="257" y="72" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Profile"/>
+                                <connections>
+                                    <segue destination="vbC-iO-mKY" kind="show" id="gVB-94-TIY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -669,7 +705,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6Q-vR-4mN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1103" y="170"/>
+            <point key="canvasLocation" x="-1103.2" y="169.56521739130437"/>
         </scene>
         <!--Root Navigation Controller-->
         <scene sceneID="R9X-0u-3A5">

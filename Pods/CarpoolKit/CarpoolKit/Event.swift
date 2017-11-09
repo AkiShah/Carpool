@@ -1,9 +1,10 @@
 import CoreLocation
+import PromiseKit
 
 public struct Event: Codable, Keyed {
     public var key: String!
     public let description: String
-    public let owner: User
+    public private(set) var owner: User
     public let time: Date
     public let endTime: Date?
     let location: String?
@@ -20,8 +21,28 @@ extension Event {
         }
         try checkIsValidJsonType(json)
         let data = try JSONSerialization.data(withJSONObject: json)
-        self = try JSONDecoder().decode(Event.self, from: data)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .secondsSince1970
+        self = try decoder.decode(Event.self, from: data)
         self.key = key
+    }
+
+    static func make(key: String, json: [String: Any]) -> Promise<Event> {
+        do {
+            var event = try Event(json: json, key: key)
+            if let uid = (json["owner"] as? [String: String])?.first?.key {
+                return firstly {
+                    API.fetchUser(id: uid)
+                }.then { user -> Event in
+                    event.owner = user
+                    return event
+                }
+            } else {
+                return Promise(value: event)
+            }
+        } catch {
+            return Promise(error: error)
+        }
     }
 }
 
