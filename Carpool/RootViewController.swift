@@ -86,6 +86,11 @@ class RootViewController: UITableViewController {
         let trip = trips[indexPath.row]
         let dsc = trip.event.description == "" ? "No description given" : trip.event.description
         cell.descriptionLabel.text = dsc
+        if dsc == "" {
+            cell.descriptionLabel.font = UIFont.italicSystemFont(ofSize: (cell.descriptionLabel.font.pointSize))
+        } else {
+            cell.descriptionLabel.font = UIFont.boldSystemFont(ofSize: cell.descriptionLabel.font.pointSize)
+        }
         
         setProps(cell.dropoffLabel, cell.dropoffCarBlue, for: trip.dropOff, as: .dropoff)
         setProps(cell.pickupLabel, cell.pickupCarPink, for: trip.pickUp, as: .pickup)
@@ -104,7 +109,7 @@ class RootViewController: UITableViewController {
             label.text = "Not Claimed"
             label.textColor = UIColor.white
             label.backgroundColor = UIColor.red
-            label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
+            label.font = UIFont.italicSystemFont(ofSize: label.font.pointSize)
             carImage.alpha = 0.3
         }
     }
