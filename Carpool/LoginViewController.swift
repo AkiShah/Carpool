@@ -12,8 +12,12 @@ import FirebaseCommunity
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var segmentedController: UISegmentedControl!
-    
     @IBOutlet weak var loginButton: UIButton!
+    
+    enum loginControl: Int {
+        case login
+        case signup
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +25,22 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
+        
     }
     
     @IBAction func onLoginPressed(_ sender: UIButton) {
+        
     }
     
     @IBAction func onEmailEntered(_ sender: UITextField) {
+        
     }
     
     @IBAction func onPasswordEntered(_ sender: UITextField) {
+        
     }
     
     @IBAction func onPasswordConfirmedEntered(_ sender: UITextField) {
+        
     }
 }
