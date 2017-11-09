@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseCommunity
+import CarpoolKit
 
 let logMeInNotificationName = Notification.Name("LogMeInDidCompleteNotification")
 
@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     var userEmail: String = ""
     var userPassword: String = ""
     var userPasswordConfirm: String = ""
+    var userName: String = ""
     
     enum ToggleState: Int {
         case login
@@ -63,30 +64,24 @@ class LoginViewController: UIViewController {
         switch ToggleState(rawValue: segmentedController.selectedSegmentIndex)! {
         case .login:
             if userEmail != "", userPassword != "" {
-                Auth.auth().signIn(withEmail: userEmail, password: userPassword, completion: { user, error in
-                    if let user = user {
-                        //Sign in Worked
-                        print("Signin Worked, \(user)")
-                        NotificationCenter.default.post(name: logMeInNotificationName, object: nil)
-                    } else if let error = error {
-                        //Signin Didn't work
-                        print(#function, error)
+                API.signIn(email: userEmail, password: userPassword, completion: { result in
+                    switch result {
+                    case .success(let user):
+                        print(user)
+                    case .failure(let error):
+                        print(error)
                     }
-                    
                 })
             }
         case .signup:
-            if userEmail != "", userPassword != "", userPassword == userPasswordConfirm {
-                Auth.auth().createUser(withEmail: userEmail, password: userPassword, completion: { user, error in
-                    if let user = user {
-                        //Signup Worked
-                        print("User Created, \(user)")
-                        NotificationCenter.default.post(name: logMeInNotificationName, object: nil)
-                    } else if let error = error {
-                        //Signup Failed
-                        print(#function, error)
+            if userEmail != "", userPassword != "", userPassword == userPasswordConfirm, userName != "" {
+                API.signUp(email: userEmail, password: userPassword, fullName: userName, completion: { result in
+                    switch result {
+                    case .success(let user):
+                        print(user)
+                    case .failure(let error):
+                        print(error)
                     }
-                    
                 })
             }
         }
