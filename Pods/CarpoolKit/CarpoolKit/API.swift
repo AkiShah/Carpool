@@ -139,6 +139,7 @@ public enum API {
                     if trips.isEmpty && !results.isEmpty {
                         throw Error.noChildren
                     }
+                    trips.sort()
                     completion(.success(trips))
                 }.catch {
                     completion(.failure($0))

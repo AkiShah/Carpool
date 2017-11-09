@@ -30,7 +30,7 @@ extension Trip: Equatable {
 
 extension Trip: Comparable {
     public static func <(lhs: Trip, rhs: Trip) -> Bool {
-        return lhs.event.time < rhs.event.time
+        return lhs.event.time > rhs.event.time
     }
 }
 
