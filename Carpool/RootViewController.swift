@@ -9,11 +9,16 @@
 import UIKit
 import CarpoolKit
 import CoreLocation
-import FirebaseCommunity
 
 class RootViewController: UITableViewController {
     
     var trips: [Trip] = []
+    
+    
+    enum tripLeg: String {
+        case dropoff = "will handle dropoff"
+        case pickup = "will handle pickup"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,17 +56,18 @@ class RootViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as! TripCell
         let trip = trips[indexPath.row]
+        let dsc = trip.event.description == "" ? "No description given" : trip.event.description
+        cell.descriptionLabel.text = dsc
         
-        cell.descriptionLabel.text = trip.event.description
-        setProps(cell.dropoffLabel, forTripLeg: trip.dropOff)
-        setProps(cell.pickupLabel, forTripLeg: trip.pickUp)
+        setProps(cell.dropoffLabel, cell.dropoffCarBlue, for: trip.dropOff, as: .dropoff)
+        setProps(cell.pickupLabel, cell.pickupCarPink, for: trip.pickUp, as: .pickup)
         
         return cell
     }
     
-    func setProps(_ label: UILabel, forTripLeg leg: Leg? ) {
+    func setProps(_ label: UILabel, _ carImage: UIImageView, for leg: Leg?, as legType: tripLeg) {
         if let leg = leg {
-            label.text = leg.driver.name
+            label.text =  leg.driver.name! + legType.rawValue
             label.textColor = UIColor.black
             label.backgroundColor = UIColor.clear
             label.font = UIFont.systemFont(ofSize: label.font.pointSize)
@@ -70,6 +76,8 @@ class RootViewController: UITableViewController {
             label.textColor = UIColor.white
             label.backgroundColor = UIColor.red
             label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
+            //carImage.image. = UIColor(white: 1, alpha: 0.6)
+            
         }
     }
     
