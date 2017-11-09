@@ -118,7 +118,7 @@ class RootViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as! TripCell
         let trip = trips[indexPath.row]
         let dsc = trip.event.description == "" ? "No description given" : trip.event.description
-        cell.descriptionLabel.text = dsc
+        cell.descriptionLabel.text = dsc 
         if dsc == "" {
             cell.descriptionLabel.font = UIFont.italicSystemFont(ofSize: (cell.descriptionLabel.font.pointSize))
         } else {
