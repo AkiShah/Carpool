@@ -202,7 +202,6 @@ extension CreateTripViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations.first)
     }
 }
 
