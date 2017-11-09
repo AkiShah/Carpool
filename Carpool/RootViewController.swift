@@ -71,12 +71,13 @@ class RootViewController: UITableViewController {
             label.textColor = UIColor.black
             label.backgroundColor = UIColor.clear
             label.font = UIFont.systemFont(ofSize: label.font.pointSize)
+            carImage.alpha = 1.0
         } else {
             label.text = "Not Claimed"
             label.textColor = UIColor.white
             label.backgroundColor = UIColor.red
             label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
-            //carImage.image. = UIColor(white: 1, alpha: 0.6)
+            carImage.alpha = 0.6
             
         }
     }
