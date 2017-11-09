@@ -88,6 +88,7 @@
 				D22071801FB114AF004B1B36 /* CreateTripViewController.swift */,
 				730ABE2C1FB0EEAF00146469 /* TripDetailViewController.swift */,
 				D2D8B2641FB36A4A00800358 /* SearchLocationViewController.swift */,
+				D2F576071FB4B03C008D3438 /* LoginViewController.swift */,
 				733E2FFE1FB0E79C005E9AFD /* Main.storyboard */,
 				733E30011FB0E79C005E9AFD /* Assets.xcassets */,
 				733E30031FB0E79C005E9AFD /* LaunchScreen.storyboard */,
@@ -247,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2F576081FB4B03C008D3438 /* LoginViewController.swift in Sources */,
 				730ABE2D1FB0EEAF00146469 /* TripDetailViewController.swift in Sources */,
 				733E2FFD1FB0E79C005E9AFD /* RootViewController.swift in Sources */,
 				733E2FFB1FB0E79C005E9AFD /* AppDelegate.swift in Sources */,
