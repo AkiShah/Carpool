@@ -36,9 +36,9 @@ class CreateTripViewController: UIViewController {
         var descComponent: String {
             switch self {
             case .dropoff:
-                return "dropped off at"
+                return " dropped off at"
             case .pickup:
-                return "picked up by"
+                return " picked up by"
             }
         }
     }
