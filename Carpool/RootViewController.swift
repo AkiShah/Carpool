@@ -34,23 +34,24 @@ class RootViewController: UITableViewController {
         
         //would like to create a title for header in section splitting out which trips already have both legs claimed, and another section that displays which routes still have an unclaimed leg. That way you don't click on a trip that has both legs already accounted for.
         
-        API.fetchCurrentUser { result in
-            switch result {
-                
-            case .success(let user):
-                self.user = user
-                self.TripSegmentedViewController.selectedSegmentIndex = 0
-            case .failure(_):
-                //Failed to get user
-                break
-            }
-        }
-        
         API.observeTrips { result in
             switch result {
             case .success(let trips):
-                self.trips = trips
+                self.downloadedTrips = trips
                 self.tableView.reloadData()
+                
+                API.fetchCurrentUser { result in
+                    switch result {
+                        
+                    case .success(let user):
+                        self.user = user
+                        self.trips = self.getTrips(for: tripSegment(rawValue: 0)!)
+                    case .failure(_):
+                        //Failed to get user
+                        break
+                    }
+                }
+                
             case .failure(_):
                 //TODO Error Handling
                 break
@@ -75,29 +76,35 @@ class RootViewController: UITableViewController {
     
     @IBAction func onTripSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         
-        if let user = user{
-            switch tripSegment(rawValue: sender.selectedSegmentIndex)! {
-            case .myTrips:
-                trips = downloadedTrips.flatMap({
-                    let owner = $0.event.owner
-                    let legDropoff = $0.dropOff?.driver
-                    let legPickup = $0.pickUp?.driver
-                    let currentUser = self.user
-                    print(" CurrentUser \(currentUser) Owner \(owner) Dropoff \(legDropoff) PickUp \(legPickup)")
-                    return owner == currentUser || legDropoff == currentUser || legPickup == currentUser ? $0 : nil
-                })
-            case .friendsTrips:
-                trips = downloadedTrips.flatMap({
-                    let owner = $0.event.owner
-                    let legDropoff = $0.dropOff?.driver
-                    let legPickup = $0.pickUp?.driver
-                    let currentUser = self.user
-                    print(" CurrentUser \(currentUser) Owner \(owner) Dropoff \(legDropoff) PickUp \(legPickup)")
-                    return owner != currentUser && legDropoff != currentUser && legPickup != currentUser ? $0 : nil
-                })
-            }
+        if user != nil{
+            trips = getTrips(for: tripSegment(rawValue: sender.selectedSegmentIndex)!)
         }
         tableView.reloadData()
+    }
+    
+    func getTrips(for trip: tripSegment) -> [Trip] {
+        
+        var trips: [Trip] = []
+        switch trip {
+        case .myTrips:
+            trips = downloadedTrips.flatMap({
+                let owner = $0.event.owner
+                let legDropoff = $0.dropOff?.driver
+                let legPickup = $0.pickUp?.driver
+                let currentUser = user
+                return owner == currentUser || legDropoff == currentUser || legPickup == currentUser ? $0 : nil
+            })
+        case .friendsTrips:
+            trips = downloadedTrips.flatMap({
+                let owner = $0.event.owner
+                let legDropoff = $0.dropOff?.driver
+                let legPickup = $0.pickUp?.driver
+                let currentUser = user
+                return owner != currentUser && legDropoff != currentUser && legPickup != currentUser ? $0 : nil
+            })
+        }
+        
+        return trips
     }
     
     
@@ -129,8 +136,8 @@ class RootViewController: UITableViewController {
             label.text = "Not Claimed"
             label.textColor = UIColor.white
             label.backgroundColor = UIColor.red
-            label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
-            //carImage.image. = UIColor(white: 1, alpha: 0.6)
+            label.font = UIFont.italicSystemFont(ofSize: label.font.pointSize)
+            carImage.alpha = 0.3
         }
     }
     
