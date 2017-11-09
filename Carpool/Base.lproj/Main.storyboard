@@ -18,9 +18,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="JPm-BE-Ncx">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Lg0-zK-Wop">
+                                    <rect key="frame" x="8" y="8" width="359" height="29"/>
+                                    <segments>
+                                        <segment title="My Trips"/>
+                                        <segment title="My Connections"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="onTripSegmentedControlValueChanged:" destination="8I8-3s-4bT" eventType="valueChanged" id="yAd-1Y-ouO"/>
+                                    </connections>
+                                </segmentedControl>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottomMargin" secondItem="Lg0-zK-Wop" secondAttribute="bottom" id="7Yq-zn-GKe"/>
+                                <constraint firstItem="Lg0-zK-Wop" firstAttribute="top" secondItem="JPm-BE-Ncx" secondAttribute="topMargin" id="HmE-QM-HFh"/>
+                                <constraint firstItem="Lg0-zK-Wop" firstAttribute="leading" secondItem="JPm-BE-Ncx" secondAttribute="leadingMargin" id="bWP-Kv-v9X"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="Lg0-zK-Wop" secondAttribute="trailing" id="xMU-Q9-QFx"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventList" id="yBF-A9-ZRk">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yBF-A9-ZRk" id="hDm-8A-TDn">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -28,7 +51,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TripCell" rowHeight="200" id="HDj-Ik-nNo" customClass="TripCell" customModule="Carpool" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HDj-Ik-nNo" id="I4p-tX-Nff">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
@@ -135,6 +158,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="TripSegmentedViewController" destination="Lg0-zK-Wop" id="xCt-0h-oBI"/>
                         <segue destination="Ind-D3-ceY" kind="presentation" identifier="segueToEventDetailVC" id="SAK-h5-eZB"/>
                     </connections>
                 </tableViewController>

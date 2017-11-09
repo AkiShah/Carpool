@@ -12,6 +12,9 @@ import CoreLocation
 
 class RootViewController: UITableViewController {
     
+    
+    @IBOutlet weak var TripSegmentedViewController: UISegmentedControl!
+    
     var trips: [Trip] = []
     
     
@@ -52,6 +55,10 @@ class RootViewController: UITableViewController {
 
     @IBAction func unwindFromCreateTripViewController(segue: UIStoryboardSegue) {
     }
+    
+    @IBAction func onTripSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+    }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as! TripCell
