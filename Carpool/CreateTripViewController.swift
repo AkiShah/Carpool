@@ -17,15 +17,16 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var mapButton: UIButton!
     
-    let location: CLLocation = CLLocation()
     var desc: String = ""
     var time: Date = Date()
     var enteredLocation: String = ""
-    var childName: String = ""
     var locationFromMap: CLLocation?
     let locationManager = CLLocationManager()
     var currentLocation = CLLocation()
     var annotations: [MKAnnotation] = []
+    var child: Child?
+    
+    
     
     
     enum selectedLeg: Int {
@@ -54,12 +55,22 @@ class CreateTripViewController: UIViewController {
         if desc != ""{
             API.createTrip(eventDescription: desc, eventTime: time, eventLocation: locationFromMap) { result in
                 switch result {
-                    
                 case .success(let trip):
-                    API.add()
+                    if let child = self.child {
+                        do {
+                            try API.add(child: child, to: trip)
+                        } catch {
+                            let alert = UIAlertController(title: "Whoops", message: "Child was not added", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "I'll try again!", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    }
                 case .failure(_):
-                    <#code#>
+                    let alert = UIAlertController(title: "Whoops", message: "Trip Creation Failed", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Okay, I'll try again!", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
+                
                 self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
             }
         }
@@ -71,9 +82,17 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func onChildNameEntered(_ sender: UITextField) {
-        let enteredText = sender.text
-        
-        if enteredText?.isEmpty ?? true {
+        if let enteredText = sender.text {
+            API.addChild(name: enteredText, completion: { (result) in
+                switch result {
+                    
+                case .success(let child):
+                    self.child = child
+                case .failure(_):
+                    break//TODO error
+                }
+            })
+        } else {
             let alert = UIAlertController(title: "Whoops", message: "Please enter a child's name", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Thanks, I'll do that!", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -88,30 +107,39 @@ class CreateTripViewController: UIViewController {
             enteredLocation = enteredText
             desc = enteredText
             
-            let searchRequest = MKLocalSearchRequest()
-            searchRequest.naturalLanguageQuery = enteredText
-            searchRequest.region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 20000, 20000)
+            let geocoder = CLGeocoder()
+            let clRegion = CLCircularRegion(center: currentLocation.coordinate, radius: 20000, identifier: "currentLocation")
             
-            let search = MKLocalSearch(request: searchRequest)
-
-            search.start { (searchResp, error) in
-                if let searchResp = searchResp {
-                    print("WE HAVE THE STUFF!")
-                    self.annotations = searchResp.mapItems.map({ $0.placemark })
+            geocoder.geocodeAddressString(enteredText, in: clRegion, completionHandler: { (placemarks, error) in
+                if let placemarks = placemarks {
+                    self.annotations = placemarks.map({$0.location!})
+                    print("We have locations")
                     self.mapButton.isHidden = false
-                    //we have annotations
                 } else {
-                    print("Haha, you've been swindled")
+                    print(#function, "Something went bad")
                     self.mapButton.isHidden = true
-                    //we don't have annotations, todo errors
                 }
-            }
+            })
+            
+//            let searchRequest = MKLocalSearchRequest()
+//            searchRequest.naturalLanguageQuery = enteredText
+//            searchRequest.region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 20000, 20000)
+//
+//            let search = MKLocalSearch(request: searchRequest)
+//
+//            search.start { (searchResp, error) in
+//                if let searchResp = searchResp {
+//                    print("WE HAVE THE STUFF!")
+//                    self.annotations = searchResp.mapItems.map({ $0.placemark })
+//                    self.mapButton.isHidden = false
+//                    //we have annotations
+//                } else {
+//                    print("Haha, you've been swindled")
+//                    self.mapButton.isHidden = true
+//                    //we don't have annotations, todo errors
+//                }
+//            }
         }
-//        if destinationDisplayed.text?.isEmpty ?? true {
-//            let alert = UIAlertController(title: "Whoops", message: "Please enter a valid destination", preferredStyle: UIAlertControllerStyle.alert)
-//            alert.addAction(UIAlertAction(title: "Thanks, I'll do that!", style: UIAlertActionStyle.default, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
-//        }
     }
     @IBAction func onMapItPressed(_ sender: UIButton) {
         //TODO take entered text from destination added and add it to CL Location
@@ -176,5 +204,9 @@ extension CreateTripViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(locations.first)
     }
+}
+
+extension CLLocation: MKAnnotation {
+
 }
 

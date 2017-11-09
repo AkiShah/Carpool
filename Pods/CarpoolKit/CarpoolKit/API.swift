@@ -63,7 +63,16 @@ public enum API {
                 guard let foo = snapshot.value as? [String: [String: Any]] else {
                     return completion(.failure(API.Error.noChildren))
                 }
-                when(fulfilled: foo.map{ Trip.make(key: $0, json: $1) }).join(joint)
+                firstly {
+                    when(resolved: foo.map{ Trip.make(key: $0, json: $1) })
+                }.then { results -> [Trip] in
+                    var trips: [Trip] = []
+                    for case .fulfilled(let trip) in results { trips.append(trip) }
+                    if trips.isEmpty && !results.isEmpty {
+                        throw Error.noChildren
+                    }
+                    return trips
+                }.join(joint)
             }
             return promise
         }.then {
@@ -184,13 +193,27 @@ public enum API {
         }
     }
 
-    public func addChild(name: String, parent user: User) {
-        let ref1 = Database.database().reference().child("children").childByAutoId()
-        ref1.setValue(["name": name])
-
-        Database.database().reference().child("users").child(user.key).child("children").updateChildValues([
-            ref1.key: name
-        ])
+    /// adds children to the logged in user
+    /// if a child already exists with that name, returns the existing child
+    public static func addChild(name: String, completion: @escaping (Result<Child>) -> Void) {
+        firstly {
+            fetchCurrentUser()
+        }.then { user -> Child in
+            if let child = user.children.first(where: { $0.name == name }) {
+                return child
+            } else {
+                let ref1 = Database.database().reference().child("children").childByAutoId()
+                ref1.setValue(["name": name])
+                Database.database().reference().child("users").child(user.key).child("children").updateChildValues([
+                    ref1.key: name
+                ])
+                return Child(key: ref1.key, name: name)
+            }
+        }.then {
+            completion(.success($0))
+        }.catch {
+            completion(.failure($0))
+        }
     }
 }
 
