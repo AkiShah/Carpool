@@ -12,6 +12,7 @@ public enum API {
         case legAndTripAreNotRelated
         case invalidJsonType
         case emptyDescription
+        case notAString
 
         /// sign-up or sign-in failed
         case signInFailed(underlyingError: Swift.Error)
@@ -192,7 +193,15 @@ public enum API {
         ])
     }
 
-    static func fetchCurrentUser() -> Promise<User> {
+    public static func fetchCurrentUser(completion: @escaping (Result<User>) -> Void) {
+        fetchCurrentUser().then {
+            completion(.success($0))
+        }.catch {
+            completion(.failure($0))
+        }
+    }
+
+    public static func fetchCurrentUser() -> Promise<User> {
         return firstly {
             auth()
         }.then { () -> Promise<User> in
@@ -224,7 +233,7 @@ public enum API {
         }
     }
 
-    public static func fetchUser(id uid: String, completion: @escaping (Result<User>) -> Void) {
+    static func fetchUser(id uid: String, completion: @escaping (Result<User>) -> Void) {
         firstly {
             fetchUser(id: uid)
         }.then {
@@ -246,12 +255,7 @@ public enum API {
 
     static func claim(_ key: String, trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
         firstly {
-            auth()
-        }.then { _ -> Promise<User> in
-            guard let uid = Auth.auth().currentUser?.uid else {
-                throw Error.notAuthorized
-            }
-            return API.fetchUser(id: uid)
+            fetchCurrentUser()
         }.then { user -> Void in
             Database.database().reference().child("trips").child(trip.key).updateChildValues([
                 key: [user.key: user.name ?? "Anonymous Parent"]
@@ -316,7 +320,7 @@ extension DataSnapshot {
     }
 
     func string() throws -> String {
-        guard let string = value as? String else { throw API.Error.invalidJsonType }
+        guard let string = value as? String else { throw API.Error.notAString }
         return string
     }
 

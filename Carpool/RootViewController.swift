@@ -15,12 +15,17 @@ class RootViewController: UITableViewController {
     
     @IBOutlet weak var TripSegmentedViewController: UISegmentedControl!
     
+    var downloadedTrips: [Trip] = []
     var trips: [Trip] = []
-    
     
     enum tripLeg: String {
         case dropoff = " will handle dropoff"
         case pickup = " will handle pickup"
+    }
+    
+    enum tripSegment: Int {
+        case myTrips
+        case friendsTrips
     }
     
     override func viewDidLoad() {
@@ -32,7 +37,7 @@ class RootViewController: UITableViewController {
         API.observeTrips { result in
             switch result {
             case .success(let trips):
-                self.trips = trips
+                self.downloadedTrips = trips
                 self.tableView.reloadData()
             case .failure(_):
                 //TODO Error Handling
@@ -57,6 +62,18 @@ class RootViewController: UITableViewController {
     }
     
     @IBAction func onTripSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+        switch tripSegment(rawValue: sender.selectedSegmentIndex)! {
+            
+        case .myTrips:
+            //let user = API.fetchUser(id: <#T##String#>, completion: <#T##(Result<User>) -> Void#>)
+            trips = downloadedTrips.flatMap({_ in
+                
+                return nil
+                //if $0.event.owner
+            })
+        case .friendsTrips:
+            break
+        }
     }
     
     
