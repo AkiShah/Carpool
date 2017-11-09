@@ -77,21 +77,29 @@
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w34-bH-ddf">
                                             <rect key="frame" x="329" y="15" width="22" height="22"/>
+                                            <connections>
+                                                <action selector="onTripDetailInfoButtonPressed:" destination="8I8-3s-4bT" eventType="touchUpInside" id="rF6-N2-4Zi"/>
+                                            </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" image="PinkCarFaceLeft" translatesAutoresizingMaskIntoConstraints="NO" id="WZ7-b3-MhN">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="PinkCarFaceLeft" translatesAutoresizingMaskIntoConstraints="NO" id="WZ7-b3-MhN">
                                             <rect key="frame" x="259" y="99" width="100" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="0l7-cn-687"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="WZ7-b3-MhN" firstAttribute="bottom" secondItem="c2T-d8-dXP" secondAttribute="bottom" id="2xL-c5-gXT"/>
                                         <constraint firstItem="NNd-e2-27c" firstAttribute="trailing" secondItem="I4p-tX-Nff" secondAttribute="trailingMargin" id="3ev-Ad-qQf"/>
                                         <constraint firstItem="Nio-tE-Yyl" firstAttribute="top" secondItem="c2T-d8-dXP" secondAttribute="bottom" constant="10" id="7d7-gj-sNI"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Nio-tE-Yyl" secondAttribute="bottom" constant="8" id="ASV-HW-RsX"/>
                                         <constraint firstItem="c2T-d8-dXP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="btd-eo-DFN" secondAttribute="bottom" constant="8" id="Ba1-KG-1S3"/>
+                                        <constraint firstItem="WZ7-b3-MhN" firstAttribute="top" secondItem="c2T-d8-dXP" secondAttribute="top" id="CsK-7L-Ex1"/>
                                         <constraint firstItem="Nio-tE-Yyl" firstAttribute="leading" secondItem="I4p-tX-Nff" secondAttribute="leadingMargin" id="GS9-Md-Ujx"/>
                                         <constraint firstItem="c2T-d8-dXP" firstAttribute="leading" secondItem="btd-eo-DFN" secondAttribute="leading" id="Iy6-cZ-mff"/>
                                         <constraint firstItem="NNd-e2-27c" firstAttribute="top" secondItem="I4p-tX-Nff" secondAttribute="topMargin" id="LK5-i5-fKJ"/>
-                                        <constraint firstItem="WZ7-b3-MhN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="btd-eo-DFN" secondAttribute="bottom" constant="8" id="OT8-Ci-sjn"/>
                                         <constraint firstItem="btd-eo-DFN" firstAttribute="trailing" secondItem="I4p-tX-Nff" secondAttribute="trailingMargin" id="T3m-iX-nmH"/>
+                                        <constraint firstItem="WZ7-b3-MhN" firstAttribute="trailing" secondItem="Nio-tE-Yyl" secondAttribute="trailing" id="WDo-kg-iIN"/>
                                         <constraint firstItem="btd-eo-DFN" firstAttribute="top" secondItem="NNd-e2-27c" secondAttribute="bottom" constant="8" id="WkQ-4v-7AW"/>
                                         <constraint firstItem="Nio-tE-Yyl" firstAttribute="top" secondItem="NNd-e2-27c" secondAttribute="bottom" constant="116.5" id="ZSV-Nm-HlK"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="w34-bH-ddf" secondAttribute="trailing" constant="8" id="bQU-jv-Mix"/>
@@ -99,16 +107,18 @@
                                         <constraint firstItem="c2T-d8-dXP" firstAttribute="leading" secondItem="I4p-tX-Nff" secondAttribute="leadingMargin" id="iXQ-hB-3Rm"/>
                                         <constraint firstItem="c2T-d8-dXP" firstAttribute="top" secondItem="NNd-e2-27c" secondAttribute="bottom" constant="57" id="jRW-dd-mIQ"/>
                                         <constraint firstItem="Nio-tE-Yyl" firstAttribute="trailing" secondItem="I4p-tX-Nff" secondAttribute="trailingMargin" id="nP9-jk-0vj"/>
-                                        <constraint firstItem="Nio-tE-Yyl" firstAttribute="top" secondItem="WZ7-b3-MhN" secondAttribute="bottom" constant="10" id="oPX-T0-zLx"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="WZ7-b3-MhN" secondAttribute="trailing" id="xz0-au-UkQ"/>
                                         <constraint firstItem="w34-bH-ddf" firstAttribute="top" secondItem="I4p-tX-Nff" secondAttribute="topMargin" constant="4" id="zEj-gw-jfO"/>
                                         <constraint firstItem="NNd-e2-27c" firstAttribute="leading" secondItem="I4p-tX-Nff" secondAttribute="leadingMargin" id="zFi-0y-uhH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="NNd-e2-27c" id="NLx-0d-QXh"/>
+                                    <outlet property="dropoffCarBlue" destination="c2T-d8-dXP" id="Jc4-N7-t8l"/>
                                     <outlet property="dropoffLabel" destination="5NS-4P-LCT" id="zIa-zm-eKV"/>
+                                    <outlet property="kidNames" destination="btd-eo-DFN" id="Igd-4H-UZL"/>
+                                    <outlet property="pickupCarPink" destination="WZ7-b3-MhN" id="Nc7-0H-l0E"/>
                                     <outlet property="pickupLabel" destination="ZLx-X2-HrB" id="Ceh-gX-yZr"/>
+                                    <outlet property="tripDetailInfoButton" destination="w34-bH-ddf" id="fSE-2L-OLK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
