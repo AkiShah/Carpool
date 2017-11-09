@@ -13,6 +13,7 @@ public enum API {
         case invalidJsonType
         case emptyDescription
         case notAString
+        case notYourTripToDelete
 
         /// sign-up or sign-in failed
         case signInFailed(underlyingError: Swift.Error)
@@ -126,28 +127,27 @@ public enum API {
         firstly {
             auth()
         }.then {
-            let (promise, joint) = Promise<[Trip]>.joint()
             Database.database().reference().child("trips").observe(.value) { snapshot in
                 guard let foo = snapshot.value as? [String: [String: Any]] else {
                     return completion(.failure(API.Error.noChildren))
                 }
                 firstly {
                     when(resolved: foo.map{ Trip.make(key: $0, json: $1) })
-                }.then { results -> [Trip] in
+                }.then { results -> Void in
                     var trips: [Trip] = []
                     for case .fulfilled(let trip) in results { trips.append(trip) }
                     if trips.isEmpty && !results.isEmpty {
                         throw Error.noChildren
                     }
-                    return trips
-                }.join(joint)
+                    completion(.success(trips))
+                }.catch {
+                    completion(.failure($0))
+                }
             }
-            return promise
-        }.then {
-            completion(.success($0))
         }.catch {
             completion(.failure($0))
         }
+
     }
 
     /// claims the initial leg by the current user, so pickUp leg is UNCLAIMED
@@ -249,25 +249,45 @@ public enum API {
 
     /// if there is no error, completes with nil
     public static func claimPickUp(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
-        claim("pickUp", trip: trip, completion: completion)
+        claim("pickUp", claim: true, trip: trip, completion: completion)
     }
 
     /// if there is no error, completes with nil
     public static func claimDropOff(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
-        claim("dropOff", trip: trip, completion: completion)
+        claim("dropOff", claim: true, trip: trip, completion: completion)
     }
 
-    static func claim(_ key: String, trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+    /// if there is no error, completes with nil
+    public static func unclaimPickUp(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+        claim("pickUp", claim: false, trip: trip, completion: completion)
+    }
+
+    /// if there is no error, completes with nil
+    public static func unclaimDropOff(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+        claim("dropOff", claim: false, trip: trip, completion: completion)
+    }
+
+    static func claim(_ key: String, claim: Bool, trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
         firstly {
             fetchCurrentUser()
         }.then { user -> Void in
-            Database.database().reference().child("trips").child(trip.key).updateChildValues([
-                key: [user.key: user.name ?? "Anonymous Parent"]
-            ])
+            let ref = Database.database().reference().child("trips").child(trip.key).child(key)
+            if claim {
+                ref.updateChildValues([
+                    user.key: user.name ?? "Anonymous Parent"
+                ])
+            } else {
+                ref.removeValue()
+            }
             completion(nil)
         }.catch {
             completion($0)
         }
+    }
+
+    public static func delete(trip: Trip) throws {
+        //guard trip.user.key == Auth.auth().currentUser?.uid else { throw Error.notYourTripToDelete }
+        Database.database().reference().child("trips").child(trip.key).removeValue()
     }
 
     /// adds children to the logged in user
@@ -291,6 +311,11 @@ public enum API {
         }.catch {
             completion(.failure($0))
         }
+    }
+
+    public static func set(userFullName: String) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Database.database().reference().child("users").child(uid).child("name").setValue(userFullName)
     }
 }
 

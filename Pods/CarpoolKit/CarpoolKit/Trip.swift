@@ -63,3 +63,9 @@ extension Trip {
         }
     }
 }
+
+extension Trip: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        return key
+    }
+}
