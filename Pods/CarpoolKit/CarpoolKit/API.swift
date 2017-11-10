@@ -5,11 +5,9 @@ import PromiseKit
 public enum API {
     public enum Error: Swift.Error {
         case notAuthorized
-        case noChild
-        case noChildren
-        case noSuchTrip
+        case noChildNode
+        case noChildNodes
         case decode
-        case legAndTripAreNotRelated
         case invalidJsonType
         case emptyDescription
         case notAString
@@ -114,7 +112,7 @@ public enum API {
         }.then {
             Database.database().reference().child("trips").observe(.value) { snapshot in
                 guard let foo = snapshot.value as? [String: [String: Any]] else {
-                    return completion(.failure(API.Error.noChildren))
+                    return completion(.failure(API.Error.noChildNodes))
                 }
                 firstly {
                     when(resolved: foo.map{ Trip.make(key: $0, json: $1) })
@@ -122,7 +120,7 @@ public enum API {
                     var trips: [Trip] = []
                     for case .fulfilled(let trip) in results { trips.append(trip) }
                     if trips.isEmpty && !results.isEmpty {
-                        throw Error.noChildren
+                        throw Error.noChildNodes
                     }
                     trips.sort()
                     completion(.success(trips))
@@ -149,6 +147,31 @@ public enum API {
                 completion(.failure(error))
             }
         }
+    }
+
+    public static func observe(trip: Trip, sender: UIViewController, observer: @escaping (Result<Trip>) -> Void) {
+
+        // automatically stop observing
+        class Lifetime: UIView {
+            var ref: DatabaseReference!
+            var observer: DatabaseHandle!
+
+            deinit {
+                ref.removeObserver(withHandle: observer)
+            }
+        }
+
+        let reaper = Lifetime()
+        reaper.ref = Database.database().reference().child("trips").child(trip.key)
+        reaper.observer = reaper.ref.observe(.value) { snapshot in
+            do {
+                observer(.success(try snapshot.value(key: trip.key)))
+            } catch {
+                observer(.failure(error))
+            }
+        }
+
+        sender.view.addSubview(reaper)
     }
 
     /// claims the initial leg by the current user, so pickUp leg is UNCLAIMED
@@ -303,7 +326,6 @@ public enum API {
     }
 
     public static func delete(trip: Trip) throws {
-        //TODO
         guard trip.event.owner.key == Auth.auth().currentUser?.uid else {
             throw Error.notYourTripToDelete
         }
