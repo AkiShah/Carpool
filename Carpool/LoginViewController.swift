@@ -14,6 +14,7 @@ let logMeInNotificationName = Notification.Name("LogMeInDidCompleteNotification"
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var segmentedController: UISegmentedControl!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordConfirmButton: UITextField!
     
@@ -59,6 +60,7 @@ class LoginViewController: UIViewController {
         passwordConfirmButton.isHidden = state.isHidden
     }
     
+    @IBOutlet weak var onNameEntered: UITextField!
     @IBAction func onLoginPressed(_ sender: UIButton) {
         
         switch ToggleState(rawValue: segmentedController.selectedSegmentIndex)! {
