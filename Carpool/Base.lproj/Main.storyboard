@@ -262,13 +262,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a one-way trip:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Jg-wd-97I">
-                                <rect key="frame" x="16" y="84" width="343" height="30"/>
+                                <rect key="frame" x="16" y="40" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kfF-dz-pN3">
-                                <rect key="frame" x="16" y="373" width="343" height="68"/>
+                                <rect key="frame" x="16" y="329" width="343" height="68"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child's Name // will be removed for coll.view" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wwj-Ze-BJH">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -319,7 +319,7 @@
                                 </subviews>
                             </stackView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cdi-wb-Dvm">
-                                <rect key="frame" x="16" y="195" width="343" height="162"/>
+                                <rect key="frame" x="16" y="151" width="343" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="yra-WG-vYO"/>
                                 </constraints>
@@ -331,7 +331,7 @@
                                 </connections>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="er2-l5-yDg">
-                                <rect key="frame" x="66" y="130" width="243" height="48.5"/>
+                                <rect key="frame" x="66" y="86" width="243" height="48.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nld-1j-B2i">
                                         <rect key="frame" x="0.0" y="0.0" width="243" height="20.5"/>
@@ -352,7 +352,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sdb-1U-2cH">
-                                <rect key="frame" x="16" y="503" width="343" height="79"/>
+                                <rect key="frame" x="16" y="459" width="343" height="123"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jDG-VY-RG8">
                                     <size key="itemSize" width="50" height="50"/>
@@ -756,6 +756,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onUserNameEdited:" destination="DKc-7g-Kmw" eventType="editingDidEnd" id="V1J-5x-EDf"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iG9-1O-xqX">
                                 <rect key="frame" x="284" y="72" width="75" height="30"/>
@@ -782,12 +785,18 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onPartnerNameEdited:" destination="DKc-7g-Kmw" eventType="editingDidEnd" id="LJO-e2-AgY"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Kid Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGW-oB-c4X">
                                 <rect key="frame" x="24" y="536" width="327" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onChildNameAdded:" destination="DKc-7g-Kmw" eventType="editingDidEnd" id="0zp-gb-5Y3"/>
+                                </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fag-wo-pz2">
                                 <rect key="frame" x="24" y="336" width="327" height="192"/>
@@ -846,12 +855,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="childNameAdded" destination="CGW-oB-c4X" id="ip4-nJ-lTe"/>
                         <outlet property="childTableView" destination="Fag-wo-pz2" id="9FF-KW-GEk"/>
-                        <outlet property="onChildNameAdded" destination="CGW-oB-c4X" id="ip4-nJ-lTe"/>
-                        <outlet property="onPartnerNameEdited" destination="fgF-AC-u1V" id="RBz-I1-ZQY"/>
                         <outlet property="onSignOutPressed" destination="WVe-Yy-Dqq" id="APN-xS-K9V"/>
-                        <outlet property="onUserNameEdited" destination="7tH-eD-xcE" id="UeY-hI-LOK"/>
+                        <outlet property="partnerNameEdited" destination="fgF-AC-u1V" id="RBz-I1-ZQY"/>
                         <outlet property="partnerNameLabel" destination="kD6-ed-gTJ" id="rn8-4m-5eX"/>
+                        <outlet property="userNameEdited" destination="7tH-eD-xcE" id="UeY-hI-LOK"/>
                         <outlet property="userNameLabel" destination="tP6-8j-laT" id="21j-Of-GKZ"/>
                     </connections>
                 </viewController>
@@ -974,6 +983,6 @@
         <image name="neighborhood" width="420" height="490"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XMv-Zx-Av8"/>
+        <segue reference="hGt-QR-v3f"/>
     </inferredMetricsTieBreakers>
 </document>
