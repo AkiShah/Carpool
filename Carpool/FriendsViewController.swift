@@ -12,17 +12,15 @@ import ContactsUI
 
 class FriendsViewController: UITableViewController, CNContactPickerDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
+    var resultSearchController:UISearchController? = nil
     
-    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = true
-        searchController.searchBar.placeholder = "What's that parent's name again?"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
+        let friendsSearchTable = storyboard!.instantiateViewController(withIdentifier: "SearchFriendsViewController") as! SearchFriendsViewController
+        resultSearchController = UISearchController(searchResultsController: friendsSearchTable)
+        resultSearchController?.searchResultsUpdater = friendsSearchTable
         
     }
     
@@ -33,13 +31,5 @@ extension FriendsViewController: UISearchBarDelegate {
 }
 
 extension FriendsViewController: UISearchControllerDelegate {
-
-}
-
-extension FriendsViewController: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-    }
-    
 
 }

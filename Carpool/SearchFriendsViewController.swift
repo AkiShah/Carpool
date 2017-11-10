@@ -12,3 +12,11 @@ import CarpoolKit
 class SearchFriendsViewController: UITableViewController {
     
 }
+
+extension SearchFriendsViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+}
