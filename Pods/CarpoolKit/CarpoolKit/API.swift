@@ -348,7 +348,8 @@ public enum API {
         }
     }
 
-    public var isCurrentUserAnonymous: Bool {
+    /// you can still access data as an anonymous user, but you cannot create events
+    public static var isCurrentUserAnonymous: Bool {
         return Auth.auth().currentUser?.isAnonymous ?? true
     }
 

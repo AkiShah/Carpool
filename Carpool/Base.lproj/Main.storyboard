@@ -774,14 +774,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kD6-ed-gTJ">
-                                <rect key="frame" x="24" y="257" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kD6-ed-gTJ">
+                                <rect key="frame" x="24" y="257" width="343" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Change Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgF-AC-u1V">
-                                <rect key="frame" x="24" y="286" width="327" height="30"/>
+                                <rect key="frame" x="24" y="265" width="327" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -790,7 +790,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Kid Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGW-oB-c4X">
-                                <rect key="frame" x="24" y="536" width="327" height="30"/>
+                                <rect key="frame" x="24" y="515" width="327" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -799,7 +799,7 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fag-wo-pz2">
-                                <rect key="frame" x="24" y="336" width="327" height="192"/>
+                                <rect key="frame" x="24" y="315" width="327" height="192"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="192" id="wnz-LM-Quo"/>
@@ -857,7 +857,9 @@
                     <connections>
                         <outlet property="childNameAdded" destination="CGW-oB-c4X" id="ip4-nJ-lTe"/>
                         <outlet property="childTableView" destination="Fag-wo-pz2" id="9FF-KW-GEk"/>
+                        <outlet property="editProfileButton" destination="iG9-1O-xqX" id="iIX-yg-Ian"/>
                         <outlet property="onSignOutPressed" destination="WVe-Yy-Dqq" id="APN-xS-K9V"/>
+                        <outlet property="partnerHeader" destination="xhl-MZ-LQ3" id="dEU-Ih-fxg"/>
                         <outlet property="partnerNameEdited" destination="fgF-AC-u1V" id="RBz-I1-ZQY"/>
                         <outlet property="partnerNameLabel" destination="kD6-ed-gTJ" id="rn8-4m-5eX"/>
                         <outlet property="userNameEdited" destination="7tH-eD-xcE" id="UeY-hI-LOK"/>

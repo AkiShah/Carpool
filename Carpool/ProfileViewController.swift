@@ -15,7 +15,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var partnerNameLabel: UILabel!
     @IBOutlet weak var userNameEdited: UITextField!
     @IBOutlet weak var partnerNameEdited: UITextField!
+    @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var childNameAdded: UITextField!
+    @IBOutlet weak var partnerHeader: UILabel!
     @IBOutlet weak var onSignOutPressed: UIButton!
     @IBOutlet weak var childTableView: UITableView!
     
@@ -32,18 +34,26 @@ class ProfileViewController: UIViewController {
                 self.userNameLabel.text = user.name
             case .failure(_):
                 break//todo error
+                
             }
         }
         userNameEdited.isHidden = true
         partnerNameEdited.isHidden = true
         childNameAdded.isHidden = true
+        
+        if partnerNameLabel.text == "" {
+            partnerNameLabel.isHidden = true
+            partnerHeader.isHidden = true
+        }
     }
     
     @IBAction func onEditProfilePressed(_ sender: UIButton) {
         userNameEdited.isHidden = false
         partnerNameEdited.isHidden = false
         childNameAdded.isHidden = false
+        partnerNameLabel.isHidden = false
     }
+    
     @IBAction func onUserNameEdited(_ sender: UITextField) {
     }
     @IBAction func onPartnerNameEdited(_ sender: UITextField) {
