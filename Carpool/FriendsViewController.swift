@@ -14,6 +14,5 @@ class FriendsViewController: UIViewController, CNContactPickerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    @IBOutlet weak var searchBar: UISearchBar!
     
 }
