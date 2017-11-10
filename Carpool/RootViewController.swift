@@ -50,7 +50,7 @@ class RootViewController: UITableViewController {
         
         //would like to create a title for header in section splitting out which trips already have both legs claimed, and another section that displays which routes still have an unclaimed leg. That way you don't click on a trip that has both legs already accounted for.
         
-        API.observeTrips { result in
+        API.observeTrips(sender: self) { result in
             switch result {
             case .success(let trips):
                 self.downloadedTrips = trips

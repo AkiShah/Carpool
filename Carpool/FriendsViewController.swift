@@ -14,6 +14,6 @@ class FriendsViewController: UIViewController, CNContactPickerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    @IBAction func onSearchFriendsEntered(_ sender: UITextField) {
-    }
+    @IBOutlet weak var searchBar: UISearchBar!
+    
 }

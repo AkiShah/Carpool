@@ -184,21 +184,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for friends" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yr8-y3-fqQ">
-                                <rect key="frame" x="16" y="87" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="Search for friends" translatesAutoresizingMaskIntoConstraints="NO" id="ydM-Ul-32e">
+                                <rect key="frame" x="0.0" y="72" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="onSearchFriendsEntered:" destination="Zbe-fd-FDI" eventType="editingDidEnd" id="4cN-gf-wLR"/>
+                                    <outlet property="delegate" destination="Zbe-fd-FDI" id="g1Y-BI-T2o"/>
                                 </connections>
-                            </textField>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="ydM-Ul-32e" id="mef-sc-rW9"/>
+                        <outlet property="searchDisplayController" destination="wJR-My-BJN" id="3V3-mX-RAO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1r-wx-J4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="wJR-My-BJN">
+                    <connections>
+                        <outlet property="delegate" destination="Zbe-fd-FDI" id="X3Y-kI-vGA"/>
+                        <outlet property="searchBar" destination="ydM-Ul-32e" id="3hP-Fz-l1J"/>
+                        <outlet property="searchContentsController" destination="Zbe-fd-FDI" id="nCh-in-Lin"/>
+                        <outlet property="searchResultsDataSource" destination="Zbe-fd-FDI" id="IFb-sS-qZo"/>
+                        <outlet property="searchResultsDelegate" destination="Zbe-fd-FDI" id="hse-WC-gXq"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-1103.2" y="891.90404797601207"/>
         </scene>

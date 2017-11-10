@@ -177,13 +177,22 @@ public enum API {
         }
     }
 
-
+    /// observe changes to the Trip, so if you have a trip
+    /// object on your VC you will want to observe it here
+    /// and update that property with the new value from the observer callback
     public static func observe(trip: Trip, sender: UIViewController, observer: @escaping (Result<Trip>) -> Void) {
         let reaper = Lifetime()
         reaper.ref = Database.database().reference().child("trips").child(trip.key)
         reaper.observer = reaper.ref.observe(.value) { snapshot in
             do {
-                observer(.success(try snapshot.value(key: trip.key)))
+                guard let json = snapshot.value as? [String: Any] else { throw Error.noChildNode }
+                firstly {
+                    Trip.make(key: trip.key, json: json)
+                }.then {
+                    observer(.success($0))
+                }.catch {
+                    observer(.failure($0))
+                }
             } catch {
                 observer(.failure(error))
             }
