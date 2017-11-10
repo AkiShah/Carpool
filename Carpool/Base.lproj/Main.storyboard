@@ -857,6 +857,7 @@
                     <connections>
                         <outlet property="childNameAdded" destination="CGW-oB-c4X" id="ip4-nJ-lTe"/>
                         <outlet property="childTableView" destination="Fag-wo-pz2" id="9FF-KW-GEk"/>
+                        <outlet property="editProfileButton" destination="iG9-1O-xqX" id="iIX-yg-Ian"/>
                         <outlet property="onSignOutPressed" destination="WVe-Yy-Dqq" id="APN-xS-K9V"/>
                         <outlet property="partnerNameEdited" destination="fgF-AC-u1V" id="RBz-I1-ZQY"/>
                         <outlet property="partnerNameLabel" destination="kD6-ed-gTJ" id="rn8-4m-5eX"/>
