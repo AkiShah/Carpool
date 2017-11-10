@@ -204,6 +204,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="searchBar" destination="y2C-8m-dBS" id="xE0-LA-3aS"/>
                         <outlet property="searchDisplayController" destination="piz-v2-nTO" id="vew-45-VIM"/>
                     </connections>
                 </tableViewController>
