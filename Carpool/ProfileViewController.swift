@@ -9,7 +9,7 @@
 import UIKit
 import CarpoolKit
 
-class ProfileViewController: UITableViewController {
+class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
