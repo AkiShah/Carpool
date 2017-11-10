@@ -869,7 +869,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="61F-Wn-rM3" secondAttribute="trailing" constant="251" id="0Qy-Cv-PIl"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="61F-Wn-rM3" secondAttribute="trailing" constant="251" id="0Qy-Cv-PIl"/>
                             <constraint firstItem="h1S-do-eJu" firstAttribute="top" secondItem="61F-Wn-rM3" secondAttribute="top" id="2h5-Se-ZSk"/>
                             <constraint firstItem="h1S-do-eJu" firstAttribute="firstBaseline" secondItem="61F-Wn-rM3" secondAttribute="baseline" id="3Vm-c7-w1V"/>
                             <constraint firstItem="CmV-iT-SJS" firstAttribute="leading" secondItem="atg-C3-5ML" secondAttribute="leadingMargin" constant="20" id="5fs-E8-JvK"/>
