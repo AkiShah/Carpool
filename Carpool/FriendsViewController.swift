@@ -22,6 +22,10 @@ class FriendsViewController: UITableViewController, CNContactPickerDelegate {
         resultSearchController = UISearchController(searchResultsController: friendsSearchTable)
         resultSearchController?.searchResultsUpdater = friendsSearchTable
         
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Find New Friends"
+        navigationItem.titleView = resultSearchController?.searchBar
+        
     }
     
 }

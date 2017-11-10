@@ -11,12 +11,22 @@ import CarpoolKit
 
 class SearchFriendsViewController: UITableViewController {
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
+        cell.textLabel?.text = "I WANA BE YOUR FUEND"
+        return cell
+    }
+    
 }
 
 extension SearchFriendsViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        
+        tableView.reloadData()
     }
     
 }
