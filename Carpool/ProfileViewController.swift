@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
                 self.userNameLabel.text = user.name
             case .failure(_):
                 break//todo error
+                
             }
         }
         userNameEdited.isHidden = true
