@@ -98,19 +98,14 @@ public enum API {
         }
     }
 
-    /// returns the current list of trips, once
-    public static func fetchTripsOnce(completion: @escaping (Result<[Trip]>) -> Void) {
-        DispatchQueue.main.async {
-            completion(.failure(Error.deprecated))
-        }
-    }
-
     /// returns all trips, continuously
-    public static func observeTrips(completion: @escaping (Result<[Trip]>) -> Void) {
+    public static func observeTrips(sender: UIViewController, completion: @escaping (Result<[Trip]>) -> Void) {
         firstly {
             auth()
-        }.then {
-            Database.database().reference().child("trips").observe(.value) { snapshot in
+        }.then { () -> Void in
+            let reaper = Lifetime()
+            reaper.ref = Database.database().reference().child("trips")
+            reaper.observer = reaper.ref.observe(.value) { snapshot in
                 guard let foo = snapshot.value as? [String: [String: Any]] else {
                     return completion(.failure(API.Error.noChildNodes))
                 }
@@ -128,26 +123,60 @@ public enum API {
                     completion(.failure($0))
                 }
             }
+            sender.view.addSubview(reaper)
         }.catch {
             completion(.failure($0))
         }
     }
 
     /// returns all the current user's trips, continuously
-    public static func observeMyTrips(completion: @escaping (Result<[Trip]>) -> Void) {
-        observeTrips { result in
+    public static func observeMyTrips(sender: UIViewController, observer: @escaping (Result<[Trip]>) -> Void) {
+        observeTrips(sender: sender) { result in
             switch result {
             case .success(let trips):
                 fetchCurrentUser().then { user in
-                    completion(.success(trips.filter{ $0.event.owner == user }))
+                    observer(.success(trips.filter{ $0.event.owner == user }))
                 }.catch {
-                    completion(.failure($0))
+                    observer(.failure($0))
                 }
             case .failure(let error):
-                completion(.failure(error))
+                observer(.failure(error))
             }
         }
     }
+
+    /// returns all the current user's friends' trips, continuously
+    public static func observeTheTripsOfMyFriends(sender: UIViewController, observer: @escaping (Result<[Trip]>) -> Void) {
+
+        var trips: [Trip] = []
+        var friends: [User] = []
+
+        func process() {
+            guard trips.count > 0, friends.count > 0 else { return }
+            observer(.success(trips.filter{ friends.contains($0.event.owner) }))
+        }
+
+        observeTrips(sender: sender) { result in
+            switch result {
+            case .success(let _trips):
+                trips = _trips
+                process()
+            case .failure(let error):
+                observer(.failure(error))
+            }
+        }
+
+        observeFriends(sender: sender) { result in
+            switch result {
+            case .success(let _friends):
+                friends = _friends
+                process()
+            case .failure(let error):
+                observer(.failure(error))
+            }
+        }
+    }
+
 
     public static func observe(trip: Trip, sender: UIViewController, observer: @escaping (Result<Trip>) -> Void) {
         let reaper = Lifetime()
@@ -421,6 +450,7 @@ public enum API {
                     observer(.failure(error))
                 }
             }
+            sender.view.addSubview(reaper)
         }.catch {
             observer(.failure($0))
         }
