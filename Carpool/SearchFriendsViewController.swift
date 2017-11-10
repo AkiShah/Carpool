@@ -22,6 +22,12 @@ class SearchFriendsViewController: UITableViewController {
         return cell
     }
     
+    
+
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        tableView.reloadData()
+    }
+    
 }
 
 extension SearchFriendsViewController: UISearchResultsUpdating {

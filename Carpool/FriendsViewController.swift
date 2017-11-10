@@ -12,6 +12,7 @@ import ContactsUI
 
 class FriendsViewController: UITableViewController, CNContactPickerDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
+    
     var resultSearchController:UISearchController? = nil
     
     
@@ -21,6 +22,8 @@ class FriendsViewController: UITableViewController, CNContactPickerDelegate {
         let friendsSearchTable = storyboard!.instantiateViewController(withIdentifier: "SearchFriendsViewController") as! SearchFriendsViewController
         resultSearchController = UISearchController(searchResultsController: friendsSearchTable)
         resultSearchController?.searchResultsUpdater = friendsSearchTable
+        
+
         
         searchBar.sizeToFit()
         searchBar.placeholder = "Find New Friends"
