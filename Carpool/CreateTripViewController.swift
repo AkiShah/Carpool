@@ -174,7 +174,7 @@ extension Date {
     }
     var time: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hha"
+        dateFormatter.dateFormat = "ha"
         return dateFormatter.string(from: self)
     }
 }
