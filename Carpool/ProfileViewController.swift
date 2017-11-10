@@ -13,9 +13,9 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var partnerNameLabel: UILabel!
-    @IBOutlet weak var onUserNameEdited: UITextField!
-    @IBOutlet weak var onPartnerNameEdited: UITextField!
-    @IBOutlet weak var onChildNameAdded: UITextField!
+    @IBOutlet weak var userNameEdited: UITextField!
+    @IBOutlet weak var partnerNameEdited: UITextField!
+    @IBOutlet weak var childNameAdded: UITextField!
     @IBOutlet weak var onSignOutPressed: UIButton!
     @IBOutlet weak var childTableView: UITableView!
     
@@ -34,11 +34,17 @@ class ProfileViewController: UIViewController {
             }
         }
         
-        onUserNameEdited.isHidden = true
-        onPartnerNameEdited.isHidden = true
+        userNameEdited.isHidden = true
+        partnerNameEdited.isHidden = true
         
     }
     
+    @IBAction func onUserNameEdited(_ sender: UITextField) {
+    }
+    @IBAction func onPartnerNameEdited(_ sender: UITextField) {
+    }
     @IBAction func onEditProfilePressed(_ sender: UIButton) {
+    }
+    @IBAction func onChildNameAdded(_ sender: UITextField) {
     }
 }
