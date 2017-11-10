@@ -183,9 +183,19 @@ extension Trip {
     
     var generateSmartDescription: String {
         //let desc = "On \(time.day), Kai needs to be \(selectedLeg(rawValue: segmentedControl.selectedSegmentIndex)!.descComponent) \(description) by \(time.time)"
-        //let firstKid =  children.first
-        return "On \(event.time.day), Kai will be going to \(event.time.time)"
+        
+        var kidSubString =  children[0].name
+        if children.count == 2 {
+            kidSubString = "\(children[0].name) and \(children[1].name)"
+        } else {
+            kidSubString = "\(children[0].name) and \(children.count - 2) other kids"
+        }
+        return "On \(event.time.day), \(kidSubString) will be going to \(event.description) at \(event.time.time)"
     }
+    
+    
+    
+    
 }
 
 extension CreateTripViewController: MKMapViewDelegate {
