@@ -8,8 +8,9 @@
 
 import UIKit
 import CarpoolKit
+import ContactsUI
 
-class FriendsViewController: UIViewController {
+class FriendsViewController: UIViewController, CNContactPickerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
