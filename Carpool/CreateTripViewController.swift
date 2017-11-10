@@ -186,7 +186,7 @@ extension Trip {
         var kidSubString = "NameYourFkinChild"
         
         if children.count > 0 {
-            var kidSubString =  children[0].name
+            kidSubString =  children[0].name
             if children.count == 2 {
                 kidSubString = "\(children[0].name) and \(children[1].name)"
             } else {
