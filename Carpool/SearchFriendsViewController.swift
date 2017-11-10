@@ -18,6 +18,7 @@ class SearchFriendsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
         cell.textLabel?.text = "I WANA BE YOUR FUEND"
+        //WILL YOU BE MY FUEND??
         return cell
     }
     
