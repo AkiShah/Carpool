@@ -19,7 +19,7 @@
 		D2D8B2651FB36A4A00800358 /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8B2641FB36A4A00800358 /* SearchLocationViewController.swift */; };
 		D2F5760A1FB4B43F008D3438 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F576091FB4B43F008D3438 /* LoginViewController.swift */; };
 		D2F5760C1FB4B555008D3438 /* Savannah.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D2F5760B1FB4B555008D3438 /* Savannah.gpx */; };
-		D2F5760E1FB4BDDC008D3438 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5760D1FB4BDDC008D3438 /* RootNavigationController.swift */; };
+		D2F5760E1FB4BDDC008D3438 /* ViewTripsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5760D1FB4BDDC008D3438 /* ViewTripsNavigationController.swift */; };
 		D2F576101FB5046F008D3438 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5760F1FB5046F008D3438 /* HomeScreenViewController.swift */; };
 		D2F576121FB50CA7008D3438 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F576111FB50CA7008D3438 /* ProfileViewController.swift */; };
 		D2FFE75F1FB2241400641577 /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFE75E1FB2241400641577 /* TripCell.swift */; };
@@ -44,7 +44,7 @@
 		D2D8B2641FB36A4A00800358 /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		D2F576091FB4B43F008D3438 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D2F5760B1FB4B555008D3438 /* Savannah.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Savannah.gpx; sourceTree = "<group>"; };
-		D2F5760D1FB4BDDC008D3438 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		D2F5760D1FB4BDDC008D3438 /* ViewTripsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTripsNavigationController.swift; sourceTree = "<group>"; };
 		D2F5760F1FB5046F008D3438 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		D2F576111FB50CA7008D3438 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D2FFE75E1FB2241400641577 /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 				D2D8B2641FB36A4A00800358 /* SearchLocationViewController.swift */,
 				D2F576091FB4B43F008D3438 /* LoginViewController.swift */,
 				D2F5760F1FB5046F008D3438 /* HomeScreenViewController.swift */,
-				D2F5760D1FB4BDDC008D3438 /* RootNavigationController.swift */,
+				D2F5760D1FB4BDDC008D3438 /* ViewTripsNavigationController.swift */,
 				D2F576111FB50CA7008D3438 /* ProfileViewController.swift */,
 				D288C1181FB6167300C5D441 /* FriendsViewController.swift */,
 				733E2FFE1FB0E79C005E9AFD /* Main.storyboard */,
@@ -263,7 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2F5760A1FB4B43F008D3438 /* LoginViewController.swift in Sources */,
-				D2F5760E1FB4BDDC008D3438 /* RootNavigationController.swift in Sources */,
+				D2F5760E1FB4BDDC008D3438 /* ViewTripsNavigationController.swift in Sources */,
 				D2F576121FB50CA7008D3438 /* ProfileViewController.swift in Sources */,
 				730ABE2D1FB0EEAF00146469 /* TripDetailViewController.swift in Sources */,
 				733E2FFD1FB0E79C005E9AFD /* RootViewController.swift in Sources */,
