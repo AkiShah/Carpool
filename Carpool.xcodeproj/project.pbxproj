@@ -15,6 +15,7 @@
 		733E30051FB0E79C005E9AFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733E30031FB0E79C005E9AFD /* LaunchScreen.storyboard */; };
 		736385DF1FB25D5A00472D2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 736385DE1FB25D5A00472D2E /* GoogleService-Info.plist */; };
 		D22071811FB114AF004B1B36 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22071801FB114AF004B1B36 /* CreateTripViewController.swift */; };
+		D227E6EB1FB64C0F004C1DD2 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227E6EA1FB64C0F004C1DD2 /* SearchFriendsViewController.swift */; };
 		D288C1191FB6167300C5D441 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288C1181FB6167300C5D441 /* FriendsViewController.swift */; };
 		D2D8B2651FB36A4A00800358 /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8B2641FB36A4A00800358 /* SearchLocationViewController.swift */; };
 		D2F5760A1FB4B43F008D3438 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F576091FB4B43F008D3438 /* LoginViewController.swift */; };
@@ -40,6 +41,7 @@
 		9A5EBFA6D1B05B21D53BE329 /* Pods-Carpool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.release.xcconfig"; sourceTree = "<group>"; };
 		BBC503E4FFD20DF4FB31BCB6 /* Pods_Carpool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22071801FB114AF004B1B36 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
+		D227E6EA1FB64C0F004C1DD2 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		D288C1181FB6167300C5D441 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		D2D8B2641FB36A4A00800358 /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		D2F576091FB4B43F008D3438 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				D2F5760D1FB4BDDC008D3438 /* ViewTripsNavigationController.swift */,
 				D2F576111FB50CA7008D3438 /* ProfileViewController.swift */,
 				D288C1181FB6167300C5D441 /* FriendsViewController.swift */,
+				D227E6EA1FB64C0F004C1DD2 /* SearchFriendsViewController.swift */,
 				733E2FFE1FB0E79C005E9AFD /* Main.storyboard */,
 				733E30011FB0E79C005E9AFD /* Assets.xcassets */,
 				733E30031FB0E79C005E9AFD /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D227E6EB1FB64C0F004C1DD2 /* SearchFriendsViewController.swift in Sources */,
 				D2F5760A1FB4B43F008D3438 /* LoginViewController.swift in Sources */,
 				D2F5760E1FB4BDDC008D3438 /* ViewTripsNavigationController.swift in Sources */,
 				D2F576121FB50CA7008D3438 /* ProfileViewController.swift in Sources */,

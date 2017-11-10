@@ -10,14 +10,13 @@ import UIKit
 import CarpoolKit
 import ContactsUI
 
-class FriendsViewController: UIViewController, CNContactPickerDelegate {
+class FriendsViewController: UITableViewController, CNContactPickerDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = true

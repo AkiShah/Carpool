@@ -172,41 +172,53 @@
             </objects>
             <point key="canvasLocation" x="-314" y="-222"/>
         </scene>
-        <!--My Carpool Friends-->
-        <scene sceneID="xLQ-5D-87p">
+        <!--Friends View Controller-->
+        <scene sceneID="9i1-PI-XPv">
             <objects>
-                <viewController title="My Carpool Friends" id="Zbe-fd-FDI" customClass="FriendsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UgY-fz-ZlE"/>
-                        <viewControllerLayoutGuide type="bottom" id="Tie-hc-5Uv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="UdT-bG-GQ3">
+                <tableViewController id="fe8-Qw-tkz" customClass="FriendsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QOq-sH-Sm8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOF-HW-g4s">
-                                <rect key="frame" x="164" y="401" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="y2C-8m-dBS">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="fe8-Qw-tkz" id="RDg-7Y-sYw"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tJw-Rj-YHb">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tJw-Rj-YHb" id="d4L-48-c3A">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fe8-Qw-tkz" id="tvy-1h-olF"/>
+                            <outlet property="delegate" destination="fe8-Qw-tkz" id="Ksi-qs-y6i"/>
+                        </connections>
+                    </tableView>
                     <connections>
-                        <outlet property="searchDisplayController" destination="wJR-My-BJN" id="3V3-mX-RAO"/>
+                        <outlet property="searchDisplayController" destination="piz-v2-nTO" id="vew-45-VIM"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M1r-wx-J4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="wJR-My-BJN">
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WyT-79-FzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="piz-v2-nTO">
                     <connections>
-                        <outlet property="delegate" destination="Zbe-fd-FDI" id="X3Y-kI-vGA"/>
-                        <outlet property="searchContentsController" destination="Zbe-fd-FDI" id="nCh-in-Lin"/>
-                        <outlet property="searchResultsDataSource" destination="Zbe-fd-FDI" id="IFb-sS-qZo"/>
-                        <outlet property="searchResultsDelegate" destination="Zbe-fd-FDI" id="hse-WC-gXq"/>
+                        <outlet property="delegate" destination="fe8-Qw-tkz" id="u3D-Vt-FdT"/>
+                        <outlet property="searchBar" destination="y2C-8m-dBS" id="GXF-T9-gxa"/>
+                        <outlet property="searchContentsController" destination="fe8-Qw-tkz" id="AzL-z6-FV8"/>
+                        <outlet property="searchResultsDataSource" destination="fe8-Qw-tkz" id="4ph-j1-ErI"/>
+                        <outlet property="searchResultsDelegate" destination="fe8-Qw-tkz" id="7X3-5x-GPV"/>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1103.2" y="891.90404797601207"/>
+            <point key="canvasLocation" x="-1103" y="924"/>
         </scene>
         <!--Create Trip View Controller-->
         <scene sceneID="SER-Zw-3Ol">
@@ -221,13 +233,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a one-way trip:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Jg-wd-97I">
-                                <rect key="frame" x="16" y="40" width="343" height="30"/>
+                                <rect key="frame" x="16" y="84" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kfF-dz-pN3">
-                                <rect key="frame" x="16" y="329" width="343" height="68"/>
+                                <rect key="frame" x="16" y="373" width="343" height="68"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child's Name // will be removed for coll.view" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wwj-Ze-BJH">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -278,7 +290,7 @@
                                 </subviews>
                             </stackView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cdi-wb-Dvm">
-                                <rect key="frame" x="16" y="151" width="343" height="162"/>
+                                <rect key="frame" x="16" y="195" width="343" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="yra-WG-vYO"/>
                                 </constraints>
@@ -290,7 +302,7 @@
                                 </connections>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="er2-l5-yDg">
-                                <rect key="frame" x="66" y="86" width="243" height="48.5"/>
+                                <rect key="frame" x="66" y="130" width="243" height="48.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nld-1j-B2i">
                                         <rect key="frame" x="0.0" y="0.0" width="243" height="20.5"/>
@@ -311,7 +323,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sdb-1U-2cH">
-                                <rect key="frame" x="16" y="459" width="343" height="123"/>
+                                <rect key="frame" x="16" y="503" width="343" height="79"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jDG-VY-RG8">
                                     <size key="itemSize" width="50" height="50"/>
@@ -877,7 +889,7 @@
                                 <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="17"/>
                                 <state key="normal" title="Friends"/>
                                 <connections>
-                                    <segue destination="Zbe-fd-FDI" kind="show" id="QUG-K9-EFp"/>
+                                    <segue destination="fe8-Qw-tkz" kind="show" id="cME-Yb-PT7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -933,6 +945,6 @@
         <image name="neighborhood" width="420" height="490"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hGt-QR-v3f"/>
+        <segue reference="XMv-Zx-Av8"/>
     </inferredMetricsTieBreakers>
 </document>
