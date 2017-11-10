@@ -150,17 +150,6 @@ public enum API {
     }
 
     public static func observe(trip: Trip, sender: UIViewController, observer: @escaping (Result<Trip>) -> Void) {
-
-        // automatically stop observing
-        class Lifetime: UIView {
-            var ref: DatabaseReference!
-            var observer: DatabaseHandle!
-
-            deinit {
-                ref.removeObserver(withHandle: observer)
-            }
-        }
-
         let reaper = Lifetime()
         reaper.ref = Database.database().reference().child("trips").child(trip.key)
         reaper.observer = reaper.ref.observe(.value) { snapshot in
@@ -406,5 +395,34 @@ public enum API {
             completion(.failure($0))
         }
     }
-}
 
+    public static func add(friend: User) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }  //TODO error handling
+        Database.database().reference().child("users").child(uid).child("friends").updateChildValues([
+            friend.key: friend.name ?? "Anonymous Parent"
+        ])
+    }
+
+    public static func remove(friend: User) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }  //TODO error handling
+        Database.database().reference().child("users").child(uid).child("friends").child(friend.key).removeValue()
+    }
+
+    public static func observeFriends(sender: UIViewController, observer: @escaping (Result<[User]>) -> Void) {
+        firstly {
+            fetchCurrentUser()
+        }.then { user -> Void in
+            let reaper = Lifetime()
+            reaper.ref = Database.database().reference().child("users").child(user.key).child("friends")
+            reaper.observer = reaper.ref.observe(.value) { snapshot in
+                do {
+                    observer(.success(try snapshot.array()))
+                } catch {
+                    observer(.failure(error))
+                }
+            }
+        }.catch {
+            observer(.failure($0))
+        }
+    }
+}
