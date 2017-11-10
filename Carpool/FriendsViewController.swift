@@ -13,4 +13,6 @@ class FriendsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    @IBAction func onSearchFriendsEntered(_ sender: UITextField) {
+    }
 }

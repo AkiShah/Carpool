@@ -385,4 +385,26 @@ public enum API {
             }
         }
     }
+
+    //TODO this will not scale
+    public static func search(forUsersWithName query: String, completion: @escaping (Result<[User]>) -> Void) {
+        firstly {
+            Database.fetch(path: "users")
+        }.then(on: .global()) { users in
+            try users.array().filter {
+                guard let parts = $0.name?.lowercased().split(separator: " ") else {
+                    return false
+                }
+                for part in parts { if part.contains(query) {
+                    return true
+                }}
+                return false
+            }
+        }.then {
+            completion(.success($0))
+        }.catch {
+            completion(.failure($0))
+        }
+    }
 }
+
