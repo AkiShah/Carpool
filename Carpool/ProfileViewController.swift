@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         API.fetchCurrentUser { result in
             switch result {
                 
@@ -33,17 +34,19 @@ class ProfileViewController: UIViewController {
                 break//todo error
             }
         }
-        
         userNameEdited.isHidden = true
         partnerNameEdited.isHidden = true
-        
+        childNameAdded.isHidden = true
     }
     
+    @IBAction func onEditProfilePressed(_ sender: UIButton) {
+        userNameEdited.isHidden = false
+        partnerNameEdited.isHidden = false
+        childNameAdded.isHidden = false
+    }
     @IBAction func onUserNameEdited(_ sender: UITextField) {
     }
     @IBAction func onPartnerNameEdited(_ sender: UITextField) {
-    }
-    @IBAction func onEditProfilePressed(_ sender: UIButton) {
     }
     @IBAction func onChildNameAdded(_ sender: UITextField) {
     }
