@@ -81,7 +81,6 @@ class RootViewController: UITableViewController {
     }
     
     @IBAction func onTripSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        
         if user != nil{
             trips = getTrips(for: tripSegment(rawValue: sender.selectedSegmentIndex)!)
         }
@@ -117,7 +116,7 @@ class RootViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as! TripCell
         let trip = trips[indexPath.row]
-        let dsc = trip.event.description == "" ? "No description given" : trip.event.description
+        let dsc = trip.event.description == "" ? "No description given" : trip.generateSmartDescription
         cell.descriptionLabel.text = dsc 
         if dsc == "" {
             cell.descriptionLabel.font = UIFont.italicSystemFont(ofSize: (cell.descriptionLabel.font.pointSize))

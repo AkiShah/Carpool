@@ -179,11 +179,12 @@ extension Date {
     }
 }
 
-extension Event {
+extension Trip {
     
     var generateSmartDescription: String {
         //let desc = "On \(time.day), Kai needs to be \(selectedLeg(rawValue: segmentedControl.selectedSegmentIndex)!.descComponent) \(description) by \(time.time)"
-        return "On \(time.day), Kai will be going to \(time.time)"
+        //let firstKid =  children.first
+        return "On \(event.time.day), Kai will be going to \(event.time.time)"
     }
 }
 

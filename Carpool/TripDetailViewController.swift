@@ -54,22 +54,33 @@ class TripDetailViewController: UIViewController {
         updateButtonState(for: .dropoff)
         updateButtonState(for: .pickup)
         
-        let geocoder = CLGeocoder()
-        if let location = trip.event.clLocation {
-            geocoder.reverseGeocodeLocation(location) { placemarks, error in
-                if let state = placemarks?.first?.administrativeArea, let city = placemarks?.first?.locality{
-                    self.eventLocationLabel.text = "\(city), \(state)"
-                } else if let error = error {
-                    self.errorMessages(error: error)
+        API.observe(trip: trip, sender: self) { result in
+            switch result {
+            case .success(let trip):
+                self.trip = trip
+                self.updateButtonState(for: .dropoff)
+                self.updateButtonState(for: .pickup)
+                
+                let geocoder = CLGeocoder()
+                if let location = trip.event.clLocation {
+                    geocoder.reverseGeocodeLocation(location) { placemarks, error in
+                        if let state = placemarks?.first?.administrativeArea, let city = placemarks?.first?.locality{
+                            self.eventLocationLabel.text = "\(city), \(state)"
+                        } else if let error = error {
+                            self.errorMessages(error: error)
+                        }
+                    }
                 }
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "h : mm"
+                self.eventTimeLabel.text = formatter.string(from: trip.event.time)
+                
+            case .failure:
+                //TODO Error Handling
+                break
             }
         }
-        
-        let formatter = DateFormatter()
-        //Need to check if this comes out as Time
-        formatter.dateFormat = "h : mm"
-        eventTimeLabel.text = formatter.string(from: trip.event.time)
-        
     }
 
     //TODO Give button a selected and unselected case to simplify further
@@ -156,7 +167,6 @@ class TripDetailViewController: UIViewController {
         }
         
     }
-    
     
     func pickUpClaimChanged(error: Error?) {
         if let error = error {
