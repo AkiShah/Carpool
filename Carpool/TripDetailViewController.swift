@@ -76,8 +76,8 @@ class TripDetailViewController: UIViewController {
                 formatter.dateFormat = "h : mm"
                 self.eventTimeLabel.text = formatter.string(from: trip.event.time)
                 
-            case .failure:
-                //TODO Error Handling
+            case .failure(let error):
+                print(error)
                 break
             }
         }
@@ -163,7 +163,6 @@ class TripDetailViewController: UIViewController {
             errorMessages(error: error)
         } else {
             print("Look mom I made a change")
-            updateButtonState(for: .dropoff)
         }
         
     }
@@ -173,7 +172,6 @@ class TripDetailViewController: UIViewController {
             errorMessages(error: error)
         } else {
             print("Look mom I made a change")
-            updateButtonState(for: .pickup)
         }
         
     }
