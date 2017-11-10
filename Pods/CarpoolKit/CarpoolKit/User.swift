@@ -1,3 +1,5 @@
+import FirebaseCommunity
+
 public struct User: Codable, Keyed {
     var key: String!
     public let name: String?
@@ -10,6 +12,10 @@ public struct User: Codable, Keyed {
     }
 
     public var children: [Child] { return _children ?? [] }
+
+    public var isMe: Bool {
+        return Auth.auth().currentUser?.uid == key
+    }
 }
 
 extension User: Equatable {
