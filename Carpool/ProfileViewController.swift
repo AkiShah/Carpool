@@ -9,8 +9,20 @@
 import UIKit
 import CarpoolKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
+
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var partnerNameLabel: UILabel!
+    @IBAction func onEditProfilePressed(_ sender: UIButton) {
+    }
+    @IBOutlet weak var onUserNameEdited: UITextField!
+    @IBOutlet weak var onPartnerNameEdited: UITextField!
+    @IBOutlet weak var onChildNameAdded: UITextField!
+    @IBOutlet weak var onSignOutPressed: UIButton!
+    @IBOutlet weak var childTableView: UITableView!
+    
 }
