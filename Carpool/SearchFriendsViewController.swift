@@ -31,3 +31,4 @@ extension SearchFriendsViewController: UISearchResultsUpdating {
     }
     
 }
+
