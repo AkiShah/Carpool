@@ -13,6 +13,7 @@ import MapKit
 
 class CreateTripViewController: UIViewController {
     
+    @IBOutlet weak var childScroller: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var mapButton: UIButton!
@@ -25,8 +26,6 @@ class CreateTripViewController: UIViewController {
     var currentLocation = CLLocation()
     var annotations: [MKAnnotation] = []
     var child: Child?
-    
-    
     
     
     enum selectedLeg: Int {
@@ -88,8 +87,9 @@ class CreateTripViewController: UIViewController {
                 case .success(let child):
                     self.child = child
                 case .failure(_):
-                    break
-                    //TODO error
+                    let alert = UIAlertController(title: "Whoops", message: "Please enter a child's name", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Thanks, I'll do that!", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
             })
         } else {
@@ -142,6 +142,7 @@ class CreateTripViewController: UIViewController {
         }
     }
     @IBAction func onMapItPressed(_ sender: UIButton) {
+        
         //TODO take entered text from destination added and add it to CL Location
     }
     
@@ -200,7 +201,6 @@ extension Trip {
 extension CreateTripViewController: MKMapViewDelegate {
     
 }
-
 
 extension CreateTripViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
