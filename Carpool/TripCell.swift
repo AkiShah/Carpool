@@ -21,5 +21,4 @@ class TripCell: UITableViewCell {
     @IBOutlet weak var pickupCarPink: UIImageView!
     @IBOutlet weak var kidNames: UILabel!
     
-    
 }

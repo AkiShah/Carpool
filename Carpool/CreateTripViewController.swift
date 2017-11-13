@@ -183,7 +183,7 @@ extension Trip {
     
     var generateSmartDescription: String {
         
-        var kidSubString = "NameYourFkinChild"
+        var kidSubString = "Aleshia"
         
         if children.count > 0 {
             kidSubString =  children[0].name
@@ -193,7 +193,7 @@ extension Trip {
                 kidSubString = "\(children[0].name) and \(children.count - 2) other kids"
             }
         }
-        return "On \(event.time.day), \(kidSubString) will be going to \(event.description) at \(event.time.time)"
+        return "On \(event.time.day), \(kidSubString) will be going to: \(event.description) at \(event.time.time)"
     }
 }
 

@@ -18,6 +18,7 @@ class RootViewController: UITableViewController {
     var downloadedTrips: [Trip] = []
     var trips: [Trip] = []
     var user: User?
+    var kids: [Child] = []
     
     enum tripLeg: String {
         case dropoff = " will dropoff"
@@ -117,7 +118,9 @@ class RootViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as! TripCell
         let trip = trips[indexPath.row]
         let dsc = trip.event.description == "" ? "No description given" : trip.generateSmartDescription
-        cell.descriptionLabel.text = dsc 
+        //let kid = trip.children[indexPath.row]
+        cell.descriptionLabel.text = dsc
+        //cell.kidNames.text = kid.name
         if dsc == "" {
             cell.descriptionLabel.font = UIFont.italicSystemFont(ofSize: (cell.descriptionLabel.font.pointSize))
         } else {
@@ -141,7 +144,7 @@ class RootViewController: UITableViewController {
             label.text = "Not Claimed"
             label.textColor = UIColor.white
             label.backgroundColor = UIColor.red
-            label.font = UIFont.italicSystemFont(ofSize: label.font.pointSize)
+            label.font = UIFont.systemFont(ofSize: label.font.pointSize)
             carImage.alpha = 0.3
         }
     }

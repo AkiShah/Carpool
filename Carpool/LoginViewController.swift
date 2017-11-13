@@ -9,7 +9,7 @@
 import UIKit
 import CarpoolKit
 
-let logMeInNotificationName = Notification.Name("LogMeInDidCompleteNotification")
+let loginNotification = Notification.Name("login Did Complete Notification")
 
 class LoginViewController: UIViewController {
     
@@ -49,6 +49,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    @IBAction func onSkipPressed(_ sender: UIButton) {
     }
     
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
