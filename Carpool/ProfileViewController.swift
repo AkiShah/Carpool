@@ -9,7 +9,7 @@
 import UIKit
 import CarpoolKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var partnerNameLabel: UILabel!
@@ -22,9 +22,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var childTableView: UITableView!
     
     var user: User?
-    //Pull the kids names for table from here
     var children: [Child] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,22 +32,26 @@ class ProfileViewController: UIViewController {
                 
             case .success(let user):
                 self.user = user
-                self.userNameLabel.text = user.name
                 self.children = user.children
+                self.userNameLabel.text = user.name
+                self.childTableView.reloadData()
             case .failure(_):
                 break//todo error
                 
             }
         }
-        
-        
-        if partnerNameLabel.text == "" {
-            partnerNameLabel.isHidden = true
-            partnerHeader.isHidden = true
-        } else {
-            partnerNameLabel.isHidden = false
-            partnerHeader.isHidden = false
-        }
+        //populating the data of which children are the user's
+        childTableView.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return user?.children.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "childList", for: indexPath)
+        cell.textLabel?.text = user?.children[indexPath.row].name
+        return cell
     }
     
     @IBAction func onEditProfilePressed(_ sender: UIButton) {
@@ -64,7 +67,6 @@ class ProfileViewController: UIViewController {
             API.set(userFullName: name)
             userNameLabel.text = name
         }
-        
     }
     @IBAction func onPartnerNameEdited(_ sender: UITextField) {
         if let myFatedSoulMate = sender.text {
@@ -78,8 +80,8 @@ class ProfileViewController: UIViewController {
                 switch result {
                 case .success(let child):
                     self.children.append(child)
+                    self.childTableView.reloadData()
                 case .failure(let error):
-                    //TODO ERROR HANDLING
                     print(error)
                 }
             })

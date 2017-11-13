@@ -63,13 +63,13 @@ class FriendsViewController: UITableViewController, CNContactPickerDelegate, UIS
         self.tableView.reloadData()
     }
     
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(searchActive) {
             return filtered.count
         }
         return friends.count;
     }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell") as! UITableViewCell;
@@ -84,10 +84,15 @@ class FriendsViewController: UITableViewController, CNContactPickerDelegate, UIS
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let friend = friends[indexPath.row]
+        //ability to remove friends
     }
-    
-    
 }
+
+
+
+
+
+
 
 // Need to fix the double search bar
 //
