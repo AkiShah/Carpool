@@ -55,9 +55,16 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func onUserNameEdited(_ sender: UITextField) {
+        if let name = sender.text {
+            API.set(userFullName: name)
+        }
+        
     }
     @IBAction func onPartnerNameEdited(_ sender: UITextField) {
+        if let myFatedSoulMate = sender.text {
+        }
     }
     @IBAction func onChildNameAdded(_ sender: UITextField) {
+        
     }
 }
