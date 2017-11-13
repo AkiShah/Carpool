@@ -198,12 +198,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbG-lu-dN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1794" y="923"/>
+            <point key="canvasLocation" x="-2623" y="851"/>
         </scene>
-        <!--Friends View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="9i1-PI-XPv">
             <objects>
-                <tableViewController id="fe8-Qw-tkz" customClass="FriendsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="fe8-Qw-tkz" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QOq-sH-Sm8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,7 +247,40 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1103" y="924"/>
+            <point key="canvasLocation" x="-1871" y="851"/>
+        </scene>
+        <!--Friends View Controller-->
+        <scene sceneID="gbP-5N-63w">
+            <objects>
+                <tableViewController id="70G-ho-tQY" customClass="FriendsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cqV-j8-6VZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableFooterView" contentMode="redraw" placeholder="search for friends" id="4af-Iq-W3Y">
+                            <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="88" id="rOK-bV-rWT">
+                                <rect key="frame" x="0.0" y="28" width="375" height="88"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rOK-bV-rWT" id="MKl-mG-4H4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="70G-ho-tQY" id="MLZ-IQ-bpU"/>
+                            <outlet property="delegate" destination="70G-ho-tQY" id="3Iw-qv-jy0"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dGy-On-sBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1103" y="851"/>
         </scene>
         <!--Create Trip View Controller-->
         <scene sceneID="SER-Zw-3Ol">
@@ -446,7 +479,7 @@
                                     <outlet property="delegate" destination="9ep-Jo-buX" id="Yqa-7w-e3D"/>
                                 </connections>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MOVE TO GOOGLE MAP API" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CV-IA-mHL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MOVE TO GOOGLE MAP API?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CV-IA-mHL">
                                 <rect key="frame" x="66" y="174" width="242" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -940,7 +973,7 @@
                                 <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="17"/>
                                 <state key="normal" title="Friends"/>
                                 <connections>
-                                    <segue destination="fe8-Qw-tkz" kind="show" id="cME-Yb-PT7"/>
+                                    <segue destination="70G-ho-tQY" kind="show" id="ls1-DF-d2n"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -997,6 +1030,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="CYb-Ea-cza"/>
-        <segue reference="hGt-QR-v3f"/>
+        <segue reference="XMv-Zx-Av8"/>
     </inferredMetricsTieBreakers>
 </document>
