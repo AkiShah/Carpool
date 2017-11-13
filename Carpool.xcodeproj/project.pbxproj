@@ -16,6 +16,8 @@
 		736385DF1FB25D5A00472D2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 736385DE1FB25D5A00472D2E /* GoogleService-Info.plist */; };
 		73A524211FB6586E00FE8F26 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A524201FB6586E00FE8F26 /* SearchFriendsViewController.swift */; };
 		D22071811FB114AF004B1B36 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22071801FB114AF004B1B36 /* CreateTripViewController.swift */; };
+		D24853131FBA04CD00D55DD8 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24853121FBA04CD00D55DD8 /* GoogleMapViewController.swift */; };
+		D24853151FBA050200D55DD8 /* GoogleMapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24853141FBA050200D55DD8 /* GoogleMapStoryboard.storyboard */; };
 		D288C1191FB6167300C5D441 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288C1181FB6167300C5D441 /* FriendsViewController.swift */; };
 		D2D8B2651FB36A4A00800358 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8B2641FB36A4A00800358 /* MapViewController.swift */; };
 		D2F5760A1FB4B43F008D3438 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F576091FB4B43F008D3438 /* LoginViewController.swift */; };
@@ -42,6 +44,8 @@
 		9A5EBFA6D1B05B21D53BE329 /* Pods-Carpool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.release.xcconfig"; sourceTree = "<group>"; };
 		BBC503E4FFD20DF4FB31BCB6 /* Pods_Carpool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22071801FB114AF004B1B36 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
+		D24853121FBA04CD00D55DD8 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
+		D24853141FBA050200D55DD8 /* GoogleMapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoogleMapStoryboard.storyboard; sourceTree = "<group>"; };
 		D288C1181FB6167300C5D441 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		D2D8B2641FB36A4A00800358 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D2F576091FB4B43F008D3438 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				D288C1181FB6167300C5D441 /* FriendsViewController.swift */,
 				73A524201FB6586E00FE8F26 /* SearchFriendsViewController.swift */,
 				733E2FFE1FB0E79C005E9AFD /* Main.storyboard */,
+				D24853121FBA04CD00D55DD8 /* GoogleMapViewController.swift */,
+				D24853141FBA050200D55DD8 /* GoogleMapStoryboard.storyboard */,
 				733E30011FB0E79C005E9AFD /* Assets.xcassets */,
 				733E30031FB0E79C005E9AFD /* LaunchScreen.storyboard */,
 				733E30061FB0E79C005E9AFD /* Info.plist */,
@@ -189,6 +195,7 @@
 				733E30051FB0E79C005E9AFD /* LaunchScreen.storyboard in Resources */,
 				D2F5760C1FB4B555008D3438 /* Savannah.gpx in Resources */,
 				736385DF1FB25D5A00472D2E /* GoogleService-Info.plist in Resources */,
+				D24853151FBA050200D55DD8 /* GoogleMapStoryboard.storyboard in Resources */,
 				733E30021FB0E79C005E9AFD /* Assets.xcassets in Resources */,
 				733E30001FB0E79C005E9AFD /* Main.storyboard in Resources */,
 			);
@@ -273,6 +280,7 @@
 				733E2FFD1FB0E79C005E9AFD /* RootViewController.swift in Sources */,
 				733E2FFB1FB0E79C005E9AFD /* AppDelegate.swift in Sources */,
 				D288C1191FB6167300C5D441 /* FriendsViewController.swift in Sources */,
+				D24853131FBA04CD00D55DD8 /* GoogleMapViewController.swift in Sources */,
 				D2F576101FB5046F008D3438 /* HomeScreenViewController.swift in Sources */,
 				D2D8B2651FB36A4A00800358 /* MapViewController.swift in Sources */,
 				D22071811FB114AF004B1B36 /* CreateTripViewController.swift in Sources */,
