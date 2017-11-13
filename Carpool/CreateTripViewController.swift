@@ -28,6 +28,7 @@ class CreateTripViewController: UIViewController {
     var child: Child?
     
     
+    
     enum selectedLeg: Int {
         case dropoff
         case pickup
@@ -183,8 +184,7 @@ extension Date {
 extension Trip {
     
     var generateSmartDescription: String {
-        
-        var kidSubString = "Aleshia"
+        var kidSubString = "kid name"
         
         if children.count > 0 {
             kidSubString =  children[0].name

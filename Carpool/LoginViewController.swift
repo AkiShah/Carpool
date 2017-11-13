@@ -48,11 +48,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     @IBAction func onSkipPressed(_ sender: UIButton) {
-        
     }
     
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {

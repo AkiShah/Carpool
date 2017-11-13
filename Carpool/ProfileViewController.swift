@@ -41,6 +41,7 @@ class ProfileViewController: UIViewController {
             }
         }
         
+        
         if partnerNameLabel.text == "" {
             partnerNameLabel.isHidden = true
             partnerHeader.isHidden = true

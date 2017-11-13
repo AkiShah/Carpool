@@ -162,7 +162,7 @@ class TripDetailViewController: UIViewController {
         if let error = error {
             errorMessages(error: error)
         } else {
-            print("Look mom I made a change")
+            print("Look mom, I made a change")
         }
         
     }
@@ -171,7 +171,7 @@ class TripDetailViewController: UIViewController {
         if let error = error {
             errorMessages(error: error)
         } else {
-            print("Look mom I made a change")
+            print("Look mom, I made a change")
         }
         
     }
