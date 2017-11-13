@@ -52,6 +52,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onSkipPressed(_ sender: UIButton) {
+        
     }
     
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {

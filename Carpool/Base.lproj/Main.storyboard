@@ -406,10 +406,10 @@
             </objects>
             <point key="canvasLocation" x="-314.39999999999998" y="607.64617691154433"/>
         </scene>
-        <!--Search Location View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="nJY-f1-24v">
             <objects>
-                <viewController id="9ep-Jo-buX" customClass="SearchLocationViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9ep-Jo-buX" customClass="MapViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uUk-lt-nfU"/>
                         <viewControllerLayoutGuide type="bottom" id="XVr-4l-ygx"/>

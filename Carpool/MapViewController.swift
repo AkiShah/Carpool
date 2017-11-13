@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class SearchLocationViewController: UIViewController {
+class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var selectLocationButton: UIButton!
@@ -43,9 +43,9 @@ class SearchLocationViewController: UIViewController {
     }
 }
 
-extension SearchLocationViewController: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 6000, 6000)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
         mapView.addAnnotations(annotations)
         print(annotations)
@@ -63,7 +63,7 @@ extension SearchLocationViewController: MKMapViewDelegate {
     }
 }
 
-extension SearchLocationViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         guard status == .authorizedWhenInUse else { return }
         mapView.showsUserLocation = true

@@ -78,7 +78,6 @@ class CreateTripViewController: UIViewController {
     
     @IBAction func onDatePickerChanged(_ sender: UIDatePicker) {
         time = sender.date
-        //todo error if the date is bad
     }
     
     @IBAction func onChildNameEntered(_ sender: UITextField) {
@@ -89,7 +88,8 @@ class CreateTripViewController: UIViewController {
                 case .success(let child):
                     self.child = child
                 case .failure(_):
-                    break//TODO error
+                    break
+                    //TODO error
                 }
             })
         } else {
@@ -116,7 +116,7 @@ class CreateTripViewController: UIViewController {
                     print("We have locations")
                     self.mapButton.isHidden = false
                 } else {
-                    print(#function, "Something went bad")
+                    print(#function, "Something went bad, no locations for you")
                     self.mapButton.isHidden = true
                 }
             })
@@ -151,13 +151,13 @@ class CreateTripViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let searchLocationVC = segue.destination as? SearchLocationViewController {
+        if let searchLocationVC = segue.destination as? MapViewController {
             searchLocationVC.annotations = annotations
         }
     }
     
     @IBAction func unwindFromSearchLocationMap(segue: UIStoryboardSegue) {
-        if let searchLocationVC = segue.destination as? SearchLocationViewController {
+        if let searchLocationVC = segue.destination as? MapViewController {
             if let location = searchLocationVC.selectedLocation {
                 locationFromMap = location
             }
