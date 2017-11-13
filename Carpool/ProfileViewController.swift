@@ -40,13 +40,13 @@ class ProfileViewController: UIViewController {
                 
             }
         }
-        userNameEdited.isHidden = true
-        partnerNameEdited.isHidden = true
-        childNameAdded.isHidden = true
         
         if partnerNameLabel.text == "" {
             partnerNameLabel.isHidden = true
             partnerHeader.isHidden = true
+        } else {
+            partnerNameLabel.isHidden = false
+            partnerHeader.isHidden = false
         }
     }
     
@@ -55,6 +55,7 @@ class ProfileViewController: UIViewController {
         partnerNameEdited.isHidden = false
         childNameAdded.isHidden = false
         partnerNameLabel.isHidden = false
+        partnerNameEdited.isHidden = false
     }
     
     @IBAction func onUserNameEdited(_ sender: UITextField) {

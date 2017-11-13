@@ -27,7 +27,6 @@ class ViewTripsNavigationController: UINavigationController {
             print(currentUser)
             NotificationCenter.default.post(name: loginNotification, object: nil)
         } else {
-            
             let loginVC = storyboard!.instantiateViewController(withIdentifier: "LoginVC")
             present(loginVC, animated: animated, completion: nil)
         }
