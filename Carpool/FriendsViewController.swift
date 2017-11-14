@@ -10,111 +10,52 @@ import UIKit
 import CarpoolKit
 import ContactsUI
 
-class FriendsViewController: UITableViewController, CNContactPickerDelegate, UISearchBarDelegate {
-    
+class FriendsViewController: UITableViewController, CNContactPickerDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var resultSearchController:UISearchController? = nil
-    //let friends: [User] = []
     let friends = ["Max", "Nathan", "Akash", "Shannon", "Aleshia"]
-    
-    
-    //this is me trying to get the filtered search function to work with friends, but the friends are not populating. I've hard coded them above for testing. The old code is at the bottom, commented out if this is bad. But we would have to still fix the double search bar issue. 
-    
-    var searchActive : Bool = false
-    var filtered:[String] = []
-    
+    var resultSearchController: UISearchController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        filtered = friends.filter({ (text) -> Bool in
-            let tmp: NSString = text as NSString
-            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-            return range.location != NSNotFound
-        })
-        if(filtered.count == 0){
-            searchActive = false;
-        } else {
-            searchActive = true;
-        }
-        self.tableView.reloadData()
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(searchActive) {
-            return filtered.count
-        }
-        return friends.count;
-    }
-    
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell") as! UITableViewCell;
-        if(searchActive){
-            cell.textLabel?.text = filtered[indexPath.row]
-        } else {
-            cell.textLabel?.text = friends[indexPath.row];
-        }
+        let searchFriendsViewController = storyboard!.instantiateViewController(withIdentifier: "SearchFriendsViewController") as! SearchFriendsViewController
+        resultSearchController = UISearchController(searchResultsController: searchFriendsViewController)
+        resultSearchController.searchResultsUpdater = self
+        definesPresentationContext = true
         
-        return cell;
+        let searchBar = resultSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Find New Friends"
+        navigationItem.titleView = resultSearchController.searchBar
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friends.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
+        cell.textLabel?.text = friends[indexPath.row]
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let friend = friends[indexPath.row]
+        //let friend = friends[indexPath.row]
         //ability to remove friends
     }
 }
 
-
-
-
-
-
-
-// Need to fix the double search bar
-//
-//        let friendsSearchTable = storyboard!.instantiateViewController(withIdentifier: "SearchFriendsViewController") as! SearchFriendsViewController
-//        resultSearchController = UISearchController(searchResultsController: friendsSearchTable)
-//        resultSearchController?.searchResultsUpdater = friendsSearchTable
-//
-//
-//
-//        searchBar.sizeToFit()
-//        searchBar.placeholder = "Find New Friends"
-//        navigationItem.titleView = resultSearchController?.searchBar
-//
-//    }
-//
-//}
-//
-//extension FriendsViewController: UISearchBarDelegate {
-//
-//}
-//
-//extension FriendsViewController: UISearchControllerDelegate {
-//
-//}
-
+extension FriendsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let query = resultSearchController.searchBar.text else { return }
+        let filtered = friends.filter{ $0.contains(query) }
+        let vc = resultSearchController.searchResultsController as! SearchFriendsViewController
+        vc.searchResults = filtered
+        vc.tableView.reloadData()
+    }
+}
