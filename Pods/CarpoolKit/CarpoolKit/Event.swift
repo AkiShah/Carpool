@@ -1,3 +1,4 @@
+import FirebaseCommunity
 import CoreLocation
 import PromiseKit
 
@@ -11,6 +12,22 @@ public struct Event: Codable, Keyed {
 
     public var clLocation: CLLocation? {
         return location.flatMap(Geohash.init(value:))?.location
+    }
+}
+
+public extension API {
+    static func set(endTime: Date, for event: Event) {
+        let endTime = endTime.timeIntervalSince1970
+        Database.database().reference().child("events").child(event.key).child("endTime").setValue(endTime)
+
+        firstly {
+            Database.fetch(path: "events", event.key, "trips")
+        }.then { snapshot -> Void in
+            let ref = Database.database().reference().child("trips")
+            for key in snapshot.keys {
+                ref.child(key).child("event").child("endTime").setValue(endTime)
+            }
+        }
     }
 }
 
