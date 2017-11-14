@@ -60,6 +60,7 @@ class CreateTripViewController: UIViewController {
                         do {
                             try API.add(child: child, to: trip)
                         } catch {
+                            print(error)
                             let alert = UIAlertController(title: "Whoops", message: "Child was not added", preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "I'll try again!", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
