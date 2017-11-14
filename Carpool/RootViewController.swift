@@ -59,8 +59,8 @@ class RootViewController: UITableViewController {
                     self.trips = self.getTrips(for: tripSegment(rawValue: self.TripSegmentedViewController.selectedSegmentIndex)!)
                         self.tableView.reloadData()
                 }
+                
             case .failure(let error):
-                //TODO Error Handling
                 print("failed to observe trips")
                 let alert = UIAlertController(title: "Whoops", message: "There are no upcoming trips. Add a trip or log in to view trips. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Sounds good", style: UIAlertActionStyle.default, handler: nil))
