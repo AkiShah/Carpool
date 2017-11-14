@@ -59,7 +59,9 @@ class CreateTripViewController: UIViewController {
                     if let child = self.child {
                         do {
                             try API.add(child: child, to: trip)
+                            self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
                         } catch {
+                            print(error)
                             let alert = UIAlertController(title: "Whoops", message: "Child was not added", preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "I'll try again!", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
@@ -70,8 +72,6 @@ class CreateTripViewController: UIViewController {
                     alert.addAction(UIAlertAction(title: "Okay, I'll try again!", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
-                
-                self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
             }
         }
     }
