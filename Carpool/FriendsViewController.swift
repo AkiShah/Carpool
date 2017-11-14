@@ -26,7 +26,7 @@ class FriendsViewController: UITableViewController, CNContactPickerDelegate {
         let searchFriendsViewController = storyboard!.instantiateViewController(withIdentifier: "SearchFriendsViewController") as! SearchFriendsViewController
         resultSearchController = UISearchController(searchResultsController: searchFriendsViewController)
         resultSearchController.searchResultsUpdater = self
-        definesPresentationContext = true
+        resultSearchController.definesPresentationContext = false
         
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
@@ -52,10 +52,10 @@ class FriendsViewController: UITableViewController, CNContactPickerDelegate {
 
 extension FriendsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let query = resultSearchController.searchBar.text else { return }
-        let filtered = friends.filter{ $0.contains(query) }
+        //guard let query = resultSearchController.searchBar.text else { return }
+        //let filtered = friends.filter{ $0.contains(query) }
         let vc = resultSearchController.searchResultsController as! SearchFriendsViewController
-        vc.searchResults = filtered
+        //vc.searchResults = filtered
         vc.tableView.reloadData()
     }
 }

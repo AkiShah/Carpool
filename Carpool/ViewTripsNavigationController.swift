@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseCommunity
+import CarpoolKit
 
 class ViewTripsNavigationController: UINavigationController {
     
@@ -23,12 +23,11 @@ class ViewTripsNavigationController: UINavigationController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let currentUser = Auth.auth().currentUser {
-            print(currentUser)
-            NotificationCenter.default.post(name: loginNotification, object: nil)
-        } else {
+        if API.isCurrentUserAnonymous {
             let loginVC = storyboard!.instantiateViewController(withIdentifier: "LoginVC")
             present(loginVC, animated: animated, completion: nil)
+        } else {
+            NotificationCenter.default.post(name: loginNotification, object: nil)
         }
     }
 }
