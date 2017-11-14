@@ -9,30 +9,20 @@
 import UIKit
 import CarpoolKit
 
-class SearchFriendsViewController: UITableViewController {
+class SearchFriendsViewController: UITableViewController, UISearchControllerDelegate {
+    
+    var searchResults: [String] = []
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResult", for: indexPath)
         cell.textLabel?.text = "I WANA BE YOUR FUEND"
-        //WILL YOU BE MY FUEND??
+        cell.detailTextLabel?.text = "My Kids are better than yours"
+        print("I'm being called")
+        cell.backgroundColor = UIColor.cyan
         return cell
     }
-    
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        tableView.reloadData()
-    }
-    
 }
-
-extension SearchFriendsViewController: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        tableView.reloadData()
-    }
-    
-}
-
