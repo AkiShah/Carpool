@@ -41,15 +41,15 @@ class RootViewController: UITableViewController {
                 self.user = user
                 self.trips = self.getTrips(for: tripSegment(rawValue: 0)!)
                 self.tableView.reloadData()
+                print("User currently is ", user)
             case .failure(let error):
-                //Failed to get user
                 print("failed to get user")
                 print(error)
-                break
+                let alert = UIAlertController(title: "Whoops", message: "You aren't logged in, but feel free to peruse the app.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Thanks, I think I will", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
-        
-        //would like to create a title for header in section splitting out which trips already have both legs claimed, and another section that displays which routes still have an unclaimed leg. That way you don't click on a trip that has both legs already accounted for.
         
         API.observeTrips(sender: self) { result in
             switch result {
@@ -62,6 +62,9 @@ class RootViewController: UITableViewController {
             case .failure(_):
                 //TODO Error Handling
                 print("failed to observe trips")
+                let alert = UIAlertController(title: "Whoops", message: "There are no upcoming trips. Add a trip or log in to view trips.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Sounds good", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 break
             }
         }
@@ -121,9 +124,6 @@ class RootViewController: UITableViewController {
         //let kid = trip.children[indexPath.row]
         cell.descriptionLabel.text = dsc
         //cell.kidNames.text = kid.name
-        
-//        THIS LINE CAUSES A CRASH in "my connections". But it also displays the child name above the car in "my trips". Can we fix/integrate this?
-        //cell.textLabel?.text = user?.children[indexPath.row].name
 
         if dsc == "" {
             cell.descriptionLabel.font = UIFont.italicSystemFont(ofSize: (cell.descriptionLabel.font.pointSize))
