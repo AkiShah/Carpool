@@ -1,4 +1,5 @@
 import FirebaseCommunity
+import CoreLocation
 import PromiseKit
 
 public struct Trip: Codable, Keyed {
@@ -22,6 +23,235 @@ public struct Trip: Codable, Keyed {
     let _children: [Child]?
 }
 
+public extension API {
+
+    /// returns all trips, continuously
+    public static func observeTrips(sender: UIViewController, completion: @escaping (Result<[Trip]>) -> Void) {
+        firstly {
+            auth()
+        }.then { () -> Void in
+            let reaper = Lifetime()
+            reaper.ref = Database.database().reference().child("trips")
+            reaper.observer = reaper.ref.observe(.value) { snapshot in
+                firstly {
+                    when(resolved: snapshot.children.map{ Trip.make(with: $0 as! DataSnapshot) })
+                }.then { results -> Void in
+                    var trips: [Trip] = []
+                    for case .fulfilled(let trip) in results { trips.append(trip) }
+                    if trips.isEmpty && !results.isEmpty {
+                        throw Error.noChildNodes
+                    }
+                    trips.sort()
+                    completion(.success(trips))
+                }.catch {
+                    completion(.failure($0))
+                }
+            }
+            sender.view.addSubview(reaper)
+        }.catch {
+            completion(.failure($0))
+        }
+    }
+
+    /// returns all the current user's trips, continuously
+    public static func observeMyTrips(sender: UIViewController, observer: @escaping (Result<[Trip]>) -> Void) {
+        observeTrips(sender: sender) { result in
+            switch result {
+            case .success(let trips):
+                fetchCurrentUser().then { user in
+                    observer(.success(trips.filter{ $0.event.owner == user }))
+                }.catch {
+                    observer(.failure($0))
+                }
+            case .failure(let error):
+                observer(.failure(error))
+            }
+        }
+    }
+
+    /// returns all the current user's friends' trips, continuously
+    public static func observeTheTripsOfMyFriends(sender: UIViewController, observer: @escaping (Result<[Trip]>) -> Void) {
+
+        var trips: [Trip] = []
+        var friends: [User] = []
+
+        func process() {
+            guard trips.count > 0, friends.count > 0 else { return }
+            observer(.success(trips.filter{ friends.contains($0.event.owner) }))
+        }
+
+        observeTrips(sender: sender) { result in
+            switch result {
+            case .success(let _trips):
+                trips = _trips
+                process()
+            case .failure(let error):
+                observer(.failure(error))
+            }
+        }
+
+        observeFriends(sender: sender) { result in
+            switch result {
+            case .success(let _friends):
+                friends = _friends
+                process()
+            case .failure(let error):
+                observer(.failure(error))
+            }
+        }
+    }
+
+    /// observe changes to the Trip, so if you have a trip
+    /// object on your VC you will want to observe it here
+    /// and update that property with the new value from the observer callback
+    public static func observe(trip: Trip, sender: UIViewController, observer: @escaping (Result<Trip>) -> Void) {
+        let reaper = Lifetime()
+        reaper.ref = Database.database().reference().child("trips").child(trip.key)
+        reaper.observer = reaper.ref.observe(.value) { snapshot in
+            firstly {
+                Trip.make(with: snapshot)
+            }.then {
+                observer(.success($0))
+            }.catch {
+                observer(.failure($0))
+            }
+        }
+        sender.view.addSubview(reaper)
+    }
+
+    ///This is the `Promise` returning variant of this function.
+    ///Use the original `createTrip(eventDescription:eventTime:eventLocation:completion:)` unless you intend to use Promises.
+    public static func createTrip(eventDescription desc: String, eventTime time: Date, eventLocation location: CLLocation?) -> Promise<Trip> {
+        guard !desc.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return Promise(error: Error.emptyDescription)
+        }
+
+        return firstly {
+            fetchCurrentUser()
+        }.then { user -> Trip in
+            guard let fbuser = Auth.auth().currentUser else {
+                throw Error.notAuthorized
+            }
+            guard user.name?.chuzzled() != nil, user.name != "Anonymous Parent" else {
+                throw Error.anonymousUsersCannotCreateTrips
+            }
+
+            let geohash = location.flatMap{ Geohash(location: $0) }?.value
+
+            var eventDict: [String: Any] = [
+                "description": desc,
+                "time": time.timeIntervalSince1970,
+                "owner": [fbuser.uid: user.name!]
+            ]
+            eventDict["geohash"] = geohash
+            let eventRef = Database.database().reference().child("events").childByAutoId()
+
+            let tripRef = Database.database().reference().child("trips").childByAutoId()
+            tripRef.setValue([
+                "dropOff": [fbuser.uid: user.name!],
+                "event": [eventRef.key: eventDict],
+                "owner": [fbuser.uid: user.name!]
+            ])
+
+            var eventDict2 = eventDict
+            eventDict2["trips"] = [tripRef.key: true]
+            eventRef.setValue(eventDict2)
+
+            let event = Event(key: eventRef.key, description: desc, owner: user, time: time, endTime: nil, location: geohash)
+            return Trip(key: tripRef.key, event: event, dropOff: Leg(driver: user), pickUp: nil, _children: [])
+        }
+    }
+
+    /// claims the initial leg by the current user, so pickUp leg is UNCLAIMED
+    public static func createTrip(eventDescription desc: String, eventTime time: Date, eventLocation location: CLLocation?, completion: @escaping (Result<Trip>) -> Void) {
+        createTrip(eventDescription: desc, eventTime: time, eventLocation: location).then {
+            completion(.success($0))
+        }.catch {
+            completion(.failure($0))
+        }
+    }
+
+    public static func add(child: Child, to trip: Trip) throws {
+        Database.database().reference().child("trips").child(trip.key).child("children").updateChildValues([
+            child.key: try child.json()
+        ])
+    }
+
+    ///This is the `Promise` returning variant of this function.
+    ///Use the original `claimPickUp(trip:completion:)` unless you intend to use Promises.
+    public static func claimPickUp(trip: Trip) -> Promise<Void> {
+        return claim("pickUp", claim: true, trip: trip)
+    }
+
+    /// if there is no error, completes with nil
+    public static func claimPickUp(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+        claim("pickUp", claim: true, trip: trip, completion: completion)
+    }
+
+    ///This is the `Promise` returning variant of this function.
+    ///Use the original `claimDropOff(trip:completion:)` unless you intend to use Promises.
+    public static func claimDropOff(trip: Trip) -> Promise<Void> {
+        return claim("dropOff", claim: true, trip: trip)
+    }
+
+    /// if there is no error, completes with nil
+    public static func claimDropOff(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+        claim("dropOff", claim: true, trip: trip, completion: completion)
+    }
+
+    ///This is the `Promise` returning variant of this function.
+    ///Use the original `unclaimPickUp(trip:completion:)` unless you intend to use Promises.
+    public static func unclaimPickUp(trip: Trip) -> Promise<Void> {
+        return claim("pickUp", claim: false, trip: trip)
+    }
+
+    /// if there is no error, completes with nil
+    public static func unclaimPickUp(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+        claim("pickUp", claim: false, trip: trip, completion: completion)
+    }
+
+    ///This is the `Promise` returning variant of this function.
+    ///Use the original `unclaimDropOff(trip:completion:)` unless you intend to use Promises.
+    public static func unclaimDropOff(trip: Trip) -> Promise<Void> {
+        return claim("dropOff", claim: false, trip: trip)
+    }
+
+    /// if there is no error, completes with nil
+    public static func unclaimDropOff(trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+        claim("dropOff", claim: false, trip: trip, completion: completion)
+    }
+
+    static func claim(_ key: String, claim: Bool, trip: Trip) -> Promise<Void> {
+        return firstly {
+            fetchCurrentUser()
+        }.then { user -> Void in
+            let ref = Database.database().reference().child("trips").child(trip.key).child(key)
+            if claim {
+                ref.updateChildValues([
+                    user.key: user.name ?? "Anonymous Parent"
+                ])
+            } else {
+                ref.removeValue()
+            }
+        }
+    }
+
+    static func claim(_ key: String, claim cc: Bool, trip: Trip, completion: @escaping (Swift.Error?) -> Void) {
+        claim(key, claim: cc, trip: trip).then {
+            completion(nil)
+        }.catch {
+            completion($0)
+        }
+    }
+
+    public static func delete(trip: Trip) throws {
+        guard trip.event.owner.key == Auth.auth().currentUser?.uid else {
+            throw Error.notYourTripToDelete
+        }
+        Database.database().reference().child("trips").child(trip.key).removeValue()
+    }
+}
+
 extension Trip: Equatable {
     public static func ==(lhs: Trip, rhs: Trip) -> Bool {
         return lhs.key == rhs.key
@@ -41,21 +271,29 @@ extension Trip: Hashable {
 }
 
 extension Trip {
-    static func make(key: String, json: [String: Any]) -> Promise<Trip> {
-        func getLeg(key: String) -> Promise<User?> {
-            guard let json = json[key] as? [String: String] else { return Promise(value: nil) }
-            guard let item = json.first else { return Promise(value: nil) }
-            return API.fetchUser(id: item.key).then(on: zalgo){ $0 }
-        }
+    static func make(with snapshot: DataSnapshot) -> Promise<Trip> {
+        do {
+            let key = snapshot.key
+            guard let json = snapshot.value as? [String: Any] else { throw API.Error.decode}
 
-        let dropOff = getLeg(key: "dropOff")
-        let pickUp = getLeg(key: "pickUp")
-        let event = Event.make(key: "event", json: json)
+            func getLeg(key: String) -> Promise<User?> {
+                guard let json = json[key] as? [String: String] else { return Promise(value: nil) }
+                guard let item = json.first else { return Promise(value: nil) }
+                return API.fetchUser(id: item.key).then(on: zalgo){ $0 }
+            }
 
-        return firstly {
-            when(fulfilled: dropOff, pickUp, event)
-        }.then { dropOff, pickUp, event in
-            Trip(key: key, event: event, dropOff: dropOff.map(Leg.init), pickUp: pickUp.map(Leg.init), _children: [])
+            let children: [Child]? = try? snapshot.childSnapshot(forPath: "children").array()
+            let dropOff = getLeg(key: "dropOff")
+            let pickUp = getLeg(key: "pickUp")
+            let event = Event.make(key: "event", json: json)
+
+            return firstly {
+                when(fulfilled: dropOff, pickUp, event)
+            }.then { dropOff, pickUp, event in
+                Trip(key: key, event: event, dropOff: dropOff.map(Leg.init), pickUp: pickUp.map(Leg.init), _children: children)
+            }
+        } catch {
+            return Promise(error: error)
         }
     }
 }

@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var segmentedController: UISegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var onNameEntered: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordConfirmButton: UITextField!
     
@@ -62,7 +63,7 @@ class LoginViewController: UIViewController {
         passwordConfirmButton.isHidden = state.isHidden
     }
     
-    @IBOutlet weak var onNameEntered: UITextField!
+    
     @IBAction func onLoginPressed(_ sender: UIButton) {
         
         switch ToggleState(rawValue: segmentedController.selectedSegmentIndex)! {
@@ -72,6 +73,7 @@ class LoginViewController: UIViewController {
                     switch result {
                     case .success(let user):
                         print(user)
+                        NotificationCenter.default.post(name: loginNotification, object: nil)
                     case .failure(let error):
                         print(error)
                     }
@@ -83,6 +85,7 @@ class LoginViewController: UIViewController {
                     switch result {
                     case .success(let user):
                         print(user)
+                        NotificationCenter.default.post(name: loginNotification, object: nil)
                     case .failure(let error):
                         print(error)
                     }
@@ -103,7 +106,14 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func onPasswordConfirmedEntered(_ sender: UITextField) {
+    @IBAction func onNameEntered(_ sender: UITextField) {
+        if let name  = sender.text {
+            userName = name
+        }
+        
+    }
+    
+    @IBAction func onPasswordContefirmedEntered(_ sender: UITextField) {
         if let text = sender.text {
             userPasswordConfirm = text
         }
