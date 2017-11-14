@@ -122,7 +122,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    @IBAction func onPasswordContefirmedEntered(_ sender: UITextField) {
+    @IBAction func onPasswordConfirmedEntered(_ sender: UITextField) {
         if let text = sender.text {
             userPasswordConfirm = text
         }
