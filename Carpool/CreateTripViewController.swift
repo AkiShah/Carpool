@@ -188,11 +188,10 @@ extension Trip {
         
         if children.count > 0 {
             kidSubString =  children[0].name
-            if children.count == 2 {
-                kidSubString = "\(children[0].name) and \(children[1].name)"
-            } else {
-                kidSubString = "\(children[0].name) and \(children.count - 2) other kids"
-            }
+        } else if children.count == 2 {
+            kidSubString = "\(children[0].name) and \(children[1].name)"
+        } else if children.count > 2 {
+            kidSubString = "\(children[0].name) and \(children.count - 1) other kids"
         }
         return "On \(event.time.day), \(kidSubString) will be going to: \(event.description) at \(event.time.time)"
     }
