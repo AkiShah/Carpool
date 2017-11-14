@@ -42,6 +42,23 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         }
         //populating the data of which children are the user's
         childTableView.dataSource = self
+        
+        
+        if editProfileButton.isSelected == true {
+            userNameEdited.isHidden = false
+            partnerNameEdited.isHidden = false
+            childNameAdded.isHidden = false
+            partnerNameLabel.isHidden = false
+            partnerNameEdited.isHidden = false
+            editProfileButton.isSelected = true
+        } else {
+            userNameEdited.isHidden = true
+            partnerNameEdited.isHidden = true
+            childNameAdded.isHidden = true
+            partnerNameLabel.isHidden = true
+            partnerNameEdited.isHidden = true
+            editProfileButton.isSelected = false
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,7 +78,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         childNameAdded.isHidden = false
         partnerNameLabel.isHidden = false
         partnerNameEdited.isHidden = false
-        editProfileButton.titleLabel?.text = "Confirm Changes?"
+        editProfileButton.isSelected = true
     }
     
     @IBAction func onUserNameEdited(_ sender: UITextField) {
