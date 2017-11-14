@@ -45,7 +45,7 @@ class RootViewController: UITableViewController {
             case .failure(let error):
                 print("failed to get user")
                 print(error)
-                let alert = UIAlertController(title: "Whoops", message: "You aren't logged in, but feel free to peruse the app.", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Whoops", message: "You aren't logged in, but feel free to peruse the app. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Thanks, I think I will", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
@@ -59,10 +59,10 @@ class RootViewController: UITableViewController {
                     self.trips = self.getTrips(for: tripSegment(rawValue: self.TripSegmentedViewController.selectedSegmentIndex)!)
                         self.tableView.reloadData()
                 }
-            case .failure(_):
+            case .failure(let error):
                 //TODO Error Handling
                 print("failed to observe trips")
-                let alert = UIAlertController(title: "Whoops", message: "There are no upcoming trips. Add a trip or log in to view trips.", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Whoops", message: "There are no upcoming trips. Add a trip or log in to view trips. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Sounds good", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 break

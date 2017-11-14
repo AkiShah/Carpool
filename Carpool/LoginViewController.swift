@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
                         print(user)
                         NotificationCenter.default.post(name: loginNotification, object: nil)
                     case .failure(let error):
-                        let alert = UIAlertController(title: "Whoops", message: "Your email or password was invalid", preferredStyle: UIAlertControllerStyle.alert)
+                        let alert = UIAlertController(title: "Whoops", message: "Your email or password was invalid. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                         print(error)
@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
                         print(user)
                         NotificationCenter.default.post(name: loginNotification, object: nil)
                     case .failure(let error):
-                        let alert = UIAlertController(title: "Whoops", message: "Your email or password was not accepted", preferredStyle: UIAlertControllerStyle.alert)
+                        let alert = UIAlertController(title: "Whoops", message: "Your email or password was not accepted. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                         print(error)
