@@ -807,6 +807,7 @@
                                 <rect key="frame" x="284" y="28" width="75" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Edit Profile"/>
+                                <state key="selected" title="Confirm Changes"/>
                                 <connections>
                                     <action selector="onEditProfilePressed:" destination="DKc-7g-Kmw" eventType="touchUpInside" id="rEg-ay-8fh"/>
                                 </connections>

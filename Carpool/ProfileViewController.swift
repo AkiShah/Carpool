@@ -51,6 +51,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "childList", for: indexPath)
         cell.textLabel?.text = user?.children[indexPath.row].name
+        print(children)
         return cell
     }
     
