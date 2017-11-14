@@ -103,10 +103,12 @@ class TripDetailViewController: UIViewController {
             })
             dropoffButton.setTitle("Drop Off Claimed", for: .normal)
             eventDropoffDriverLabel.text = driver.name
+            dropoffButton.tintColor = UIColor.red
         case (.dropoff, .unclaimed):
             dropoffButton.isEnabled = true
             print("I hereby claim this leg as mine")
             dropoffButton.setTitle("Claim Drop Off", for: .normal)
+            dropoffButton.tintColor = UIColor.blue
         case (.pickup, .claimed):
             let driver = trip.pickUp!.driver
             API.fetchCurrentUser(completion: { result in
@@ -121,6 +123,7 @@ class TripDetailViewController: UIViewController {
             })
             pickupButton.setTitle("Pickup Claimed", for: .normal)
             eventPickupDriverLabel.text = driver.name
+            pickupButton.tintColor = UIColor.red
         case (.pickup, .unclaimed):
             pickupButton.isEnabled = true
             print("I hereby claim this leg as mine")
