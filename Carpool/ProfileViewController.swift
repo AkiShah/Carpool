@@ -83,7 +83,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func onUserNameEdited(_ sender: UITextField) {
         if let name = sender.text {
-            API.set(userFullName: name)
             userNameLabel.text = name
         }
     }
