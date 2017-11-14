@@ -76,6 +76,9 @@ class LoginViewController: UIViewController {
                         NotificationCenter.default.post(name: loginNotification, object: nil)
                     case .failure(let error):
                         print(error)
+                        let alert = UIAlertController(title: "Whoops", message: "Login didn't work. Check your login info or sign up for an account.", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "I'll try again!", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     }
                 })
             }
@@ -88,6 +91,9 @@ class LoginViewController: UIViewController {
                         NotificationCenter.default.post(name: loginNotification, object: nil)
                     case .failure(let error):
                         print(error)
+                        let alert = UIAlertController(title: "Whoops", message: "Signup didn't work. Check your passwords again. If you've already created an account, click Login and try again.", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "I'll try again!", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     }
                 })
             }
