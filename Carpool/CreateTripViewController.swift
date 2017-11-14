@@ -104,6 +104,7 @@ class CreateTripViewController: UIViewController {
         //let mappableDestination = MK
         
         if let enteredText = sender.text {
+            //AND there is a child selected
             
             enteredLocation = enteredText
             desc = enteredText
