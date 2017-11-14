@@ -123,7 +123,7 @@ class RootViewController: UITableViewController {
         //cell.kidNames.text = kid.name
         
 //        THIS LINE CAUSES A CRASH in "my connections". But it also displays the child name above the car in "my trips". Can we fix/integrate this?
-        cell.textLabel?.text = user?.children[indexPath.row].name
+        //cell.textLabel?.text = user?.children[indexPath.row].name
 
         if dsc == "" {
             cell.descriptionLabel.font = UIFont.italicSystemFont(ofSize: (cell.descriptionLabel.font.pointSize))
