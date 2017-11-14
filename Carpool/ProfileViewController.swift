@@ -61,6 +61,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         childNameAdded.isHidden = false
         partnerNameLabel.isHidden = false
         partnerNameEdited.isHidden = false
+        editProfileButton.titleLabel?.text = "Confirm Changes?"
     }
     
     @IBAction func onUserNameEdited(_ sender: UITextField) {
