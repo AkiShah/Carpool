@@ -61,6 +61,7 @@ class LoginViewController: UIViewController {
     func toggleLabels(to state: ToggleState) {
         loginButton.setTitle(state.text, for: .normal)
         passwordConfirmButton.isHidden = state.isHidden
+        nameTextField.isHidden = state.isHidden
     }
     
     
@@ -68,6 +69,7 @@ class LoginViewController: UIViewController {
         
         switch ToggleState(rawValue: segmentedController.selectedSegmentIndex)! {
         case .login:
+            print("userEmail: \(userEmail), userPassword: \(userPassword)")
             if userEmail != "", userPassword != "" {
                 API.signIn(email: userEmail, password: userPassword, completion: { result in
                     switch result {
@@ -75,11 +77,15 @@ class LoginViewController: UIViewController {
                         print(user)
                         NotificationCenter.default.post(name: loginNotification, object: nil)
                     case .failure(let error):
+                        let alert = UIAlertController(title: "Whoops", message: "Your email or password was invalid. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                         print(error)
                     }
                 })
             }
         case .signup:
+            print("userName: \(userName), userEmail: \(userEmail), userPassword: \(userPassword), userPasswordConfirmed: \(userPasswordConfirm)")
             if userEmail != "", userPassword != "", userPassword == userPasswordConfirm, userName != "" {
                 API.signUp(email: userEmail, password: userPassword, fullName: userName, completion: { result in
                     switch result {
@@ -87,6 +93,9 @@ class LoginViewController: UIViewController {
                         print(user)
                         NotificationCenter.default.post(name: loginNotification, object: nil)
                     case .failure(let error):
+                        let alert = UIAlertController(title: "Whoops", message: "Your email or password was not accepted. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                         print(error)
                     }
                 })
@@ -113,7 +122,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    @IBAction func onPasswordContefirmedEntered(_ sender: UITextField) {
+    @IBAction func onPasswordConfirmedEntered(_ sender: UITextField) {
         if let text = sender.text {
             userPasswordConfirm = text
         }

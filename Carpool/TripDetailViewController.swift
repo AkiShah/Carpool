@@ -78,6 +78,9 @@ class TripDetailViewController: UIViewController {
                 
             case .failure(let error):
                 print(error)
+                let alert = UIAlertController(title: "Whoops", message: "Couldn't create a new trip. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 break
             }
         }
@@ -96,8 +99,10 @@ class TripDetailViewController: UIViewController {
                 case .success(let user):
                     print("Neer mind, you can haz this leg back")
                     self.dropoffButton.isEnabled = user == driver
-                case .failure:
-                    //TODO Error Handling
+                case .failure(let error):
+                    let alert = UIAlertController(title: "Whoops", message: "Couldn't unclaim that trip. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                     break
                 }
             })
@@ -114,8 +119,10 @@ class TripDetailViewController: UIViewController {
                 case .success(let user):
                     print("Neer mind, you can haz this leg back")
                     self.pickupButton.isEnabled = user == driver
-                case .failure:
-                    //TODO Error Handling
+                case .failure(let error):
+                    let alert = UIAlertController(title: "Whoops", message: "Couldn't claim that trip. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                     break
                 }
             })
