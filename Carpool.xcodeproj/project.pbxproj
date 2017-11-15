@@ -17,6 +17,7 @@
 		738F1BA91FBCACB400C079AD /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F1BA81FBCACB400C079AD /* CalendarCell.swift */; };
 		73A524211FB6586E00FE8F26 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A524201FB6586E00FE8F26 /* SearchFriendsViewController.swift */; };
 		73B866711FBCDA9800F0F1C9 /* Aki_CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B866701FBCDA9800F0F1C9 /* Aki_CreateTripViewController.swift */; };
+		73B866741FBCDDE200F0F1C9 /* TripDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B866731FBCDD5800F0F1C9 /* TripDetailViewController.storyboard */; };
 		D22071811FB114AF004B1B36 /* CreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22071801FB114AF004B1B36 /* CreateTripViewController.swift */; };
 		D24853131FBA04CD00D55DD8 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24853121FBA04CD00D55DD8 /* GoogleMapViewController.swift */; };
 		D24853151FBA050200D55DD8 /* GoogleMapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24853141FBA050200D55DD8 /* GoogleMapStoryboard.storyboard */; };
@@ -45,7 +46,7 @@
 		738F1BA81FBCACB400C079AD /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		73A524201FB6586E00FE8F26 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		73B866701FBCDA9800F0F1C9 /* Aki_CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aki_CreateTripViewController.swift; sourceTree = "<group>"; };
-		73B866721FBCDBCF00F0F1C9 /* TripDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = TripDetailViewController.storyboard; path = /Users/Aimee/Desktop/Codebase/Carpool/Carpool/TripDetailViewController.storyboard; sourceTree = "<absolute>"; };
+		73B866731FBCDD5800F0F1C9 /* TripDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = TripDetailViewController.storyboard; path = Base.lproj/TripDetailViewController.storyboard; sourceTree = "<group>"; };
 		9A5EBFA6D1B05B21D53BE329 /* Pods-Carpool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpool.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpool/Pods-Carpool.release.xcconfig"; sourceTree = "<group>"; };
 		BBC503E4FFD20DF4FB31BCB6 /* Pods_Carpool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22071801FB114AF004B1B36 /* CreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +111,7 @@
 				D2F5760D1FB4BDDC008D3438 /* ViewTripsNavigationController.swift */,
 				D2FFE75E1FB2241400641577 /* TripCell.swift */,
 				730ABE2C1FB0EEAF00146469 /* TripDetailViewController.swift */,
-				73B866721FBCDBCF00F0F1C9 /* TripDetailViewController.storyboard */,
+				73B866731FBCDD5800F0F1C9 /* TripDetailViewController.storyboard */,
 				D22071801FB114AF004B1B36 /* CreateTripViewController.swift */,
 				D2D8B2641FB36A4A00800358 /* MapViewController.swift */,
 				D2F576111FB50CA7008D3438 /* ProfileViewController.swift */,
@@ -206,6 +207,7 @@
 				D24853151FBA050200D55DD8 /* GoogleMapStoryboard.storyboard in Resources */,
 				733E30021FB0E79C005E9AFD /* Assets.xcassets in Resources */,
 				733E30001FB0E79C005E9AFD /* Main.storyboard in Resources */,
+				73B866741FBCDDE200F0F1C9 /* TripDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
