@@ -154,7 +154,12 @@ class TripDetailViewController: UIViewController {
         
         switch isLegClaimed(tripLeg: trip.pickUp) {
         case .claimed:
-            API.unclaimPickUp(trip: trip, completion: pickUpClaimChanged)
+            let alert = UIAlertController(title: "Unclaim this Pickup", message: "Would you like to unclaim this pickup?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Unclaim Pickup", style: .default, handler: { _ in
+                API.claimPickUp(trip: self.trip, completion: self.pickUpClaimChanged)
+            }))
+            alert.addAction(UIAlertAction(title: "Not Now", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         case .unclaimed:
             let alert = UIAlertController(title: "Claim this Pickup", message: "Would you like to claim this pickup?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Claim Pickup", style: .default, handler: { _ in
