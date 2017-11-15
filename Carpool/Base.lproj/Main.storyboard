@@ -385,6 +385,7 @@
                                         <rect key="frame" x="97.5" y="36" width="48" height="30"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
+                                            <action selector="onCancelPressed:" destination="4SA-71-PnC" eventType="touchUpInside" id="eZn-Y1-BmJ"/>
                                             <segue destination="qLK-2I-nIy" kind="unwind" identifier="unwindCreateTrip" unwindAction="unwindFromCreateTripViewControllerWithSegue:" id="paP-UK-vFZ"/>
                                         </connections>
                                     </button>

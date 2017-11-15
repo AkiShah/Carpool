@@ -51,6 +51,8 @@ class CreateTripViewController: UIViewController {
         locationManager.requestLocation()
     }
     
+    @IBAction func onCancelPressed(_ sender: UIButton) {
+    }
     
     //The createTrip button is pressed here
     @IBAction func onCreateTripPressed(_ sender: UIButton) {
@@ -116,9 +118,8 @@ class CreateTripViewController: UIViewController {
             desc = enteredText
             let geocoder = CLGeocoder()
             
-            
             //need clRegion to display coordinate around current annotation, we don't need user's current location
-            let clRegion = CLCircularRegion(center: currentLocation.coordinate, radius: 20000, identifier: "currentLocation")
+            let clRegion = CLCircularRegion(center: currentLocation.coordinate, radius: 50000, identifier: "currentLocation")
    
             geocoder.geocodeAddressString(enteredText, in: clRegion, completionHandler: { (placemarks, error) in
                 print(placemarks, error)
@@ -160,6 +161,7 @@ class CreateTripViewController: UIViewController {
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
         
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
