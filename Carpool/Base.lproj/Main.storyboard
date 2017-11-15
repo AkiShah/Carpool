@@ -334,7 +334,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kfF-dz-pN3">
-                                <rect key="frame" x="16" y="329" width="343" height="135"/>
+                                <rect key="frame" x="16" y="329" width="343" height="65"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child's Name // will be removed for coll.view" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wwj-Ze-BJH">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -354,16 +354,16 @@
                                             <action selector="onDestinationAdded:" destination="4SA-71-PnC" eventType="editingDidEndOnExit" id="cnE-vM-cgB"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCB-B9-KAJ">
-                                        <rect key="frame" x="0.0" y="70" width="343" height="30"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCB-B9-KAJ">
+                                        <rect key="frame" x="0.0" y="65" width="343" height="0.0"/>
                                         <state key="normal" title="Need to see a map? Click Here."/>
                                         <connections>
                                             <action selector="onMapItPressed:" destination="4SA-71-PnC" eventType="touchUpInside" id="iop-zt-n8g"/>
                                             <segue destination="9ep-Jo-buX" kind="presentation" id="QvG-IF-LF2"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Otherwise, press Create Trip below." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsF-yJ-FYE">
-                                        <rect key="frame" x="0.0" y="105" width="343" height="30"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Otherwise, press Create Trip below." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsF-yJ-FYE">
+                                        <rect key="frame" x="0.0" y="65" width="343" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -424,7 +424,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sdb-1U-2cH">
-                                <rect key="frame" x="16" y="526" width="343" height="56"/>
+                                <rect key="frame" x="16" y="456" width="343" height="126"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jDG-VY-RG8">
                                     <size key="itemSize" width="50" height="50"/>
@@ -470,6 +470,7 @@
                     <connections>
                         <outlet property="childScroller" destination="sdb-1U-2cH" id="W5J-d3-HFk"/>
                         <outlet property="datePicker" destination="cdi-wb-Dvm" id="PBa-B6-bUT"/>
+                        <outlet property="instructionLabel" destination="tsF-yJ-FYE" id="E02-9r-LYN"/>
                         <outlet property="mapButton" destination="dCB-B9-KAJ" id="Rib-Ad-xIU"/>
                         <outlet property="segmentedControl" destination="2Wf-aV-cph" id="lhe-zF-hSJ"/>
                     </connections>

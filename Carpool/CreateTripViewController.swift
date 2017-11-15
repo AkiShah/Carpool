@@ -17,6 +17,7 @@ class CreateTripViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var mapButton: UIButton!
+    @IBOutlet weak var instructionLabel: UILabel!
     
     var desc: String = ""
     var time: Date = Date()
@@ -122,9 +123,11 @@ class CreateTripViewController: UIViewController {
                     self.annotations = placemarks.map({$0.location!})
                     print("We have locations")
                     self.mapButton.isHidden = false
+                    self.instructionLabel.isHidden = false
                 } else {
                     print(#function, "Something went bad, no locations for you")
                     self.mapButton.isHidden = true
+                    self.instructionLabel.isHidden = true
                 }
             })
             
