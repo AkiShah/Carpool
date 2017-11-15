@@ -16,11 +16,13 @@ class MapViewController: UIViewController {
     
     
     var annotations: [MKAnnotation] = []
-    let locationManager = CLLocationManager()
     var selectedLocation: CLLocation?
+    let locationManager = CLLocationManager()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationManager.delegate = self
         mapView.delegate = self
         selectLocationButton.isEnabled = false
@@ -56,6 +58,7 @@ extension MapViewController: MKMapViewDelegate {
         guard let coordinate = view.annotation?.coordinate else { return }
         selectedLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         selectLocationButton.isEnabled = true
+        print(selectedLocation)
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
