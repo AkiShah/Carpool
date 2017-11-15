@@ -53,7 +53,7 @@ class CreateTripViewController: UIViewController {
     
     @IBAction func onCancelPressed(_ sender: UIButton) {
         enteredLocation = ""
-        present(self, animated: true, completion: nil)
+        
     }
     
     //The createTrip button is pressed here
