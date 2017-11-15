@@ -100,6 +100,8 @@ class CreateTripViewController: UIViewController {
         }
     }
     
+    
+    //When you click ENTER on the destination field
     @IBAction func onDestinationAdded(_ sender: UITextField) {
         //let mappableDestination = MK
         
