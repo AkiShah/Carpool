@@ -25,31 +25,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="JPm-BE-Ncx">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Lg0-zK-Wop">
-                                    <rect key="frame" x="8" y="8" width="359" height="29"/>
-                                    <segments>
-                                        <segment title="My Trips"/>
-                                        <segment title="My Connections"/>
-                                    </segments>
-                                    <connections>
-                                        <action selector="onTripSegmentedControlValueChanged:" destination="8I8-3s-4bT" eventType="valueChanged" id="yAd-1Y-ouO"/>
-                                    </connections>
-                                </segmentedControl>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Iik-Rt-jG4">
+                                    <rect key="frame" x="8" y="8" width="359" height="56"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Lg0-zK-Wop">
+                                            <rect key="frame" x="66" y="0.0" width="227" height="29"/>
+                                            <segments>
+                                                <segment title="My Trips"/>
+                                                <segment title="My Connections"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="onTripSegmentedControlValueChanged:" destination="8I8-3s-4bT" eventType="valueChanged" id="yAd-1Y-ouO"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wI-X6-bQn">
+                                            <rect key="frame" x="158.5" y="28" width="42" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="bottomMargin" secondItem="Lg0-zK-Wop" secondAttribute="bottom" id="7Yq-zn-GKe"/>
-                                <constraint firstItem="Lg0-zK-Wop" firstAttribute="top" secondItem="JPm-BE-Ncx" secondAttribute="topMargin" id="HmE-QM-HFh"/>
-                                <constraint firstItem="Lg0-zK-Wop" firstAttribute="leading" secondItem="JPm-BE-Ncx" secondAttribute="leadingMargin" id="bWP-Kv-v9X"/>
-                                <constraint firstAttribute="trailingMargin" secondItem="Lg0-zK-Wop" secondAttribute="trailing" id="xMU-Q9-QFx"/>
+                                <constraint firstItem="Iik-Rt-jG4" firstAttribute="top" secondItem="JPm-BE-Ncx" secondAttribute="top" constant="8" id="SOd-Z0-PVY"/>
+                                <constraint firstAttribute="trailing" secondItem="Iik-Rt-jG4" secondAttribute="trailing" constant="8" id="oue-fi-yaf"/>
+                                <constraint firstItem="Iik-Rt-jG4" firstAttribute="leading" secondItem="JPm-BE-Ncx" secondAttribute="leading" constant="8" id="rd5-cj-5HC"/>
                             </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventList" id="yBF-A9-ZRk">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="178" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yBF-A9-ZRk" id="hDm-8A-TDn">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -57,7 +67,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TripCell" rowHeight="200" id="HDj-Ik-nNo" customClass="TripCell" customModule="Carpool" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="116" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="222" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HDj-Ik-nNo" id="I4p-tX-Nff">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
@@ -158,7 +168,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enG-OH-gQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-314" y="-222"/>
+            <point key="canvasLocation" x="-314.39999999999998" y="-222.63868065967017"/>
         </scene>
         <!--Title-->
         <scene sceneID="LhP-Sc-Db2">
@@ -272,13 +282,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a one-way trip:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Jg-wd-97I">
-                                <rect key="frame" x="16" y="84" width="343" height="30"/>
+                                <rect key="frame" x="16" y="40" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kfF-dz-pN3">
-                                <rect key="frame" x="16" y="373" width="343" height="68"/>
+                                <rect key="frame" x="16" y="329" width="343" height="68"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child's Name // will be removed for coll.view" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wwj-Ze-BJH">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -329,7 +339,7 @@
                                 </subviews>
                             </stackView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cdi-wb-Dvm">
-                                <rect key="frame" x="16" y="195" width="343" height="162"/>
+                                <rect key="frame" x="16" y="151" width="343" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="yra-WG-vYO"/>
                                 </constraints>
@@ -341,7 +351,7 @@
                                 </connections>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="er2-l5-yDg">
-                                <rect key="frame" x="66" y="130" width="243" height="48.5"/>
+                                <rect key="frame" x="66" y="86" width="243" height="48.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nld-1j-B2i">
                                         <rect key="frame" x="0.0" y="0.0" width="243" height="20.5"/>
@@ -362,7 +372,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sdb-1U-2cH">
-                                <rect key="frame" x="16" y="503" width="343" height="79"/>
+                                <rect key="frame" x="16" y="459" width="343" height="123"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jDG-VY-RG8">
                                     <size key="itemSize" width="50" height="50"/>
@@ -965,6 +975,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BKN-na-EgS"/>
-        <segue reference="XMv-Zx-Av8"/>
+        <segue reference="hGt-QR-v3f"/>
     </inferredMetricsTieBreakers>
 </document>
