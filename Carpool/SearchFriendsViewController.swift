@@ -9,20 +9,45 @@
 import UIKit
 import CarpoolKit
 
-class SearchFriendsViewController: UITableViewController, UISearchControllerDelegate {
+class SearchFriendsViewController: UITableViewController {
     
-    var searchResults: [String] = []
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var searchQuery = ""
+    var searchResults: [User] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchBar.delegate = self
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return searchResults.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResult", for: indexPath)
-        cell.textLabel?.text = "I WANA BE YOUR FUEND"
-        cell.detailTextLabel?.text = "My Kids are better than yours"
-        print("I'm being called")
-        cell.backgroundColor = UIColor.cyan
+        let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
+        cell.textLabel?.text = searchResults[indexPath.row].name
         return cell
+    }
+    
+}
+
+extension SearchFriendsViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        //Do something the first time the user first stated editing search bar
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        API.search(forUsersWithName: searchText) { result in
+            switch result {
+            case .success(let users):
+                self.searchResults = users
+                print(users)
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(#function, error)
+            }
+        }
     }
 }

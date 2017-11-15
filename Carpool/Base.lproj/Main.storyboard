@@ -160,7 +160,7 @@
             </objects>
             <point key="canvasLocation" x="-314" y="-222"/>
         </scene>
-        <!--Search Friends View Controller-->
+        <!--Title-->
         <scene sceneID="LhP-Sc-Db2">
             <objects>
                 <tableViewController storyboardIdentifier="SearchFriendsViewController" id="1eZ-a3-RT4" customClass="SearchFriendsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
@@ -168,9 +168,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="ivf-yc-y5a">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResult" textLabel="XuR-1l-hNh" detailTextLabel="RpC-MK-Fsr" style="IBUITableViewCellStyleSubtitle" id="fmh-3Y-Kfg">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="A" textLabel="XuR-1l-hNh" detailTextLabel="RpC-MK-Fsr" style="IBUITableViewCellStyleSubtitle" id="fmh-3Y-Kfg">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fmh-3Y-Kfg" id="GcK-SI-DmB">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -199,12 +204,16 @@
                             <outlet property="delegate" destination="1eZ-a3-RT4" id="iqX-ZG-fCE"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="eT7-pu-kTV"/>
+                    <connections>
+                        <outlet property="searchBar" destination="ivf-yc-y5a" id="3wm-Rn-igR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbG-lu-dN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2010" y="608"/>
         </scene>
-        <!--Friends View Controller-->
+        <!--Friends-->
         <scene sceneID="9i1-PI-XPv">
             <objects>
                 <tableViewController id="fe8-Qw-tkz" customClass="FriendsViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
@@ -227,6 +236,13 @@
                             <outlet property="delegate" destination="fe8-Qw-tkz" id="Ksi-qs-y6i"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Friends" id="RHI-sr-qGo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Osz-WW-TPb">
+                            <connections>
+                                <segue destination="1eZ-a3-RT4" kind="show" id="8jv-gm-Wvn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="piz-v2-nTO" id="vew-45-VIM"/>
                     </connections>
