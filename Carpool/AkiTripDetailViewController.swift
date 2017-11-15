@@ -13,6 +13,22 @@ import CoreLocation
 
 class AkiTripDetailViewController: UITableViewController {
     
+    //Header
+    @IBOutlet weak var eventDestinationLabel: UILabel!
+    @IBOutlet weak var eventDestinationAddressButton: UIButton!
+    
+    @IBOutlet weak var eventDateLabel: UILabel!
+    @IBOutlet weak var eventStartTimeLabel: UILabel!
+    @IBOutlet weak var eventEndTimeLabel: UILabel!
+    
+    @IBOutlet weak var theChildrenLabel: UILabel!
+    @IBOutlet weak var eventDropoffDriverLabel: UILabel!
+    @IBOutlet weak var eventPickupDriverLabel: UILabel!
+    
+    //Footer
+    @IBOutlet weak var eventCommentTextView: UITextView!
+    
+    
     
     
     var trip: Trip!
@@ -44,7 +60,10 @@ class AkiTripDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //eventDescriptionLabel.text = trip.event.description
+        eventDestinationLabel.text = trip.event.description
+        eventDateLabel.text = ""
+        eventStartTimeLabel.text = ""
+        eventEndTimeLabel.text = ""
         
         //updateButtonState(for: .dropoff)
         //updateButtonState(for: .pickup)
@@ -80,6 +99,16 @@ class AkiTripDetailViewController: UITableViewController {
             }
         }
     }
+    
+    @IBAction func onEventDestinationAddressButtonClicked(_ sender: UIButton) {
+        //Go to map
+        
+    }
+    
+    @IBAction func onPostCommentButtonClicked(_ sender: UIButton) {
+        //Post comment
+    }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
