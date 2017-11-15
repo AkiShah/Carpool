@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         if let theMistake = sender.text {
             API.addChild(name: theMistake, completion: { result in
                 switch result {
-                case .success(let child):
+                case .success(_):
                     self.updateChildrenTableView()
                 case .failure(let error):
                     let alert = UIAlertController(title: "Whoops", message: "Wasn't able to add a new child. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
