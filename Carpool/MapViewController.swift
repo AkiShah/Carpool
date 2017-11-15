@@ -47,12 +47,12 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
-//    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-//        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
-//        mapView.setRegion(coordinateRegion, animated: true)
-//        mapView.addAnnotations(annotations)
-//        print(annotations)
-//    }
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
+        mapView.setRegion(coordinateRegion, animated: true)
+        mapView.addAnnotations(annotations)
+        print(annotations)
+    }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let coordinate = view.annotation?.coordinate else { return }

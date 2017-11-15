@@ -51,6 +51,8 @@ class CreateTripViewController: UIViewController {
         locationManager.requestLocation()
     }
     
+    
+    //The createTrip button is pressed here
     @IBAction func onCreateTripPressed(_ sender: UIButton) {
         //print("Time\(time), Description\(desc)")
         if desc != ""{
@@ -81,6 +83,7 @@ class CreateTripViewController: UIViewController {
         time = sender.date
     }
     
+    //This shouldn't happen until after the trip is created.
     @IBAction func onChildNameEntered(_ sender: UITextField) {
         if let enteredText = sender.text {
             API.addChild(name: enteredText, completion: { (result) in
