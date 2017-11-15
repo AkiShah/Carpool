@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Database.database().isPersistenceEnabled = true
 
         return true
-        
-        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
