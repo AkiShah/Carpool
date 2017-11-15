@@ -23,7 +23,9 @@ class FriendsViewController: UITableViewController{
                 self.friends = users
                 self.tableView.reloadData()
             case .failure(let error):
-                //TODO error handling
+                let alert = UIAlertController(title: "One is the loneliest number.", message: "I'm sure you have friends, but I don't see them here \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Thanks, I'll add friends", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 print(#function, error)
             }
         }

@@ -22,6 +22,7 @@
 		D24853131FBA04CD00D55DD8 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24853121FBA04CD00D55DD8 /* GoogleMapViewController.swift */; };
 		D24853151FBA050200D55DD8 /* GoogleMapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24853141FBA050200D55DD8 /* GoogleMapStoryboard.storyboard */; };
 		D288C1191FB6167300C5D441 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288C1181FB6167300C5D441 /* FriendsViewController.swift */; };
+		D2A084AE1FBCE0AA00BD2C13 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A084AD1FBCE0AA00BD2C13 /* MessageComposer.swift */; };
 		D2D8B2651FB36A4A00800358 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8B2641FB36A4A00800358 /* MapViewController.swift */; };
 		D2F5760A1FB4B43F008D3438 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F576091FB4B43F008D3438 /* LoginViewController.swift */; };
 		D2F5760C1FB4B555008D3438 /* Savannah.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D2F5760B1FB4B555008D3438 /* Savannah.gpx */; };
@@ -53,6 +54,7 @@
 		D24853121FBA04CD00D55DD8 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		D24853141FBA050200D55DD8 /* GoogleMapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoogleMapStoryboard.storyboard; sourceTree = "<group>"; };
 		D288C1181FB6167300C5D441 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		D2A084AD1FBCE0AA00BD2C13 /* MessageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		D2D8B2641FB36A4A00800358 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D2F576091FB4B43F008D3438 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D2F5760B1FB4B555008D3438 /* Savannah.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Savannah.gpx; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				D2F576111FB50CA7008D3438 /* ProfileViewController.swift */,
 				D288C1181FB6167300C5D441 /* FriendsViewController.swift */,
 				73A524201FB6586E00FE8F26 /* SearchFriendsViewController.swift */,
+				D2A084AD1FBCE0AA00BD2C13 /* MessageComposer.swift */,
 				733E2FFE1FB0E79C005E9AFD /* Main.storyboard */,
 				73B866701FBCDA9800F0F1C9 /* Aki_CreateTripViewController.swift */,
 				738F1BA81FBCACB400C079AD /* CalendarCell.swift */,
@@ -295,6 +298,7 @@
 				D24853131FBA04CD00D55DD8 /* GoogleMapViewController.swift in Sources */,
 				D2F576101FB5046F008D3438 /* HomeScreenViewController.swift in Sources */,
 				D2D8B2651FB36A4A00800358 /* MapViewController.swift in Sources */,
+				D2A084AE1FBCE0AA00BD2C13 /* MessageComposer.swift in Sources */,
 				D22071811FB114AF004B1B36 /* CreateTripViewController.swift in Sources */,
 				D2FFE75F1FB2241400641577 /* TripCell.swift in Sources */,
 			);
@@ -435,10 +439,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LT6N8DA298;
+				DEVELOPMENT_TEAM = 837KPBMXY2;
 				INFOPLIST_FILE = Carpool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.akishah.Carpool;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.thekuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -451,10 +455,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LT6N8DA298;
+				DEVELOPMENT_TEAM = 837KPBMXY2;
 				INFOPLIST_FILE = Carpool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.akishah.Carpool;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.thekuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

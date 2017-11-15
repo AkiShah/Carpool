@@ -8,6 +8,7 @@
 
 import UIKit
 import CarpoolKit
+import MessageUI
 
 class SearchFriendsViewController: UITableViewController {
     
@@ -19,6 +20,21 @@ class SearchFriendsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+    }
+    
+    @IBAction func onSendTextPressed(_ sender: UIButton) {
+        let messageComposer = MessageComposer()
+        if (messageComposer.canSendText()) {
+            // Obtain a configured MFMessageComposeViewController
+            let messageComposeVC = messageComposer.configuredMessageComposeViewController()
+            // Present the configured MFMessageComposeViewController instance
+            present(messageComposeVC, animated: true, completion: nil)
+        } else {
+            // Let the user know if his/her device isn't able to send text messages
+            let alert = UIAlertController(title: "That didn't work.", message: "Your device is not able to send text messages.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,7 +64,9 @@ extension SearchFriendsViewController: UISearchBarDelegate {
                 self.searchResults = users
                 self.tableView.reloadData()
             case .failure(let error):
-                //TODO error handling
+                let alert = UIAlertController(title: "New phone, who dis?", message: "Database Error. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "It's not your fault", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 print(#function, error)
             }
         }
