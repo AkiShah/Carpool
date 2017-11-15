@@ -113,6 +113,7 @@ class CreateTripViewController: UIViewController {
             let clRegion = CLCircularRegion(center: currentLocation.coordinate, radius: 20000, identifier: "currentLocation")
             
             geocoder.geocodeAddressString(enteredText, in: clRegion, completionHandler: { (placemarks, error) in
+                print(placemarks, error)
                 if let placemarks = placemarks {
                     self.annotations = placemarks.map({$0.location!})
                     print("We have locations")
