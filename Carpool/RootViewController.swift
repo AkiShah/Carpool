@@ -10,15 +10,16 @@ import UIKit
 import CarpoolKit
 import CoreLocation
 
-class RootViewController: UITableViewController {
-    
+class RootViewController: UITableViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var TripSegmentedViewController: UISegmentedControl!
+    @IBOutlet weak var calendarCollectionView: UICollectionView!
     
     var downloadedTrips: [Trip] = []
     var trips: [Trip] = []
     var user: User?
     var kids: [Child] = []
+    var selectedDay = 0
     
     enum tripLeg: String {
         case dropoff = " will dropoff"
@@ -32,11 +33,11 @@ class RootViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        calendarCollectionView.dataSource = self
+        calendarCollectionView.delegate = self
         
         API.fetchCurrentUser { result in
             switch result {
-                
             case .success(let user):
                 self.user = user
                 self.trips = self.getTrips(for: tripSegment(rawValue: 0)!)
@@ -68,6 +69,7 @@ class RootViewController: UITableViewController {
                 break
             }
         }
+        
     }
     
     
@@ -94,9 +96,15 @@ class RootViewController: UITableViewController {
     func getTrips(for trip: tripSegment) -> [Trip] {
         
         var trips: [Trip] = []
+        
+        let today = Calendar.current.startOfDay(for: Date())
+        let low = today + TimeInterval(selectedDay * 60 * 60 * 24)
+        let high = low + TimeInterval(60 * 60 * 24)
+        trips = self.downloadedTrips.filter{ $0.event.time >= low && $0.event.time <= high }.sorted()
+        
         switch trip {
         case .myTrips:
-            trips = downloadedTrips.flatMap({
+            trips = trips.flatMap({
                 let owner = $0.event.owner
                 let legDropoff = $0.dropOff?.driver
                 let legPickup = $0.pickUp?.driver
@@ -104,7 +112,7 @@ class RootViewController: UITableViewController {
                 return owner == currentUser || legDropoff == currentUser || legPickup == currentUser ? $0 : nil
             })
         case .friendsTrips:
-            trips = downloadedTrips.flatMap({
+            trips = trips.flatMap({
                 let owner = $0.event.owner
                 let legDropoff = $0.dropOff?.driver
                 let legPickup = $0.pickUp?.driver
@@ -161,5 +169,7 @@ class RootViewController: UITableViewController {
         let trip = trips[indexPath.row]
         self.performSegue(withIdentifier: "segueToEventDetailVC", sender: trip)
     }
+    
+    
 }
 

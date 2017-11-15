@@ -16,14 +16,15 @@ class MapViewController: UIViewController {
     
     
     var annotations: [MKAnnotation] = []
-    let locationManager = CLLocationManager()
     var selectedLocation: CLLocation?
+    let locationManager = CLLocationManager()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationManager.delegate = self
-        
-        
+        mapView.delegate = self
         selectLocationButton.isEnabled = false
     }
     
@@ -35,6 +36,8 @@ class MapViewController: UIViewController {
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
+        
+        mapView.showAnnotations(annotations, animated: true)
     }
     
     @IBAction func onCancelButtonPressed(_ sender: UIButton) {
@@ -45,11 +48,31 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 30000, 30000)
         mapView.setRegion(coordinateRegion, animated: true)
         mapView.addAnnotations(annotations)
         print(annotations)
     }
+    
+    
+    //Trying to figure out how to get all annotations to show at once. 
+//    func zoomMapToFitAnnotations() {
+//
+//        var zoomRect = MKMapRectNull
+//        for annotation in mapView.annotations {
+//
+//            let annotationPoint = MKMapPointForCoordinate(annotation.coordinate)
+//
+//            let pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0)
+//
+//            if (MKMapRectIsNull(zoomRect)) {
+//                zoomRect = pointRect
+//            } else {
+//                zoomRect = MKMapRectUnion(zoomRect, pointRect)
+//            }
+//        }
+//        self.mapView.setVisibleMapRect(zoomRect, edgePadding: UIEdgeInsetsMake(50, 50, 50, 50), animated: true)
+//    }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let coordinate = view.annotation?.coordinate else { return }

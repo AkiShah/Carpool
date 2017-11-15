@@ -84,11 +84,20 @@ public extension API {
     /// This is the `Promise` returning variant of this function.
     /// Use the original `search(forUsersWithName:completion:)` unless you intend to use Promises.
     static func search(forUsersWithName query: String) -> Promise<[User]> {
+        latestQuery = query
+        let cancelIfNecessary = {
+            if query != latestQuery {
+                throw NSError(domain: NSURLErrorDomain, code: URLError.cancelled.rawValue)
+            }
+        }
+
         //FIXME will not scale
         let query = query.lowercased()
         return firstly {
             Database.fetch(path: "users")
-        }.then(on: .global()) { snapshot in
+        }.then(on: .global()) { snapshot -> [User] in
+            try cancelIfNecessary()
+
             return snapshot.children.flatMap { snapshot in
                 do {
                     let snapshot = snapshot as! DataSnapshot
@@ -111,9 +120,19 @@ public extension API {
                 }}
                 return false
             }
+        }.then { users -> [User] in
+            try cancelIfNecessary()
+            return users
+        }.recover { error -> [User] in
+            try cancelIfNecessary()
+            throw error
         }
     }
 
+    /**
+      Search for users in the system. Automatically cancels previous searches if you make new ones.
+      This means it is safe to use “as-you-type”.
+     */
     static func search(forUsersWithName query: String, completion: @escaping (Result<[User]>) -> Void) {
         search(forUsersWithName: query).then {
             completion(.success($0))
@@ -138,7 +157,7 @@ public extension API {
         firstly {
             fetchCurrentUser()
         }.then { user -> Void in
-            let reaper = Lifetime()
+            let reaper = Reaper()
             reaper.ref = Database.database().reference().child("users").child(user.key).child("friends")
             reaper.observer = reaper.ref.observe(.value) { snapshot in
                 when(fulfilled: snapshot.children.map {
@@ -203,3 +222,5 @@ extension User: Comparable {
         return lhs.name ?? "" < rhs.name ?? ""
     }
 }
+
+private var latestQuery: String?

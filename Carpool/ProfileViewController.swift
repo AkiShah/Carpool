@@ -12,12 +12,7 @@ import CarpoolKit
 class ProfileViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var partnerNameLabel: UILabel!
-    @IBOutlet weak var userNameEdited: UITextField!
-    @IBOutlet weak var partnerNameEdited: UITextField!
-    @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var childNameAdded: UITextField!
-    @IBOutlet weak var partnerHeader: UILabel!
     @IBOutlet weak var onSignOutPressed: UIButton!
     @IBOutlet weak var childTableView: UITableView!
     
@@ -27,20 +22,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        API.fetchCurrentUser { result in
-            switch result {
-                
-            case .success(let user):
-                self.user = user
-                self.children = user.children
-                self.userNameLabel.text = user.name
-                self.childTableView.reloadData()
-            case .failure(let error):
-                let alert = UIAlertController(title: "Whoops", message: "Couldn't get user info. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
+        updateChildrenTableView()
         
         //populating the data of which children are the user's
         childTableView.dataSource = self
@@ -64,7 +46,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return user?.children.count ?? 0
+        return children.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,6 +56,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+<<<<<<< HEAD
     @IBAction func onEditProfilePressed(_ sender: UIButton) {
         userNameEdited.isHidden = false
         partnerNameEdited.isHidden = false
@@ -94,13 +77,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
             partnerNameLabel.text = myFatedSoulMate
         }
     }
+=======
+>>>>>>> master
     @IBAction func onChildNameAdded(_ sender: UITextField) {
         if let theMistake = sender.text {
             API.addChild(name: theMistake, completion: { result in
                 switch result {
-                case .success(let child):
-                    self.children.append(child)
-                    self.childTableView.reloadData()
+                case .success(_):
+                    self.updateChildrenTableView()
                 case .failure(let error):
                     let alert = UIAlertController(title: "Whoops", message: "Wasn't able to add a new child. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
@@ -108,6 +92,22 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
                     print(error)
                 }
             })
+        }
+    }
+    
+    func updateChildrenTableView() {
+        API.fetchCurrentUser { result in
+            switch result {
+            case .success(let user):
+                self.user = user
+                self.children = user.children
+                self.userNameLabel.text = user.name
+                self.childTableView.reloadData()
+            case .failure(let error):
+                let alert = UIAlertController(title: "Whoops", message: "Couldn't get user info. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
 }

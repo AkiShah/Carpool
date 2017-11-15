@@ -3,17 +3,17 @@ PODS:
     - FirebaseCommunity/Auth
     - FirebaseCommunity/Database
     - PromiseKit
-  - FirebaseCommunity/Auth (0.1.5):
+  - FirebaseCommunity/Auth (0.1.6):
     - FirebaseCommunity/Core
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCommunity/Core (0.1.5):
+  - FirebaseCommunity/Core (0.1.6):
     - FirebaseCommunity/Root
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCommunity/Database (0.1.5):
+  - FirebaseCommunity/Database (0.1.6):
     - FirebaseCommunity/Core
     - leveldb-library
-  - FirebaseCommunity/Root (0.1.5)
+  - FirebaseCommunity/Root (0.1.6)
   - GoogleToolboxForMac/DebugUtils (2.1.3):
     - GoogleToolboxForMac/Defines (= 2.1.3)
   - GoogleToolboxForMac/Defines (2.1.3)
@@ -48,12 +48,12 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CarpoolKit:
-    :commit: 95c644d21ceb0c1bc5c11185077d471d63886022
+    :commit: 172aef8baf530a2f7cefd6e523a26985bd94991c
     :git: https://github.com/codebasesav/CarpoolKit.git
 
 SPEC CHECKSUMS:
   CarpoolKit: d7da0599f5fa203173b880c67dff2aed4e36ece9
-  FirebaseCommunity: 2e981f98bf7ad55b81a75bc43dc8aa45a7c1ab76
+  FirebaseCommunity: 1f9a0e48654316b4ffe4c830db0ce72b9e2d2c9d
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   leveldb-library: 44ef425bfde64f5b41daef86b38db2d13edbbee1
