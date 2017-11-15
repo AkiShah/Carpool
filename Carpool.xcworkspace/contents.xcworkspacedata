@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/Aimee/Desktop/Codebase/Carpool/Carpool/TripDetailViewController.storyboard">
+   </FileRef>
+   <FileRef
       location = "group:Carpool.xcodeproj">
    </FileRef>
    <FileRef
