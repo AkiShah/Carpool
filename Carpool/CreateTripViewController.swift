@@ -108,10 +108,12 @@ class CreateTripViewController: UIViewController {
             
             enteredLocation = enteredText
             desc = enteredText
-            
             let geocoder = CLGeocoder()
-            let clRegion = CLCircularRegion(center: currentLocation.coordinate, radius: 20000, identifier: "currentLocation")
             
+            
+            //need clRegion to display coordinate around current annotation, we don't need user's current location
+            let clRegion = CLCircularRegion(center: currentLocation.coordinate, radius: 20000, identifier: "currentLocation")
+   
             geocoder.geocodeAddressString(enteredText, in: clRegion, completionHandler: { (placemarks, error) in
                 print(placemarks, error)
                 if let placemarks = placemarks {
@@ -124,9 +126,7 @@ class CreateTripViewController: UIViewController {
                 }
             })
             
-//            let searchRequest = MKLocalSearchRequest()
-//            searchRequest.naturalLanguageQuery = enteredText
-//            searchRequest.region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 20000, 20000)
+
 //
 //            let search = MKLocalSearch(request: searchRequest)
 //
@@ -213,6 +213,7 @@ extension CreateTripViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocation = locations.first!
     }
 }
 
