@@ -48,7 +48,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CarpoolKit:
-    :commit: 172aef8baf530a2f7cefd6e523a26985bd94991c
+    :commit: 94f3d1df6590179ff855aef1887266a158b740fc
     :git: https://github.com/codebasesav/CarpoolKit.git
 
 SPEC CHECKSUMS:
@@ -56,7 +56,7 @@ SPEC CHECKSUMS:
   FirebaseCommunity: 1f9a0e48654316b4ffe4c830db0ce72b9e2d2c9d
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
-  leveldb-library: 44ef425bfde64f5b41daef86b38db2d13edbbee1
+  leveldb-library: 4f9eedf84ab46b4fa3b7893bf30714b2a1a74022
   PromiseKit: 9c1d9f6d7b65e3951a90bea7f407c56972be5d8e
 
 PODFILE CHECKSUM: cc5c23a0656734ddccf1b128910e0cdf9007c473

@@ -89,6 +89,17 @@ public extension API {
         }
     }
 
+    public static func observeTheTripCalendarOfMyFriends(sender: UIViewController, observer: @escaping (Result<TripCalendar>) -> Void) {
+        API.observeTheTripsOfMyFriends(sender: sender) { result in
+            switch result {
+            case .success(let trips):
+                observer(.success(TripCalendar(trips: trips)))
+            case .failure(let error):
+                observer(.failure(error))
+            }
+        }
+    }
+
     /// One week's worth of trips
     public struct TripCalendar {
         public struct DailySchedule {
@@ -104,7 +115,7 @@ public extension API {
         public func dailySchedule(forWeekdayOffsetFromToday dayOffset: Int) -> DailySchedule {
             let low = today + TimeInterval(dayOffset * 60 * 60 * 24)
             let high = low + TimeInterval(60 * 60 * 24)
-            let trips = self.trips.filter{ $0.event.time >= low && $0.event.time <= high }.sorted()
+            let trips = self.trips.filter { $0.shouldShow(from: low, to: high) }.sorted()
 
             let date = today + TimeInterval(dayOffset * 60 * 60 * 24)
 
@@ -354,6 +365,26 @@ extension Trip {
             return Promise(error: error)
         }
     }
+
+    func shouldShow(from low: Date, to high: Date) -> Bool {
+        if event.time >= low && event.time <= high {
+            return true
+        }
+        guard repeats else { return false }
+
+        var cc1 = Calendar.current.dateComponents(in: .current, from: low)
+        var cc2 = Calendar.current.dateComponents(in: .current, from: event.time)
+        cc2.month = cc1.month
+        cc2.weekday = cc1.weekday
+        cc2.day = nil
+        cc2.weekOfMonth = cc1.weekOfMonth
+
+        guard let modifiedEventDate = cc2.date else {
+            print("TELL MAX TO FIX HIS SHIT. TO GET ALL HIS SHIT TOGETHER. TO ASSEMBLE ALL HIS SHIT TOGETHER AND TO FIX IT")
+            return false
+        }
+        return modifiedEventDate >= low && modifiedEventDate <= high
+    }
 }
 
 extension Trip: CustomDebugStringConvertible {
@@ -361,3 +392,6 @@ extension Trip: CustomDebugStringConvertible {
         return key
     }
 }
+
+public typealias TripCalendar = API.TripCalendar
+public typealias DailySchedule = API.TripCalendar.DailySchedule
