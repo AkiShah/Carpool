@@ -402,7 +402,7 @@
                                         <state key="normal" title="Cancel"/>
                                         <connections>
                                             <action selector="onCancelPressed:" destination="4SA-71-PnC" eventType="touchUpInside" id="eZn-Y1-BmJ"/>
-                                            <segue destination="qLK-2I-nIy" kind="unwind" identifier="unwindCreateTrip" unwindAction="unwindFromCreateTripViewControllerWithSegue:" id="paP-UK-vFZ"/>
+                                            <segue destination="8I8-3s-4bT" kind="show" id="erl-i3-wY8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -493,7 +493,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZsI-j6-vV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="qLK-2I-nIy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-314.39999999999998" y="607.64617691154433"/>
         </scene>
@@ -912,5 +911,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="CYb-Ea-cza"/>
         <segue reference="hGt-QR-v3f"/>
+        <segue reference="erl-i3-wY8"/>
     </inferredMetricsTieBreakers>
 </document>
