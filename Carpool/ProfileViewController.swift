@@ -58,11 +58,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func onEditProfilePressed(_ sender: UIButton) {
-        userNameEdited.isHidden = false
-        partnerNameEdited.isHidden = false
-        childNameAdded.isHidden = false
-        partnerNameLabel.isHidden = false
-        partnerNameEdited.isHidden = false
     }
     
     @IBAction func onUserNameEdited(_ sender: UITextField) {

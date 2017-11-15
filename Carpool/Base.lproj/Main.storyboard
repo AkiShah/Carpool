@@ -774,50 +774,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Change Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7tH-eD-xcE">
-                                <rect key="frame" x="24" y="168" width="327" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="onUserNameEdited:" destination="DKc-7g-Kmw" eventType="editingDidEnd" id="V1J-5x-EDf"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iG9-1O-xqX">
-                                <rect key="frame" x="284" y="72" width="75" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Edit Profile"/>
-                                <state key="selected" title="Confirm Changes"/>
-                                <connections>
-                                    <action selector="onEditProfilePressed:" destination="DKc-7g-Kmw" eventType="touchUpInside" id="rEg-ay-8fh"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Co-Driver (you may add one):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhl-MZ-LQ3">
-                                <rect key="frame" x="16" y="214" width="351" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mr. Pumper Knickles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP6-8j-laT">
+                                <rect key="frame" x="103" y="160" width="156.5" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Co Driver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kD6-ed-gTJ">
-                                <rect key="frame" x="250" y="214" width="108" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="108" id="uCP-3U-QBe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Kid Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGW-oB-c4X">
-                                <rect key="frame" x="24" y="506" width="327" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="onChildNameAdded:" destination="DKc-7g-Kmw" eventType="editingDidEnd" id="0zp-gb-5Y3"/>
-                                </connections>
-                            </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fag-wo-pz2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fag-wo-pz2">
                                 <rect key="frame" x="24" y="350" width="327" height="148"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="childList" id="ZGz-LU-FSH">
@@ -839,75 +805,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-Yy-Dqq">
-                                <rect key="frame" x="24" y="614" width="327" height="33"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="SIGN OUT"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLV-2K-hfn">
-                                <rect key="frame" x="16" y="139" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP6-8j-laT">
-                                <rect key="frame" x="103" y="160" width="248" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Change Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgF-AC-u1V">
-                                <rect key="frame" x="24" y="243" width="327" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Kid Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGW-oB-c4X">
+                                <rect key="frame" x="24" y="318" width="327" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="onPartnerNameEdited:" destination="DKc-7g-Kmw" eventType="editingDidEnd" id="LJO-e2-AgY"/>
+                                    <action selector="onChildNameAdded:" destination="DKc-7g-Kmw" eventType="editingDidEnd" id="0zp-gb-5Y3"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-Yy-Dqq">
+                                <rect key="frame" x="24" y="614" width="327" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="SIGN OUT"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="kD6-ed-gTJ" secondAttribute="trailing" constant="1" id="3k3-1s-qh4"/>
-                            <constraint firstItem="Fag-wo-pz2" firstAttribute="top" secondItem="fgF-AC-u1V" secondAttribute="bottom" constant="77" id="69z-dk-xDF"/>
-                            <constraint firstItem="iG9-1O-xqX" firstAttribute="trailing" secondItem="nLV-2K-hfn" secondAttribute="trailing" id="7fv-17-JKU"/>
-                            <constraint firstItem="Fag-wo-pz2" firstAttribute="trailing" secondItem="CGW-oB-c4X" secondAttribute="trailing" id="9uY-E0-WVK"/>
-                            <constraint firstAttribute="bottom" secondItem="WVe-Yy-Dqq" secondAttribute="bottom" constant="20" symbolic="YES" id="BJ2-mS-qNI"/>
-                            <constraint firstItem="xhl-MZ-LQ3" firstAttribute="baseline" secondItem="kD6-ed-gTJ" secondAttribute="baseline" id="BmP-zW-0uP"/>
-                            <constraint firstItem="Fag-wo-pz2" firstAttribute="leading" secondItem="CGW-oB-c4X" secondAttribute="leading" id="D0A-uT-z1A"/>
-                            <constraint firstItem="WVe-Yy-Dqq" firstAttribute="top" secondItem="CGW-oB-c4X" secondAttribute="bottom" constant="78" id="DBf-7t-E1U"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xhl-MZ-LQ3" secondAttribute="trailing" constant="-8" id="EYA-Q8-kLX"/>
-                            <constraint firstItem="7tH-eD-xcE" firstAttribute="leading" secondItem="fgF-AC-u1V" secondAttribute="leading" id="GaG-8D-A6t"/>
-                            <constraint firstItem="fgF-AC-u1V" firstAttribute="trailing" secondItem="Fag-wo-pz2" secondAttribute="trailing" id="Gbv-X4-L4x"/>
-                            <constraint firstItem="tP6-8j-laT" firstAttribute="leading" secondItem="VVE-At-uh2" secondAttribute="leadingMargin" constant="87" id="K9s-LI-9vh"/>
-                            <constraint firstItem="nLV-2K-hfn" firstAttribute="leading" secondItem="xhl-MZ-LQ3" secondAttribute="leading" id="LCz-ut-7tM"/>
-                            <constraint firstItem="7tH-eD-xcE" firstAttribute="trailing" secondItem="fgF-AC-u1V" secondAttribute="trailing" id="LPR-f9-Bag"/>
-                            <constraint firstItem="CGW-oB-c4X" firstAttribute="leading" secondItem="WVe-Yy-Dqq" secondAttribute="leading" id="M1y-oI-CYP"/>
-                            <constraint firstItem="7tH-eD-xcE" firstAttribute="top" secondItem="tP6-8j-laT" secondAttribute="bottom" constant="8" symbolic="YES" id="NBq-vb-UAL"/>
-                            <constraint firstItem="CGW-oB-c4X" firstAttribute="top" secondItem="Fag-wo-pz2" secondAttribute="bottom" constant="8" symbolic="YES" id="ObK-05-QQf"/>
-                            <constraint firstItem="7tH-eD-xcE" firstAttribute="top" secondItem="nLV-2K-hfn" secondAttribute="bottom" constant="8" symbolic="YES" id="Qld-Xf-PHj"/>
-                            <constraint firstItem="7tH-eD-xcE" firstAttribute="leading" secondItem="VVE-At-uh2" secondAttribute="leadingMargin" constant="8" id="QvT-an-JMn"/>
-                            <constraint firstItem="nLV-2K-hfn" firstAttribute="leading" secondItem="VVE-At-uh2" secondAttribute="leadingMargin" id="Sti-Pp-yB9"/>
-                            <constraint firstItem="CGW-oB-c4X" firstAttribute="trailing" secondItem="WVe-Yy-Dqq" secondAttribute="trailing" id="Tmj-2U-RS9"/>
-                            <constraint firstItem="iG9-1O-xqX" firstAttribute="top" secondItem="3pL-lO-7wE" secondAttribute="bottom" constant="8" symbolic="YES" id="YfD-DZ-Oab"/>
-                            <constraint firstItem="nLV-2K-hfn" firstAttribute="top" secondItem="iG9-1O-xqX" secondAttribute="bottom" constant="37" id="ZKj-PJ-gQc"/>
-                            <constraint firstItem="xhl-MZ-LQ3" firstAttribute="top" secondItem="7tH-eD-xcE" secondAttribute="bottom" constant="16" id="bD1-yH-fuu"/>
-                            <constraint firstItem="nLV-2K-hfn" firstAttribute="centerX" secondItem="7tH-eD-xcE" secondAttribute="centerX" id="bHq-9w-OEA"/>
-                            <constraint firstItem="tP6-8j-laT" firstAttribute="trailing" secondItem="7tH-eD-xcE" secondAttribute="trailing" id="fX6-fz-QOX"/>
-                            <constraint firstItem="fgF-AC-u1V" firstAttribute="top" secondItem="xhl-MZ-LQ3" secondAttribute="bottom" constant="8" symbolic="YES" id="pft-Cj-a38"/>
-                            <constraint firstItem="iG9-1O-xqX" firstAttribute="trailing" secondItem="VVE-At-uh2" secondAttribute="trailingMargin" id="yBA-Sq-aaD"/>
-                            <constraint firstItem="fgF-AC-u1V" firstAttribute="leading" secondItem="Fag-wo-pz2" secondAttribute="leading" id="zJW-Kj-j6L"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="childNameAdded" destination="CGW-oB-c4X" id="ip4-nJ-lTe"/>
                         <outlet property="childTableView" destination="Fag-wo-pz2" id="9FF-KW-GEk"/>
-                        <outlet property="editProfileButton" destination="iG9-1O-xqX" id="iIX-yg-Ian"/>
                         <outlet property="onSignOutPressed" destination="WVe-Yy-Dqq" id="APN-xS-K9V"/>
-                        <outlet property="partnerHeader" destination="xhl-MZ-LQ3" id="dEU-Ih-fxg"/>
-                        <outlet property="partnerNameEdited" destination="fgF-AC-u1V" id="RBz-I1-ZQY"/>
-                        <outlet property="partnerNameLabel" destination="kD6-ed-gTJ" id="rn8-4m-5eX"/>
-                        <outlet property="userNameEdited" destination="7tH-eD-xcE" id="UeY-hI-LOK"/>
                         <outlet property="userNameLabel" destination="tP6-8j-laT" id="21j-Of-GKZ"/>
                     </connections>
                 </viewController>

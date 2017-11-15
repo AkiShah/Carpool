@@ -21,9 +21,9 @@ class FriendsViewController: UITableViewController{
             switch result {
             case .success(let users):
                 self.friends = users
-                print(users)
                 self.tableView.reloadData()
             case .failure(let error):
+                //TODO error handling
                 print(#function, error)
             }
         }
