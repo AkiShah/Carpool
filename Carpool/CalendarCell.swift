@@ -17,8 +17,29 @@ class CalendarCell: UICollectionViewCell {
     
 }
 
-extension RootViewController {
+extension RootViewController: UICollectionViewDataSource {
     //This is where all the collectionview magic happens for the calendar
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("I'm being called")
+        return 7
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("I'm being called")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Day", for: indexPath) as! CalendarCell
+        cell.collectionWeekdayLabel.text = "M"
+        cell.collectionDateLabel.text = "10"
+        cell.collectionScheduledEventsIndicator.backgroundColor = UIColor.black
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedDay = indexPath.item
+        trips = getTrips(for: tripSegment(rawValue: TripSegmentedViewController.selectedSegmentIndex)!)
+        tableView.reloadData()
+    }
     
     
 }
+
