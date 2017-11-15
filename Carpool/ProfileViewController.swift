@@ -35,11 +35,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
                 self.children = user.children
                 self.userNameLabel.text = user.name
                 self.childTableView.reloadData()
-            case .failure(_):
-                break//todo error
-                
+            case .failure(let error):
+                let alert = UIAlertController(title: "Whoops", message: "Couldn't get user info. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
+        
         //populating the data of which children are the user's
         childTableView.dataSource = self
         
@@ -100,6 +102,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
                     self.children.append(child)
                     self.childTableView.reloadData()
                 case .failure(let error):
+                    let alert = UIAlertController(title: "Whoops", message: "Wasn't able to add a new child. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                     print(error)
                 }
             })
