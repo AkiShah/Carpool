@@ -25,14 +25,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="JPm-BE-Ncx">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Iik-Rt-jG4">
-                                    <rect key="frame" x="8" y="8" width="359" height="56"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Iik-Rt-jG4">
+                                    <rect key="frame" x="8" y="8" width="359" height="164"/>
                                     <subviews>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Lg0-zK-Wop">
-                                            <rect key="frame" x="66" y="0.0" width="227" height="29"/>
+                                            <rect key="frame" x="66" y="0.0" width="227" height="27"/>
                                             <segments>
                                                 <segment title="My Trips"/>
                                                 <segment title="My Connections"/>
@@ -41,25 +41,71 @@
                                                 <action selector="onTripSegmentedControlValueChanged:" destination="8I8-3s-4bT" eventType="valueChanged" id="yAd-1Y-ouO"/>
                                             </connections>
                                         </segmentedControl>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wI-X6-bQn">
-                                            <rect key="frame" x="158.5" y="28" width="42" height="28"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="riw-Eu-dUC">
+                                            <rect key="frame" x="59.5" y="36" width="240" height="128"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="akg-6B-4A1">
+                                                <size key="itemSize" width="50" height="83"/>
+                                                <size key="headerReferenceSize" width="50" height="50"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Day" id="acN-hW-1H9" customClass="CalendarCell" customModule="Carpool" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="50" width="50" height="83"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="83"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Su" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igy-xc-7lY">
+                                                                <rect key="frame" x="4" y="6" width="42" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-Rf-DFt">
+                                                                <rect key="frame" x="4" y="29" width="42" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kv0-fg-BNm">
+                                                                <rect key="frame" x="19.5" y="61" width="10" height="10"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </view>
+                                                        </subviews>
+                                                    </view>
+                                                    <size key="customSize" width="50" height="83"/>
+                                                    <connections>
+                                                        <outlet property="collectionDateLabel" destination="wjp-Rf-DFt" id="b0C-F0-onq"/>
+                                                        <outlet property="collectionScheduledEventsIndicator" destination="kv0-fg-BNm" id="Q2b-Gp-nF4"/>
+                                                        <outlet property="collectionWeekdayLabel" destination="igy-xc-7lY" id="rik-gx-taG"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                            </cells>
+                                            <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mQ7-ni-3dB">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </collectionReusableView>
+                                        </collectionView>
                                     </subviews>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="Iik-Rt-jG4" firstAttribute="top" secondItem="JPm-BE-Ncx" secondAttribute="top" constant="8" id="SOd-Z0-PVY"/>
+                                <constraint firstAttribute="bottom" secondItem="Iik-Rt-jG4" secondAttribute="bottom" constant="8" id="ks9-ll-fx2"/>
                                 <constraint firstAttribute="trailing" secondItem="Iik-Rt-jG4" secondAttribute="trailing" constant="8" id="oue-fi-yaf"/>
                                 <constraint firstItem="Iik-Rt-jG4" firstAttribute="leading" secondItem="JPm-BE-Ncx" secondAttribute="leading" constant="8" id="rd5-cj-5HC"/>
                             </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventList" id="yBF-A9-ZRk">
-                                <rect key="frame" x="0.0" y="178" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="208" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yBF-A9-ZRk" id="hDm-8A-TDn">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -67,7 +113,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TripCell" rowHeight="200" id="HDj-Ik-nNo" customClass="TripCell" customModule="Carpool" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="222" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="252" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HDj-Ik-nNo" id="I4p-tX-Nff">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
