@@ -127,6 +127,7 @@ class CreateTripViewController: UIViewController {
                 if let placemarks = placemarks {
                     self.annotations = placemarks.map({$0.location!})
                     print("We have locations")
+                    
                     self.mapButton.isHidden = false
                     self.instructionLabel.isHidden = false
                 } else {
@@ -149,7 +150,7 @@ class CreateTripViewController: UIViewController {
     }
     
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
-        
+        //pickup or drop off
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
