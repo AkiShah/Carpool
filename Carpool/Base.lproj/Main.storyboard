@@ -14,6 +14,9 @@
         <array key="PFDinTextPro-Bold.ttf">
             <string>PFDinTextPro-Bold</string>
         </array>
+        <array key="PFDinTextPro-Medium.ttf">
+            <string>PFDinTextPro-Medium</string>
+        </array>
         <array key="PFDinTextPro-Regular.ttf">
             <string>PFDinTextPro-Regular</string>
         </array>
@@ -104,7 +107,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ze-eQ-cG2">
-                                                        <rect key="frame" x="0.0" y="18.5" width="359" height="15"/>
+                                                        <rect key="frame" x="0.0" y="18" width="359" height="15"/>
                                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -152,10 +155,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Nio-tE-Yyl">
-                                            <rect key="frame" x="16" y="149.5" width="343" height="31.5"/>
+                                            <rect key="frame" x="16" y="159.5" width="343" height="21.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dropoff" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NS-4P-LCT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="171.5" height="31.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="171.5" height="21.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21.5" id="mFq-Tv-fKC"/>
                                                     </constraints>
@@ -164,7 +167,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLx-X2-HrB">
-                                                    <rect key="frame" x="171.5" y="0.0" width="171.5" height="31.5"/>
+                                                    <rect key="frame" x="171.5" y="0.0" width="171.5" height="21.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21.5" id="8qD-14-7El"/>
                                                     </constraints>
@@ -174,35 +177,38 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of Trip" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-e2-27c">
-                                            <rect key="frame" x="16" y="11" width="299" height="21.5"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Grandma's" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-e2-27c">
+                                            <rect key="frame" x="16" y="30" width="299" height="34"/>
+                                            <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="33"/>
                                             <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueCarFaceRight" translatesAutoresizingMaskIntoConstraints="NO" id="c2T-d8-dXP">
-                                            <rect key="frame" x="16" y="89.5" width="100" height="50"/>
+                                            <rect key="frame" x="16" y="100" width="100" height="49.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="0AL-bA-Bk4"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w34-bH-ddf">
-                                            <rect key="frame" x="329" y="15" width="22" height="22"/>
-                                            <color key="tintColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
-                                            <state key="normal">
-                                                <color key="titleColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="onTripDetailInfoButtonPressed:" destination="8I8-3s-4bT" eventType="touchUpInside" id="rF6-N2-4Zi"/>
-                                            </connections>
-                                        </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="PinkCarFaceLeft" translatesAutoresizingMaskIntoConstraints="NO" id="WZ7-b3-MhN">
-                                            <rect key="frame" x="259" y="89.5" width="100" height="50"/>
+                                            <rect key="frame" x="259" y="100" width="100" height="49.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="0l7-cn-687"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kids are going to:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3P-J3-2bt">
+                                            <rect key="frame" x="16" y="11" width="281" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="18"/>
+                                            <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="On a day of the week and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iis-uF-ehO">
+                                            <rect key="frame" x="16" y="71" width="281" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="17"/>
+                                            <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="WZ7-b3-MhN" firstAttribute="bottom" secondItem="c2T-d8-dXP" secondAttribute="bottom" id="2xL-c5-gXT"/>
@@ -214,22 +220,21 @@
                                         <constraint firstItem="NNd-e2-27c" firstAttribute="top" secondItem="I4p-tX-Nff" secondAttribute="topMargin" id="LK5-i5-fKJ"/>
                                         <constraint firstItem="WZ7-b3-MhN" firstAttribute="trailing" secondItem="Nio-tE-Yyl" secondAttribute="trailing" id="WDo-kg-iIN"/>
                                         <constraint firstItem="Nio-tE-Yyl" firstAttribute="top" secondItem="NNd-e2-27c" secondAttribute="bottom" constant="116.5" id="ZSV-Nm-HlK"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="w34-bH-ddf" secondAttribute="trailing" constant="8" id="bQU-jv-Mix"/>
                                         <constraint firstItem="c2T-d8-dXP" firstAttribute="leading" secondItem="I4p-tX-Nff" secondAttribute="leadingMargin" id="iXQ-hB-3Rm"/>
                                         <constraint firstItem="c2T-d8-dXP" firstAttribute="top" secondItem="NNd-e2-27c" secondAttribute="bottom" constant="57" id="jRW-dd-mIQ"/>
                                         <constraint firstItem="Nio-tE-Yyl" firstAttribute="trailing" secondItem="I4p-tX-Nff" secondAttribute="trailingMargin" id="nP9-jk-0vj"/>
-                                        <constraint firstItem="w34-bH-ddf" firstAttribute="top" secondItem="I4p-tX-Nff" secondAttribute="topMargin" constant="4" id="zEj-gw-jfO"/>
                                         <constraint firstItem="NNd-e2-27c" firstAttribute="leading" secondItem="I4p-tX-Nff" secondAttribute="leadingMargin" id="zFi-0y-uhH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="NNd-e2-27c" id="NLx-0d-QXh"/>
+                                    <outlet property="dayAndTimeLabel" destination="Iis-uF-ehO" id="3BP-bU-Z51"/>
                                     <outlet property="dropoffCarBlue" destination="c2T-d8-dXP" id="Jc4-N7-t8l"/>
                                     <outlet property="dropoffLabel" destination="5NS-4P-LCT" id="zIa-zm-eKV"/>
+                                    <outlet property="grandmaLabel" destination="NNd-e2-27c" id="NLx-0d-QXh"/>
+                                    <outlet property="kidsWhoAreGoingLabel" destination="w3P-J3-2bt" id="nq0-be-l0p"/>
                                     <outlet property="pickupCarPink" destination="WZ7-b3-MhN" id="Nc7-0H-l0E"/>
                                     <outlet property="pickupLabel" destination="ZLx-X2-HrB" id="Ceh-gX-yZr"/>
-                                    <outlet property="tripDetailInfoButton" destination="w34-bH-ddf" id="fSE-2L-OLK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -262,7 +267,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="opE-DB-K58">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="ivf-yc-y5a">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -341,8 +348,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tJw-Rj-YHb" id="d4L-48-c3A">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="tintColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
@@ -894,7 +901,7 @@
         <image name="PinkCarFaceLeft" width="1625" height="656"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XMv-Zx-Av8"/>
+        <segue reference="hGt-QR-v3f"/>
         <segue reference="CYb-Ea-cza"/>
     </inferredMetricsTieBreakers>
 </document>

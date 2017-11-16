@@ -25,6 +25,7 @@
 		D22B87781FBDF5A600DBA7F3 /* HARLOWSI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D22B87741FBDF5A500DBA7F3 /* HARLOWSI.TTF */; };
 		D22B87791FBDF5A600DBA7F3 /* PFDinDisplayPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D22B87751FBDF5A500DBA7F3 /* PFDinDisplayPro-Light.ttf */; };
 		D22B877A1FBDF5A600DBA7F3 /* PFDinTextPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D22B87761FBDF5A500DBA7F3 /* PFDinTextPro-Bold.ttf */; };
+		D22B877C1FBE27D700DBA7F3 /* PFDinTextPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D22B877B1FBE27D400DBA7F3 /* PFDinTextPro-Medium.ttf */; };
 		D288C1191FB6167300C5D441 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288C1181FB6167300C5D441 /* FriendsViewController.swift */; };
 		D2A084AE1FBCE0AA00BD2C13 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A084AD1FBCE0AA00BD2C13 /* MessageComposer.swift */; };
 		D2D8B2651FB36A4A00800358 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8B2641FB36A4A00800358 /* MapViewController.swift */; };
@@ -61,6 +62,7 @@
 		D22B87741FBDF5A500DBA7F3 /* HARLOWSI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = HARLOWSI.TTF; path = Fonts/HARLOWSI.TTF; sourceTree = "<group>"; };
 		D22B87751FBDF5A500DBA7F3 /* PFDinDisplayPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PFDinDisplayPro-Light.ttf"; path = "Fonts/PFDinDisplayPro-Light.ttf"; sourceTree = "<group>"; };
 		D22B87761FBDF5A500DBA7F3 /* PFDinTextPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PFDinTextPro-Bold.ttf"; path = "Fonts/PFDinTextPro-Bold.ttf"; sourceTree = "<group>"; };
+		D22B877B1FBE27D400DBA7F3 /* PFDinTextPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PFDinTextPro-Medium.ttf"; sourceTree = "<group>"; };
 		D288C1181FB6167300C5D441 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		D2A084AD1FBCE0AA00BD2C13 /* MessageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		D2D8B2641FB36A4A00800358 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				D22B87751FBDF5A500DBA7F3 /* PFDinDisplayPro-Light.ttf */,
 				D22B87761FBDF5A500DBA7F3 /* PFDinTextPro-Bold.ttf */,
 				D22B87731FBDF5A400DBA7F3 /* PFDinTextPro-Regular.ttf */,
+				D22B877B1FBE27D400DBA7F3 /* PFDinTextPro-Medium.ttf */,
 				733E2FFA1FB0E79C005E9AFD /* AppDelegate.swift */,
 				D2F576091FB4B43F008D3438 /* LoginViewController.swift */,
 				D2F5760F1FB5046F008D3438 /* HomeScreenViewController.swift */,
@@ -216,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D22B877C1FBE27D700DBA7F3 /* PFDinTextPro-Medium.ttf in Resources */,
 				733E30051FB0E79C005E9AFD /* LaunchScreen.storyboard in Resources */,
 				D2F5760C1FB4B555008D3438 /* Savannah.gpx in Resources */,
 				D22B87771FBDF5A600DBA7F3 /* PFDinTextPro-Regular.ttf in Resources */,

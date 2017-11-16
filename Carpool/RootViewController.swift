@@ -109,13 +109,13 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
         let trip = trips[indexPath.row]
         let dsc = trip.event.description == "" ? "No description given" : trip.generateSmartDescription
         //let kid = trip.children[indexPath.row]
-        cell.descriptionLabel.text = dsc
+        cell.grandmaLabel.text = dsc
         //cell.kidNames.text = kid.name
 
         if dsc == "" {
-            cell.descriptionLabel.font = UIFont.italicSystemFont(ofSize: (cell.descriptionLabel.font.pointSize))
+            cell.grandmaLabel.font = UIFont.italicSystemFont(ofSize: (cell.grandmaLabel.font.pointSize))
         } else {
-            cell.descriptionLabel.font = UIFont.boldSystemFont(ofSize: cell.descriptionLabel.font.pointSize)
+            cell.grandmaLabel.font = UIFont.boldSystemFont(ofSize: cell.grandmaLabel.font.pointSize)
         }
         
         setProps(cell.dropoffLabel, cell.dropoffCarBlue, for: trip.dropOff, as: .dropoff)
