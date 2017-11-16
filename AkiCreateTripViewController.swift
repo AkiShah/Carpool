@@ -141,9 +141,11 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         }
     }
     
+    var resultingLocations: [MKMapItem] = []
+    
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         let results = completer.results
-        var resultingLocations: [MKMapItem] = []
+        
         
         let region = MKCoordinateRegionMakeWithDistance(myLocation!.coordinate, 10000, 10000)
         let request = MKLocalSearchRequest()
@@ -154,15 +156,26 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
             
             let search  = MKLocalSearch(request: request)
             search.start(completionHandler: { response, error in
-                guard let response = response else { print(#function, error); return }
-                for mapItem in response.mapItems {
-                    resultingLocations.append(mapItem)
-                }
+                guard let response = response else { return print(#function, error!) }
+                self.resultingLocations.append(contentsOf: response.mapItems)
+                
+//                var set = Set<CLLocation>()
+//                self.resultingLocations = response.mapItems.filter {
+//                    set.insert($0.placemark.location!).inserted
+//                }
+//
+//                self.resultingLocations.append(contentsOf: self.resultingLocations.filter({ (<#MKMapItem#>) -> Bool in
+//                    <#code#>
+//                }))
+                print("---------------------")
+                print("---------------------")
+                print("---------------------")
+                print(self.resultingLocations)
             })
         }
         
         
-        
+
         
         
     }
