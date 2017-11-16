@@ -50,7 +50,7 @@
 		733E30041FB0E79C005E9AFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		733E30061FB0E79C005E9AFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		736385DE1FB25D5A00472D2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7371257C1FBDDB1500C7B702 /* CreateTrip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = CreateTrip.storyboard; path = /Users/Aimee/Desktop/Codebase/Carpool/Carpool/CreateTrip.storyboard; sourceTree = "<absolute>"; };
+		7371257C1FBDDB1500C7B702 /* CreateTrip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = CreateTrip.storyboard; path = /Users/Zaller/Documents/Carpool1.1/Carpool/CreateTrip.storyboard; sourceTree = "<absolute>"; };
 		7371257E1FBDDB3200C7B702 /* AkiCreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AkiCreateTripViewController.swift; path = ../AkiCreateTripViewController.swift; sourceTree = "<group>"; };
 		737125801FBDFA2900C7B702 /* KidSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidSelectionCell.swift; sourceTree = "<group>"; };
 		738F1BA81FBCACB400C079AD /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
