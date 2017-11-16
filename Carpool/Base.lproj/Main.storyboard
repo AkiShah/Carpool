@@ -87,9 +87,25 @@
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
-                                            <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Keu-se-gGg">
+                                            <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="A" id="Keu-se-gGg" customClass="CalendarCollectionViewHeaderView" customModule="Carpool" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ze-eQ-cG2">
+                                                        <rect key="frame" x="0.0" y="15" width="359" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="0ze-eQ-cG2" firstAttribute="leading" secondItem="Keu-se-gGg" secondAttribute="leading" id="IDG-bH-HcT"/>
+                                                    <constraint firstItem="0ze-eQ-cG2" firstAttribute="centerY" secondItem="Keu-se-gGg" secondAttribute="centerY" id="dkx-wJ-8mI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="0ze-eQ-cG2" secondAttribute="trailing" id="ige-Bi-kEV"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="calendarHeader" destination="0ze-eQ-cG2" id="wFo-7D-0Lv"/>
+                                                </connections>
                                             </collectionReusableView>
                                             <connections>
                                                 <outlet property="dataSource" destination="8I8-3s-4bT" id="vAN-gE-4ra"/>
