@@ -13,6 +13,8 @@ let loginNotification = Notification.Name("login Did Complete Notification")
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var emailLabel: UITextField!
+    @IBOutlet weak var passwordLabel: UITextField!
     @IBOutlet weak var segmentedController: UISegmentedControl!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var confirmPasswordLabel: UILabel!
@@ -57,7 +59,8 @@ class LoginViewController: UIViewController {
         passwordConfirmButton.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
         
         nameTextField.attributedPlaceholder = NSAttributedString(string:"Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)])
-        onNameEntered.attributedPlaceholder = NSAttributedString(string:"Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)])
+        emailLabel.attributedPlaceholder = NSAttributedString(string:"Email Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)])
+        passwordLabel.attributedPlaceholder = NSAttributedString(string:"Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)])
         passwordConfirmButton.attributedPlaceholder = NSAttributedString(string:"Confirm Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)])
         
     }
