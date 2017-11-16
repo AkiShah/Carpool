@@ -170,35 +170,6 @@ class CreateTripViewController: UIViewController {
     
 }
 
-extension Date {
-    var day: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        return dateFormatter.string(from: self)
-    }
-    var time: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "ha"
-        return dateFormatter.string(from: self)
-    }
-}
-
-extension Trip {
-    
-    var generateSmartDescription: String {
-        var kidSubString = "kid name"
-        
-        if children.count > 0 {
-            kidSubString =  children[0].name
-        } else if children.count == 2 {
-            kidSubString = "\(children[0].name) and \(children[1].name)"
-        } else if children.count > 2 {
-            kidSubString = "\(children[0].name) and \(children.count - 1) other kids"
-        }
-        return "On \(event.time.day), \(kidSubString) will be going to: \(event.description) at \(event.time.time)"
-    }
-}
-
 extension CreateTripViewController: MKMapViewDelegate {
     
 }

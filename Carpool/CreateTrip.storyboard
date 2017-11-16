@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -185,7 +186,7 @@
         <!--Aki Create Trip View Controller-->
         <scene sceneID="e2Y-Bi-o9T">
             <objects>
-                <viewController id="mOK-9U-HDr" customClass="AkiCreateTripViewController" sceneMemberID="viewController">
+                <viewController id="mOK-9U-HDr" customClass="AkiCreateTripViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ElT-zl-Df7"/>
                         <viewControllerLayoutGuide type="bottom" id="D4j-uk-sd1"/>
@@ -211,6 +212,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="onDestinationEntered:forEvent:" destination="mOK-9U-HDr" eventType="valueChanged" id="TSg-GP-wvL"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNR-pv-w3z">
                                                 <rect key="frame" x="0.0" y="50.5" width="335" height="30"/>
@@ -244,6 +248,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu6-dn-Dq4">
                                                                 <rect key="frame" x="0.0" y="20.5" width="30" height="30"/>
                                                                 <state key="normal" title="Day"/>
+                                                                <connections>
+                                                                    <action selector="onSelectedTripDayButtonPressed:" destination="mOK-9U-HDr" eventType="touchUpInside" id="ekb-Vw-ZGe"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -259,6 +266,10 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKQ-ne-5zd">
                                                                 <rect key="frame" x="0.0" y="20.5" width="72" height="30"/>
                                                                 <state key="normal" title="Start Time"/>
+                                                                <connections>
+                                                                    <action selector="onSelectedTripDayButtonPressed:" destination="mOK-9U-HDr" eventType="touchUpInside" id="qzY-ZM-wMs"/>
+                                                                    <action selector="onSelectedTripStartTimeButtonPressed:" destination="mOK-9U-HDr" eventType="touchUpInside" id="Lio-rH-lCW"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -274,6 +285,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeC-Xm-XSY">
                                                                 <rect key="frame" x="0.0" y="20.5" width="64" height="30"/>
                                                                 <state key="normal" title="End Time"/>
+                                                                <connections>
+                                                                    <action selector="onSelectedTripEndTimeButtonPressed:" destination="mOK-9U-HDr" eventType="touchUpInside" id="gz9-S1-vus"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -287,6 +301,9 @@
                                                 <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
                                                     <!--2037-12-31 11:00:00 +0000-->
                                                 </date>
+                                                <connections>
+                                                    <action selector="onDatePickerValueChanged:" destination="mOK-9U-HDr" eventType="valueChanged" id="2ZI-00-5Xc"/>
+                                                </connections>
                                             </datePicker>
                                         </subviews>
                                     </stackView>
@@ -323,6 +340,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXf-BH-xr9">
                                 <rect key="frame" x="149" y="715" width="76" height="145"/>
                                 <state key="normal" title="Create Trip"/>
+                                <connections>
+                                    <action selector="onCreateTripButtonPressed:" destination="mOK-9U-HDr" eventType="touchUpInside" id="4ip-iI-hbv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -337,6 +357,16 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="900"/>
+                    <connections>
+                        <outlet property="onSelectedTripStartTimeButtonPressed" destination="FKQ-ne-5zd" id="j1y-bz-SQP"/>
+                        <outlet property="tripDatePicker" destination="eeY-ud-J0e" id="wRb-qM-KwD"/>
+                        <outlet property="tripDestinationMapButton" destination="XNR-pv-w3z" id="9Np-6g-37n"/>
+                        <outlet property="tripDestinationTextField" destination="jcM-CH-Jtm" id="bki-nF-O8R"/>
+                        <outlet property="tripRepeatButton" destination="ryX-pv-kN9" id="wvB-Ms-BX7"/>
+                        <outlet property="tripSelectedDayButton" destination="Hu6-dn-Dq4" id="m1C-sM-PMn"/>
+                        <outlet property="tripSelectedEndTimeButton" destination="TeC-Xm-XSY" id="GTK-Bp-FZj"/>
+                        <outlet property="tripSelectedStartTimeButton" destination="FKQ-ne-5zd" id="PZ5-Lx-nHJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qg5-rR-8Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
