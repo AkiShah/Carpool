@@ -36,7 +36,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         if let child = user?.children[indexPath.row].name{
             cell.textLabel?.text = child
         }
-        cell.layer.cornerRadius = 20
+        cell.layer.cornerRadius = 30
         cell.layer.borderColor = UIColor.init(displayP3Red: 1.0, green: 0.99, blue: 0.91, alpha: 1.0).cgColor
         cell.layer.borderWidth = 10
         
