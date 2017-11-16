@@ -39,9 +39,11 @@ class FriendsViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
         cell.textLabel?.text = friends[indexPath.row].name
         //Write the children names in subtitle
-        self.tableView.backgroundColor = UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)
+        //self.tableView.backgroundColor = UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)
+        
         self.tableView.layer.cornerRadius = 10
-        self.tableView.layer.masksToBounds = true
+        self.tableView.layer.borderColor = UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0).cgColor
+        self.tableView.layer.borderWidth = 2
         return cell
     }
     

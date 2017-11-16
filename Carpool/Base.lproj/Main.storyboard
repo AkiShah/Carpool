@@ -107,7 +107,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ze-eQ-cG2">
-                                                        <rect key="frame" x="0.0" y="18" width="359" height="15"/>
+                                                        <rect key="frame" x="0.0" y="18.5" width="359" height="15"/>
                                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -765,10 +765,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CmV-iT-SJS">
-                                <rect key="frame" x="36" y="80" width="303" height="587"/>
+                                <rect key="frame" x="36" y="80" width="303" height="547"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-pA-wsC">
-                                        <rect key="frame" x="0.0" y="0.0" width="303" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="377"/>
                                         <color key="backgroundColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="30"/>
                                         <state key="normal" title="VIEW TRIPS">
@@ -784,7 +784,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-aD-s95">
-                                        <rect key="frame" x="0.0" y="437" width="303" height="150"/>
+                                        <rect key="frame" x="0.0" y="397" width="303" height="150"/>
                                         <color key="backgroundColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="sYQ-Bb-Udw"/>
