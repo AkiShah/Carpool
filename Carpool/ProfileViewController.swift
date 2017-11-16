@@ -17,25 +17,26 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var childTableView: UITableView!
     
     var user: User?
-    var children: [Child] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         updateChildrenTableView()
-        
-        //populating the data of which children are the user's
         childTableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return children.count
+        if let children = user?.children {
+            return children.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "childList", for: indexPath)
-        cell.textLabel?.text = user?.children[indexPath.row].name
-        print(children)
+        if let child = user?.children[indexPath.row].name{
+            cell.textLabel?.text = child
+        }
+        
         return cell
     }
     
@@ -60,7 +61,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
             switch result {
             case .success(let user):
                 self.user = user
-                self.children = user.children
                 self.userNameLabel.text = user.name
                 self.childTableView.reloadData()
             case .failure(let error):

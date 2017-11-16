@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+class CalendarCollectionViewHeaderView: UICollectionReusableView {
+    @IBOutlet weak var calendarHeader: UILabel!
+}
+
+
 class CalendarCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionWeekdayLabel: UILabel!
@@ -19,16 +24,22 @@ class CalendarCell: UICollectionViewCell {
 
 extension RootViewController: UICollectionViewDataSource {
     //This is where all the collectionview magic happens for the calendar
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("I'm being called")
         return 7
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print("I'm being called")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Day", for: indexPath) as! CalendarCell
-        cell.collectionWeekdayLabel.text = "M"
-        cell.collectionDateLabel.text = "10"
+        let today = Calendar.current.startOfDay(for: Date())
+        let daysFromToday = today + TimeInterval(indexPath.row * 60 * 60 * 24)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E"
+        cell.collectionWeekdayLabel.text = formatter.string(from: daysFromToday)
+        formatter.dateFormat = "d"
+        cell.collectionDateLabel.text = formatter.string(from: daysFromToday)
         cell.collectionScheduledEventsIndicator.backgroundColor = UIColor.black
         return cell
         
@@ -40,6 +51,20 @@ extension RootViewController: UICollectionViewDataSource {
         tableView.reloadData()
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        switch kind {
+            case UICollectionElementKindSectionHeader:
+                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "A", for: indexPath) as! CalendarCollectionViewHeaderView
+                let today = Calendar.current.startOfDay(for: Date())
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MMM"
+                headerView.calendarHeader.text = formatter.string(from: today)
+                return headerView
+            default:
+            assert(false, "Unexpected element kind")
+        }
+    }
     
 }
 
