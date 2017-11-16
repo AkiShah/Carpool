@@ -18,5 +18,6 @@ class HomeScreenViewController: UIViewController {
         viewTripsButton.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
         addATripButton.backgroundColor = UIColor.init(red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)
         
+        
     }
 }

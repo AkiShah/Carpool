@@ -18,16 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HighwayLoadScreen2" translatesAutoresizingMaskIntoConstraints="NO" id="YL3-lz-SBK">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HighwayLoadScreen3" translatesAutoresizingMaskIntoConstraints="NO" id="36A-ge-49O">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YL3-lz-SBK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EnS-c6-IXs"/>
-                            <constraint firstItem="YL3-lz-SBK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mtj-lP-bJr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YL3-lz-SBK" secondAttribute="bottom" id="o5c-vm-nHV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YL3-lz-SBK" secondAttribute="trailing" id="pRZ-fs-oVn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="36A-ge-49O" secondAttribute="trailing" id="N08-5o-caj"/>
+                            <constraint firstItem="36A-ge-49O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PDn-xT-zhz"/>
+                            <constraint firstItem="36A-ge-49O" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="mx3-nL-taL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="36A-ge-49O" secondAttribute="bottom" id="qNX-Fn-czw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="HighwayLoadScreen2" width="1200" height="1889"/>
+        <image name="HighwayLoadScreen3" width="1200" height="1889"/>
     </resources>
 </document>

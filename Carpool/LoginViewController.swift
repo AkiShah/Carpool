@@ -13,11 +13,16 @@ let loginNotification = Notification.Name("login Did Complete Notification")
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var emailLabel: UITextField!
+    @IBOutlet weak var passwordLabel: UITextField!
     @IBOutlet weak var segmentedController: UISegmentedControl!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var confirmPasswordLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var onNameEntered: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordConfirmButton: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
     
     var userEmail: String = ""
     var userPassword: String = ""
@@ -49,19 +54,34 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextField.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
+        onNameEntered.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
+        passwordConfirmButton.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
+        
+        nameTextField.attributedPlaceholder = NSAttributedString(string:"Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)])
+        emailLabel.attributedPlaceholder = NSAttributedString(string:"Email Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)])
+        passwordLabel.attributedPlaceholder = NSAttributedString(string:"Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)])
+        passwordConfirmButton.attributedPlaceholder = NSAttributedString(string:"Confirm Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)])
+        
     }
     
     @IBAction func onSkipPressed(_ sender: UIButton) {
     }
     
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
-        toggleLabels(to: ToggleState(rawValue: sender.selectedSegmentIndex)!)
+        let currentState = ToggleState(rawValue: sender.selectedSegmentIndex)!
+        toggleLabels(to: currentState)
+
+    
     }
     
     func toggleLabels(to state: ToggleState) {
         loginButton.setTitle(state.text, for: .normal)
         passwordConfirmButton.isHidden = state.isHidden
+        confirmPasswordLabel.isHidden = state.isHidden
         nameTextField.isHidden = state.isHidden
+        nameLabel.isHidden = state.isHidden
+
     }
     
     
@@ -81,8 +101,6 @@ class LoginViewController: UIViewController {
                         alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                         print(error)
-                        alert.addAction(UIAlertAction(title: "I'll try again!", style: UIAlertActionStyle.default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
                     }
                 })
             }
