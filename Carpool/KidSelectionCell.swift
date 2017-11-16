@@ -19,11 +19,14 @@ class KidSelectionCell: UICollectionViewCell {
 extension AkiCreateTripViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return kids.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "A", for: indexPath) as! KidSelectionCell
+        let kidName = kids[indexPath.row].name
+        cell.kidInitialLabel.text = kidName.substring(to: kidName.index(kidName.startIndex, offsetBy: 2))
+        cell.kidNameLabel.text = kidName
         cell.backgroundColor = UIColor.blue
         return cell
     }

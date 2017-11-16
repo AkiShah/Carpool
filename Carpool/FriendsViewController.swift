@@ -38,8 +38,7 @@ class FriendsViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
         cell.textLabel?.text = friends[indexPath.row].name
-        //Write the children names in subtitle
-        //self.tableView.backgroundColor = UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)
+        cell.detailTextLabel?.text = getChildStrings(for: friends[indexPath.row])
         
         cell.layer.cornerRadius = 20
         cell.layer.borderColor = UIColor.init(displayP3Red: 1.0, green: 0.99, blue: 0.91, alpha: 1.0).cgColor
@@ -56,5 +55,17 @@ class FriendsViewController: UITableViewController{
         return "MY FRIENDS"
     }
     
+    func getChildStrings(for friend: User) -> String {
+        if friend.children.count > 0 {
+            let childrenNames = friend.children.map({$0.name}).sorted(by: {$0 < $1})
+            var childString = childrenNames.joined(separator: ", ")
+            
+            if let lastCommaRange = childString.range(of: ", ", options: .backwards) {
+                childString.replaceSubrange(lastCommaRange, with: " and ")
+            }
+            return childString
+        }
+        return ""
+    }
     
 }

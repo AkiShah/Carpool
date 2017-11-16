@@ -54,7 +54,8 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         changeDatePicker(to: .disabled)
         tripChildrenCollectionView.delegate = self
         tripChildrenCollectionView.dataSource = self
-        
+        tripChildrenCollectionView.allowsMultipleSelection = true
+
         API.fetchCurrentUser(completion: { result in
             switch result {
             
