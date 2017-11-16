@@ -19,7 +19,7 @@
         <!--All Trips-->
         <scene sceneID="lPj-xr-VLU">
             <objects>
-                <tableViewController id="8I8-3s-4bT" customClass="RootViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="UITableViewController-8I8-3s-4bT" id="8I8-3s-4bT" customClass="RootViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jh6-Gv-ILG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,7 +223,7 @@
                     <navigationItem key="navigationItem" title="All Trips" id="QET-NO-B5h">
                         <barButtonItem key="rightBarButtonItem" title="+ Add New Trip" id="RdI-Dw-khq">
                             <connections>
-                                <segue destination="4SA-71-PnC" kind="presentation" id="hGt-QR-v3f"/>
+                                <segue destination="MRx-fH-WFy" kind="presentation" id="hGt-QR-v3f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -347,175 +347,10 @@
             </objects>
             <point key="canvasLocation" x="-1279" y="608"/>
         </scene>
-        <!--Create Trip View Controller-->
-        <scene sceneID="SER-Zw-3Ol">
-            <objects>
-                <viewController id="4SA-71-PnC" customClass="CreateTripViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4fb-0N-AOx"/>
-                        <viewControllerLayoutGuide type="bottom" id="CYt-mt-NvN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7UN-Fe-OgZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a one-way trip:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Jg-wd-97I">
-                                <rect key="frame" x="16" y="40" width="343" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kfF-dz-pN3">
-                                <rect key="frame" x="16" y="329" width="343" height="65"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Child's Name // will be removed for coll.view" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wwj-Ze-BJH">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
-                                        <connections>
-                                            <action selector="onChildNameEntered:" destination="4SA-71-PnC" eventType="editingDidEnd" id="nQF-5I-lpp"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where are we headed?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6fc-gq-YE6">
-                                        <rect key="frame" x="0.0" y="35" width="343" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="onDestinationAdded:" destination="4SA-71-PnC" eventType="editingDidEndOnExit" id="cnE-vM-cgB"/>
-                                        </connections>
-                                    </textField>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCB-B9-KAJ">
-                                        <rect key="frame" x="0.0" y="65" width="343" height="0.0"/>
-                                        <state key="normal" title="Need to see a map? Click Here."/>
-                                        <connections>
-                                            <action selector="onMapItPressed:" destination="4SA-71-PnC" eventType="touchUpInside" id="iop-zt-n8g"/>
-                                            <segue destination="9ep-Jo-buX" kind="presentation" id="QvG-IF-LF2"/>
-                                        </connections>
-                                    </button>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Otherwise, press Create Trip below." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsF-yJ-FYE">
-                                        <rect key="frame" x="0.0" y="65" width="343" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xFY-va-O9p">
-                                <rect key="frame" x="66" y="581" width="243" height="66"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLg-Tm-SPe">
-                                        <rect key="frame" x="71" y="0.0" width="101" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                        <state key="normal" title="Create Trip"/>
-                                        <connections>
-                                            <action selector="onCreateTripPressed:" destination="4SA-71-PnC" eventType="touchUpInside" id="QNC-0h-K6K"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lst-D4-fZj">
-                                        <rect key="frame" x="97.5" y="36" width="48" height="30"/>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="onCancelPressed:" destination="4SA-71-PnC" eventType="touchUpInside" id="eZn-Y1-BmJ"/>
-                                            <segue destination="8I8-3s-4bT" kind="show" id="erl-i3-wY8"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cdi-wb-Dvm">
-                                <rect key="frame" x="16" y="151" width="343" height="162"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="yra-WG-vYO"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="531759154.72849399">
-                                    <!--2017-11-07 14:52:34 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="onDatePickerChanged:" destination="4SA-71-PnC" eventType="valueChanged" id="Hxm-fd-1w5"/>
-                                </connections>
-                            </datePicker>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="er2-l5-yDg">
-                                <rect key="frame" x="66" y="86" width="243" height="48.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nld-1j-B2i">
-                                        <rect key="frame" x="0.0" y="0.0" width="243" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Wf-aV-cph">
-                                        <rect key="frame" x="0.0" y="20.5" width="243" height="29"/>
-                                        <segments>
-                                            <segment title="Dropoff"/>
-                                            <segment title="Pickup"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="onSegmentedControlPressed:" destination="4SA-71-PnC" eventType="valueChanged" id="vSo-GN-8AC"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
-                            </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sdb-1U-2cH">
-                                <rect key="frame" x="16" y="456" width="343" height="126"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jDG-VY-RG8">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="childScroll" id="473-RS-iWk">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cdi-wb-Dvm" firstAttribute="leading" secondItem="7UN-Fe-OgZ" secondAttribute="leadingMargin" id="1lc-8X-TOW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="er2-l5-yDg" secondAttribute="trailing" constant="50" id="4Qf-fx-Y2Q"/>
-                            <constraint firstItem="er2-l5-yDg" firstAttribute="top" secondItem="4Jg-wd-97I" secondAttribute="bottom" constant="16" id="4tn-Q5-FSn"/>
-                            <constraint firstItem="sdb-1U-2cH" firstAttribute="top" secondItem="kfF-dz-pN3" secondAttribute="bottom" constant="62" id="5xx-kK-dDN"/>
-                            <constraint firstItem="sdb-1U-2cH" firstAttribute="leading" secondItem="kfF-dz-pN3" secondAttribute="leading" id="6PL-Qb-BZx"/>
-                            <constraint firstItem="sdb-1U-2cH" firstAttribute="trailing" secondItem="kfF-dz-pN3" secondAttribute="trailing" id="6VH-8l-t3i"/>
-                            <constraint firstItem="xFY-va-O9p" firstAttribute="leading" secondItem="er2-l5-yDg" secondAttribute="leading" id="7oZ-ep-sfu"/>
-                            <constraint firstItem="xFY-va-O9p" firstAttribute="trailing" secondItem="er2-l5-yDg" secondAttribute="trailing" id="9Zx-vg-5Fa"/>
-                            <constraint firstItem="cdi-wb-Dvm" firstAttribute="top" secondItem="er2-l5-yDg" secondAttribute="bottom" constant="16" id="PL9-5Q-nqU"/>
-                            <constraint firstItem="4Jg-wd-97I" firstAttribute="trailing" secondItem="7UN-Fe-OgZ" secondAttribute="trailingMargin" id="RAV-1f-FSF"/>
-                            <constraint firstItem="CYt-mt-NvN" firstAttribute="top" secondItem="sdb-1U-2cH" secondAttribute="bottom" constant="85" id="d8W-fQ-vBf"/>
-                            <constraint firstItem="kfF-dz-pN3" firstAttribute="leading" secondItem="7UN-Fe-OgZ" secondAttribute="leadingMargin" id="eoe-Mb-odZ"/>
-                            <constraint firstAttribute="bottom" secondItem="xFY-va-O9p" secondAttribute="bottom" constant="20" symbolic="YES" id="gJ1-mg-aVq"/>
-                            <constraint firstItem="kfF-dz-pN3" firstAttribute="top" secondItem="cdi-wb-Dvm" secondAttribute="bottom" constant="16" id="ggZ-2b-K0Y"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kfF-dz-pN3" secondAttribute="trailing" id="ijN-8E-vXa"/>
-                            <constraint firstItem="4Jg-wd-97I" firstAttribute="leading" secondItem="7UN-Fe-OgZ" secondAttribute="leadingMargin" id="jAX-iK-6OU"/>
-                            <constraint firstItem="cdi-wb-Dvm" firstAttribute="trailing" secondItem="7UN-Fe-OgZ" secondAttribute="trailingMargin" id="mH6-zn-xY9"/>
-                            <constraint firstItem="er2-l5-yDg" firstAttribute="leading" secondItem="7UN-Fe-OgZ" secondAttribute="leadingMargin" constant="50" id="oz6-mD-Xl9"/>
-                            <constraint firstItem="4Jg-wd-97I" firstAttribute="top" secondItem="4fb-0N-AOx" secondAttribute="bottom" constant="20" id="x04-cg-gO6"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="childScroller" destination="sdb-1U-2cH" id="W5J-d3-HFk"/>
-                        <outlet property="datePicker" destination="cdi-wb-Dvm" id="PBa-B6-bUT"/>
-                        <outlet property="instructionLabel" destination="tsF-yJ-FYE" id="E02-9r-LYN"/>
-                        <outlet property="mapButton" destination="dCB-B9-KAJ" id="Rib-Ad-xIU"/>
-                        <outlet property="segmentedControl" destination="2Wf-aV-cph" id="lhe-zF-hSJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZsI-j6-vV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-314.39999999999998" y="607.64617691154433"/>
-        </scene>
         <!--Map View Controller-->
         <scene sceneID="nJY-f1-24v">
             <objects>
-                <viewController id="9ep-Jo-buX" customClass="MapViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UIViewController-9ep-Jo-buX" id="9ep-Jo-buX" customClass="MapViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uUk-lt-nfU"/>
                         <viewControllerLayoutGuide type="bottom" id="XVr-4l-ygx"/>
@@ -835,7 +670,7 @@
                                         <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="35"/>
                                         <state key="normal" title="Add A Trip"/>
                                         <connections>
-                                            <segue destination="4SA-71-PnC" kind="show" id="XMv-Zx-Av8"/>
+                                            <segue destination="MRx-fH-WFy" kind="show" id="XMv-Zx-Av8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -918,6 +753,14 @@
             </objects>
             <point key="canvasLocation" x="453.60000000000002" y="-223.53823088455775"/>
         </scene>
+        <!--CreateTrip-->
+        <scene sceneID="9MS-Xo-2SU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateTrip" id="MRx-fH-WFy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EFi-NB-LET" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-314.39999999999998" y="607.64617691154433"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BlueCarFaceRight" width="3154" height="1217"/>
@@ -925,8 +768,7 @@
         <image name="neighborhood" width="420" height="490"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CYb-Ea-cza"/>
         <segue reference="hGt-QR-v3f"/>
-        <segue reference="erl-i3-wY8"/>
+        <segue reference="CYb-Ea-cza"/>
     </inferredMetricsTieBreakers>
 </document>
