@@ -56,6 +56,10 @@ class LoginViewController: UIViewController {
         onNameEntered.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
         passwordConfirmButton.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
         
+        nameTextField.attributedPlaceholder = NSAttributedString(string:"Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)])
+        onNameEntered.attributedPlaceholder = NSAttributedString(string:"Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)])
+        passwordConfirmButton.attributedPlaceholder = NSAttributedString(string:"Confirm Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)])
+        
     }
     
     @IBAction func onSkipPressed(_ sender: UIButton) {
