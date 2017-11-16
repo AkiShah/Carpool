@@ -15,6 +15,8 @@ public enum API {
         case anonymousUsersCannotCreateTrips
         case deprecated
         case noChildName
+        case eventEndTimeMustBeGreaterThanStartTime
+        case nullIslandIsNotAGoodPlaceForChildren
 
         /// sign-up or sign-in failed
         case signInFailed(underlyingError: Swift.Error)

@@ -115,7 +115,7 @@ public extension API {
         public func dailySchedule(forWeekdayOffsetFromToday dayOffset: Int) -> DailySchedule {
             let low = today + TimeInterval(dayOffset * 60 * 60 * 24)
             let high = low + TimeInterval(60 * 60 * 24)
-            let trips = self.trips.filter { $0.shouldShow(from: low, to: high) }.sorted()
+            let trips = self.trips.filter { $0.shouldShow(from: low, to: high) }.sorted().reversed()
 
             let date = today + TimeInterval(dayOffset * 60 * 60 * 24)
 
@@ -123,7 +123,7 @@ public extension API {
             df.dateFormat = "EEEE, MMM d"
             let prettyName = df.string(from: date)
 
-            return DailySchedule(trips: trips, prettyName: prettyName, date: date)
+            return DailySchedule(trips: Array(trips), prettyName: prettyName, date: date)
         }
 
         public let trips: [Trip]
@@ -197,7 +197,15 @@ public extension API {
                 throw Error.anonymousUsersCannotCreateTrips
             }
 
-            let geohash = location.flatMap{ Geohash(location: $0) }?.value
+            let geohash: String?
+            if let location = location {
+                geohash = Geohash(location: location).value
+                guard geohash != "s0000000" else {
+                    throw Error.nullIslandIsNotAGoodPlaceForChildren
+                }
+            } else {
+                geohash = nil
+            }
 
             var eventDict: [String: Any] = [
                 "description": desc,
@@ -218,7 +226,7 @@ public extension API {
             eventDict2["trips"] = [tripRef.key: true]
             eventRef.setValue(eventDict2)
 
-            let event = Event(key: eventRef.key, description: desc, owner: user, time: time, endTime: nil, location: geohash)
+            let event = Event(key: eventRef.key, description: desc, owner: user, time: time, endTime: nil, geohash: geohash)
             return Trip(key: tripRef.key, event: event, dropOff: Leg(driver: user), pickUp: nil, _children: [], comments: [], repeats: false)
         }
     }

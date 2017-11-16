@@ -71,6 +71,25 @@ public extension API {
         }
     }
 
+    static func addChildren(names: [String], completion: Result<[Child]>) {
+        firstly {
+            fetchCurrentUser()
+        }.then { user -> [Child] in
+            let existingNames = user.children.map{ $0.name }
+            let names = names.flatMap{ $0.chuzzled() }.filter{ !existingNames.contains($0) }
+            let refs = names.map { name -> (key: String, name: String) in
+                let ref = Database.database().reference().child("children").childByAutoId()
+                ref.setValue(["name": name])
+                return (ref.key, name)
+            }
+            Database.database().reference().child("users").child(user.key).child("children").updateChildValues(
+                refs.reduce(into: [:]){ $0[$1.key] = $1.name }
+            )
+            return refs.map{ Child(key: $0.0, name: $0.1) }
+        }
+    }
+
+
     /// adds children to the logged in user
     /// if a child already exists with that name, returns the existing child
     static func addChild(name: String, completion: @escaping (Result<Child>) -> Void) {

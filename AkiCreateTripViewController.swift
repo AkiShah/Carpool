@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 import CarpoolKit
 import CoreLocation
+import MapKit
 
-class AkiCreateTripViewController: UIViewController {
+class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDelegate {
     
     
     @IBOutlet weak var tripDestinationTextField: UITextField!
@@ -22,7 +23,7 @@ class AkiCreateTripViewController: UIViewController {
     @IBOutlet weak var tripDatePicker: UIDatePicker!
     @IBOutlet weak var tripRepeatButton: UIButton!
     
-    @IBOutlet weak var tripChildrenCollectionView: UICollectionReusableView!
+    @IBOutlet weak var tripChildrenCollectionView: UICollectionView!
     
     
     var destination: String = ""
@@ -31,6 +32,7 @@ class AkiCreateTripViewController: UIViewController {
     var startTime: Date =  Date()
     var endTime: Date =  Date()
     var repeatTrip: Bool = false
+    var kids: [Child] = []
     var kidsOnTrip: [Child] = []
     var selectedButton: DayOrTime = .disabled
     
@@ -41,9 +43,36 @@ class AkiCreateTripViewController: UIViewController {
         case disabled
     }
     
+    //Locations
+    let locationManager = CLLocationManager()
+    let localSearchCompleter = MKLocalSearchCompleter()
+    var myLocation: CLLocation?
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         changeDatePicker(to: .disabled)
+        tripChildrenCollectionView.delegate = self
+        tripChildrenCollectionView.dataSource = self
+        
+        API.fetchCurrentUser(completion: { result in
+            switch result {
+            
+            case .success(let user):
+                self.kids = user.children
+                self.tripChildrenCollectionView.reloadData()
+            case .failure(let error):
+                //TODO error handling
+                print(#function, error)
+            }
+        })
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        
+        localSearchCompleter.delegate = self
+        
     }
     
     @IBAction func onSelectedTripDayButtonPressed(_ sender: UIButton) {
@@ -57,6 +86,8 @@ class AkiCreateTripViewController: UIViewController {
     @IBAction func onSelectedTripEndTimeButtonPressed(_ sender: UIButton) {
         changeDatePicker(to: .endTime)
     }
+    
+    
     
     func changeDatePicker(to newSelection: DayOrTime) {
         switch newSelection {
@@ -90,13 +121,54 @@ class AkiCreateTripViewController: UIViewController {
             break
         }
     }
-    
-    @IBAction func onDestinationEntered(_ sender: UITextField, forEvent event: UIEvent) {
+    @IBAction func onDestionationDidEndOnExit(_ sender: UITextField) {
+        print(#function, "I did a thing")
         changeDatePicker(to: .disabled)
         if let newDestination = sender.text {
             destination = newDestination
             sender.resignFirstResponder()
+            searchforLocation(using: destination)
         }
+    }
+    
+    
+    func searchforLocation(using query: String) {
+        if let myLocation = myLocation {
+            let region = MKCoordinateRegionMakeWithDistance(myLocation.coordinate, 10000, 10000)
+            localSearchCompleter.region = region
+            localSearchCompleter.queryFragment = query
+            
+        }
+    }
+    
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        let results = completer.results
+        var resultingLocations: [MKMapItem] = []
+        
+        let region = MKCoordinateRegionMakeWithDistance(myLocation!.coordinate, 10000, 10000)
+        let request = MKLocalSearchRequest()
+        request.region = region
+        
+        for query in results {
+            request.naturalLanguageQuery = query.title
+            
+            let search  = MKLocalSearch(request: request)
+            search.start(completionHandler: { response, error in
+                guard let response = response else { print(#function, error); return }
+                for mapItem in response.mapItems {
+                    resultingLocations.append(mapItem)
+                }
+            })
+        }
+        
+        
+        
+        
+        
+    }
+    
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        print(#function, error)
     }
     
     @IBAction func onRepeatTripButtonPressed(_ sender: UIButton) {
@@ -113,7 +185,7 @@ class AkiCreateTripViewController: UIViewController {
     
     @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
         
-        if destination != "", !kidsOnTrip.isEmpty{
+        if let destination = tripDestinationTextField.text, kidsOnTrip.isEmpty{
             let calendar = Calendar.current
             let day = calendar.component(.day, from: date)
             let month = calendar.component(.month, from: date)
@@ -126,11 +198,13 @@ class AkiCreateTripViewController: UIViewController {
             
             let eventTime: Date = components.date!
             
-            API.createTrip(eventDescription: destination, eventTime: eventTime, eventLocation: location) { result in
+            API.createTrip(eventDescription: destination, eventTime: eventTime, eventLocation: nil) { result in
                 switch result {
                     
                 case .success(let trip):
-                    API.set(endTime: self.endTime, for: trip.event)
+                    API.set(endTime: self.endTime, for: trip.event, completion: { error in
+                        print(#function, error)
+                    })
                     API.mark(trip: trip, repeating: self.repeatTrip)
                     //Don't forget to take the kids
                     break
@@ -139,21 +213,34 @@ class AkiCreateTripViewController: UIViewController {
                     print(#function, error)
                 }
             }
+            
         } else {
-            //TODO Error Handling
+            print(#function, destination)
         }
     }
 }
 
-extension AkiCreateTripViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+extension AkiCreateTripViewController: MKMapViewDelegate {
+    
+}
+
+extension AkiCreateTripViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        guard status == .authorizedWhenInUse else { return }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "A", for: indexPath)
-        return cell
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+       myLocation = locations.first!
+        
+    }
+}
+
+extension CLLocation: MKAnnotation {
+    
 }
 
 extension Date {
