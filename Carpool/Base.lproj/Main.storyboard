@@ -765,12 +765,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CmV-iT-SJS">
-                                <rect key="frame" x="36" y="80" width="303" height="547"/>
+                                <rect key="frame" x="36" y="80" width="303" height="587"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-pA-wsC">
-                                        <rect key="frame" x="0.0" y="0.0" width="303" height="377"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-pA-wsC">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="417"/>
                                         <color key="backgroundColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="PFDinTextPro-Regular" family="PF DinText Pro" pointSize="30"/>
+                                        <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="30"/>
                                         <state key="normal" title="VIEW TRIPS">
                                             <color key="titleColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -783,21 +783,16 @@
                                             <segue destination="8I8-3s-4bT" kind="show" id="Hzz-Ag-Zdz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-aD-s95">
-                                        <rect key="frame" x="0.0" y="397" width="303" height="150"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-aD-s95">
+                                        <rect key="frame" x="0.0" y="437" width="303" height="150"/>
                                         <color key="backgroundColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="sYQ-Bb-Udw"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="PFDinTextPro-Regular" family="PF DinText Pro" pointSize="30"/>
-                                        <state key="normal" title="+ ADD A TRIP">
+                                        <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="30"/>
+                                        <state key="normal" title="+ ADD A TRIP" backgroundImage="tachometer1">
                                             <color key="titleColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="MRx-fH-WFy" kind="show" id="XMv-Zx-Av8"/>
                                         </connections>
@@ -841,6 +836,7 @@
                             <constraint firstItem="CmV-iT-SJS" firstAttribute="leading" secondItem="atg-C3-5ML" secondAttribute="leadingMargin" constant="20" id="5fs-E8-JvK"/>
                             <constraint firstItem="h1S-do-eJu" firstAttribute="baseline" secondItem="61F-Wn-rM3" secondAttribute="firstBaseline" id="6Tf-Kf-fZX"/>
                             <constraint firstItem="h1S-do-eJu" firstAttribute="trailing" secondItem="CmV-iT-SJS" secondAttribute="trailing" id="8ae-WF-Axw"/>
+                            <constraint firstItem="5H5-kM-sJm" firstAttribute="top" secondItem="CmV-iT-SJS" secondAttribute="bottom" id="K9e-EX-cfX"/>
                             <constraint firstItem="h1S-do-eJu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="atg-C3-5ML" secondAttribute="leading" constant="20" symbolic="YES" id="KOO-Ek-kdL"/>
                             <constraint firstItem="5H5-kM-sJm" firstAttribute="top" secondItem="CmV-iT-SJS" secondAttribute="bottom" constant="40" id="KUj-Ps-s3z"/>
                             <constraint firstItem="61F-Wn-rM3" firstAttribute="leading" secondItem="atg-C3-5ML" secondAttribute="leadingMargin" constant="20" id="Mzr-SU-zwJ"/>
@@ -899,9 +895,10 @@
     <resources>
         <image name="BlueCarFaceRight" width="3154" height="1217"/>
         <image name="PinkCarFaceLeft" width="1625" height="656"/>
+        <image name="tachometer1" width="858" height="594"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hGt-QR-v3f"/>
+        <segue reference="XMv-Zx-Av8"/>
         <segue reference="CYb-Ea-cza"/>
     </inferredMetricsTieBreakers>
 </document>
