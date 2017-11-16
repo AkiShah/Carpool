@@ -49,6 +49,7 @@ class CreateTripViewController: UIViewController {
         datePicker.minimumDate = Date()
         locationManager.delegate = self
         locationManager.requestLocation()
+        
     }
     
     @IBAction func onCancelPressed(_ sender: UIButton) {
