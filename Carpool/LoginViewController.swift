@@ -55,9 +55,6 @@ class LoginViewController: UIViewController {
         nameTextField.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
         onNameEntered.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
         passwordConfirmButton.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
-        if segmentedController.selectedSegmentIndex == 0 {
-            
-        }
         
     }
     
