@@ -12,7 +12,6 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="Optima.ttc">
-            <string>Optima-Bold</string>
             <string>Optima-ExtraBlack</string>
         </array>
     </customFonts>
@@ -683,10 +682,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CmV-iT-SJS">
                                 <rect key="frame" x="36" y="80" width="303" height="547"/>
                                 <subviews>
-                                    <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-pA-wsC">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-pA-wsC">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="263.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="35"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="35"/>
                                         <state key="normal" title="View Trips">
                                             <color key="titleColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -694,11 +693,13 @@
                                             <segue destination="8I8-3s-4bT" kind="show" id="Hzz-Ag-Zdz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-aD-s95">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-aD-s95">
                                         <rect key="frame" x="0.0" y="283.5" width="303" height="263.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="35"/>
-                                        <state key="normal" title="Add A Trip"/>
+                                        <state key="normal" title="Add A Trip">
+                                            <color key="titleColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="MRx-fH-WFy" kind="show" id="XMv-Zx-Av8"/>
                                         </connections>
@@ -748,6 +749,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wTv-zA-dRz"/>
+                    <connections>
+                        <outlet property="addATripButton" destination="n4h-aD-s95" id="vto-OV-X03"/>
+                        <outlet property="viewTripsButton" destination="uUr-pA-wsC" id="mOR-gM-fpa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6Q-vR-4mN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -793,7 +798,7 @@
         <image name="PinkCarFaceLeft" width="1625" height="656"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hGt-QR-v3f"/>
+        <segue reference="XMv-Zx-Av8"/>
         <segue reference="CYb-Ea-cza"/>
     </inferredMetricsTieBreakers>
 </document>
