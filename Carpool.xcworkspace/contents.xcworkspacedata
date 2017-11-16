@@ -5,6 +5,9 @@
       location = "group:Carpool.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Carpool">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
