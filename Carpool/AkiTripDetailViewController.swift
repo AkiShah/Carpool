@@ -34,7 +34,6 @@ class AkiTripDetailViewController: UITableViewController {
     @IBOutlet weak var eventCommentTextView: UITextView!
     
     var trip: Trip!
-    let comments: [Comment] = []
     
     enum TripLeg {
         case dropoff
@@ -142,7 +141,7 @@ class AkiTripDetailViewController: UITableViewController {
     }
     
     @IBAction func onPostCommentButtonClicked(_ sender: UIButton) {
-        //Post comment
+        API.add(comment: eventCommentTextView.text, to: trip)
     }
     
     func updateTripDetails(using trip: Trip) {
@@ -158,7 +157,7 @@ class AkiTripDetailViewController: UITableViewController {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM ee"
-        eventDateLabel.text = "formatter.string(from: trip.event.time)"
+        eventDateLabel.text = formatter.string(from: trip.event.time)
         formatter.dateFormat = "h : mm"
         eventStartTimeLabel.text = formatter.string(from: trip.event.time)
         eventEndTimeLabel.text = trip.event.endTime != nil ? formatter.string(from: trip.event.endTime!) : "--"
@@ -178,6 +177,7 @@ class AkiTripDetailViewController: UITableViewController {
         
         updateButtonState(for: .dropoff)
         updateButtonState(for: .pickup)
+        tableView.reloadData()
         
     }
     
@@ -190,7 +190,6 @@ class AkiTripDetailViewController: UITableViewController {
             API.fetchCurrentUser(completion: { result in
                 switch result {
                 case .success(let user):
-                    break
                     self.eventDropoffButton.isEnabled = user == driver
                 case .failure(let error):
                     let alert = UIAlertController(title: "Whoops", message: "Couldn't unclaim that trip. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
@@ -235,11 +234,13 @@ class AkiTripDetailViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return comments.count
+        return trip.comments.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
+        cell.textLabel?.text = trip.comments[indexPath.row].body
+        cell.detailTextLabel?.text = trip.comments[indexPath.row].user.name
         return cell
     }
     

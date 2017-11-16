@@ -75,7 +75,7 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let trip = sender as? Trip else { return }
-            let eventDetailVC = segue.destination as! TripDetailViewController
+            let eventDetailVC = segue.destination as! AkiTripDetailViewController
             eventDetailVC.trip = trip
     }
     
