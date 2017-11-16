@@ -43,6 +43,7 @@ class AkiCreateTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        changeDatePicker(to: .disabled)
     }
     
     @IBAction func onSelectedTripDayButtonPressed(_ sender: UIButton) {
@@ -65,25 +66,25 @@ class AkiCreateTripViewController: UIViewController {
             
         case .startTime, .endTime:
             tripDatePicker.isHidden = false
-            tripDatePicker.datePickerMode = .date
-            //switch to time picker
-            
+            tripDatePicker.datePickerMode = .time
+
         case .disabled:
             tripDatePicker.isHidden = true
             break
         }
+        selectedButton = newSelection
     }
     
     @IBAction func onDatePickerValueChanged(_ sender: UIDatePicker) {
         switch selectedButton{
         case .day:
-            //update correct button title
             date = sender.date
+            tripSelectedDayButton.setTitle(date.date, for: .normal)
         case .startTime:
-            //update correct button title
+            tripSelectedStartTimeButton.setTitle(startTime.time, for: .normal)
             startTime = sender.date
         case .endTime:
-            //update correct button title
+            tripSelectedEndTimeButton.setTitle(startTime.time, for: .normal)
             endTime = sender.date
         case .disabled:
             break
@@ -91,29 +92,57 @@ class AkiCreateTripViewController: UIViewController {
     }
     
     @IBAction func onDestinationEntered(_ sender: UITextField, forEvent event: UIEvent) {
+        changeDatePicker(to: .disabled)
         if let newDestination = sender.text {
             destination = newDestination
+            sender.resignFirstResponder()
         }
     }
     
+    @IBAction func onRepeatTripButtonPressed(_ sender: UIButton) {
+        changeDatePicker(to: .disabled)
+        repeatTrip = !repeatTrip
+        
+        switch repeatTrip {
+        case true:
+            tripRepeatButton.setTitle("Repeat Every Week On", for: .normal)
+        case false:
+            tripRepeatButton.setTitle("Repeat Every Week Off", for: .normal)
+        }
+    }
     
     @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
-        API.createTrip(eventDescription: destination, eventTime: Date(), eventLocation: location) { result in
-            switch result {
-                
-            case .success(_):
-                //Segue to trips
-                break
-            case .failure(let error):
-                //TODO Error Handling
-                print(#function, error)
-            }
-        }
         
+        if destination != "", !kidsOnTrip.isEmpty{
+            let calendar = Calendar.current
+            let day = calendar.component(.day, from: date)
+            let month = calendar.component(.month, from: date)
+            let year = calendar.component(.year, from: date)
+            let hour = calendar.component(.hour, from: startTime)
+            let minute = calendar.component(.minute, from: startTime)
+            let seconds = calendar.component(.second, from: startTime)
+            
+            let components = DateComponents(calendar: calendar, year: year, month: month, day: day, hour: hour, minute: minute, second: seconds)
+            
+            let eventTime: Date = components.date!
+            
+            API.createTrip(eventDescription: destination, eventTime: eventTime, eventLocation: location) { result in
+                switch result {
+                    
+                case .success(let trip):
+                    API.set(endTime: self.endTime, for: trip.event)
+                    API.mark(trip: trip, repeating: self.repeatTrip)
+                    //Don't forget to take the kids
+                    break
+                case .failure(let error):
+                    //TODO Error Handling
+                    print(#function, error)
+                }
+            }
+        } else {
+            //TODO Error Handling
+        }
     }
-    
-    
-    
 }
 
 extension AkiCreateTripViewController: UICollectionViewDataSource {
@@ -140,7 +169,7 @@ extension Date {
     }
     var time: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:aa"
+        dateFormatter.dateFormat = "hh:m aa"
         return dateFormatter.string(from: self)
     }
     
