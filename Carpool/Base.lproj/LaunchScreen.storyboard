@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Cochin.ttc">
-            <string>Cochin-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -23,32 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Carpool" translatesAutoresizingMaskIntoConstraints="NO" id="YL3-lz-SBK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HighwayLoadScreen2" translatesAutoresizingMaskIntoConstraints="NO" id="YL3-lz-SBK">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carpool App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84a-Hm-oEi">
-                                <rect key="frame" x="0.0" y="320" width="375" height="37.5"/>
-                                <fontDescription key="fontDescription" name="Cochin-Bold" family="Cochin" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Simple App For Carpools" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0D-gh-9TG">
-                                <rect key="frame" x="0.0" y="372.5" width="375" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="84a-Hm-oEi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Cqq-bG-e77"/>
                             <constraint firstItem="YL3-lz-SBK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EnS-c6-IXs"/>
-                            <constraint firstItem="84a-Hm-oEi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="IKQ-Lw-YCP"/>
-                            <constraint firstItem="O0D-gh-9TG" firstAttribute="top" secondItem="84a-Hm-oEi" secondAttribute="bottom" constant="15" id="MWF-Q4-dPH"/>
                             <constraint firstItem="YL3-lz-SBK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mtj-lP-bJr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O0D-gh-9TG" secondAttribute="trailing" id="OgJ-DM-aV1"/>
-                            <constraint firstItem="O0D-gh-9TG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aiu-bZ-OSl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="84a-Hm-oEi" secondAttribute="trailing" id="l3f-Lp-cR7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YL3-lz-SBK" secondAttribute="bottom" id="o5c-vm-nHV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YL3-lz-SBK" secondAttribute="trailing" id="pRZ-fs-oVn"/>
                         </constraints>
@@ -61,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Carpool" width="542" height="858"/>
+        <image name="HighwayLoadScreen2" width="1200" height="1889"/>
     </resources>
 </document>

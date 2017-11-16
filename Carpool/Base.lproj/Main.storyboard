@@ -24,6 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="JPm-BE-Ncx">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -37,6 +38,11 @@
                                                 <segment title="My Trips"/>
                                                 <segment title="My Connections"/>
                                             </segments>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="50"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="onTripSegmentedControlValueChanged:" destination="8I8-3s-4bT" eventType="valueChanged" id="yAd-1Y-ouO"/>
                                             </connections>
@@ -115,7 +121,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="Iik-Rt-jG4" firstAttribute="top" secondItem="JPm-BE-Ncx" secondAttribute="top" constant="8" id="SOd-Z0-PVY"/>
                                 <constraint firstAttribute="bottom" secondItem="Iik-Rt-jG4" secondAttribute="bottom" constant="8" id="ks9-ll-fx2"/>
@@ -148,7 +154,7 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21.5" id="mFq-Tv-fKC"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLx-X2-HrB">
@@ -157,7 +163,7 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21.5" id="8qD-14-7El"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -165,7 +171,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of Trip" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-e2-27c">
                                             <rect key="frame" x="16" y="11" width="299" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                            <color key="textColor" red="0.0" green="0.43481864170947787" blue="0.71605329949238583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueCarFaceRight" translatesAutoresizingMaskIntoConstraints="NO" id="c2T-d8-dXP">
@@ -205,6 +211,7 @@
                                         <constraint firstItem="NNd-e2-27c" firstAttribute="leading" secondItem="I4p-tX-Nff" secondAttribute="leadingMargin" id="zFi-0y-uhH"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="NNd-e2-27c" id="NLx-0d-QXh"/>
                                     <outlet property="dropoffCarBlue" destination="c2T-d8-dXP" id="Jc4-N7-t8l"/>
@@ -437,9 +444,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neighborhood" translatesAutoresizingMaskIntoConstraints="NO" id="2bA-4Y-aj0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="el7-DP-0fA">
                                 <rect key="frame" x="16" y="617" width="343" height="30"/>
                                 <state key="normal" title="Skip Login"/>
@@ -462,6 +466,11 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onNameEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="EgK-bm-Cri"/>
                                         </connections>
@@ -471,6 +480,11 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onEmailEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="2wk-0K-vDE"/>
                                         </connections>
@@ -480,6 +494,11 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onPasswordEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="baf-pg-FHF"/>
                                         </connections>
@@ -489,6 +508,11 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onPasswordConfirmedEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="74u-FL-Ngv"/>
                                         </connections>
@@ -496,6 +520,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzi-Es-cDx">
                                         <rect key="frame" x="152.5" y="104.5" width="38" height="30"/>
                                         <state key="normal" title="Login"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onLoginPressed:" destination="uzH-Gh-XhM" eventType="touchUpInside" id="PhF-Io-rR1"/>
                                         </connections>
@@ -509,15 +538,18 @@
                                     <segment title="Login"/>
                                     <segment title="Sign Up"/>
                                 </segments>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onSegmentedControlPressed:" destination="uzH-Gh-XhM" eventType="valueChanged" id="7Bm-DK-I8m"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2bA-4Y-aj0" firstAttribute="leading" secondItem="or6-L3-fuN" secondAttribute="leading" id="537-XT-yua"/>
-                            <constraint firstAttribute="trailing" secondItem="2bA-4Y-aj0" secondAttribute="trailing" id="Kou-0G-p0V"/>
                             <constraint firstItem="SKf-w1-eHb" firstAttribute="top" secondItem="el7-DP-0fA" secondAttribute="bottom" constant="20" id="OFI-7U-b5d"/>
                             <constraint firstItem="ITj-TB-MvU" firstAttribute="top" secondItem="IKf-NW-vFn" secondAttribute="bottom" constant="38" id="Zwx-Hu-ckO"/>
                             <constraint firstItem="ITj-TB-MvU" firstAttribute="leading" secondItem="IKf-NW-vFn" secondAttribute="leading" id="dE5-q0-fND"/>
@@ -526,8 +558,6 @@
                             <constraint firstItem="el7-DP-0fA" firstAttribute="leading" secondItem="or6-L3-fuN" secondAttribute="leadingMargin" id="sjg-1Z-fJd"/>
                             <constraint firstItem="IKf-NW-vFn" firstAttribute="top" secondItem="tGh-Cl-bLo" secondAttribute="bottom" id="skk-AC-eMR"/>
                             <constraint firstItem="IKf-NW-vFn" firstAttribute="trailing" secondItem="or6-L3-fuN" secondAttribute="trailingMargin" id="xrN-gc-7kJ"/>
-                            <constraint firstItem="2bA-4Y-aj0" firstAttribute="top" secondItem="or6-L3-fuN" secondAttribute="top" id="y3U-Xv-LKF"/>
-                            <constraint firstItem="SKf-w1-eHb" firstAttribute="top" secondItem="2bA-4Y-aj0" secondAttribute="bottom" id="zRh-dF-STm"/>
                             <constraint firstItem="IKf-NW-vFn" firstAttribute="leading" secondItem="or6-L3-fuN" secondAttribute="leadingMargin" id="znT-oS-4ji"/>
                         </constraints>
                     </view>
@@ -649,26 +679,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neighborhood" translatesAutoresizingMaskIntoConstraints="NO" id="331-9m-bgE">
-                                <rect key="frame" x="16" y="20" width="343" height="647"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CmV-iT-SJS">
                                 <rect key="frame" x="36" y="80" width="303" height="547"/>
                                 <subviews>
-                                    <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-pA-wsC">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-pA-wsC">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="263.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="35"/>
-                                        <state key="normal" title="View Trips"/>
+                                        <state key="normal" title="View Trips">
+                                            <color key="titleColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="8I8-3s-4bT" kind="show" id="Hzz-Ag-Zdz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-aD-s95">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-aD-s95">
                                         <rect key="frame" x="0.0" y="283.5" width="303" height="263.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="35"/>
-                                        <state key="normal" title="Add A Trip"/>
+                                        <state key="normal" title="Add A Trip">
+                                            <color key="titleColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="MRx-fH-WFy" kind="show" id="XMv-Zx-Av8"/>
                                         </connections>
@@ -700,7 +731,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="61F-Wn-rM3" secondAttribute="trailing" constant="251" id="0Qy-Cv-PIl"/>
                             <constraint firstItem="h1S-do-eJu" firstAttribute="top" secondItem="61F-Wn-rM3" secondAttribute="top" id="2h5-Se-ZSk"/>
@@ -708,20 +739,20 @@
                             <constraint firstItem="CmV-iT-SJS" firstAttribute="leading" secondItem="atg-C3-5ML" secondAttribute="leadingMargin" constant="20" id="5fs-E8-JvK"/>
                             <constraint firstItem="h1S-do-eJu" firstAttribute="baseline" secondItem="61F-Wn-rM3" secondAttribute="firstBaseline" id="6Tf-Kf-fZX"/>
                             <constraint firstItem="h1S-do-eJu" firstAttribute="trailing" secondItem="CmV-iT-SJS" secondAttribute="trailing" id="8ae-WF-Axw"/>
-                            <constraint firstItem="5H5-kM-sJm" firstAttribute="top" secondItem="331-9m-bgE" secondAttribute="bottom" id="J9S-qR-ZqU"/>
                             <constraint firstItem="h1S-do-eJu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="atg-C3-5ML" secondAttribute="leading" constant="20" symbolic="YES" id="KOO-Ek-kdL"/>
                             <constraint firstItem="5H5-kM-sJm" firstAttribute="top" secondItem="CmV-iT-SJS" secondAttribute="bottom" constant="40" id="KUj-Ps-s3z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="331-9m-bgE" secondAttribute="trailing" id="LDF-PV-eL5"/>
                             <constraint firstItem="61F-Wn-rM3" firstAttribute="leading" secondItem="atg-C3-5ML" secondAttribute="leadingMargin" constant="20" id="Mzr-SU-zwJ"/>
-                            <constraint firstItem="331-9m-bgE" firstAttribute="top" secondItem="Z9C-7E-Lgc" secondAttribute="bottom" id="VoY-Sj-UzF"/>
                             <constraint firstItem="CmV-iT-SJS" firstAttribute="top" secondItem="Z9C-7E-Lgc" secondAttribute="bottom" constant="60" id="htU-o2-5X5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CmV-iT-SJS" secondAttribute="trailing" constant="20" id="k7k-0h-GJ7"/>
                             <constraint firstItem="h1S-do-eJu" firstAttribute="top" secondItem="Z9C-7E-Lgc" secondAttribute="bottom" constant="22" id="nFb-Ez-0UY"/>
                             <constraint firstItem="CmV-iT-SJS" firstAttribute="top" secondItem="h1S-do-eJu" secondAttribute="bottom" constant="8" symbolic="YES" id="rYp-iA-dez"/>
-                            <constraint firstItem="331-9m-bgE" firstAttribute="leading" secondItem="atg-C3-5ML" secondAttribute="leadingMargin" id="yUv-CK-9R8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wTv-zA-dRz"/>
+                    <connections>
+                        <outlet property="addATripButton" destination="n4h-aD-s95" id="vto-OV-X03"/>
+                        <outlet property="viewTripsButton" destination="uUr-pA-wsC" id="mOR-gM-fpa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6Q-vR-4mN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -765,10 +796,9 @@
     <resources>
         <image name="BlueCarFaceRight" width="3154" height="1217"/>
         <image name="PinkCarFaceLeft" width="1625" height="656"/>
-        <image name="neighborhood" width="420" height="490"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hGt-QR-v3f"/>
+        <segue reference="XMv-Zx-Av8"/>
         <segue reference="CYb-Ea-cza"/>
     </inferredMetricsTieBreakers>
 </document>
