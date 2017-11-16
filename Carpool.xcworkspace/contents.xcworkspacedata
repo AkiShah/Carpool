@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Carpool/Base.lproj/CreateTrip.storyboard">
-   </FileRef>
-   <FileRef
-      location = "group:AkiCreateTripViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:Carpool.xcodeproj">
    </FileRef>
    <FileRef

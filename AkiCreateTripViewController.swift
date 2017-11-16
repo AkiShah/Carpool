@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CarpoolKit
 
 
 class AkiCreateTripViewController: UIViewController {
@@ -19,6 +20,7 @@ class AkiCreateTripViewController: UIViewController {
     var repeatTrip: Bool = false
     var kidsOnTrip: [Child] = []
     var selectedButton: DayOrTime = .disabled
+    
     enum DayOrTime {
         case day
         case startTime
@@ -27,14 +29,16 @@ class AkiCreateTripViewController: UIViewController {
     }
     
     func changeDatePicker(to newSelection: DayOrTime) {
+        
+        
         switch newSelection {
-        case day:
+        case .day:
             //switch to day picker
             break
-        case startTime, endTime:
+        case .startTime, .endTime:
             break
             //switch to time picker
-        case disabled:
+        case .disabled:
             //hide datepicker
             break
         }
@@ -42,16 +46,16 @@ class AkiCreateTripViewController: UIViewController {
     
     func saveDatetTo() {
         switch selectedButton{
-        case day:
+        case .day:
             //update correct button title
             date = Date()
-        case startTime:
+        case .startTime:
             //update correct button title
             startTime = Date()
-        case endTime:
+        case .endTime:
             //update correct button title
             endTime = Date()
-        case disabled:
+        case .disabled:
             break
         }
     }
