@@ -16,6 +16,7 @@
 		736385DF1FB25D5A00472D2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 736385DE1FB25D5A00472D2E /* GoogleService-Info.plist */; };
 		7371257D1FBDDB1E00C7B702 /* CreateTrip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7371257C1FBDDB1500C7B702 /* CreateTrip.storyboard */; };
 		7371257F1FBDDB3200C7B702 /* AkiCreateTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7371257E1FBDDB3200C7B702 /* AkiCreateTripViewController.swift */; };
+		737125811FBDFA2900C7B702 /* KidSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737125801FBDFA2900C7B702 /* KidSelectionCell.swift */; };
 		738F1BA91FBCACB400C079AD /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F1BA81FBCACB400C079AD /* CalendarCell.swift */; };
 		73A524211FB6586E00FE8F26 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A524201FB6586E00FE8F26 /* SearchFriendsViewController.swift */; };
 		73B866741FBCDDE200F0F1C9 /* TripDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B866731FBCDD5800F0F1C9 /* TripDetailViewController.storyboard */; };
@@ -46,6 +47,7 @@
 		736385DE1FB25D5A00472D2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7371257C1FBDDB1500C7B702 /* CreateTrip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = CreateTrip.storyboard; path = /Users/Aimee/Desktop/Codebase/Carpool/Carpool/CreateTrip.storyboard; sourceTree = "<absolute>"; };
 		7371257E1FBDDB3200C7B702 /* AkiCreateTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AkiCreateTripViewController.swift; path = ../AkiCreateTripViewController.swift; sourceTree = "<group>"; };
+		737125801FBDFA2900C7B702 /* KidSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidSelectionCell.swift; sourceTree = "<group>"; };
 		738F1BA81FBCACB400C079AD /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		73A524201FB6586E00FE8F26 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		73B866731FBCDD5800F0F1C9 /* TripDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = TripDetailViewController.storyboard; path = Base.lproj/TripDetailViewController.storyboard; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				73B866751FBCE9A000F0F1C9 /* AkiTripDetailViewController.swift */,
 				D22071801FB114AF004B1B36 /* CreateTripViewController.swift */,
 				7371257C1FBDDB1500C7B702 /* CreateTrip.storyboard */,
+				737125801FBDFA2900C7B702 /* KidSelectionCell.swift */,
 				7371257E1FBDDB3200C7B702 /* AkiCreateTripViewController.swift */,
 				D2D8B2641FB36A4A00800358 /* MapViewController.swift */,
 				D2F576111FB50CA7008D3438 /* ProfileViewController.swift */,
@@ -287,6 +290,7 @@
 			files = (
 				73A524211FB6586E00FE8F26 /* SearchFriendsViewController.swift in Sources */,
 				738F1BA91FBCACB400C079AD /* CalendarCell.swift in Sources */,
+				737125811FBDFA2900C7B702 /* KidSelectionCell.swift in Sources */,
 				D2F5760A1FB4B43F008D3438 /* LoginViewController.swift in Sources */,
 				73B866761FBCE9A000F0F1C9 /* AkiTripDetailViewController.swift in Sources */,
 				D2F5760E1FB4BDDC008D3438 /* ViewTripsNavigationController.swift in Sources */,

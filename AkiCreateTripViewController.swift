@@ -22,7 +22,7 @@ class AkiCreateTripViewController: UIViewController {
     @IBOutlet weak var tripDatePicker: UIDatePicker!
     @IBOutlet weak var tripRepeatButton: UIButton!
     
-    @IBOutlet weak var tripChildrenCollectionView: UICollectionReusableView!
+    @IBOutlet weak var tripChildrenCollectionView: UICollectionView!
     
     
     var destination: String = ""
@@ -31,6 +31,7 @@ class AkiCreateTripViewController: UIViewController {
     var startTime: Date =  Date()
     var endTime: Date =  Date()
     var repeatTrip: Bool = false
+    var kids: [Child] = []
     var kidsOnTrip: [Child] = []
     var selectedButton: DayOrTime = .disabled
     
@@ -44,6 +45,21 @@ class AkiCreateTripViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         changeDatePicker(to: .disabled)
+        tripChildrenCollectionView.delegate = self
+        tripChildrenCollectionView.dataSource = self
+        
+        API.fetchCurrentUser(completion: { result in
+            switch result {
+            
+            case .success(let user):
+                self.kids = user.children
+                self.tripChildrenCollectionView.reloadData()
+            case .failure(let error):
+                //TODO error handling
+                print(#function, error)
+            }
+        })
+        
     }
     
     @IBAction func onSelectedTripDayButtonPressed(_ sender: UIButton) {
@@ -145,16 +161,6 @@ class AkiCreateTripViewController: UIViewController {
     }
 }
 
-extension AkiCreateTripViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "A", for: indexPath)
-        return cell
-    }
-}
 
 extension Date {
     var day: String {

@@ -326,16 +326,46 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lzk-Fu-LJW">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="A" id="lzk-Fu-LJW" customClass="KidSelectionCell" customModule="Carpool" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50" width="78" height="73"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="78" height="73"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GT-bt-FDn">
+                                                            <rect key="frame" x="16" y="20" width="46" height="32.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaD-jZ-uXJ">
+                                                            <rect key="frame" x="0.0" y="52.5" width="78" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20.5" id="EVo-QZ-kom"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                 </view>
+                                                <constraints>
+                                                    <constraint firstItem="PaD-jZ-uXJ" firstAttribute="leading" secondItem="lzk-Fu-LJW" secondAttribute="leading" id="2qS-bJ-m8N"/>
+                                                    <constraint firstAttribute="trailing" secondItem="PaD-jZ-uXJ" secondAttribute="trailing" id="A0w-Ub-EuT"/>
+                                                    <constraint firstItem="4GT-bt-FDn" firstAttribute="top" secondItem="lzk-Fu-LJW" secondAttribute="topMargin" id="Get-YG-oFg"/>
+                                                    <constraint firstAttribute="bottom" secondItem="PaD-jZ-uXJ" secondAttribute="bottom" id="HSe-qD-pqP"/>
+                                                    <constraint firstAttribute="trailingMargin" secondItem="4GT-bt-FDn" secondAttribute="trailing" id="KR7-hV-7sX"/>
+                                                    <constraint firstItem="PaD-jZ-uXJ" firstAttribute="top" secondItem="4GT-bt-FDn" secondAttribute="bottom" id="gfT-LS-Zbk"/>
+                                                    <constraint firstItem="4GT-bt-FDn" firstAttribute="leading" secondItem="lzk-Fu-LJW" secondAttribute="leadingMargin" id="zLX-iT-hqu"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="kidInitialLabel" destination="4GT-bt-FDn" id="yQP-HL-7Ny"/>
+                                                    <outlet property="kidNameLabel" destination="PaD-jZ-uXJ" id="6ck-HF-4hw"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
-                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Et0-2s-6C7">
+                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="KidCollectionViewHeader" id="Et0-2s-6C7">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionReusableView>
@@ -363,6 +393,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
+                        <outlet property="tripChildrenCollectionView" destination="Hqx-cJ-uRV" id="Pv2-hn-P5m"/>
                         <outlet property="tripDatePicker" destination="eeY-ud-J0e" id="wRb-qM-KwD"/>
                         <outlet property="tripDestinationMapButton" destination="XNR-pv-w3z" id="9Np-6g-37n"/>
                         <outlet property="tripDestinationTextField" destination="jcM-CH-Jtm" id="bki-nF-O8R"/>
@@ -374,7 +405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qg5-rR-8Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="452" y="679"/>
+            <point key="canvasLocation" x="452" y="678.26086956521749"/>
         </scene>
         <!--UITableViewController-8I8-3s-4bT-->
         <scene sceneID="TeY-Ca-iGF">
