@@ -437,7 +437,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neighborhood" translatesAutoresizingMaskIntoConstraints="NO" id="2bA-4Y-aj0">
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HighwayNoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="2bA-4Y-aj0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="el7-DP-0fA">
@@ -764,11 +764,11 @@
     </scenes>
     <resources>
         <image name="BlueCarFaceRight" width="3154" height="1217"/>
+        <image name="HighwayNoLogo" width="1200" height="1889"/>
         <image name="PinkCarFaceLeft" width="1625" height="656"/>
         <image name="neighborhood" width="420" height="490"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CYb-Ea-cza"/>
         <segue reference="hGt-QR-v3f"/>
         <segue reference="CYb-Ea-cza"/>
     </inferredMetricsTieBreakers>
