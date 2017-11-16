@@ -41,12 +41,20 @@ class FriendsViewController: UITableViewController{
         //Write the children names in subtitle
         //self.tableView.backgroundColor = UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)
         
-        self.tableView.layer.cornerRadius = 10
-        self.tableView.layer.borderColor = UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0).cgColor
-        self.tableView.layer.borderWidth = 2
+        cell.layer.cornerRadius = 20
+        cell.layer.borderColor = UIColor.init(displayP3Red: 1.0, green: 0.99, blue: 0.91, alpha: 1.0).cgColor
+        cell.layer.borderWidth = 10
+
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "MY FRIENDS"
+    }
+    
+    
 }
