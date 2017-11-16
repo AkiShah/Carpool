@@ -11,9 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Optima.ttc">
-            <string>Optima-ExtraBlack</string>
-        </array>
         <array key="PFDinTextPro-Bold.ttf">
             <string>PFDinTextPro-Bold</string>
         </array>
@@ -107,7 +104,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ze-eQ-cG2">
-                                                        <rect key="frame" x="0.0" y="18.5" width="359" height="15"/>
+                                                        <rect key="frame" x="0.0" y="16.5" width="359" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -266,10 +263,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="ivf-yc-y5a">
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="ivf-yc-y5a">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <color key="backgroundColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="barTintColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="A" textLabel="XuR-1l-hNh" detailTextLabel="RpC-MK-Fsr" style="IBUITableViewCellStyleSubtitle" id="fmh-3Y-Kfg">
@@ -280,20 +279,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XuR-1l-hNh">
-                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="16" y="8" width="34" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
+                                            <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RpC-MK-Fsr">
-                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="16" y="25" width="37.5" height="12"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="PFDinTextPro-Regular" family="PF DinText Pro" pointSize="12"/>
+                                            <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="0.52941176469999995" green="0.5568627451" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -329,7 +330,10 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QOq-sH-Sm8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="A" id="tJw-Rj-YHb">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -337,7 +341,10 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tJw-Rj-YHb" id="d4L-48-c3A">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -770,8 +777,10 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="81" id="J65-ey-sGP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="17"/>
-                                <state key="normal" title="Profile"/>
+                                <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
+                                <state key="normal" title="PROFILE">
+                                    <color key="titleColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="DKc-7g-Kmw" kind="show" id="m06-X0-itj"/>
                                 </connections>
@@ -782,8 +791,10 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="nVT-Rr-H6G"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="17"/>
-                                <state key="normal" title="Friends"/>
+                                <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
+                                <state key="normal" title="FRIENDS">
+                                    <color key="titleColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="fe8-Qw-tkz" kind="show" id="xpE-8x-PT0"/>
                                 </connections>
@@ -857,7 +868,7 @@
         <image name="PinkCarFaceLeft" width="1625" height="656"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hGt-QR-v3f"/>
+        <segue reference="XMv-Zx-Av8"/>
         <segue reference="CYb-Ea-cza"/>
     </inferredMetricsTieBreakers>
 </document>

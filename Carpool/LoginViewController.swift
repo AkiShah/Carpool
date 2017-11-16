@@ -94,8 +94,6 @@ class LoginViewController: UIViewController {
                         alert.addAction(UIAlertAction(title: "Thanks, I'll try again", style: UIAlertActionStyle.default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                         print(error)
-                        alert.addAction(UIAlertAction(title: "I'll try again!", style: UIAlertActionStyle.default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
                     }
                 })
             }
