@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HighwayLoadScreen2" translatesAutoresizingMaskIntoConstraints="NO" id="36A-ge-49O">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HighwayLoadScreen3" translatesAutoresizingMaskIntoConstraints="NO" id="36A-ge-49O">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="HighwayLoadScreen2" width="1200" height="1889"/>
+        <image name="HighwayLoadScreen3" width="1200" height="1889"/>
     </resources>
 </document>
