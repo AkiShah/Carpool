@@ -14,6 +14,8 @@ let loginNotification = Notification.Name("login Did Complete Notification")
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var segmentedController: UISegmentedControl!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var confirmPasswordLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var onNameEntered: UITextField!
     @IBOutlet weak var passwordConfirmButton: UITextField!
@@ -66,7 +68,9 @@ class LoginViewController: UIViewController {
     func toggleLabels(to state: ToggleState) {
         loginButton.setTitle(state.text, for: .normal)
         passwordConfirmButton.isHidden = state.isHidden
+        confirmPasswordLabel.isHidden = state.isHidden
         nameTextField.isHidden = state.isHidden
+        nameLabel.isHidden = state.isHidden
     }
     
     
