@@ -188,10 +188,6 @@ extension CreateTripViewController: CLLocationManagerDelegate {
     }
 }
 
-extension CLLocation: MKAnnotation {
-
-}
-
 
 
 
