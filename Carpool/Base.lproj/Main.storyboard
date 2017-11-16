@@ -214,7 +214,7 @@
                     <connections>
                         <outlet property="TripSegmentedViewController" destination="Lg0-zK-Wop" id="xCt-0h-oBI"/>
                         <outlet property="calendarCollectionView" destination="riw-Eu-dUC" id="RUS-0Y-EQ4"/>
-                        <segue destination="nlu-Vi-zhI" kind="presentation" identifier="segueToEventDetailVC" id="SAK-h5-eZB"/>
+                        <segue destination="nlu-Vi-zhI" kind="show" identifier="segueToEventDetailVC" id="SAK-h5-eZB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enG-OH-gQW" userLabel="First Responder" sceneMemberID="firstResponder"/>

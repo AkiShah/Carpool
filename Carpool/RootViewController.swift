@@ -15,10 +15,16 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
     @IBOutlet weak var TripSegmentedViewController: UISegmentedControl!
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     
-    var downloadedTrips: [Trip] = []
+    //All Trips
+    var myTrips: [Trip] = []
+    var myFriendsTrips: [Trip] = []
+    //Filtered Trips
     var trips: [Trip] = []
+    
     var user: User?
+    
     var kids: [Child] = []
+    
     var selectedDay = 0
     
     enum tripLeg: String {
@@ -36,37 +42,24 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
         calendarCollectionView.dataSource = self
         calendarCollectionView.delegate = self
         
-        API.fetchCurrentUser { result in
-            switch result {
-            case .success(let user):
-                self.user = user
-                self.trips = self.getTrips(for: tripSegment(rawValue: 0)!)
-                self.tableView.reloadData()
-                print("User currently is ", user)
-            case .failure(let error):
-                print("failed to get user")
-                print(error)
-                let alert = UIAlertController(title: "Whoops", message: "You aren't logged in, but feel free to peruse the app. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Thanks, I think I will", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-        
-        API.observeTrips(sender: self) { result in
+        API.observeMyTrips(sender: self) { result in
             switch result {
             case .success(let trips):
-                self.downloadedTrips = trips
-                if self.user != nil {
-                    self.trips = self.getTrips(for: tripSegment(rawValue: self.TripSegmentedViewController.selectedSegmentIndex)!)
-                        self.tableView.reloadData()
-                }
-                
+                self.myTrips = trips
+                self.tableView.reloadData()
             case .failure(let error):
-                print("failed to observe trips")
-                let alert = UIAlertController(title: "Whoops", message: "There are no upcoming trips. Add a trip or log in to view trips. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Sounds good", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                break
+                //TODO error handling
+                print(#function, error)
+            }
+        }
+        API.observeTheTripsOfMyFriends(sender: self) { result in
+            switch result {
+            case .success(let trips):
+                self.myFriendsTrips = trips
+                self.tableView.reloadData()
+            case .failure(let error):
+                //TODO error handling
+                print(#function, error)
             }
         }
         
@@ -87,9 +80,7 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
     }
     
     @IBAction func onTripSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        if user != nil{
-            trips = getTrips(for: tripSegment(rawValue: sender.selectedSegmentIndex)!)
-        }
+        trips = getTrips(for: tripSegment(rawValue: sender.selectedSegmentIndex)!)
         tableView.reloadData()
     }
     
@@ -100,25 +91,13 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
         let today = Calendar.current.startOfDay(for: Date())
         let low = today + TimeInterval(selectedDay * 60 * 60 * 24)
         let high = low + TimeInterval(60 * 60 * 24)
-        trips = self.downloadedTrips.filter{ $0.event.time >= low && $0.event.time <= high }.sorted()
+        
         
         switch trip {
         case .myTrips:
-            trips = trips.flatMap({
-                let owner = $0.event.owner
-                let legDropoff = $0.dropOff?.driver
-                let legPickup = $0.pickUp?.driver
-                let currentUser = user
-                return owner == currentUser || legDropoff == currentUser || legPickup == currentUser ? $0 : nil
-            })
+            trips = self.myTrips.filter{ $0.event.time >= low && $0.event.time <= high }.sorted()
         case .friendsTrips:
-            trips = trips.flatMap({
-                let owner = $0.event.owner
-                let legDropoff = $0.dropOff?.driver
-                let legPickup = $0.pickUp?.driver
-                let currentUser = user
-                return owner != currentUser && legDropoff != currentUser && legPickup != currentUser ? $0 : nil
-            })
+            trips = self.myFriendsTrips.filter{ $0.event.time >= low && $0.event.time <= high }.sorted()
         }
         
         return trips
@@ -162,12 +141,14 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return trips.count
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let trip = trips[indexPath.row]
-        self.performSegue(withIdentifier: "segueToEventDetailVC", sender: trip)
+        performSegue(withIdentifier: "segueToEventDetailVC", sender: trip)
     }
     
     
