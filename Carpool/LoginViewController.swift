@@ -16,8 +16,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var segmentedController: UISegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var onNameEntered: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordConfirmButton: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
     
     var userEmail: String = ""
     var userPassword: String = ""
@@ -49,6 +50,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextField.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
+        onNameEntered.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
+        passwordConfirmButton.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
+        
     }
     
     @IBAction func onSkipPressed(_ sender: UIButton) {
