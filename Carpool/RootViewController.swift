@@ -109,7 +109,7 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as! TripCell
         let trip = trips[indexPath.row]
-        let dsc = trip.event.description == "" ? "No description given" : trip.generateSmartDescription
+        let dsc = trip.event.description == "" ? "No description given" : trip.event.description
         //let kid = trip.children[indexPath.row]
         cell.grandmaLabel.text = dsc
         //cell.kidNames.text = kid.name

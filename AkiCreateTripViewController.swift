@@ -276,17 +276,27 @@ extension Date {
 }
 
 extension Trip {
-    
-    var generateSmartDescription: String {
-        var kidSubString = "kid name"
+ 
+    var kidNamesString: String {
         
         if children.count > 0 {
-            kidSubString =  children[0].name
-        } else if children.count == 2 {
-            kidSubString = "\(children[0].name) and \(children[1].name)"
-        } else if children.count > 2 {
-            kidSubString = "\(children[0].name) and \(children.count - 1) other kids"
+            let childrenNames = children.map({$0.name}).sorted(by: {$0 < $1})
+            var childString = childrenNames.joined(separator: ", ")
+            
+            if let lastCommaRange = childString.range(of: ", ", options: .backwards) {
+                childString.replaceSubrange(lastCommaRange, with: " and ")
+            }
+            return childString
+        } else {
+            return "\(event.owner) is going to"
         }
-        return "On \(event.time.day), \(kidSubString) will be going to: \(event.description) at \(event.time.time)"
+        
+    }
+    
+    var dayAndTimeOfEvent: String {
+        if let endTime = event.endTime {
+            return "On \(event.time.day) from \(event.time.time) to \(endTime.time)"
+        }
+        return "On \(event.time.day) at \(event.time.time)"
     }
 }
