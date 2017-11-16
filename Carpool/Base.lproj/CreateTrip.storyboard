@@ -182,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="341" y="173"/>
         </scene>
-        <!--View Controller-->
+        <!--Aki Create Trip View Controller-->
         <scene sceneID="e2Y-Bi-o9T">
             <objects>
-                <viewController id="mOK-9U-HDr" sceneMemberID="viewController">
+                <viewController id="mOK-9U-HDr" customClass="AkiCreateTripViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ElT-zl-Df7"/>
                         <viewControllerLayoutGuide type="bottom" id="D4j-uk-sd1"/>
