@@ -12,6 +12,11 @@ import CarpoolKit
 import CoreLocation
 import MapKit
 
+class commentCell: UITableViewCell {
+    @IBOutlet weak var commentPosterNameLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
+}
+
 class AkiTripDetailViewController: UITableViewController {
     
     //Header
@@ -36,6 +41,9 @@ class AkiTripDetailViewController: UITableViewController {
     
     //Footer
     @IBOutlet weak var eventCommentTextView: UITextView!
+    @IBOutlet weak var eventCommentButton: UIButton!
+    @IBOutlet weak var eventCommentButtonBottomConstraint: NSLayoutConstraint!
+    
     
     var trip: Trip!
     var location: CLPlacemark?
@@ -79,7 +87,23 @@ class AkiTripDetailViewController: UITableViewController {
                 break
             }
         }
+        eventCommentTextView.delegate = self
+        eventCommentTextView.text = "Add Comment"
+        eventCommentTextView.textColor = UIColor.lightGray
+        eventCommentTextView.layer.masksToBounds = true
+        eventCommentTextView.layer.cornerRadius = 10
+        eventCommentButton.layer.masksToBounds = true
+        eventCommentButton.layer.cornerRadius = 10
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name.UIKeyboardWillShow, object: nil, queue: .main) { _ in
+            self.eventCommentButtonBottomConstraint.constant = 200
+        }
+        NotificationCenter.default.addObserver(forName: Notification.Name.UIKeyboardWillHide, object: nil, queue: .main) { _ in
+            self.eventCommentButtonBottomConstraint.constant = 20
+        }
     }
+    
+    
     
     @IBAction func onEventDestinationAddressButtonClicked(_ sender: UIButton) {
         //Go to map
@@ -281,10 +305,32 @@ class AkiTripDetailViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
-        cell.textLabel?.text = trip.comments[indexPath.row].body
-        cell.detailTextLabel?.text = trip.comments[indexPath.row].user.name
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath) as! commentCell
+        cell.commentLabel.text = trip.comments[indexPath.row].body
+        cell.commentLabel.textColor = darkBlue
+        cell.commentPosterNameLabel.text = trip.comments[indexPath.row].user.name
+        cell.commentPosterNameLabel.textColor = darkBlue
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "COMMENTS"
+    }
+}
+
+extension AkiTripDetailViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+            if textView.textColor == UIColor.lightGray {
+                textView.text = ""
+                textView.textColor = darkBlue
+            }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Add Comment"
+            textView.textColor = UIColor.lightGray
+        }
+    }
 }
