@@ -16,6 +16,7 @@ class SearchFriendsViewController: UITableViewController {
     
     var searchQuery = ""
     var searchResults: [User] = []
+    var friends: [User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,16 @@ class SearchFriendsViewController: UITableViewController {
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         
         textFieldInsideSearchBar?.textColor = UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1)
+        
+        API.observeFriends(sender: self) { (result) in
+            switch result {
+                
+            case .success(let friends):
+                self.friends = friends
+            case .failure(let error):
+                print(#function, error)
+            }
+        }
     }
     
     @IBAction func onSendTextPressed(_ sender: UIButton) {
@@ -63,9 +74,20 @@ extension SearchFriendsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         API.search(forUsersWithName: searchText) { result in
             switch result {
-            case .success(let users):
+            case .success(var users):
+                for friend in self.friends {
+                    if let index = users.index(of: friend) {
+                        users.remove(at: index)
+                    }
+                }
+                for user in users {
+                    if user.isMe {
+                        users.remove(at: users.index(of: user)!)
+                    }
+                }
                 self.searchResults = users
                 self.tableView.reloadData()
+                
             case .failure(let error):
                 let alert = UIAlertController(title: "New phone, who dis?", message: "Database Error. \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "It's not your fault", style: UIAlertActionStyle.default, handler: nil))

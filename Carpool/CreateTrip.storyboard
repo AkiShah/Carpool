@@ -192,7 +192,7 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UIViewController-9ep-Jo-buX" id="D0t-DH-sWk" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M27-9N-2OD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341" y="173"/>
+            <point key="canvasLocation" x="664" y="28"/>
         </scene>
         <!--Aki Create Trip View Controller-->
         <scene sceneID="e2Y-Bi-o9T">
@@ -500,10 +500,10 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UITableViewController-8I8-3s-4bT" id="dwh-CS-CdE" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bru-Pm-xot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204" y="-237"/>
+            <point key="canvasLocation" x="-10" y="-58"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6cF-5S-7LR"/>
+        <segue reference="QvG-IF-LF2"/>
     </inferredMetricsTieBreakers>
 </document>

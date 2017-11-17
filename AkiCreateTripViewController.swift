@@ -207,7 +207,7 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         let results = completer.results
         
         
-        let region = MKCoordinateRegionMakeWithDistance(myLocation!.coordinate, 10000, 10000)
+        let region = MKCoordinateRegionMakeWithDistance(myLocation!.coordinate, 5000, 5000)
         let request = MKLocalSearchRequest()
         request.region = region
         
