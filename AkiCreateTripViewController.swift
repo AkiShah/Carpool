@@ -52,7 +52,7 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeDatePicker(to: .disabled)
+        changeDatePicker(to: .day)
         self.tripDestinationMapButton.isEnabled = false
         
         tripChildrenCollectionView.delegate = self
@@ -60,29 +60,27 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         tripChildrenCollectionView.allowsMultipleSelection = true
         
         tripDestinationTextField.layer.masksToBounds = true
-        tripDestinationTextField.layer.cornerRadius = 0
+        tripDestinationTextField.layer.cornerRadius = 10
         
         tripDestinationMapButton.layer.masksToBounds = true
         tripDestinationMapButton.layer.cornerRadius = 20
         
-//        tripRepeatButton.setTitle("Repeat Every Week Off", for: .normal)
-//        tripRepeatButton.setTitleColor(lightOrange, for: .normal)
-//        tripRepeatButton.backgroundColor = darkBlue
         tripRepeatButton.layer.masksToBounds = true
         tripRepeatButton.layer.cornerRadius = 20
         
         tripDatePicker.setValue(darkBlue, forKeyPath: "textColor")
         tripDatePicker.layer.masksToBounds = true
         tripDatePicker.layer.cornerRadius = 10
+        tripDatePicker.backgroundColor = darkCream
         
         tripSelectedDayButton.layer.masksToBounds = true
-        tripSelectedDayButton.layer.cornerRadius = 20
+        tripSelectedDayButton.layer.cornerRadius = 10
         
         tripSelectedStartTimeButton.layer.masksToBounds = true
-        tripSelectedStartTimeButton.layer.cornerRadius = 20
+        tripSelectedStartTimeButton.layer.cornerRadius = 10
         
         tripSelectedEndTimeButton.layer.masksToBounds = true
-        tripSelectedEndTimeButton.layer.cornerRadius = 20
+        tripSelectedEndTimeButton.layer.cornerRadius = 10
         
         API.fetchCurrentUser(completion: { result in
             switch result {
@@ -141,38 +139,35 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
     }
     
     
-    
     func changeDatePicker(to newSelection: DayOrTime) {
         
         tripSelectedDayButton.backgroundColor = darkBlue
         tripSelectedStartTimeButton.backgroundColor = darkBlue
         tripSelectedEndTimeButton.backgroundColor = darkBlue
         
-        tripSelectedDayButton.setTitleColor(lightOrange, for: .normal)
-        tripSelectedStartTimeButton.setTitleColor(lightOrange, for: .normal)
-        tripSelectedEndTimeButton.setTitleColor(lightOrange, for: .normal)
+        tripSelectedDayButton.setTitleColor(darkCream, for: .normal)
+        tripSelectedStartTimeButton.setTitleColor(darkCream, for: .normal)
+        tripSelectedEndTimeButton.setTitleColor(darkCream, for: .normal)
         
         switch newSelection {
         case .day:
-            tripDatePicker.isHidden = false
             tripDatePicker.datePickerMode = .date
-            tripSelectedDayButton.backgroundColor = lightOrange
+            tripSelectedDayButton.backgroundColor = darkCream
             tripSelectedDayButton.setTitleColor(darkBlue, for: .normal)
             
         case .startTime:
-            tripDatePicker.isHidden = false
+
             tripDatePicker.datePickerMode = .time
-            tripSelectedStartTimeButton.backgroundColor = lightOrange
+            tripSelectedStartTimeButton.backgroundColor = darkCream
             tripSelectedStartTimeButton.setTitleColor(darkBlue, for: .normal)
             
         case .endTime:
-            tripDatePicker.isHidden = false
             tripDatePicker.datePickerMode = .time
-            tripSelectedEndTimeButton.backgroundColor = lightOrange
+            tripSelectedEndTimeButton.backgroundColor = darkCream
             tripSelectedEndTimeButton.setTitleColor(darkBlue, for: .normal)
 
         case .disabled:
-            tripDatePicker.isHidden = true
+            break
         }
         selectedButton = newSelection
     }

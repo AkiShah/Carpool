@@ -267,11 +267,11 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="u2n-mU-2Na">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="63"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CCR-oa-lev">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CCR-oa-lev">
                                                         <rect key="frame" x="0.0" y="0.0" width="101.5" height="63"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJj-93-Nia">
-                                                                <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                                                <rect key="frame" x="42" y="0.0" width="18" height="18"/>
                                                                 <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                                                 <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -294,11 +294,11 @@
                                                             <constraint firstItem="Hu6-dn-Dq4" firstAttribute="leading" secondItem="CCR-oa-lev" secondAttribute="leading" id="zzH-FE-McB"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="l4x-9U-wo6">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="l4x-9U-wo6">
                                                         <rect key="frame" x="116.5" y="0.0" width="102" height="63"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fit-8O-OdM">
-                                                                <rect key="frame" x="0.0" y="0.0" width="35" height="18"/>
+                                                                <rect key="frame" x="33.5" y="0.0" width="35" height="18"/>
                                                                 <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                                                 <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -321,11 +321,11 @@
                                                             <constraint firstAttribute="bottom" secondItem="FKQ-ne-5zd" secondAttribute="bottom" id="oKN-3z-6MH"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NjG-i6-j3W">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NjG-i6-j3W">
                                                         <rect key="frame" x="233.5" y="0.0" width="101.5" height="63"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Till" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocn-AM-4Ct">
-                                                                <rect key="frame" x="0.0" y="0.0" width="21" height="18"/>
+                                                                <rect key="frame" x="40" y="0.0" width="21" height="18"/>
                                                                 <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                                                 <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -390,16 +390,6 @@
                                     <constraint firstAttribute="trailing" secondItem="4uC-rq-3ZA" secondAttribute="trailing" id="Z5o-Jc-M9Y"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXf-BH-xr9">
-                                <rect key="frame" x="126" y="823" width="123" height="37"/>
-                                <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="25"/>
-                                <state key="normal" title="Create Trip">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onCreateTripButtonPressed:" destination="mOK-9U-HDr" eventType="touchUpInside" id="4ip-iI-hbv"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="753" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hqx-cJ-uRV">
                                 <rect key="frame" x="0.0" y="458" width="375" height="110"/>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -462,16 +452,37 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O8K-oh-2Vr">
+                                <rect key="frame" x="16" y="568" width="343" height="332"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXf-BH-xr9">
+                                        <rect key="frame" x="110" y="147.5" width="123" height="37"/>
+                                        <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="25"/>
+                                        <state key="normal" title="Create Trip">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onCreateTripButtonPressed:" destination="mOK-9U-HDr" eventType="touchUpInside" id="4ip-iI-hbv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LXf-BH-xr9" firstAttribute="centerY" secondItem="O8K-oh-2Vr" secondAttribute="centerY" id="N0w-2E-qsj"/>
+                                    <constraint firstItem="LXf-BH-xr9" firstAttribute="centerX" secondItem="O8K-oh-2Vr" secondAttribute="centerX" id="S1H-qG-svP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="5Lw-hO-jbj" firstAttribute="top" secondItem="ElT-zl-Df7" secondAttribute="bottom" constant="20" id="1Db-Dm-eHC"/>
-                            <constraint firstItem="D4j-uk-sd1" firstAttribute="top" secondItem="LXf-BH-xr9" secondAttribute="bottom" constant="40" id="92f-Kq-GtB"/>
+                            <constraint firstItem="D4j-uk-sd1" firstAttribute="top" secondItem="O8K-oh-2Vr" secondAttribute="bottom" id="AE0-wE-wPR"/>
                             <constraint firstItem="Hqx-cJ-uRV" firstAttribute="leading" secondItem="TK2-YF-X4y" secondAttribute="leading" id="Fxc-gr-UuH"/>
                             <constraint firstAttribute="trailing" secondItem="Hqx-cJ-uRV" secondAttribute="trailing" id="Nx1-h4-TnD"/>
                             <constraint firstAttribute="trailing" secondItem="5Lw-hO-jbj" secondAttribute="trailing" constant="20" id="VBV-1m-2na"/>
+                            <constraint firstItem="O8K-oh-2Vr" firstAttribute="top" secondItem="Hqx-cJ-uRV" secondAttribute="bottom" id="Z54-tg-RFA"/>
                             <constraint firstItem="Hqx-cJ-uRV" firstAttribute="top" secondItem="5Lw-hO-jbj" secondAttribute="bottom" constant="10" id="c1p-Iy-m8E"/>
-                            <constraint firstItem="LXf-BH-xr9" firstAttribute="centerX" secondItem="TK2-YF-X4y" secondAttribute="centerX" id="cza-vg-ywL"/>
+                            <constraint firstItem="O8K-oh-2Vr" firstAttribute="leading" secondItem="TK2-YF-X4y" secondAttribute="leadingMargin" id="shn-7D-Yo3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O8K-oh-2Vr" secondAttribute="trailing" id="ur9-lt-gnu"/>
                             <constraint firstItem="5Lw-hO-jbj" firstAttribute="leading" secondItem="TK2-YF-X4y" secondAttribute="leading" constant="20" id="xQ7-LW-5G4"/>
                         </constraints>
                     </view>
