@@ -30,7 +30,6 @@ extension RootViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("I'm being called")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Day", for: indexPath) as! CalendarCell
         let today = Calendar.current.startOfDay(for: Date())
         let daysFromToday = today + TimeInterval(indexPath.row * 60 * 60 * 24)

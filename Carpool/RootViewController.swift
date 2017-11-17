@@ -46,7 +46,6 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
             switch result {
             case .success(let trips):
                 self.myTrips = trips
-                print(#function, trips)
                 self.tableView.reloadData()
             case .failure(let error):
                 //TODO error handling
