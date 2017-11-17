@@ -28,9 +28,11 @@ class AkiTripDetailViewController: UITableViewController {
     
     //Drivers Labels and Buttons
     @IBOutlet weak var eventDropoffDriverLabel: UILabel!
+    @IBOutlet weak var eventDropoffSubHeader: UILabel!
     @IBOutlet weak var eventDropoffButton: UIButton!
     @IBOutlet weak var eventPickupDriverLabel: UILabel!
     @IBOutlet weak var eventPickupButton: UIButton!
+    @IBOutlet weak var eventPickupSubHeader: UILabel!
     
     //Footer
     @IBOutlet weak var eventCommentTextView: UITextView!
@@ -230,14 +232,18 @@ class AkiTripDetailViewController: UITableViewController {
                     break
                 }
             })
-            eventDropoffButton.setTitle("Drop Off Claimed", for: .normal)
             eventDropoffDriverLabel.text = driver.name
-            eventDropoffButton.tintColor = UIColor.red
+            eventDropoffDriverLabel.textColor = darkBlue
+            eventDropoffSubHeader.text = "WILL DROPOFF"
+            eventDropoffSubHeader.textColor = darkBlue
+            
         case (.dropoff, .unclaimed):
             eventDropoffButton.isEnabled = true
-            print("I hereby claim this leg as mine")
-            eventDropoffButton.setTitle("Claim Drop Off", for: .normal)
-            eventDropoffButton.tintColor = UIColor.blue
+            eventDropoffDriverLabel.text = "UNCLAIMED"
+            eventDropoffDriverLabel.textColor = darkOrange
+            eventDropoffSubHeader.text = "DROPOFF"
+            eventDropoffSubHeader.textColor = darkOrange
+            
         case (.pickup, .claimed):
             let driver = trip.pickUp!.driver
             API.fetchCurrentUser(completion: { result in
@@ -251,13 +257,18 @@ class AkiTripDetailViewController: UITableViewController {
                     break
                 }
             })
-            eventPickupButton.setTitle("Pickup Claimed", for: .normal)
             eventPickupDriverLabel.text = driver.name
-            eventPickupButton.tintColor = UIColor.red
+            eventPickupDriverLabel.textColor = darkBlue
+            eventPickupSubHeader.text = "WILL PICKUP"
+            eventPickupSubHeader.textColor = darkBlue
+            
         case (.pickup, .unclaimed):
             eventPickupButton.isEnabled = true
-            print("I hereby claim this leg as mine")
-            eventPickupButton.setTitle("Claim Pickup", for: .normal)
+            eventPickupDriverLabel.text = "UNCLAIMED"
+            eventPickupDriverLabel.textColor = darkOrange
+            eventPickupSubHeader.text = "PICKUP"
+            eventPickupSubHeader.textColor = darkOrange
+            
         }
     }
     
