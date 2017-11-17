@@ -77,13 +77,13 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="83"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Su" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igy-xc-7lY">
-                                                                <rect key="frame" x="16.5" y="10" width="17" height="14"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Su" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igy-xc-7lY">
+                                                                <rect key="frame" x="17.5" y="10" width="15" height="14"/>
                                                                 <fontDescription key="fontDescription" name="PFDinTextPro-Regular" family="PF DinText Pro" pointSize="14"/>
                                                                 <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-Rf-DFt">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-Rf-DFt">
                                                                 <rect key="frame" x="4" y="31" width="42" height="21"/>
                                                                 <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
                                                                 <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
@@ -122,7 +122,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ze-eQ-cG2">
-                                                        <rect key="frame" x="0.0" y="14.5" width="359" height="21"/>
+                                                        <rect key="frame" x="0.0" y="16" width="359" height="18"/>
                                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="18"/>
                                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -173,43 +173,43 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Grandma's" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-e2-27c">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grandma's" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-e2-27c">
                                             <rect key="frame" x="16" y="47" width="333" height="33"/>
                                             <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="33"/>
                                             <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carFaceRightBlue" translatesAutoresizingMaskIntoConstraints="NO" id="c2T-d8-dXP">
-                                            <rect key="frame" x="16" y="114" width="100" height="49"/>
+                                            <rect key="frame" x="16" y="113" width="100" height="49"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="0AL-bA-Bk4"/>
                                                 <constraint firstAttribute="width" secondItem="c2T-d8-dXP" secondAttribute="height" multiplier="100:49" id="anf-3o-D2L"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="carFaceLeftFaded" translatesAutoresizingMaskIntoConstraints="NO" id="WZ7-b3-MhN">
-                                            <rect key="frame" x="269" y="114" width="100" height="49"/>
+                                            <rect key="frame" x="269" y="113" width="100" height="49"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="0l7-cn-687"/>
                                                 <constraint firstAttribute="width" secondItem="WZ7-b3-MhN" secondAttribute="height" multiplier="100:49" id="6kZ-hk-VZ8"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Kids are going to:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3P-J3-2bt">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kids are going to:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3P-J3-2bt">
                                             <rect key="frame" x="16" y="21" width="333" height="18"/>
                                             <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="18"/>
                                             <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="On a day of the week and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iis-uF-ehO">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On a day of the week and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iis-uF-ehO">
                                             <rect key="frame" x="16" y="88" width="333" height="17"/>
                                             <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="17"/>
                                             <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Nio-tE-Yyl" userLabel="Dropoff/PickupLabels">
-                                            <rect key="frame" x="10" y="168" width="355" height="21.5"/>
+                                            <rect key="frame" x="10" y="167" width="355" height="22.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dropoff" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NS-4P-LCT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="177.5" height="21.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="177.5" height="22.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21.5" id="mFq-Tv-fKC"/>
                                                     </constraints>
@@ -218,7 +218,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLx-X2-HrB">
-                                                    <rect key="frame" x="177.5" y="0.0" width="177.5" height="21.5"/>
+                                                    <rect key="frame" x="177.5" y="0.0" width="177.5" height="22.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21.5" id="8qD-14-7El"/>
                                                     </constraints>
@@ -524,10 +524,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ITj-TB-MvU">
-                                <rect key="frame" x="20" y="116" width="335" height="159"/>
+                                <rect key="frame" x="20" y="116" width="335" height="154"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjn-ER-Mx0">
-                                        <rect key="frame" x="0.0" y="0.0" width="43" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="0.0"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -547,17 +547,17 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="onNameEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="EgK-bm-Cri"/>
+                                            <action selector="onNameEntered:" destination="uzH-Gh-XhM" eventType="editingDidEndOnExit" id="yd4-lx-eAY"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrW-t2-8ta">
-                                        <rect key="frame" x="0.0" y="0.0" width="44.5" height="17.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="15"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mK9-fZ-oq3">
-                                        <rect key="frame" x="0.0" y="25.5" width="335" height="50"/>
+                                        <rect key="frame" x="0.0" y="23" width="335" height="50"/>
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -572,17 +572,17 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="onEmailEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="2wk-0K-vDE"/>
+                                            <action selector="onEmailEntered:" destination="uzH-Gh-XhM" eventType="editingDidEndOnExit" id="kA2-Eh-dJB"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="651-7M-PQw">
-                                        <rect key="frame" x="0.0" y="83.5" width="84" height="17.5"/>
+                                        <rect key="frame" x="0.0" y="81" width="78.5" height="15"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFP-r0-7lV">
-                                        <rect key="frame" x="0.0" y="109" width="335" height="50"/>
+                                        <rect key="frame" x="0.0" y="104" width="335" height="50"/>
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -597,17 +597,17 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="onPasswordEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="baf-pg-FHF"/>
+                                            <action selector="onPasswordEntered:" destination="uzH-Gh-XhM" eventType="editingDidEndOnExit" id="8rQ-PK-sdJ"/>
                                         </connections>
                                     </textField>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIRM PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al5-xd-f8H">
-                                        <rect key="frame" x="0.0" y="159" width="157" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="154" width="146" height="0.0"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w0q-HP-ng3">
-                                        <rect key="frame" x="0.0" y="159" width="335" height="50"/>
+                                        <rect key="frame" x="0.0" y="154" width="335" height="50"/>
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="6VM-rT-5hp"/>
@@ -621,7 +621,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="onPasswordConfirmedEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="74u-FL-Ngv"/>
+                                            <action selector="onPasswordConfirmedEntered:" destination="uzH-Gh-XhM" eventType="editingDidEndOnExit" id="TdN-Pt-xN9"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -655,7 +655,7 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzi-Es-cDx">
-                                <rect key="frame" x="79" y="313" width="218" height="42"/>
+                                <rect key="frame" x="92" y="308" width="192" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Bzi-Es-cDx" secondAttribute="height" multiplier="26:5" id="5pc-dJ-dtM"/>
                                 </constraints>
@@ -702,7 +702,7 @@
                         <outlet property="emailLabel" destination="mK9-fZ-oq3" id="82Z-E6-Wik"/>
                         <outlet property="loginButton" destination="Bzi-Es-cDx" id="rIC-ep-qPw"/>
                         <outlet property="nameLabel" destination="Rjn-ER-Mx0" id="v9P-B1-QI8"/>
-                        <outlet property="nameTextField" destination="sSj-OO-Bp2" id="XNA-LU-eqg"/>
+                        <outlet property="nameTextField" destination="sSj-OO-Bp2" id="auT-E6-4ZX"/>
                         <outlet property="onNameEntered" destination="sSj-OO-Bp2" id="IKz-fy-ija"/>
                         <outlet property="passwordConfirmButton" destination="w0q-HP-ng3" id="qTt-4l-Uem"/>
                         <outlet property="passwordLabel" destination="dFP-r0-7lV" id="IJi-4C-RGs"/>
@@ -866,7 +866,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr. Pumper Knickles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfV-yf-kro">
-                                <rect key="frame" x="81.5" y="45" width="212.5" height="27"/>
+                                <rect key="frame" x="82" y="49" width="212" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Vlc-BI-0EL"/>
                                 </constraints>
@@ -875,7 +875,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veo-bz-cVa">
-                                <rect key="frame" x="150.5" y="21.5" width="76" height="17.5"/>
+                                <rect key="frame" x="154.5" y="28" width="66.5" height="15"/>
                                 <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="15"/>
                                 <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -977,7 +977,7 @@
         <image name="tachometer1" width="976" height="594"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hGt-QR-v3f"/>
+        <segue reference="XMv-Zx-Av8"/>
         <segue reference="CYb-Ea-cza"/>
     </inferredMetricsTieBreakers>
 </document>
