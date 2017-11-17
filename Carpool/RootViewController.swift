@@ -41,6 +41,7 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
         calendarCollectionView.delegate = self
         calendarCollectionView.layer.masksToBounds = true
         calendarCollectionView.layer.cornerRadius = 10
+        calendarCollectionView.backgroundColor = lightOrange
         
         API.observeMyTrips(sender: self) { result in
             switch result {
@@ -157,8 +158,8 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
         } else {
             label.text = "NOT CLAIMED"
             label.textColor = darkBlue
-            label.backgroundColor = darkOrange
-            label.font = UIFont.systemFont(ofSize: label.font.pointSize)
+            label.backgroundColor = lightOrange
+            label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
             if legType == .dropoff{
                 carImage.image = #imageLiteral(resourceName: "carFaceRightFaded")
             } else {
