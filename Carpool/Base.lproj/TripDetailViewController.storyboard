@@ -9,6 +9,14 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="PFDinDisplayPro-Light.ttf">
+            <string>PFDinDisplayPro-Light</string>
+        </array>
+        <array key="PFDinTextPro-Bold.ttf">
+            <string>PFDinTextPro-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Trip Detail View Controller-->
         <scene sceneID="qF7-f9-gQi">
@@ -175,87 +183,81 @@
                                     <rect key="frame" x="20" y="30" width="335" height="440"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QEN-x4-Jyr" userLabel="Destination">
-                                            <rect key="frame" x="124" y="0.0" width="87" height="41"/>
+                                            <rect key="frame" x="76" y="0.0" width="183" height="57"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Going To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDz-90-Iyr">
-                                                    <rect key="frame" x="9.5" y="0.0" width="68.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="59" y="0.0" width="65" height="17"/>
+                                                    <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBW-a0-tlb">
-                                                    <rect key="frame" x="0.0" y="20.5" width="87" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="17" width="183" height="40"/>
+                                                    <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="40"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUZ-Zn-dpx">
-                                            <rect key="frame" x="139.5" y="61" width="56" height="72"/>
-                                            <state key="normal">
-                                                <attributedString key="attributedTitle">
-                                                    <fragment content="Address">
-                                                        <attributes>
-                                                            <font key="NSFont" size="15" name=".SFNSText"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                            </state>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUZ-Zn-dpx">
+                                            <rect key="frame" x="20" y="77" width="295" height="63"/>
+                                            <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="22"/>
                                             <connections>
                                                 <action selector="onEventDestinationAddressButtonClicked:" destination="WnW-v4-xtz" eventType="touchUpInside" id="lnH-Ra-PjK"/>
                                             </connections>
                                         </button>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="hza-7S-7OH" userLabel="EventTimes">
-                                            <rect key="frame" x="28.5" y="153" width="278.5" height="41"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hza-7S-7OH" userLabel="EventTimes">
+                                            <rect key="frame" x="20" y="160" width="295" height="45"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3wY-wN-Koq" userLabel="End Time">
-                                                    <rect key="frame" x="0.0" y="0.0" width="39.5" height="41"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3wY-wN-Koq" userLabel="End Time">
+                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="45"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E63-J2-E3C">
-                                                            <rect key="frame" x="8.5" y="0.0" width="22.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="32.5" y="0.0" width="20" height="17"/>
+                                                            <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxb-CB-I4Y">
-                                                            <rect key="frame" x="1.5" y="20.5" width="36" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxb-CB-I4Y">
+                                                            <rect key="frame" x="2.5" y="22" width="80" height="23"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="80" id="3J3-OU-mSl"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="23"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XFf-jc-fbY" userLabel="Date">
-                                                    <rect key="frame" x="119.5" y="0.0" width="39.5" height="41"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XFf-jc-fbY" userLabel="Date">
+                                                    <rect key="frame" x="105" y="0.0" width="85" height="45"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aW9-1K-Loz">
-                                                            <rect key="frame" x="0.0" y="0.0" width="39.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="23" y="0.0" width="39.5" height="17"/>
+                                                            <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-7n-WOO">
-                                                            <rect key="frame" x="0.5" y="20.5" width="38" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-7n-WOO">
+                                                            <rect key="frame" x="20.5" y="22" width="44.5" height="23"/>
+                                                            <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="23"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="M5e-6A-y17" userLabel="Start Time">
-                                                    <rect key="frame" x="239" y="0.0" width="39.5" height="41"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="M5e-6A-y17" userLabel="Start Time">
+                                                    <rect key="frame" x="210" y="0.0" width="85" height="45"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Till" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsM-ov-Q0W">
-                                                            <rect key="frame" x="8.5" y="0.0" width="22" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="30.5" y="0.0" width="24" height="17"/>
+                                                            <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKK-TV-1E1">
-                                                            <rect key="frame" x="0.5" y="20.5" width="38" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKK-TV-1E1">
+                                                            <rect key="frame" x="20.5" y="22" width="44.5" height="23"/>
+                                                            <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="23"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -263,28 +265,28 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7QR-4I-wA2" userLabel="Kids">
-                                            <rect key="frame" x="127.5" y="214" width="80" height="61"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7QR-4I-wA2" userLabel="Kids">
+                                            <rect key="frame" x="120" y="225" width="95" height="50"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYf-8x-Fi5">
-                                                    <rect key="frame" x="27" y="0.0" width="26" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYf-8x-Fi5">
+                                                    <rect key="frame" x="30.5" y="0.0" width="34" height="17"/>
+                                                    <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kid names" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dR-Pj-wCg">
-                                                    <rect key="frame" x="0.0" y="40.5" width="80" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="27" width="95" height="23"/>
+                                                    <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Qnv-5O-0mO" userLabel="Dropoff/Pickup">
-                                            <rect key="frame" x="29.5" y="295" width="276" height="145"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Qnv-5O-0mO" userLabel="Dropoff/Pickup">
+                                            <rect key="frame" x="20" y="295" width="295" height="145"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZpX-zn-cvT" userLabel="Dropoff">
-                                                    <rect key="frame" x="0.0" y="0.0" width="108" height="145"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="132.5" height="145"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="fX7-qb-e4A" userLabel="Dropoff">
                                                             <rect key="frame" x="0.0" y="21" width="108" height="98"/>
@@ -308,12 +310,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKz-Bv-m0H">
-                                                            <rect key="frame" x="-0.5" y="0.0" width="108" height="141"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="108" id="CJy-xA-ARq"/>
-                                                                <constraint firstAttribute="height" constant="141" id="GLf-8i-sGK"/>
-                                                            </constraints>
-                                                            <state key="normal" title="Button"/>
+                                                            <rect key="frame" x="-0.5" y="0.0" width="133" height="145"/>
                                                             <connections>
                                                                 <action selector="onDropoffButtonClicked:" destination="WnW-v4-xtz" eventType="touchUpInside" id="jHd-Y3-MDv"/>
                                                             </connections>
@@ -328,36 +325,30 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M6s-LE-cEI" userLabel="Pickup">
-                                                    <rect key="frame" x="168" y="0.0" width="108" height="145"/>
+                                                    <rect key="frame" x="162.5" y="0.0" width="132.5" height="145"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="XcZ-dW-Aor" userLabel="Pickup">
-                                                            <rect key="frame" x="0.0" y="23" width="108" height="98"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="XcZ-dW-Aor" userLabel="Pickup">
+                                                            <rect key="frame" x="0.0" y="23" width="132.5" height="98"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TH-dq-1dn">
-                                                                    <rect key="frame" x="63" y="0.0" width="45" height="20.5"/>
+                                                                    <rect key="frame" x="87.5" y="0.0" width="45" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="will pickup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qt2-DN-s6a">
-                                                                    <rect key="frame" x="28" y="20.5" width="80" height="20.5"/>
+                                                                    <rect key="frame" x="52.5" y="20.5" width="80" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4TZ-Pm-Pxa">
-                                                                    <rect key="frame" x="0.0" y="41" width="108" height="57"/>
+                                                                    <rect key="frame" x="24.5" y="41" width="108" height="57"/>
                                                                 </imageView>
                                                             </subviews>
                                                         </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQg-H9-Y1J">
-                                                            <rect key="frame" x="-0.5" y="0.0" width="108" height="145"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="145" id="7Na-f3-KXS"/>
-                                                                <constraint firstAttribute="width" constant="108" id="WHa-Ts-mBd"/>
-                                                            </constraints>
-                                                            <state key="normal" title="Button"/>
+                                                            <rect key="frame" x="-0.5" y="0.0" width="133" height="145"/>
                                                             <connections>
                                                                 <action selector="onPickupButtonPressed:" destination="WnW-v4-xtz" eventType="touchUpInside" id="5nD-uP-92c"/>
                                                             </connections>
@@ -366,20 +357,30 @@
                                                     <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="WQg-H9-Y1J" secondAttribute="bottom" id="2ZR-kQ-8uz"/>
+                                                        <constraint firstItem="XcZ-dW-Aor" firstAttribute="centerY" secondItem="M6s-LE-cEI" secondAttribute="centerY" id="79f-AV-bp8"/>
                                                         <constraint firstAttribute="trailing" secondItem="WQg-H9-Y1J" secondAttribute="trailing" id="8qj-CI-M3K"/>
+                                                        <constraint firstItem="XcZ-dW-Aor" firstAttribute="leading" secondItem="M6s-LE-cEI" secondAttribute="leading" id="VFf-zT-rYU"/>
                                                         <constraint firstItem="WQg-H9-Y1J" firstAttribute="leading" secondItem="M6s-LE-cEI" secondAttribute="leading" id="fj5-7p-vhy"/>
                                                         <constraint firstItem="WQg-H9-Y1J" firstAttribute="top" secondItem="M6s-LE-cEI" secondAttribute="top" id="mJn-1m-fZ8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="XcZ-dW-Aor" secondAttribute="trailing" id="sxh-RL-vgv"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                         </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="WUZ-Zn-dpx" secondAttribute="trailing" constant="20" id="0BS-Qa-oTr"/>
+                                        <constraint firstItem="WUZ-Zn-dpx" firstAttribute="leading" secondItem="yUd-7B-vYb" secondAttribute="leading" constant="20" id="FzF-L2-xAq"/>
+                                        <constraint firstAttribute="trailing" secondItem="hza-7S-7OH" secondAttribute="trailing" constant="20" id="LP0-Hn-0CY"/>
+                                        <constraint firstItem="hza-7S-7OH" firstAttribute="leading" secondItem="yUd-7B-vYb" secondAttribute="leading" constant="20" id="VY5-Ej-OZN"/>
+                                        <constraint firstItem="Qnv-5O-0mO" firstAttribute="leading" secondItem="yUd-7B-vYb" secondAttribute="leading" constant="20" id="nDJ-gy-7b8"/>
+                                        <constraint firstAttribute="trailing" secondItem="Qnv-5O-0mO" secondAttribute="trailing" constant="20" id="nuU-cL-Ibv"/>
+                                    </constraints>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="yUd-7B-vYb" secondAttribute="trailing" constant="20" id="2EP-mT-f1p"/>
-                                <constraint firstItem="yUd-7B-vYb" firstAttribute="leading" secondItem="b4w-0f-xRJ" secondAttribute="leading" constant="20" id="5NJ-Vw-0j7"/>
                                 <constraint firstItem="yUd-7B-vYb" firstAttribute="top" secondItem="b4w-0f-xRJ" secondAttribute="top" constant="30" id="NEF-Z8-JxC"/>
                                 <constraint firstAttribute="bottom" secondItem="yUd-7B-vYb" secondAttribute="bottom" constant="30" id="Rri-Pw-qmH"/>
                             </constraints>
@@ -453,6 +454,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="eventChildrenHeaderLabel" destination="rYf-8x-Fi5" id="uio-G8-V4c"/>
                         <outlet property="eventChildrenLabel" destination="0dR-Pj-wCg" id="LRf-mc-u1G"/>
                         <outlet property="eventCommentTextView" destination="UYT-Bf-CFm" id="dPq-k4-BLq"/>
                         <outlet property="eventDateLabel" destination="mxb-CB-I4Y" id="OA9-CO-G7u"/>

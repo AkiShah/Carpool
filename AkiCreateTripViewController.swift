@@ -355,19 +355,26 @@ extension Trip {
     var kidNamesString: String {
         
         if children.count > 0 {
-            let childrenNames = children.map({$0.name}).sorted(by: {$0 < $1})
             let isAre = children.count == 1 ? "is" : "are"
+            return "\(childrenAsString) \(isAre) going to"
+        } else {
+            return "\(event.owner.name) is going to"
+        }
+        
+    }
+    
+    var childrenAsString: String {
+        if children.count > 0 {
+            let childrenNames = children.map({$0.name}).sorted(by: {$0 < $1})
             var childString = childrenNames.joined(separator: ", ")
             
             if let lastCommaRange = childString.range(of: ", ", options: .backwards) {
                 childString.replaceSubrange(lastCommaRange, with: " and ")
             }
-            
-            return "\(childString) \(isAre) going to"
+            return childString
         } else {
-            return "\(event.owner) is going to"
+            return ""
         }
-        
     }
     
     var dayAndTimeOfEvent: String {
