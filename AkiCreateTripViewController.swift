@@ -289,12 +289,14 @@ extension Trip {
         
         if children.count > 0 {
             let childrenNames = children.map({$0.name}).sorted(by: {$0 < $1})
+            let isAre = children.count == 1? "is" : "are"
             var childString = childrenNames.joined(separator: ", ")
             
             if let lastCommaRange = childString.range(of: ", ", options: .backwards) {
                 childString.replaceSubrange(lastCommaRange, with: " and ")
             }
-            return childString
+            
+            return "\(childString) \(isAre) going to"
         } else {
             return "\(event.owner) is going to"
         }
