@@ -456,7 +456,7 @@
                                             <color key="titleColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="I59-Jl-WF9" kind="unwind" identifier="unwindToCreateTrip" unwindAction="unwindFromSearchLocationMapWithSegue:" id="TPb-9M-cnO"/>
+                                            <action selector="onSelectLocationPressed:" destination="9ep-Jo-buX" eventType="touchUpInside" id="esT-TL-vcg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -486,6 +486,7 @@
                         <outlet property="mapView" destination="SrQ-nJ-zVx" id="qOp-zn-SnL"/>
                         <outlet property="searchDisplayController" destination="a6l-xz-vZU" id="OW7-Zi-3Zr"/>
                         <outlet property="selectLocationButton" destination="FJU-Lr-Nus" id="331-4S-5aX"/>
+                        <segue destination="I59-Jl-WF9" kind="unwind" identifier="unwindFromMap" unwindAction="unwindFromAkiSearchLocationMapWithSegue:" id="r7a-yR-oIP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WcC-mW-wqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -867,7 +868,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr. Pumper Knickles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfV-yf-kro">
-                                <rect key="frame" x="81.5" y="45" width="212.5" height="27"/>
+                                <rect key="frame" x="82" y="45" width="212" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Vlc-BI-0EL"/>
                                 </constraints>

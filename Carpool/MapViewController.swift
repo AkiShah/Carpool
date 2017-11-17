@@ -40,9 +40,14 @@ class MapViewController: UIViewController {
         mapView.addAnnotations(annotations)
     }
     
+    @IBAction func onSelectLocationPressed(_ sender: Any) {
+        performSegue(withIdentifier: "unwindFromMap", sender: self)
+    }
+    
+    
     @IBAction func onCancelButtonPressed(_ sender: UIButton) {
         selectedLocation = nil
-        performSegue(withIdentifier: "unwindToCreateTrip", sender: self)
+        performSegue(withIdentifier: "unwindFromMap", sender: self)
     }
 }
 

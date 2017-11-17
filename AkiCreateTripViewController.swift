@@ -119,7 +119,7 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         }
     }
     
-    @IBAction func unwindFromSearchLocationMap(segue: UIStoryboardSegue) {
+    @IBAction func unwindFromAkiSearchLocationMap(segue: UIStoryboardSegue) {
         if let searchLocationVC = segue.destination as? MapViewController {
             if let location = searchLocationVC.selectedLocation {
                 self.location = location
