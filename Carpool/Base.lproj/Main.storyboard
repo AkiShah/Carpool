@@ -819,14 +819,19 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-pA-wsC">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="350"/>
-                                        <color key="backgroundColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.52941176469999995" green="0.5568627451" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="350" id="tG2-C9-ue7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="30"/>
-                                        <state key="normal" title="VIEW TRIPS" backgroundImage="centeredHighwayLight">
+                                        <state key="normal" title="VIEW TRIPS" backgroundImage="centeredHighwayNoBack">
                                             <color key="titleColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="8I8-3s-4bT" kind="show" id="Hzz-Ag-Zdz"/>
                                         </connections>
@@ -969,14 +974,14 @@
     <resources>
         <image name="BlueCarFaceRight" width="1577" height="608"/>
         <image name="PinkCarFaceLeft" width="1625" height="656"/>
-        <image name="centeredHighwayLight" width="308" height="341"/>
+        <image name="centeredHighwayNoBack" width="340" height="359"/>
         <image name="friendIcon" width="37" height="37"/>
         <image name="front car" width="1121" height="745"/>
         <image name="profileIcon" width="37" height="37"/>
         <image name="tachometer1" width="858" height="594"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hGt-QR-v3f"/>
+        <segue reference="XMv-Zx-Av8"/>
         <segue reference="CYb-Ea-cza"/>
     </inferredMetricsTieBreakers>
 </document>
