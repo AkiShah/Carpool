@@ -18,7 +18,7 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewTripsButton.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
+        viewTripsButton.backgroundColor = oliveGray
         viewTripsButton.layer.borderWidth = 2
         viewTripsButton.layer.borderColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0).cgColor
         addATripButton.backgroundColor = UIColor.init(red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)

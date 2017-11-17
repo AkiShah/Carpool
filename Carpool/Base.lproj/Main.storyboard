@@ -672,8 +672,8 @@
                                     <action selector="onLoginPressed:" destination="uzH-Gh-XhM" eventType="touchUpInside" id="PhF-Io-rR1"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="front car" translatesAutoresizingMaskIntoConstraints="NO" id="5Oe-xo-SZc">
-                                <rect key="frame" x="68" y="494" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="front car" translatesAutoresizingMaskIntoConstraints="NO" id="5Oe-xo-SZc">
+                                <rect key="frame" x="92" y="520" width="197" height="105"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5Oe-xo-SZc" secondAttribute="height" multiplier="15:8" id="ZkI-L0-bRz"/>
                                 </constraints>
@@ -681,13 +681,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="5Oe-xo-SZc" firstAttribute="leading" secondItem="or6-L3-fuN" secondAttribute="leadingMargin" constant="52" id="56R-JM-nGp"/>
+                            <constraint firstItem="5Oe-xo-SZc" firstAttribute="leading" secondItem="or6-L3-fuN" secondAttribute="leadingMargin" constant="76" id="56R-JM-nGp"/>
                             <constraint firstItem="Bzi-Es-cDx" firstAttribute="top" secondItem="ITj-TB-MvU" secondAttribute="bottom" constant="38" id="AnM-h9-bpk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5Oe-xo-SZc" secondAttribute="trailing" constant="51" id="Bgo-po-Hgl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Oe-xo-SZc" secondAttribute="trailing" constant="70" id="Bgo-po-Hgl"/>
                             <constraint firstItem="el7-DP-0fA" firstAttribute="trailing" secondItem="IKf-NW-vFn" secondAttribute="trailing" id="Ebm-ME-rzK"/>
                             <constraint firstItem="SKf-w1-eHb" firstAttribute="top" secondItem="el7-DP-0fA" secondAttribute="bottom" constant="20" id="OFI-7U-b5d"/>
                             <constraint firstAttribute="trailing" secondItem="ITj-TB-MvU" secondAttribute="trailing" constant="20" id="UKF-S8-ZDE"/>
-                            <constraint firstItem="SKf-w1-eHb" firstAttribute="top" secondItem="5Oe-xo-SZc" secondAttribute="bottom" constant="45" id="ZW4-E9-hRa"/>
+                            <constraint firstItem="SKf-w1-eHb" firstAttribute="top" secondItem="5Oe-xo-SZc" secondAttribute="bottom" constant="42" id="ZW4-E9-hRa"/>
                             <constraint firstItem="ITj-TB-MvU" firstAttribute="top" secondItem="IKf-NW-vFn" secondAttribute="bottom" constant="38" id="Zwx-Hu-ckO"/>
                             <constraint firstItem="Bzi-Es-cDx" firstAttribute="centerX" secondItem="el7-DP-0fA" secondAttribute="centerX" id="d6U-wn-2Ph"/>
                             <constraint firstItem="ITj-TB-MvU" firstAttribute="leading" secondItem="or6-L3-fuN" secondAttribute="leading" constant="20" id="lIE-fp-wsc"/>
@@ -812,15 +812,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CmV-iT-SJS">
-                                <rect key="frame" x="36" y="80" width="303" height="547"/>
+                                <rect key="frame" x="36" y="80" width="302.5" height="547"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-pA-wsC">
-                                        <rect key="frame" x="0.0" y="0.0" width="303" height="350"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="302.5" height="350"/>
                                         <color key="backgroundColor" red="0.52941176469999995" green="0.5568627451" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="350" id="tG2-C9-ue7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="30"/>
+                                        <color key="tintColor" red="0.52941176469999995" green="0.5568627451" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="VIEW TRIPS" backgroundImage="centeredHighwayNoBack">
                                             <color key="titleColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -834,7 +835,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-aD-s95">
-                                        <rect key="frame" x="0.0" y="370" width="303" height="177"/>
+                                        <rect key="frame" x="0.0" y="370" width="302.5" height="177"/>
                                         <color key="backgroundColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="30"/>
                                         <state key="normal" title="+ ADD A TRIP" backgroundImage="tachometer1">
@@ -852,7 +853,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1S-do-eJu">
-                                <rect key="frame" x="302" y="35" width="37" height="37"/>
+                                <rect key="frame" x="301.5" y="35" width="37" height="37"/>
                                 <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="h1S-do-eJu" secondAttribute="height" multiplier="1:1" id="PWQ-dm-xYl"/>
@@ -875,7 +876,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veo-bz-cVa">
-                                <rect key="frame" x="154.5" y="28" width="66.5" height="15"/>
+                                <rect key="frame" x="16" y="28" width="343" height="15"/>
                                 <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="15"/>
                                 <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -904,11 +905,14 @@
                             <constraint firstItem="CmV-iT-SJS" firstAttribute="leading" secondItem="atg-C3-5ML" secondAttribute="leadingMargin" constant="20" id="5fs-E8-JvK"/>
                             <constraint firstItem="h1S-do-eJu" firstAttribute="trailing" secondItem="CmV-iT-SJS" secondAttribute="trailing" id="8ae-WF-Axw"/>
                             <constraint firstItem="CmV-iT-SJS" firstAttribute="top" secondItem="vfV-yf-kro" secondAttribute="bottom" constant="8" id="8nf-Bh-lI2"/>
+                            <constraint firstItem="veo-bz-cVa" firstAttribute="leading" secondItem="atg-C3-5ML" secondAttribute="leadingMargin" id="GOc-bR-GGd"/>
                             <constraint firstItem="5H5-kM-sJm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CmV-iT-SJS" secondAttribute="bottom" constant="40" id="KUj-Ps-s3z"/>
                             <constraint firstItem="61F-Wn-rM3" firstAttribute="leading" secondItem="atg-C3-5ML" secondAttribute="leadingMargin" constant="20" id="Mzr-SU-zwJ"/>
-                            <constraint firstItem="h1S-do-eJu" firstAttribute="leading" secondItem="vfV-yf-kro" secondAttribute="trailing" constant="8" id="cMz-cI-DAz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="veo-bz-cVa" secondAttribute="trailing" id="Ro2-Dw-EgH"/>
                             <constraint firstItem="CmV-iT-SJS" firstAttribute="top" secondItem="Z9C-7E-Lgc" secondAttribute="bottom" constant="60" id="htU-o2-5X5"/>
+                            <constraint firstItem="vfV-yf-kro" firstAttribute="leading" secondItem="atg-C3-5ML" secondAttribute="leadingMargin" constant="66" id="ipd-hB-fWQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CmV-iT-SJS" secondAttribute="trailing" constant="20" id="k7k-0h-GJ7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vfV-yf-kro" secondAttribute="trailing" constant="65" id="od4-zf-3UK"/>
                             <constraint firstItem="CmV-iT-SJS" firstAttribute="top" secondItem="h1S-do-eJu" secondAttribute="bottom" constant="8" symbolic="YES" id="rYp-iA-dez"/>
                             <constraint firstItem="vfV-yf-kro" firstAttribute="top" secondItem="veo-bz-cVa" secondAttribute="bottom" constant="6" id="yQV-Oe-k0F"/>
                         </constraints>
