@@ -52,10 +52,16 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         changeDatePicker(to: .disabled)
+        
         tripChildrenCollectionView.delegate = self
         tripChildrenCollectionView.dataSource = self
         tripChildrenCollectionView.allowsMultipleSelection = true
-
+        
+        tripDestinationTextField.layer.masksToBounds = true
+        tripDestinationTextField.layer.cornerRadius = 10
+        tripDestinationTextField.backgroundColor = darkBlue
+        tripDestinationTextField.textColor = lightOrange
+        
         API.fetchCurrentUser(completion: { result in
             switch result {
             
@@ -95,14 +101,29 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         case .day:
             tripDatePicker.isHidden = false
             tripDatePicker.datePickerMode = .date
+            tripSelectedDayButton.backgroundColor = lightOrange
+            tripSelectedStartTimeButton.backgroundColor = darkBlue
+            tripSelectedEndTimeButton.backgroundColor = darkBlue
             
-        case .startTime, .endTime:
+        case .startTime:
             tripDatePicker.isHidden = false
             tripDatePicker.datePickerMode = .time
+            tripSelectedDayButton.backgroundColor = darkBlue
+            tripSelectedStartTimeButton.backgroundColor = lightOrange
+            tripSelectedEndTimeButton.backgroundColor = darkBlue
+            
+        case .endTime:
+            tripDatePicker.isHidden = false
+            tripDatePicker.datePickerMode = .time
+            tripSelectedDayButton.backgroundColor = darkBlue
+            tripSelectedStartTimeButton.backgroundColor = darkBlue
+            tripSelectedEndTimeButton.backgroundColor = lightOrange
 
         case .disabled:
             tripDatePicker.isHidden = true
-            break
+            tripSelectedDayButton.backgroundColor = darkBlue
+            tripSelectedStartTimeButton.backgroundColor = darkBlue
+            tripSelectedEndTimeButton.backgroundColor = darkBlue
         }
         selectedButton = newSelection
     }
