@@ -397,7 +397,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="MLT-fs-aLo" userLabel="Footer">
-                            <rect key="frame" x="0.0" y="572" width="375" height="200"/>
+                            <rect key="frame" x="0.0" y="572" width="375" height="220"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="752" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UYT-Bf-CFm">
@@ -430,13 +430,12 @@
                             </subviews>
                             <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="UYT-Bf-CFm" secondAttribute="trailing" constant="20" id="0yE-pg-kMS"/>
-                                <constraint firstItem="UYT-Bf-CFm" firstAttribute="top" secondItem="MLT-fs-aLo" secondAttribute="top" constant="20" id="F5x-qN-Aks"/>
-                                <constraint firstAttribute="bottom" secondItem="sI0-xT-am6" secondAttribute="bottom" constant="20" id="acl-ff-qE6"/>
-                                <constraint firstItem="sI0-xT-am6" firstAttribute="top" secondItem="UYT-Bf-CFm" secondAttribute="bottom" constant="20" id="bNH-cr-57J"/>
-                                <constraint firstAttribute="trailing" secondItem="sI0-xT-am6" secondAttribute="trailing" constant="20" id="cqb-Ym-agA"/>
-                                <constraint firstItem="sI0-xT-am6" firstAttribute="leading" secondItem="MLT-fs-aLo" secondAttribute="leading" constant="20" id="iof-QK-QD6"/>
-                                <constraint firstItem="UYT-Bf-CFm" firstAttribute="leading" secondItem="MLT-fs-aLo" secondAttribute="leading" constant="20" id="mOw-NH-Dqb"/>
+                                <constraint firstItem="UYT-Bf-CFm" firstAttribute="leading" secondItem="MLT-fs-aLo" secondAttribute="leading" constant="20" id="P1S-IM-PxW"/>
+                                <constraint firstItem="UYT-Bf-CFm" firstAttribute="top" secondItem="MLT-fs-aLo" secondAttribute="top" constant="20" id="SG9-Ce-aWG"/>
+                                <constraint firstAttribute="trailing" secondItem="sI0-xT-am6" secondAttribute="trailing" constant="20" id="hAh-b1-ysH"/>
+                                <constraint firstItem="sI0-xT-am6" firstAttribute="top" secondItem="UYT-Bf-CFm" secondAttribute="bottom" constant="20" id="iDa-bd-uue"/>
+                                <constraint firstAttribute="trailing" secondItem="UYT-Bf-CFm" secondAttribute="trailing" constant="20" id="vAG-Tx-arU"/>
+                                <constraint firstItem="sI0-xT-am6" firstAttribute="leading" secondItem="MLT-fs-aLo" secondAttribute="leading" constant="20" id="vhH-7L-iaC"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -486,7 +485,6 @@
                         <outlet property="eventChildrenHeaderLabel" destination="rYf-8x-Fi5" id="uio-G8-V4c"/>
                         <outlet property="eventChildrenLabel" destination="0dR-Pj-wCg" id="LRf-mc-u1G"/>
                         <outlet property="eventCommentButton" destination="sI0-xT-am6" id="KBm-Vt-Bsv"/>
-                        <outlet property="eventCommentButtonBottomConstraint" destination="acl-ff-qE6" id="ZTu-9e-ucT"/>
                         <outlet property="eventCommentTextView" destination="UYT-Bf-CFm" id="dPq-k4-BLq"/>
                         <outlet property="eventDateLabel" destination="mxb-CB-I4Y" id="OA9-CO-G7u"/>
                         <outlet property="eventDestinationAddressButton" destination="WUZ-Zn-dpx" id="Dqj-Um-w9x"/>
@@ -499,6 +497,7 @@
                         <outlet property="eventPickupDriverLabel" destination="0TH-dq-1dn" id="60V-Ij-bD9"/>
                         <outlet property="eventPickupSubHeader" destination="Qt2-DN-s6a" id="gAy-Xt-p5P"/>
                         <outlet property="eventStartTimeLabel" destination="N5a-7n-WOO" id="Tc0-hD-VbY"/>
+                        <outlet property="footerView" destination="MLT-fs-aLo" id="AbE-gT-mYx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4LS-dj-7Aj" userLabel="First Responder" sceneMemberID="firstResponder"/>
