@@ -782,10 +782,10 @@
             </objects>
             <point key="canvasLocation" x="-314" y="-897"/>
         </scene>
-        <!--Home Screen View Controller-->
+        <!--SIMPLY CARPOOL-->
         <scene sceneID="uKw-n5-QRi">
             <objects>
-                <viewController storyboardIdentifier="homeVC" id="jTo-r1-jFk" customClass="HomeScreenViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeVC" title="SIMPLY CARPOOL" id="jTo-r1-jFk" customClass="HomeScreenViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z9C-7E-Lgc"/>
                         <viewControllerLayoutGuide type="bottom" id="5H5-kM-sJm"/>
@@ -843,7 +843,7 @@
                                     <segue destination="DKc-7g-Kmw" kind="show" id="m06-X0-itj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61F-Wn-rM3">
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61F-Wn-rM3">
                                 <rect key="frame" x="36" y="42" width="88" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -857,6 +857,20 @@
                                     <segue destination="fe8-Qw-tkz" kind="show" id="xpE-8x-PT0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MR. PUMPER KNICKLES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfV-yf-kro">
+                                <rect key="frame" x="81" y="28" width="227" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="17"/>
+                                <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WELCOME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veo-bz-cVa">
+                                <rect key="frame" x="135" y="7" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="17"/>
+                                <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -884,7 +898,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6Q-vR-4mN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1279" y="-140"/>
+            <point key="canvasLocation" x="-1279.2" y="-140.77961019490255"/>
         </scene>
         <!--View Trips Navigation Controller-->
         <scene sceneID="R9X-0u-3A5">
@@ -929,7 +943,7 @@
         <image name="twocars1" width="649" height="913"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hGt-QR-v3f"/>
+        <segue reference="XMv-Zx-Av8"/>
         <segue reference="CYb-Ea-cza"/>
     </inferredMetricsTieBreakers>
 </document>
