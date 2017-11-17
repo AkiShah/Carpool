@@ -140,14 +140,15 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
     @IBAction func dateOrTimePicked(_ sender: UIDatePicker) {
         switch selectedButton{
         case .day:
-            date = tripDatePicker.date
+            date = sender.date
             tripSelectedDayButton.setTitle(date.date, for: .normal)
         case .startTime:
+            startTime = sender.date
             tripSelectedStartTimeButton.setTitle(startTime.time, for: .normal)
-            startTime = tripDatePicker.date
         case .endTime:
-            tripSelectedEndTimeButton.setTitle(startTime.time, for: .normal)
-            endTime = tripDatePicker.date
+            endTime = sender.date
+            tripSelectedEndTimeButton.setTitle(endTime.time, for: .normal)
+            
         case .disabled:
             break
         }
@@ -383,7 +384,7 @@ extension Date {
     }
     var time: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:m aa"
+        dateFormatter.dateFormat = "hh:mm aa"
         return dateFormatter.string(from: self)
     }
     
