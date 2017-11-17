@@ -31,6 +31,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "childList", for: indexPath)
+            cell.textLabel?.text = children[indexPath.row].name
+        cell.layer.cornerRadius = 30
+        cell.layer.borderColor = UIColor.init(displayP3Red: 1.0, green: 0.99, blue: 0.91, alpha: 1.0).cgColor
+        cell.layer.borderWidth = 10
+        
         cell.textLabel?.text = children[indexPath.row].name
         return cell
     }
