@@ -271,7 +271,7 @@
                         <barButtonItem key="rightBarButtonItem" title="+ Add New Trip" id="RdI-Dw-khq">
                             <color key="tintColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="MRx-fH-WFy" kind="presentation" id="hGt-QR-v3f"/>
+                                <segue destination="MRx-fH-WFy" kind="show" id="hGt-QR-v3f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -982,7 +982,7 @@
         <image name="tachometer1" width="976" height="594"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XMv-Zx-Av8"/>
+        <segue reference="hGt-QR-v3f"/>
         <segue reference="BKN-na-EgS"/>
     </inferredMetricsTieBreakers>
 </document>

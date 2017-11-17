@@ -370,7 +370,7 @@
                                                     <!--2037-12-31 11:00:00 +0000-->
                                                 </date>
                                                 <connections>
-                                                    <action selector="onDatePickerValueChanged:" destination="mOK-9U-HDr" eventType="valueChanged" id="2ZI-00-5Xc"/>
+                                                    <action selector="dateOrTimePicked:" destination="mOK-9U-HDr" eventType="valueChanged" id="deb-R2-0GA"/>
                                                 </connections>
                                             </datePicker>
                                         </subviews>
@@ -504,9 +504,11 @@
                         <outlet property="tripSelectedDayButton" destination="Hu6-dn-Dq4" id="m1C-sM-PMn"/>
                         <outlet property="tripSelectedEndTimeButton" destination="TeC-Xm-XSY" id="GTK-Bp-FZj"/>
                         <outlet property="tripSelectedStartTimeButton" destination="FKQ-ne-5zd" id="PZ5-Lx-nHJ"/>
+                        <segue destination="UTt-36-Zqc" kind="unwind" identifier="unwindCreateTrip" unwindAction="unwindFromCreateTripViewControllerWithSegue:" id="qns-x2-dme"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qg5-rR-8Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="UTt-36-Zqc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="570" y="712"/>
         </scene>

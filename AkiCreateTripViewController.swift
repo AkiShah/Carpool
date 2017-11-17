@@ -76,6 +76,7 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         
         tripSelectedDayButton.layer.masksToBounds = true
         tripSelectedDayButton.layer.cornerRadius = 10
+        tripSelectedDayButton.setTitle(Date().date, for: .normal)
         
         tripSelectedStartTimeButton.layer.masksToBounds = true
         tripSelectedStartTimeButton.layer.cornerRadius = 10
@@ -126,7 +127,7 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
                 
                 let geocoder = CLGeocoder()
                 geocoder.reverseGeocodeLocation(location) { placemarks, error in
-                    if let name = placemarks?.first?.name {
+                    if let name = placemarks?.first?.areasOfInterest?.first {
                         self.tripDestinationTextField.text = name
                         self.destination = name
                     }
@@ -134,6 +135,24 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
             }
         }
     }
+    
+    
+    @IBAction func dateOrTimePicked(_ sender: UIDatePicker) {
+        switch selectedButton{
+        case .day:
+            date = tripDatePicker.date
+            tripSelectedDayButton.setTitle(date.date, for: .normal)
+        case .startTime:
+            tripSelectedStartTimeButton.setTitle(startTime.time, for: .normal)
+            startTime = tripDatePicker.date
+        case .endTime:
+            tripSelectedEndTimeButton.setTitle(startTime.time, for: .normal)
+            endTime = tripDatePicker.date
+        case .disabled:
+            break
+        }
+    }
+    
     
     @IBAction func onSelectedTripDayButtonPressed(_ sender: UIButton) {
         changeDatePicker(to: .day)
@@ -196,6 +215,9 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
             break
         }
     }
+    
+    
+    
     @IBAction func onDestionationDidEndOnExit(_ sender: UITextField) {
         changeDatePicker(to: .disabled)
         if let newDestination = sender.text {
@@ -293,6 +315,7 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
                     for child in self.kidsOnTrip {
                         do{
                             try API.add(child: child, to: trip)
+                            self.performSegue(withIdentifier: "unwindCreateTrip", sender: self)
                         } catch {
                             //TODO error handling
                             print(#function, error)
