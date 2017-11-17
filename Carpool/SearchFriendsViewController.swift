@@ -57,7 +57,10 @@ class SearchFriendsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "A", for: indexPath)
+        cell.textLabel?.backgroundColor = UIColor.clear
+        cell.detailTextLabel?.backgroundColor = UIColor.clear
         cell.textLabel?.text = searchResults[indexPath.row].name
+        cell.detailTextLabel?.text = searchResults[indexPath.row].childrenAsString
         return cell
     }
     
@@ -94,6 +97,22 @@ extension SearchFriendsViewController: UISearchBarDelegate {
                 self.present(alert, animated: true, completion: nil)
                 print(#function, error)
             }
+        }
+    }
+}
+
+extension User {
+    var childrenAsString: String {
+        if children.count > 0 {
+            let childrenNames = children.map({$0.name}).sorted(by: {$0 < $1})
+            var childString = childrenNames.joined(separator: ", ")
+            
+            if let lastCommaRange = childString.range(of: ", ", options: .backwards) {
+                childString.replaceSubrange(lastCommaRange, with: " and ")
+            }
+            return childString
+        } else {
+            return ""
         }
     }
 }
