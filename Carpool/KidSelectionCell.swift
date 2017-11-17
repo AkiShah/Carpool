@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CarpoolKit
 
 class KidSelectionCell: UICollectionViewCell {
     
@@ -19,15 +20,41 @@ class KidSelectionCell: UICollectionViewCell {
 extension AkiCreateTripViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(kidsOnTrip)
         return kids.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "A", for: indexPath) as! KidSelectionCell
-        let kidName = kids[indexPath.row].name
-        cell.kidInitialLabel.text = kidName.substring(to: kidName.index(kidName.startIndex, offsetBy: 2))
-        cell.kidNameLabel.text = kidName
-        cell.backgroundColor = UIColor.blue
+        let kid = kids[indexPath.row]
+        if kidsOnTrip.contains(kid) {
+            cell.kidInitialLabel.backgroundColor = lightOrange
+        } else {
+            cell.kidInitialLabel.backgroundColor = darkBlue
+        }
+        cell.kidInitialLabel.text = kid.name.substring(to: kid.name.index(kid.name.startIndex, offsetBy: 2))
+        cell.kidInitialLabel.layer.masksToBounds = true
+        //cell.kidInitialLabel.layer.cornerRadius = 22
+        cell.kidNameLabel.text = kid.name
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let index = kidsOnTrip.index(of: kids[indexPath.row]) {
+            kidsOnTrip.remove(at: index)
+        } else {
+            kidsOnTrip.append(kids[indexPath.row])
+        }
+
+        collectionView.reloadData()
+    }
+    
+    
 }
+
+extension Child: Equatable {
+    public static func == (lhs: Child, rhs: Child) -> Bool {
+        return lhs.name == rhs.name
+    }
+}
+

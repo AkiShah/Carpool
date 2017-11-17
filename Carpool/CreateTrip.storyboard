@@ -354,26 +354,36 @@
                                     <constraint firstAttribute="height" constant="128" id="gou-c8-Thg"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qqb-oF-lbg">
-                                    <size key="itemSize" width="78" height="73"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="itemSize" width="80" height="80"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="A" id="lzk-Fu-LJW" customClass="KidSelectionCell" customModule="Carpool" customModuleProvider="target">
-                                        <rect key="frame" x="50" y="25" width="78" height="78"/>
+                                        <rect key="frame" x="0.0" y="25" width="78" height="78"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="78" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GT-bt-FDn">
-                                                    <rect key="frame" x="8" y="8" width="62" height="49"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GT-bt-FDn">
+                                                    <rect key="frame" x="16.5" y="8" width="45" height="45"/>
+                                                    <color key="backgroundColor" red="0.93468314409255981" green="0.80388355255126953" blue="0.57959753274917603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="Kdo-vM-7Im"/>
+                                                        <constraint firstAttribute="width" constant="45" id="f4B-6n-QDP"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="22"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaD-jZ-uXJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaD-jZ-uXJ">
                                                     <rect key="frame" x="0.0" y="57" width="78" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20.5" id="EVo-QZ-kom"/>
@@ -386,12 +396,10 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="PaD-jZ-uXJ" firstAttribute="leading" secondItem="lzk-Fu-LJW" secondAttribute="leading" id="2qS-bJ-m8N"/>
+                                            <constraint firstItem="4GT-bt-FDn" firstAttribute="centerX" secondItem="lzk-Fu-LJW" secondAttribute="centerX" id="8Rx-Ba-eIB"/>
                                             <constraint firstAttribute="trailing" secondItem="PaD-jZ-uXJ" secondAttribute="trailing" id="A0w-Ub-EuT"/>
                                             <constraint firstItem="4GT-bt-FDn" firstAttribute="top" secondItem="lzk-Fu-LJW" secondAttribute="topMargin" id="Get-YG-oFg"/>
                                             <constraint firstAttribute="bottom" secondItem="PaD-jZ-uXJ" secondAttribute="bottom" id="HSe-qD-pqP"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="4GT-bt-FDn" secondAttribute="trailing" id="KR7-hV-7sX"/>
-                                            <constraint firstItem="PaD-jZ-uXJ" firstAttribute="top" secondItem="4GT-bt-FDn" secondAttribute="bottom" id="gfT-LS-Zbk"/>
-                                            <constraint firstItem="4GT-bt-FDn" firstAttribute="leading" secondItem="lzk-Fu-LJW" secondAttribute="leadingMargin" id="zLX-iT-hqu"/>
                                         </constraints>
                                         <size key="customSize" width="78" height="78"/>
                                         <connections>
@@ -400,10 +408,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="KidCollectionViewHeader" id="Et0-2s-6C7">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="128"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

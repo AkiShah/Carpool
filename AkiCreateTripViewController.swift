@@ -199,7 +199,7 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
     
     @IBAction func onCreateTripButtonPressed(_ sender: UIButton) {
         
-        if let destination = tripDestinationTextField.text, kidsOnTrip.isEmpty{
+        if let destination = tripDestinationTextField.text, kidsOnTrip.count > 0{
             let calendar = Calendar.current
             let day = calendar.component(.day, from: date)
             let month = calendar.component(.month, from: date)
@@ -220,7 +220,14 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
                         print(#function, error)
                     })
                     API.mark(trip: trip, repeating: self.repeatTrip)
-                    //Don't forget to take the kids
+                    for child in self.kidsOnTrip {
+                        do{
+                            try API.add(child: child, to: trip)
+                        } catch {
+                            //TODO error handling
+                            print(#function, error)
+                        }
+                    }
                     break
                 case .failure(let error):
                     //TODO Error Handling
