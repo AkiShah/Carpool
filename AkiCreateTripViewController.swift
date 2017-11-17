@@ -60,18 +60,18 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         tripChildrenCollectionView.allowsMultipleSelection = true
         
         tripDestinationTextField.layer.masksToBounds = true
-        tripDestinationTextField.layer.cornerRadius = 10
+        tripDestinationTextField.layer.cornerRadius = 0
         tripDestinationTextField.backgroundColor = darkBlue
         tripDestinationTextField.textColor = lightOrange
         
         tripDestinationMapButton.layer.masksToBounds = true
-        tripDestinationMapButton.layer.cornerRadius = 10
+        tripDestinationMapButton.layer.cornerRadius = 20
         
 //        tripRepeatButton.setTitle("Repeat Every Week Off", for: .normal)
 //        tripRepeatButton.setTitleColor(lightOrange, for: .normal)
 //        tripRepeatButton.backgroundColor = darkBlue
         tripRepeatButton.layer.masksToBounds = true
-        tripRepeatButton.layer.cornerRadius = 10
+        tripRepeatButton.layer.cornerRadius = 20
         
         tripDatePicker.setValue(darkBlue, forKeyPath: "textColor")
         tripDatePicker.backgroundColor = lightOrange
