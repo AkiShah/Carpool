@@ -23,6 +23,7 @@ class AkiTripDetailViewController: UITableViewController {
     @IBOutlet weak var eventStartTimeLabel: UILabel!
     @IBOutlet weak var eventEndTimeLabel: UILabel!
     
+    @IBOutlet weak var eventChildrenHeaderLabel: UILabel!
     @IBOutlet weak var eventChildrenLabel: UILabel!
     
     //Drivers Labels and Buttons
@@ -166,7 +167,20 @@ class AkiTripDetailViewController: UITableViewController {
             geocoder.reverseGeocodeLocation(location) { placemarks, error in
                 if let placemark = placemarks?.first, let subThoroughFare = placemark.subThoroughfare, let throughFare = placemark.thoroughfare, let city = placemark.locality, let state = placemark.administrativeArea, let zip = placemark.postalCode {
                     self.eventDestinationAddressButton.isHidden = false
-                    self.eventDestinationAddressButton.setTitle("\(subThoroughFare) \(throughFare) \n \(city) \(state) \(zip)", for: .normal)
+                    
+                    let string = "\(subThoroughFare) \(throughFare)\n\(city) \(state) \(zip)"
+                    let paragraph = NSMutableParagraphStyle()
+                    paragraph.alignment = .center
+                    paragraph.lineSpacing = 15
+                    let myAttrString = NSAttributedString(string: string, attributes: [
+                        .foregroundColor: darkBlue,
+                        .underlineStyle: NSUnderlineStyle.styleSingle.rawValue,
+                        .underlineColor: darkOrange,
+                        .paragraphStyle: paragraph
+                    ])
+                    
+                    self.eventDestinationAddressButton.setAttributedTitle(myAttrString, for: .normal)
+                    self.eventDestinationAddressButton.titleLabel?.numberOfLines = 2
                     self.location = placemark
                     print(subThoroughFare,throughFare, city, state, zip)
                 } else {
@@ -183,19 +197,15 @@ class AkiTripDetailViewController: UITableViewController {
         formatter.dateFormat = "h : mm"
         eventStartTimeLabel.text = formatter.string(from: trip.event.time)
         eventEndTimeLabel.text = trip.event.endTime != nil ? formatter.string(from: trip.event.endTime!) : "--"
-    
-        //Wtf is this?
-        //if trip.clamped(to: <#T##Range<Trip>#>)
-        
-        if trip.children.count > 0 {
-            let childrenNames = trip.children.map({$0.name}).sorted(by: {$0 < $1})
-            var childString = childrenNames.joined(separator: ", ")
-            
-            if let lastCommaRange = childString.range(of: ", ", options: .backwards) {
-                childString.replaceSubrange(lastCommaRange, with: " and ")
-            }
-            eventChildrenLabel.text = childString
+        if !trip.children.isEmpty{
+            eventChildrenLabel.text = trip.childrenAsString
+            eventChildrenLabel.isHidden = false
+            eventChildrenHeaderLabel.isHidden = false
+        } else {
+            eventChildrenLabel.isHidden = true
+            eventChildrenHeaderLabel.isHidden = true
         }
+        
         
         updateButtonState(for: .dropoff)
         updateButtonState(for: .pickup)
