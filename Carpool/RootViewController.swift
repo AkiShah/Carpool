@@ -39,6 +39,8 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         calendarCollectionView.dataSource = self
         calendarCollectionView.delegate = self
+        calendarCollectionView.layer.masksToBounds = true
+        calendarCollectionView.layer.cornerRadius = 10
         
         API.observeMyTrips(sender: self) { result in
             switch result {

@@ -25,6 +25,7 @@ class CalendarCell: UICollectionViewCell {
 extension RootViewController: UICollectionViewDataSource {
     //This is where all the collectionview magic happens for the calendar
 
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 7
     }
@@ -41,12 +42,24 @@ extension RootViewController: UICollectionViewDataSource {
         cell.collectionDateLabel.text = formatter.string(from: daysFromToday)
         cell.collectionScheduledEventsIndicator.layer.masksToBounds = true
         cell.collectionScheduledEventsIndicator.layer.cornerRadius = 5
-        cell.collectionScheduledEventsIndicator.backgroundColor = darkBlue
+        
         if tripsForDays[indexPath.row].isEmpty{
             cell.collectionScheduledEventsIndicator.isHidden = true
         } else {
             cell.collectionScheduledEventsIndicator.isHidden = false
-            
+        }
+        
+        switch selectedDay == indexPath.row {
+        case true:
+            cell.backgroundColor = darkBlue
+            cell.collectionScheduledEventsIndicator.backgroundColor = lightOrange
+            cell.collectionDateLabel.textColor = lightOrange
+            cell.collectionWeekdayLabel.textColor = lightOrange
+        case false:
+            cell.backgroundColor = lightOrange
+            cell.collectionScheduledEventsIndicator.backgroundColor = darkBlue
+            cell.collectionDateLabel.textColor = darkBlue
+            cell.collectionWeekdayLabel.textColor = darkBlue
         }
        
         
@@ -56,6 +69,7 @@ extension RootViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedDay = indexPath.item
+        calendarCollectionView.reloadData()
         tableView.reloadData()
     }
     
@@ -73,6 +87,7 @@ extension RootViewController: UICollectionViewDataSource {
             assert(false, "Unexpected element kind")
         }
     }
+    
     
 }
 
