@@ -13,7 +13,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var childNameAdded: UITextField!
-    @IBOutlet weak var onSignOutPressed: UIButton!
     @IBOutlet weak var childTableView: UITableView!
     
     //var user: User?
