@@ -27,19 +27,24 @@ extension AkiCreateTripViewController: UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "A", for: indexPath) as! KidSelectionCell
         let kid = kids[indexPath.row]
+        
         if kidsOnTrip.contains(kid) {
             cell.kidInitialLabel.backgroundColor = lightOrange
+            cell.kidInitialLabel.textColor = darkBlue
         } else {
             cell.kidInitialLabel.backgroundColor = darkBlue
+            cell.kidInitialLabel.textColor = lightOrange
         }
         cell.kidInitialLabel.text = kid.name.substring(to: kid.name.index(kid.name.startIndex, offsetBy: 2))
         cell.kidInitialLabel.layer.masksToBounds = true
         //cell.kidInitialLabel.layer.cornerRadius = 22
+        cell.kidNameLabel.textColor = darkBlue
         cell.kidNameLabel.text = kid.name
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        changeDatePicker(to: .disabled)
         if let index = kidsOnTrip.index(of: kids[indexPath.row]) {
             kidsOnTrip.remove(at: index)
         } else {

@@ -68,6 +68,9 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         tripRepeatButton.layer.masksToBounds = true
         tripRepeatButton.layer.cornerRadius = 10
         
+        tripDatePicker.setValue(darkBlue, forKeyPath: "textColor")
+        tripDatePicker.backgroundColor = lightOrange
+        
         API.fetchCurrentUser(completion: { result in
             switch result {
             

@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="PFDinDisplayPro-Light.ttf">
+            <string>PFDinDisplayPro-Light</string>
+        </array>
         <array key="PFDinTextPro-Bold.ttf">
             <string>PFDinTextPro-Bold</string>
         </array>
@@ -396,10 +399,10 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="753" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hqx-cJ-uRV">
-                                <rect key="frame" x="20" y="519" width="335" height="128"/>
+                                <rect key="frame" x="20" y="489" width="335" height="110"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="gou-c8-Thg"/>
+                                    <constraint firstAttribute="height" constant="110" id="gou-c8-Thg"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qqb-oF-lbg">
                                     <size key="itemSize" width="80" height="80"/>
@@ -409,7 +412,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="A" id="lzk-Fu-LJW" customClass="KidSelectionCell" customModule="Carpool" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="25" width="78" height="78"/>
+                                        <rect key="frame" x="0.0" y="16" width="78" height="78"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="78" height="78"/>
@@ -422,7 +425,7 @@
                                                         <constraint firstAttribute="height" constant="45" id="Kdo-vM-7Im"/>
                                                         <constraint firstAttribute="width" constant="45" id="f4B-6n-QDP"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
@@ -436,7 +439,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20.5" id="EVo-QZ-kom"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -465,7 +468,7 @@
                             <constraint firstItem="Hqx-cJ-uRV" firstAttribute="leading" secondItem="TK2-YF-X4y" secondAttribute="leading" constant="20" id="Fxc-gr-UuH"/>
                             <constraint firstAttribute="trailing" secondItem="Hqx-cJ-uRV" secondAttribute="trailing" constant="20" id="Nx1-h4-TnD"/>
                             <constraint firstAttribute="trailing" secondItem="5Lw-hO-jbj" secondAttribute="trailing" constant="20" id="VBV-1m-2na"/>
-                            <constraint firstItem="Hqx-cJ-uRV" firstAttribute="top" secondItem="5Lw-hO-jbj" secondAttribute="bottom" constant="40" id="c1p-Iy-m8E"/>
+                            <constraint firstItem="Hqx-cJ-uRV" firstAttribute="top" secondItem="5Lw-hO-jbj" secondAttribute="bottom" constant="10" id="c1p-Iy-m8E"/>
                             <constraint firstItem="LXf-BH-xr9" firstAttribute="centerX" secondItem="TK2-YF-X4y" secondAttribute="centerX" id="cza-vg-ywL"/>
                             <constraint firstItem="5Lw-hO-jbj" firstAttribute="leading" secondItem="TK2-YF-X4y" secondAttribute="leading" constant="20" id="xQ7-LW-5G4"/>
                         </constraints>
