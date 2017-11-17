@@ -547,7 +547,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="onNameEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="EgK-bm-Cri"/>
+                                            <action selector="onNameEntered:" destination="uzH-Gh-XhM" eventType="editingDidEndOnExit" id="yd4-lx-eAY"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrW-t2-8ta">
@@ -572,7 +572,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="onEmailEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="2wk-0K-vDE"/>
+                                            <action selector="onEmailEntered:" destination="uzH-Gh-XhM" eventType="editingDidEndOnExit" id="kA2-Eh-dJB"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="651-7M-PQw">
@@ -597,7 +597,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="onPasswordEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="baf-pg-FHF"/>
+                                            <action selector="onPasswordEntered:" destination="uzH-Gh-XhM" eventType="editingDidEndOnExit" id="8rQ-PK-sdJ"/>
                                         </connections>
                                     </textField>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIRM PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al5-xd-f8H">
@@ -621,7 +621,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="onPasswordConfirmedEntered:" destination="uzH-Gh-XhM" eventType="editingDidEnd" id="74u-FL-Ngv"/>
+                                            <action selector="onPasswordConfirmedEntered:" destination="uzH-Gh-XhM" eventType="editingDidEndOnExit" id="TdN-Pt-xN9"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -702,7 +702,7 @@
                         <outlet property="emailLabel" destination="mK9-fZ-oq3" id="82Z-E6-Wik"/>
                         <outlet property="loginButton" destination="Bzi-Es-cDx" id="rIC-ep-qPw"/>
                         <outlet property="nameLabel" destination="Rjn-ER-Mx0" id="v9P-B1-QI8"/>
-                        <outlet property="nameTextField" destination="sSj-OO-Bp2" id="XNA-LU-eqg"/>
+                        <outlet property="nameTextField" destination="sSj-OO-Bp2" id="auT-E6-4ZX"/>
                         <outlet property="onNameEntered" destination="sSj-OO-Bp2" id="IKz-fy-ija"/>
                         <outlet property="passwordConfirmButton" destination="w0q-HP-ng3" id="qTt-4l-Uem"/>
                         <outlet property="passwordLabel" destination="dFP-r0-7lV" id="IJi-4C-RGs"/>

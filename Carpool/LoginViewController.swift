@@ -124,11 +124,20 @@ class LoginViewController: UIViewController {
         }
     }
     
+    
     @IBAction func onEmailEntered(_ sender: UITextField) {
         if let text = sender.text {
             userEmail = text
         }
+        
+        print(#function, "it ended on exit")
     }
+    
+//    @IBAction func onEmailEntered(_ sender: UITextField) {
+//        if let text = sender.text {
+//            userEmail = text
+//        }
+//    }
     
     @IBAction func onPasswordEntered(_ sender: UITextField) {
         if let text = sender.text {
@@ -136,16 +145,38 @@ class LoginViewController: UIViewController {
         }
     }
     
+    
+//    @IBAction func onPasswordEntered(_ sender: UITextField) {
+//        if let text = sender.text {
+//            userPassword = text
+//        }
+//    }
+    
     @IBAction func onNameEntered(_ sender: UITextField) {
-        if let name  = sender.text {
+        if let name = sender.text {
             userName = name
         }
-        
     }
+    
+    
+//    @IBAction func onNameEntered(_ sender: UITextField) {
+//        if let name  = sender.text {
+//            userName = name
+//        }
+//
+//    }
     
     @IBAction func onPasswordConfirmedEntered(_ sender: UITextField) {
         if let text = sender.text {
             userPasswordConfirm = text
         }
     }
+    
+    
+    
+//    @IBAction func onPasswordConfirmedEntered(_ sender: UITextField) {
+//        if let text = sender.text {
+//            userPasswordConfirm = text
+//        }
+//    }
 }
