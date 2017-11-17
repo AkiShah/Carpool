@@ -166,7 +166,7 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let trip = trips[indexPath.row]
+        let trip = tripsForDays[selectedDay][indexPath.row]
         performSegue(withIdentifier: "segueToEventDetailVC", sender: trip)
     }
     

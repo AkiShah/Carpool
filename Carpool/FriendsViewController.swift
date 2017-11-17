@@ -55,6 +55,13 @@ class FriendsViewController: UITableViewController{
         return "MY FRIENDS"
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        API.remove(friend: friends[indexPath.row])
+        friends.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
+    
     func getChildStrings(for friend: User) -> String {
         if friend.children.count > 0 {
             let childrenNames = friend.children.map({$0.name}).sorted(by: {$0 < $1})

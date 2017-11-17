@@ -35,6 +35,7 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
     var kids: [Child] = []
     var kidsOnTrip: [Child] = []
     var selectedButton: DayOrTime = .disabled
+    var resultingLocations: [MKMapItem] = []
     
     enum DayOrTime {
         case day
@@ -52,15 +53,28 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         changeDatePicker(to: .disabled)
+        self.tripDestinationMapButton.isEnabled = false
         
         tripChildrenCollectionView.delegate = self
         tripChildrenCollectionView.dataSource = self
         tripChildrenCollectionView.allowsMultipleSelection = true
         
         tripDestinationTextField.layer.masksToBounds = true
-        tripDestinationTextField.layer.cornerRadius = 10
+        tripDestinationTextField.layer.cornerRadius = 0
         tripDestinationTextField.backgroundColor = darkBlue
         tripDestinationTextField.textColor = lightOrange
+        
+        tripDestinationMapButton.layer.masksToBounds = true
+        tripDestinationMapButton.layer.cornerRadius = 20
+        
+//        tripRepeatButton.setTitle("Repeat Every Week Off", for: .normal)
+//        tripRepeatButton.setTitleColor(lightOrange, for: .normal)
+//        tripRepeatButton.backgroundColor = darkBlue
+        tripRepeatButton.layer.masksToBounds = true
+        tripRepeatButton.layer.cornerRadius = 20
+        
+        tripDatePicker.setValue(darkBlue, forKeyPath: "textColor")
+        tripDatePicker.backgroundColor = lightOrange
         
         API.fetchCurrentUser(completion: { result in
             switch result {
@@ -82,6 +96,30 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let searchLocationVC = segue.destination as? MapViewController {
+            
+            var coordinates: [CLLocationCoordinate2D] = []
+            var filteredLocations: [MKMapItem] = []
+            for location in resultingLocations {
+                if !coordinates.contains(location.coordinate){
+                    coordinates.append(location.coordinate)
+                    filteredLocations.append(location)
+                }
+            }
+            searchLocationVC.annotations = filteredLocations
+        }
+    }
+    
+    @IBAction func unwindFromSearchLocationMap(segue: UIStoryboardSegue) {
+        if let searchLocationVC = segue.destination as? MapViewController {
+            if let location = searchLocationVC.selectedLocation {
+                self.location = location
+            }
+        }
+    }
+    
     @IBAction func onSelectedTripDayButtonPressed(_ sender: UIButton) {
         changeDatePicker(to: .day)
     }
@@ -97,33 +135,36 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
     
     
     func changeDatePicker(to newSelection: DayOrTime) {
+        
+        tripSelectedDayButton.backgroundColor = darkBlue
+        tripSelectedStartTimeButton.backgroundColor = darkBlue
+        tripSelectedEndTimeButton.backgroundColor = darkBlue
+        
+        tripSelectedDayButton.setTitleColor(lightOrange, for: .normal)
+        tripSelectedStartTimeButton.setTitleColor(lightOrange, for: .normal)
+        tripSelectedEndTimeButton.setTitleColor(lightOrange, for: .normal)
+        
         switch newSelection {
         case .day:
             tripDatePicker.isHidden = false
             tripDatePicker.datePickerMode = .date
             tripSelectedDayButton.backgroundColor = lightOrange
-            tripSelectedStartTimeButton.backgroundColor = darkBlue
-            tripSelectedEndTimeButton.backgroundColor = darkBlue
+            tripSelectedDayButton.setTitleColor(darkBlue, for: .normal)
             
         case .startTime:
             tripDatePicker.isHidden = false
             tripDatePicker.datePickerMode = .time
-            tripSelectedDayButton.backgroundColor = darkBlue
             tripSelectedStartTimeButton.backgroundColor = lightOrange
-            tripSelectedEndTimeButton.backgroundColor = darkBlue
+            tripSelectedStartTimeButton.setTitleColor(darkBlue, for: .normal)
             
         case .endTime:
             tripDatePicker.isHidden = false
             tripDatePicker.datePickerMode = .time
-            tripSelectedDayButton.backgroundColor = darkBlue
-            tripSelectedStartTimeButton.backgroundColor = darkBlue
             tripSelectedEndTimeButton.backgroundColor = lightOrange
+            tripSelectedEndTimeButton.setTitleColor(darkBlue, for: .normal)
 
         case .disabled:
             tripDatePicker.isHidden = true
-            tripSelectedDayButton.backgroundColor = darkBlue
-            tripSelectedStartTimeButton.backgroundColor = darkBlue
-            tripSelectedEndTimeButton.backgroundColor = darkBlue
         }
         selectedButton = newSelection
     }
@@ -144,7 +185,6 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         }
     }
     @IBAction func onDestionationDidEndOnExit(_ sender: UITextField) {
-        print(#function, "I did a thing")
         changeDatePicker(to: .disabled)
         if let newDestination = sender.text {
             destination = newDestination
@@ -163,13 +203,11 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         }
     }
     
-    var resultingLocations: [MKMapItem] = []
-    
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         let results = completer.results
         
         
-        let region = MKCoordinateRegionMakeWithDistance(myLocation!.coordinate, 10000, 10000)
+        let region = MKCoordinateRegionMakeWithDistance(myLocation!.coordinate, 5000, 5000)
         let request = MKLocalSearchRequest()
         request.region = region
         
@@ -180,19 +218,7 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
             search.start(completionHandler: { response, error in
                 guard let response = response else { return print(#function, error!) }
                 self.resultingLocations.append(contentsOf: response.mapItems)
-                
-//                var set = Set<CLLocation>()
-//                self.resultingLocations = response.mapItems.filter {
-//                    set.insert($0.placemark.location!).inserted
-//                }
-//
-//                self.resultingLocations.append(contentsOf: self.resultingLocations.filter({ (<#MKMapItem#>) -> Bool in
-//                    <#code#>
-//                }))
-                print("---------------------")
-                print("---------------------")
-                print("---------------------")
-                print(self.resultingLocations)
+                self.tripDestinationMapButton.isEnabled = !completer.isSearching
             })
         }
         
@@ -212,9 +238,13 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         
         switch repeatTrip {
         case true:
-            tripRepeatButton.setTitle("Repeat Every Week On", for: .normal)
+            tripRepeatButton.setTitle("REPEAT EVERY WEEK ON", for: .normal)
+            tripRepeatButton.setTitleColor(darkBlue, for: .normal)
+            tripRepeatButton.backgroundColor = lightOrange
         case false:
-            tripRepeatButton.setTitle("Repeat Every Week Off", for: .normal)
+            tripRepeatButton.setTitle("REPEAT EVERY WEEK OFF", for: .normal)
+            tripRepeatButton.setTitleColor(lightOrange, for: .normal)
+            tripRepeatButton.backgroundColor = darkBlue
         }
     }
     
@@ -226,19 +256,22 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
             let month = calendar.component(.month, from: date)
             let year = calendar.component(.year, from: date)
             let hour = calendar.component(.hour, from: startTime)
+            let endHour = calendar.component(.hour, from: self.endTime)
             let minute = calendar.component(.minute, from: startTime)
+            let endMinute = calendar.component(.minute, from: self.endTime)
             let seconds = calendar.component(.second, from: startTime)
             
             let components = DateComponents(calendar: calendar, year: year, month: month, day: day, hour: hour, minute: minute, second: seconds)
+            let endTimeComponents = DateComponents(calendar: calendar, year: year, month: month, day: day, hour: endHour, minute: endMinute, second: seconds)
             
             let eventTime: Date = components.date!
-            
-            API.createTrip(eventDescription: destination, eventTime: eventTime, eventLocation: nil) { result in
+            let endTime: Date = endTimeComponents.date!
+            API.createTrip(eventDescription: destination, eventTime: eventTime, eventLocation: location) { result in
                 switch result {
                     
                 case .success(let trip):
-                    API.set(endTime: self.endTime, for: trip.event, completion: { error in
-                        print(#function, error)
+                    API.set(endTime: endTime, for: trip.event, completion: { error in
+                        //print(#function, error)
                     })
                     API.mark(trip: trip, repeating: self.repeatTrip)
                     for child in self.kidsOnTrip {
@@ -284,6 +317,19 @@ extension AkiCreateTripViewController: CLLocationManagerDelegate {
 extension CLLocation: MKAnnotation {
     
 }
+
+extension MKMapItem: MKAnnotation {
+    public var coordinate: CLLocationCoordinate2D {
+        return self.placemark.coordinate
+    }
+}
+
+extension CLLocationCoordinate2D: Equatable {
+    public static func ==(lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+}
+
 
 extension Date {
     var day: String {

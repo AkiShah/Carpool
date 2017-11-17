@@ -18,13 +18,24 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Need to add a name
         viewTripsButton.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
         viewTripsButton.layer.borderWidth = 2
         viewTripsButton.layer.borderColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0).cgColor
         addATripButton.backgroundColor = UIColor.init(red: 0.91, green: 0.76, blue: 0.51, alpha: 1.0)
         addATripButton.layer.borderWidth = 2
         addATripButton.layer.borderColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0).cgColor
+        
+        API.fetchCurrentUser(completion: { result in
+            switch result {
+                
+            case .success(let user):
+                self.userNameLabel.text = user.name
+            case .failure(let error):
+                print(#function, error)
+            }
+        })
+        
+        
         
     }
 }

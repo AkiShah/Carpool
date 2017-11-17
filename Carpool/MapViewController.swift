@@ -48,10 +48,9 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 30000, 30000)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 2000, 2000)
         mapView.setRegion(coordinateRegion, animated: true)
         mapView.addAnnotations(annotations)
-        print(annotations)
     }
     
     
@@ -84,7 +83,10 @@ extension MapViewController: MKMapViewDelegate {
         selectLocationButton.isEnabled = false
         selectedLocation = nil
     }
+    
 }
+
+
 
 extension MapViewController: CLLocationManagerDelegate {
     
@@ -95,6 +97,7 @@ extension MapViewController: CLLocationManagerDelegate {
     
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        //TODO error handling
         print(error)
     }
 }
