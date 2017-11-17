@@ -62,6 +62,12 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         tripDestinationTextField.backgroundColor = darkBlue
         tripDestinationTextField.textColor = lightOrange
         
+        tripRepeatButton.setTitle("Repeat Every Week Off", for: .normal)
+        tripRepeatButton.setTitleColor(lightOrange, for: .normal)
+        tripRepeatButton.backgroundColor = darkBlue
+        tripRepeatButton.layer.masksToBounds = true
+        tripRepeatButton.layer.cornerRadius = 10
+        
         API.fetchCurrentUser(completion: { result in
             switch result {
             
@@ -97,33 +103,36 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
     
     
     func changeDatePicker(to newSelection: DayOrTime) {
+        
+        tripSelectedDayButton.backgroundColor = darkBlue
+        tripSelectedStartTimeButton.backgroundColor = darkBlue
+        tripSelectedEndTimeButton.backgroundColor = darkBlue
+        
+        tripSelectedDayButton.setTitleColor(lightOrange, for: .normal)
+        tripSelectedStartTimeButton.setTitleColor(lightOrange, for: .normal)
+        tripSelectedEndTimeButton.setTitleColor(lightOrange, for: .normal)
+        
         switch newSelection {
         case .day:
             tripDatePicker.isHidden = false
             tripDatePicker.datePickerMode = .date
             tripSelectedDayButton.backgroundColor = lightOrange
-            tripSelectedStartTimeButton.backgroundColor = darkBlue
-            tripSelectedEndTimeButton.backgroundColor = darkBlue
+            tripSelectedDayButton.setTitleColor(darkBlue, for: .normal)
             
         case .startTime:
             tripDatePicker.isHidden = false
             tripDatePicker.datePickerMode = .time
-            tripSelectedDayButton.backgroundColor = darkBlue
             tripSelectedStartTimeButton.backgroundColor = lightOrange
-            tripSelectedEndTimeButton.backgroundColor = darkBlue
+            tripSelectedStartTimeButton.setTitleColor(darkBlue, for: .normal)
             
         case .endTime:
             tripDatePicker.isHidden = false
             tripDatePicker.datePickerMode = .time
-            tripSelectedDayButton.backgroundColor = darkBlue
-            tripSelectedStartTimeButton.backgroundColor = darkBlue
             tripSelectedEndTimeButton.backgroundColor = lightOrange
+            tripSelectedEndTimeButton.setTitleColor(darkBlue, for: .normal)
 
         case .disabled:
             tripDatePicker.isHidden = true
-            tripSelectedDayButton.backgroundColor = darkBlue
-            tripSelectedStartTimeButton.backgroundColor = darkBlue
-            tripSelectedEndTimeButton.backgroundColor = darkBlue
         }
         selectedButton = newSelection
     }
@@ -144,7 +153,6 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         }
     }
     @IBAction func onDestionationDidEndOnExit(_ sender: UITextField) {
-        print(#function, "I did a thing")
         changeDatePicker(to: .disabled)
         if let newDestination = sender.text {
             destination = newDestination
@@ -212,9 +220,13 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         
         switch repeatTrip {
         case true:
-            tripRepeatButton.setTitle("Repeat Every Week On", for: .normal)
+            tripRepeatButton.setTitle("REPEAT EVERY WEEK ON", for: .normal)
+            tripRepeatButton.setTitleColor(darkBlue, for: .normal)
+            tripRepeatButton.backgroundColor = lightOrange
         case false:
-            tripRepeatButton.setTitle("Repeat Every Week Off", for: .normal)
+            tripRepeatButton.setTitle("REPEAT EVERY WEEK OFF", for: .normal)
+            tripRepeatButton.setTitleColor(lightOrange, for: .normal)
+            tripRepeatButton.backgroundColor = darkBlue
         }
     }
     
