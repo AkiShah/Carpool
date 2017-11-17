@@ -171,10 +171,10 @@
         <scene sceneID="91i-vh-xJ0">
             <objects>
                 <tableViewController id="WnW-v4-xtz" customClass="AkiTripDetailViewController" customModule="Carpool" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GcT-H7-deA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="GcT-H7-deA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.96078431372549022" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="b4w-0f-xRJ" userLabel="Header">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -188,13 +188,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Going To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDz-90-Iyr">
                                                     <rect key="frame" x="59" y="0.0" width="65" height="17"/>
                                                     <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.93468314409999997" green="0.8038835526" blue="0.57959753270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBW-a0-tlb">
                                                     <rect key="frame" x="0.0" y="17" width="183" height="40"/>
                                                     <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="40"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -215,7 +215,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E63-J2-E3C">
                                                             <rect key="frame" x="30" y="0.0" width="20" height="17"/>
                                                             <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.93468314409999997" green="0.8038835526" blue="0.57959753270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxb-CB-I4Y">
@@ -224,7 +224,7 @@
                                                                 <constraint firstAttribute="width" constant="80" id="3J3-OU-mSl"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="23"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -235,13 +235,13 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aW9-1K-Loz">
                                                             <rect key="frame" x="20.5" y="0.0" width="39.5" height="17"/>
                                                             <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.93468314409999997" green="0.8038835526" blue="0.57959753270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-7n-WOO">
                                                             <rect key="frame" x="18" y="22" width="44.5" height="23"/>
                                                             <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="23"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -252,13 +252,13 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Till" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsM-ov-Q0W">
                                                             <rect key="frame" x="28" y="0.0" width="24" height="17"/>
                                                             <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.93468314409999997" green="0.8038835526" blue="0.57959753270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKK-TV-1E1">
                                                             <rect key="frame" x="18" y="22" width="44.5" height="23"/>
                                                             <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="23"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -271,13 +271,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYf-8x-Fi5">
                                                     <rect key="frame" x="30.5" y="0.0" width="34" height="17"/>
                                                     <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.93468314409999997" green="0.8038835526" blue="0.57959753270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kid names" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dR-Pj-wCg">
                                                     <rect key="frame" x="0.0" y="27" width="95" height="23"/>
                                                     <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="23"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -372,6 +372,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="150" id="6hk-px-m6s"/>
                                             </constraints>
@@ -387,7 +388,8 @@
                                     </constraints>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="yUd-7B-vYb" firstAttribute="top" secondItem="b4w-0f-xRJ" secondAttribute="top" constant="30" id="NEF-Z8-JxC"/>
                                 <constraint firstAttribute="bottom" secondItem="yUd-7B-vYb" secondAttribute="bottom" constant="30" id="Rri-Pw-qmH"/>
@@ -398,63 +400,81 @@
                             <rect key="frame" x="0.0" y="572" width="375" height="200"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B3N-8H-yhZ">
-                                    <rect key="frame" x="20" y="20" width="335" height="160"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Add a comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Toa-W8-ntM">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="752" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UYT-Bf-CFm">
-                                            <rect key="frame" x="0.0" y="30.5" width="335" height="89.5"/>
-                                            <color key="backgroundColor" red="1" green="0.7235809003" blue="0.7480955239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes"/>
-                                        </textView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sI0-xT-am6">
-                                            <rect key="frame" x="0.0" y="130" width="335" height="30"/>
-                                            <state key="normal" title="Post Comment"/>
-                                            <connections>
-                                                <action selector="onPostCommentButtonClicked:" destination="WnW-v4-xtz" eventType="touchUpInside" id="5Ah-Ff-xam"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </stackView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="752" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UYT-Bf-CFm">
+                                    <rect key="frame" x="20" y="20" width="335" height="120"/>
+                                    <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="120" id="4W8-CQ-9fJ"/>
+                                    </constraints>
+                                    <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="22"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="WnW-v4-xtz" id="CHF-AH-uka"/>
+                                    </connections>
+                                </textView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sI0-xT-am6">
+                                    <rect key="frame" x="20" y="160" width="335" height="40"/>
+                                    <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="E9O-gN-jfv"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
+                                    <state key="normal" title="POST COMMENT">
+                                        <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onPostCommentButtonClicked:" destination="WnW-v4-xtz" eventType="touchUpInside" id="5Ah-Ff-xam"/>
+                                    </connections>
+                                </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="B3N-8H-yhZ" secondAttribute="trailing" constant="20" id="3lj-e8-AWr"/>
-                                <constraint firstAttribute="bottom" secondItem="B3N-8H-yhZ" secondAttribute="bottom" constant="20" id="7RP-lj-1Vh"/>
-                                <constraint firstItem="B3N-8H-yhZ" firstAttribute="leading" secondItem="MLT-fs-aLo" secondAttribute="leading" constant="20" id="I3U-1e-ac3"/>
-                                <constraint firstItem="B3N-8H-yhZ" firstAttribute="top" secondItem="MLT-fs-aLo" secondAttribute="top" constant="20" id="lkY-pa-MC0"/>
+                                <constraint firstAttribute="trailing" secondItem="UYT-Bf-CFm" secondAttribute="trailing" constant="20" id="0yE-pg-kMS"/>
+                                <constraint firstItem="UYT-Bf-CFm" firstAttribute="top" secondItem="MLT-fs-aLo" secondAttribute="top" constant="20" id="F5x-qN-Aks"/>
+                                <constraint firstAttribute="bottom" secondItem="sI0-xT-am6" secondAttribute="bottom" constant="20" id="acl-ff-qE6"/>
+                                <constraint firstItem="sI0-xT-am6" firstAttribute="top" secondItem="UYT-Bf-CFm" secondAttribute="bottom" constant="20" id="bNH-cr-57J"/>
+                                <constraint firstAttribute="trailing" secondItem="sI0-xT-am6" secondAttribute="trailing" constant="20" id="cqb-Ym-agA"/>
+                                <constraint firstItem="sI0-xT-am6" firstAttribute="leading" secondItem="MLT-fs-aLo" secondAttribute="leading" constant="20" id="iof-QK-QD6"/>
+                                <constraint firstItem="UYT-Bf-CFm" firstAttribute="leading" secondItem="MLT-fs-aLo" secondAttribute="leading" constant="20" id="mOw-NH-Dqb"/>
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="A" textLabel="WVE-Xg-Sj1" detailTextLabel="3st-hc-lnW" style="IBUITableViewCellStyleValue2" id="yR3-Dl-Yzd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="A" id="yR3-Dl-Yzd" customClass="commentCell" customModule="Carpool" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="528" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yR3-Dl-Yzd" id="21S-4v-fGC">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WVE-Xg-Sj1">
-                                            <rect key="frame" x="16" y="14" width="91" height="16"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdj-fK-Mzk">
+                                            <rect key="frame" x="20" y="5" width="335" height="15"/>
+                                            <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3st-hc-lnW">
-                                            <rect key="frame" x="113" y="14" width="35" height="16"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGz-Bw-KAZ">
+                                            <rect key="frame" x="20" y="25" width="335" height="13.5"/>
+                                            <fontDescription key="fontDescription" name="PFDinDisplayPro-Light" family="PF DinDisplay Pro" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Rdj-fK-Mzk" firstAttribute="top" secondItem="21S-4v-fGC" secondAttribute="top" constant="5" id="HJh-Cc-jye"/>
+                                        <constraint firstAttribute="trailing" secondItem="Rdj-fK-Mzk" secondAttribute="trailing" constant="20" id="Tr8-g4-ubZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="WGz-Bw-KAZ" secondAttribute="trailing" constant="20" id="ZHx-cW-0NV"/>
+                                        <constraint firstItem="Rdj-fK-Mzk" firstAttribute="leading" secondItem="21S-4v-fGC" secondAttribute="leading" constant="20" id="ZQ1-Nr-mAv"/>
+                                        <constraint firstAttribute="bottom" secondItem="WGz-Bw-KAZ" secondAttribute="bottom" constant="5" id="czb-qD-ZCi"/>
+                                        <constraint firstItem="WGz-Bw-KAZ" firstAttribute="top" secondItem="Rdj-fK-Mzk" secondAttribute="bottom" constant="5" id="gLf-d7-aQE"/>
+                                        <constraint firstItem="WGz-Bw-KAZ" firstAttribute="leading" secondItem="21S-4v-fGC" secondAttribute="leading" constant="20" id="rpj-nk-4lU"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="commentLabel" destination="WGz-Bw-KAZ" id="El3-vp-B1K"/>
+                                    <outlet property="commentPosterNameLabel" destination="Rdj-fK-Mzk" id="VW8-Qs-MUi"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -465,6 +485,8 @@
                     <connections>
                         <outlet property="eventChildrenHeaderLabel" destination="rYf-8x-Fi5" id="uio-G8-V4c"/>
                         <outlet property="eventChildrenLabel" destination="0dR-Pj-wCg" id="LRf-mc-u1G"/>
+                        <outlet property="eventCommentButton" destination="sI0-xT-am6" id="KBm-Vt-Bsv"/>
+                        <outlet property="eventCommentButtonBottomConstraint" destination="acl-ff-qE6" id="ZTu-9e-ucT"/>
                         <outlet property="eventCommentTextView" destination="UYT-Bf-CFm" id="dPq-k4-BLq"/>
                         <outlet property="eventDateLabel" destination="mxb-CB-I4Y" id="OA9-CO-G7u"/>
                         <outlet property="eventDestinationAddressButton" destination="WUZ-Zn-dpx" id="Dqj-Um-w9x"/>
