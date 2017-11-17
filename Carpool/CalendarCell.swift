@@ -39,11 +39,14 @@ extension RootViewController: UICollectionViewDataSource {
         cell.collectionWeekdayLabel.text = formatter.string(from: daysFromToday)
         formatter.dateFormat = "d"
         cell.collectionDateLabel.text = formatter.string(from: daysFromToday)
+        cell.collectionScheduledEventsIndicator.layer.masksToBounds = true
+        cell.collectionScheduledEventsIndicator.layer.cornerRadius = 5
+        cell.collectionScheduledEventsIndicator.backgroundColor = darkBlue
         if tripsForDays[indexPath.row].isEmpty{
             cell.collectionScheduledEventsIndicator.isHidden = true
         } else {
             cell.collectionScheduledEventsIndicator.isHidden = false
-            cell.collectionScheduledEventsIndicator.backgroundColor = UIColor.black
+            
         }
        
         
@@ -53,7 +56,6 @@ extension RootViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedDay = indexPath.item
-        trips = getTrips(for: tripSegment(rawValue: TripSegmentedViewController.selectedSegmentIndex)!)
         tableView.reloadData()
     }
     

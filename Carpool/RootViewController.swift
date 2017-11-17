@@ -44,7 +44,7 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
             switch result {
             case .success(let trips):
                 self.myTrips = trips
-                self.tableView.reloadData()
+                self.separateTripsForDays(for: tripSegment(rawValue: self.TripSegmentedViewController.selectedSegmentIndex)!)
             case .failure(let error):
                 //TODO error handling
                 print(#function, error)
@@ -54,7 +54,7 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
             switch result {
             case .success(let trips):
                 self.myFriendsTrips = trips
-                self.tableView.reloadData()
+                self.separateTripsForDays(for: tripSegment(rawValue: self.TripSegmentedViewController.selectedSegmentIndex)!)
             case .failure(let error):
                 //TODO error handling
                 print(#function, error)
@@ -96,8 +96,8 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
                 tripsForDays.append(self.myFriendsTrips.filter{ $0.event.time >= low && $0.event.time <= high }.sorted())
             }
         }
+        tableView.reloadData()
         calendarCollectionView.reloadData()
-        print(tripsForDays)
         
     }
     
@@ -123,7 +123,7 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as! TripCell
-        let trip = trips[indexPath.row]
+        let trip = tripsForDays[selectedDay][indexPath.row]
         let dsc = trip.event.description == "" ? "No description given" : trip.event.description
         //let kid = trip.children[indexPath.row]
         cell.grandmaLabel.text = dsc
@@ -159,7 +159,7 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return trips.count
+        return tripsForDays[selectedDay].count
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
