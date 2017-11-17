@@ -59,8 +59,11 @@
                                             <rect key="frame" x="0.0" y="36" width="359" height="128"/>
                                             <color key="backgroundColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="tintColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="128" id="0K2-Om-VYi"/>
+                                            </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="GGx-R3-vKV">
-                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="itemSize" width="50" height="83"/>
                                                 <size key="headerReferenceSize" width="50" height="50"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -73,27 +76,38 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="83"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Su" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igy-xc-7lY">
-                                                                <rect key="frame" x="4" y="6" width="42" height="21"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Su" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igy-xc-7lY">
+                                                                <rect key="frame" x="17.5" y="5" width="15" height="14"/>
                                                                 <fontDescription key="fontDescription" name="PFDinTextPro-Regular" family="PF DinText Pro" pointSize="14"/>
                                                                 <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-Rf-DFt">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-Rf-DFt">
                                                                 <rect key="frame" x="4" y="29" width="42" height="21"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
                                                                 <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kv0-fg-BNm">
-                                                                <rect key="frame" x="19.5" y="61" width="10" height="10"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kv0-fg-BNm">
+                                                                <rect key="frame" x="19.5" y="60" width="10" height="10"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="10" id="Ehc-9l-dkY"/>
+                                                                    <constraint firstAttribute="height" constant="10" id="xR3-c1-a35"/>
+                                                                </constraints>
                                                             </view>
                                                         </subviews>
                                                     </view>
+                                                    <constraints>
+                                                        <constraint firstItem="igy-xc-7lY" firstAttribute="centerX" secondItem="acN-hW-1H9" secondAttribute="centerX" id="4Zj-aA-0g1"/>
+                                                        <constraint firstItem="igy-xc-7lY" firstAttribute="top" secondItem="acN-hW-1H9" secondAttribute="top" constant="5" id="4ic-rI-bho"/>
+                                                        <constraint firstAttribute="trailing" secondItem="wjp-Rf-DFt" secondAttribute="trailing" constant="4" id="GBq-Cg-mXn"/>
+                                                        <constraint firstItem="wjp-Rf-DFt" firstAttribute="leading" secondItem="acN-hW-1H9" secondAttribute="leading" constant="4" id="SNf-FF-02q"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="kv0-fg-BNm" secondAttribute="bottom" constant="5" id="TGX-8V-deU"/>
+                                                        <constraint firstItem="kv0-fg-BNm" firstAttribute="centerX" secondItem="acN-hW-1H9" secondAttribute="centerX" id="UxQ-DW-TMQ"/>
+                                                        <constraint firstItem="wjp-Rf-DFt" firstAttribute="top" secondItem="igy-xc-7lY" secondAttribute="bottom" constant="10" id="XYS-c7-qZQ"/>
+                                                        <constraint firstItem="kv0-fg-BNm" firstAttribute="top" secondItem="wjp-Rf-DFt" secondAttribute="bottom" constant="10" id="cl7-8Z-Z5i"/>
+                                                    </constraints>
                                                     <size key="customSize" width="50" height="83"/>
                                                     <connections>
                                                         <outlet property="collectionDateLabel" destination="wjp-Rf-DFt" id="b0C-F0-onq"/>
@@ -107,7 +121,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ze-eQ-cG2">
-                                                        <rect key="frame" x="0.0" y="17.5" width="359" height="15"/>
+                                                        <rect key="frame" x="0.0" y="18" width="359" height="15"/>
                                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -915,7 +929,7 @@
         <image name="twocars1" width="649" height="913"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XMv-Zx-Av8"/>
+        <segue reference="hGt-QR-v3f"/>
         <segue reference="CYb-Ea-cza"/>
     </inferredMetricsTieBreakers>
 </document>
