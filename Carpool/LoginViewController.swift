@@ -45,9 +45,9 @@ class LoginViewController: UIViewController {
         var text: String {
             switch self {
             case .login:
-                return "Login"
+                return "LOG IN"
             case .signup:
-                return "Signup"
+                return "SIGN UP"
             }
         }
     }
