@@ -19,12 +19,10 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
     var myTrips: [Trip] = []
     var myFriendsTrips: [Trip] = []
     //Filtered Trips
+    var tripsForDays: [[Trip]] = []
     var trips: [Trip] = []
-    
     var user: User?
-    
     var kids: [Child] = []
-    
     var selectedDay = 0
     
     enum tripLeg: String {
@@ -56,14 +54,13 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
             switch result {
             case .success(let trips):
                 self.myFriendsTrips = trips
-                print(#function, trips)
                 self.tableView.reloadData()
             case .failure(let error):
                 //TODO error handling
                 print(#function, error)
             }
         }
-        
+        separateTripsForDays(for: .myTrips)
     }
     
     
@@ -81,8 +78,27 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
     }
     
     @IBAction func onTripSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        trips = getTrips(for: tripSegment(rawValue: sender.selectedSegmentIndex)!)
+        separateTripsForDays(for: tripSegment(rawValue: sender.selectedSegmentIndex)!)
         tableView.reloadData()
+    }
+    
+    func separateTripsForDays (for trip: tripSegment) {
+        let today = Calendar.current.startOfDay(for: Date())
+        tripsForDays = []
+        for day in 0...6 {
+            let low = today + TimeInterval(day * 60 * 60 * 24)
+            let high = low + TimeInterval(60 * 60 * 24)
+            
+            switch trip {
+            case .myTrips:
+                tripsForDays.append(self.myTrips.filter{ $0.event.time >= low && $0.event.time <= high }.sorted())
+            case .friendsTrips:
+                tripsForDays.append(self.myFriendsTrips.filter{ $0.event.time >= low && $0.event.time <= high }.sorted())
+            }
+        }
+        calendarCollectionView.reloadData()
+        print(tripsForDays)
+        
     }
     
     func getTrips(for trip: tripSegment) -> [Trip] {

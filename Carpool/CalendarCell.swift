@@ -31,15 +31,22 @@ extension RootViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Day", for: indexPath) as! CalendarCell
+        
         let today = Calendar.current.startOfDay(for: Date())
         let daysFromToday = today + TimeInterval(indexPath.row * 60 * 60 * 24)
-        
         let formatter = DateFormatter()
         formatter.dateFormat = "E"
         cell.collectionWeekdayLabel.text = formatter.string(from: daysFromToday)
         formatter.dateFormat = "d"
         cell.collectionDateLabel.text = formatter.string(from: daysFromToday)
-        cell.collectionScheduledEventsIndicator.backgroundColor = UIColor.black
+        if tripsForDays[indexPath.row].isEmpty{
+            cell.collectionScheduledEventsIndicator.isHidden = true
+        } else {
+            cell.collectionScheduledEventsIndicator.isHidden = false
+            cell.collectionScheduledEventsIndicator.backgroundColor = UIColor.black
+        }
+       
+        
         return cell
         
     }
