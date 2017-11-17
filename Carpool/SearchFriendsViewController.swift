@@ -20,6 +20,9 @@ class SearchFriendsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        
+        textFieldInsideSearchBar?.textColor = UIColor.init(displayP3Red: 0.91, green: 0.76, blue: 0.51, alpha: 1)
     }
     
     @IBAction func onSendTextPressed(_ sender: UIButton) {
