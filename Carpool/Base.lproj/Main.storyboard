@@ -76,13 +76,13 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="83"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Su" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igy-xc-7lY">
-                                                                <rect key="frame" x="17.5" y="5" width="15" height="14"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Su" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igy-xc-7lY">
+                                                                <rect key="frame" x="16.5" y="5" width="17" height="14"/>
                                                                 <fontDescription key="fontDescription" name="PFDinTextPro-Regular" family="PF DinText Pro" pointSize="14"/>
                                                                 <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-Rf-DFt">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-Rf-DFt">
                                                                 <rect key="frame" x="4" y="29" width="42" height="21"/>
                                                                 <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="17"/>
                                                                 <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
@@ -121,7 +121,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ze-eQ-cG2">
-                                                        <rect key="frame" x="0.0" y="16" width="359" height="18"/>
+                                                        <rect key="frame" x="0.0" y="14.5" width="359" height="21"/>
                                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="18"/>
                                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -504,7 +504,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="el7-DP-0fA">
-                                <rect key="frame" x="16" y="617" width="343" height="30"/>
+                                <rect key="frame" x="17" y="617" width="343" height="30"/>
                                 <state key="normal" title="Skip Login">
                                     <color key="titleColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -514,20 +514,21 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ITj-TB-MvU">
-                                <rect key="frame" x="20" y="86" width="335" height="154"/>
+                                <rect key="frame" x="20" y="116" width="335" height="159"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjn-ER-Mx0">
-                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="43" height="0.0"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sSj-OO-Bp2">
                                         <rect key="frame" x="0.0" y="-50" width="335" height="50"/>
+                                        <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Bh9-EV-mSn"/>
                                         </constraints>
-                                        <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.52941176469999995" green="0.5568627451" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Regular" family="PF DinText Pro" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                                         <userDefinedRuntimeAttributes>
@@ -540,19 +541,19 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrW-t2-8ta">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="15"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44.5" height="17.5"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mK9-fZ-oq3">
-                                        <rect key="frame" x="0.0" y="23" width="335" height="50"/>
-                                        <color key="backgroundColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="25.5" width="335" height="50"/>
+                                        <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="tjs-Kv-KYm"/>
                                         </constraints>
-                                        <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.52941176469999995" green="0.5568627451" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Regular" family="PF DinText Pro" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                         <userDefinedRuntimeAttributes>
@@ -565,19 +566,19 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="651-7M-PQw">
-                                        <rect key="frame" x="0.0" y="81" width="78.5" height="15"/>
+                                        <rect key="frame" x="0.0" y="83.5" width="84" height="17.5"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFP-r0-7lV">
-                                        <rect key="frame" x="0.0" y="104" width="335" height="50"/>
-                                        <color key="backgroundColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="109" width="335" height="50"/>
+                                        <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="qoi-wp-oXc"/>
                                         </constraints>
-                                        <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.52941176469999995" green="0.5568627451" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Regular" family="PF DinText Pro" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -590,17 +591,18 @@
                                         </connections>
                                     </textField>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIRM PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al5-xd-f8H">
-                                        <rect key="frame" x="0.0" y="154" width="146" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="159" width="157" height="0.0"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="15"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w0q-HP-ng3">
-                                        <rect key="frame" x="0.0" y="154" width="335" height="50"/>
+                                        <rect key="frame" x="0.0" y="159" width="335" height="50"/>
+                                        <color key="backgroundColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="6VM-rT-5hp"/>
                                         </constraints>
-                                        <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.52941176469999995" green="0.5568627451" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Regular" family="PF DinText Pro" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -625,7 +627,7 @@
                                 </constraints>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IKf-NW-vFn">
-                                <rect key="frame" x="16" y="20" width="343" height="29"/>
+                                <rect key="frame" x="17" y="50" width="343" height="29"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="LOGIN"/>
@@ -636,16 +638,19 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onSegmentedControlPressed:" destination="uzH-Gh-XhM" eventType="valueChanged" id="7Bm-DK-I8m"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzi-Es-cDx">
-                                <rect key="frame" x="109" y="555" width="156" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzi-Es-cDx">
+                                <rect key="frame" x="79" y="313" width="218" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Bzi-Es-cDx" secondAttribute="height" multiplier="26:5" id="5pc-dJ-dtM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PFDinTextPro-Bold" family="PF DinText Pro" pointSize="25"/>
-                                <state key="normal" title="LOG IN">
+                                <state key="normal" title="LOGIN">
                                     <color key="titleColor" red="0.28627450980000002" green="0.30980392159999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -657,18 +662,29 @@
                                     <action selector="onLoginPressed:" destination="uzH-Gh-XhM" eventType="touchUpInside" id="PhF-Io-rR1"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="front car" translatesAutoresizingMaskIntoConstraints="NO" id="5Oe-xo-SZc">
+                                <rect key="frame" x="68" y="494" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5Oe-xo-SZc" secondAttribute="height" multiplier="15:8" id="ZkI-L0-bRz"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99215686270000003" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="5Oe-xo-SZc" firstAttribute="leading" secondItem="or6-L3-fuN" secondAttribute="leadingMargin" constant="52" id="56R-JM-nGp"/>
+                            <constraint firstItem="Bzi-Es-cDx" firstAttribute="top" secondItem="ITj-TB-MvU" secondAttribute="bottom" constant="38" id="AnM-h9-bpk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Oe-xo-SZc" secondAttribute="trailing" constant="51" id="Bgo-po-Hgl"/>
+                            <constraint firstItem="el7-DP-0fA" firstAttribute="trailing" secondItem="IKf-NW-vFn" secondAttribute="trailing" id="Ebm-ME-rzK"/>
                             <constraint firstItem="SKf-w1-eHb" firstAttribute="top" secondItem="el7-DP-0fA" secondAttribute="bottom" constant="20" id="OFI-7U-b5d"/>
                             <constraint firstAttribute="trailing" secondItem="ITj-TB-MvU" secondAttribute="trailing" constant="20" id="UKF-S8-ZDE"/>
+                            <constraint firstItem="SKf-w1-eHb" firstAttribute="top" secondItem="5Oe-xo-SZc" secondAttribute="bottom" constant="45" id="ZW4-E9-hRa"/>
                             <constraint firstItem="ITj-TB-MvU" firstAttribute="top" secondItem="IKf-NW-vFn" secondAttribute="bottom" constant="38" id="Zwx-Hu-ckO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="el7-DP-0fA" secondAttribute="trailing" id="erl-Dm-GdI"/>
+                            <constraint firstItem="Bzi-Es-cDx" firstAttribute="centerX" secondItem="el7-DP-0fA" secondAttribute="centerX" id="d6U-wn-2Ph"/>
                             <constraint firstItem="ITj-TB-MvU" firstAttribute="leading" secondItem="or6-L3-fuN" secondAttribute="leading" constant="20" id="lIE-fp-wsc"/>
-                            <constraint firstItem="el7-DP-0fA" firstAttribute="leading" secondItem="or6-L3-fuN" secondAttribute="leadingMargin" id="sjg-1Z-fJd"/>
-                            <constraint firstItem="IKf-NW-vFn" firstAttribute="top" secondItem="tGh-Cl-bLo" secondAttribute="bottom" id="skk-AC-eMR"/>
-                            <constraint firstItem="IKf-NW-vFn" firstAttribute="trailing" secondItem="or6-L3-fuN" secondAttribute="trailingMargin" id="xrN-gc-7kJ"/>
-                            <constraint firstItem="IKf-NW-vFn" firstAttribute="leading" secondItem="or6-L3-fuN" secondAttribute="leadingMargin" id="znT-oS-4ji"/>
+                            <constraint firstItem="IKf-NW-vFn" firstAttribute="top" secondItem="tGh-Cl-bLo" secondAttribute="bottom" constant="30" id="skk-AC-eMR"/>
+                            <constraint firstItem="IKf-NW-vFn" firstAttribute="trailing" secondItem="or6-L3-fuN" secondAttribute="trailingMargin" constant="1" id="xrN-gc-7kJ"/>
+                            <constraint firstItem="el7-DP-0fA" firstAttribute="leading" secondItem="IKf-NW-vFn" secondAttribute="leading" id="y4o-2X-Xtz"/>
+                            <constraint firstItem="IKf-NW-vFn" firstAttribute="leading" secondItem="or6-L3-fuN" secondAttribute="leadingMargin" constant="1" id="znT-oS-4ji"/>
                         </constraints>
                     </view>
                     <connections>
@@ -863,16 +879,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4W1-Ph-yG7">
-                                <rect key="frame" x="98" y="26" width="179" height="34"/>
+                                <rect key="frame" x="98" y="20" width="179" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veo-bz-cVa">
-                                        <rect key="frame" x="52" y="0.0" width="75.5" height="17"/>
+                                        <rect key="frame" x="46.5" y="0.0" width="86" height="20"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="17"/>
                                         <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MR. PUMPER KNICKLES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfV-yf-kro">
-                                        <rect key="frame" x="0.5" y="17" width="178" height="17"/>
+                                        <rect key="frame" x="0.0" y="20" width="179" height="20"/>
                                         <fontDescription key="fontDescription" name="PFDinTextPro-Medium" family="PF DinText Pro" pointSize="17"/>
                                         <color key="textColor" red="0.91372549020000005" green="0.76470588240000004" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -955,6 +971,7 @@
         <image name="PinkCarFaceLeft" width="1625" height="656"/>
         <image name="centeredHighwayLight" width="308" height="341"/>
         <image name="friendIcon" width="37" height="37"/>
+        <image name="front car" width="1121" height="745"/>
         <image name="profileIcon" width="37" height="37"/>
         <image name="tachometer1" width="858" height="594"/>
     </resources>
