@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
         var text: String {
             switch self {
             case .login:
-                return "LOG IN"
+                return "LOGIN"
             case .signup:
                 return "SIGN UP"
             }
@@ -54,6 +54,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        nameTextField.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
 //        onNameEntered.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
 //        passwordConfirmButton.backgroundColor = UIColor.init(red: 0.29, green: 0.31, blue: 0.40, alpha: 1.0)
