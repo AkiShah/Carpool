@@ -44,6 +44,7 @@ class AkiTripDetailViewController: UITableViewController {
     @IBOutlet weak var eventCommentButton: UIButton!
     @IBOutlet weak var eventCommentButtonBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var footerView: UIView!
     
     var trip: Trip!
     var location: CLPlacemark?
@@ -96,10 +97,13 @@ class AkiTripDetailViewController: UITableViewController {
         eventCommentButton.layer.cornerRadius = 10
         
         NotificationCenter.default.addObserver(forName: Notification.Name.UIKeyboardWillShow, object: nil, queue: .main) { _ in
-            self.eventCommentButtonBottomConstraint.constant = 200
+            self.footerView.heightAnchor.constraint(equalToConstant: 400)
+            self.eventCommentButton.bottomAnchor.constraint(equalTo: self.footerView.bottomAnchor, constant: 160)
+
         }
         NotificationCenter.default.addObserver(forName: Notification.Name.UIKeyboardWillHide, object: nil, queue: .main) { _ in
-            self.eventCommentButtonBottomConstraint.constant = 20
+            self.footerView.heightAnchor.constraint(equalToConstant: 220)
+            self.eventCommentButton.bottomAnchor.constraint(equalTo: self.footerView.bottomAnchor, constant: 20)
         }
     }
     
