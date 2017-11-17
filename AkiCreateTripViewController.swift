@@ -120,9 +120,17 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
     }
     
     @IBAction func unwindFromAkiSearchLocationMap(segue: UIStoryboardSegue) {
-        if let searchLocationVC = segue.destination as? MapViewController {
+        if let searchLocationVC = segue.source as? MapViewController {
             if let location = searchLocationVC.selectedLocation {
                 self.location = location
+                
+                let geocoder = CLGeocoder()
+                geocoder.reverseGeocodeLocation(location) { placemarks, error in
+                    if let name = placemarks?.first?.name {
+                        self.tripDestinationTextField.text = name
+                        self.destination = name
+                    }
+                }
             }
         }
     }
