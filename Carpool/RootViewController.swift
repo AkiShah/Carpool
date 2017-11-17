@@ -41,6 +41,7 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
         calendarCollectionView.delegate = self
         calendarCollectionView.layer.masksToBounds = true
         calendarCollectionView.layer.cornerRadius = 10
+        calendarCollectionView.backgroundColor = lightOrange
         
         API.observeMyTrips(sender: self) { result in
             switch result {
@@ -127,9 +128,9 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as! TripCell
         let trip = tripsForDays[selectedDay][indexPath.row]
         let dsc = trip.event.description == "" ? "No description given" : trip.event.description
-        //let kid = trip.children[indexPath.row]
         cell.grandmaLabel.text = dsc
-        //cell.kidNames.text = kid.name
+        cell.kidsWhoAreGoingLabel.text = trip.kidNamesString
+        cell.dayAndTimeLabel.text = trip.dayAndTimeOfEvent
 
         if dsc == "" {
             cell.grandmaLabel.font = UIFont.italicSystemFont(ofSize: (cell.grandmaLabel.font.pointSize))
@@ -146,17 +147,27 @@ class RootViewController: UITableViewController, UICollectionViewDelegate {
     func setProps(_ label: UILabel, _ carImage: UIImageView, for leg: Leg?, as legType: tripLeg) {
         if let leg = leg {
             label.text =  leg.driver.name! + legType.rawValue
-            label.textColor = UIColor.black
+            label.textColor = darkBlue
             label.backgroundColor = UIColor.clear
             label.font = UIFont.systemFont(ofSize: label.font.pointSize)
-            carImage.alpha = 1.0
+            if legType == .dropoff{
+                carImage.image = #imageLiteral(resourceName: "carFaceRightBlue")
+            } else {
+                carImage.image = #imageLiteral(resourceName: "carFaceLeftBlue")
+            }
         } else {
-            label.text = "Not Claimed"
-            label.textColor = UIColor.white
-            label.backgroundColor = UIColor.red
-            label.font = UIFont.systemFont(ofSize: label.font.pointSize)
-            carImage.alpha = 0.3
+            label.text = "NOT CLAIMED"
+            label.textColor = darkBlue
+            label.backgroundColor = lightOrange
+            label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
+            if legType == .dropoff{
+                carImage.image = #imageLiteral(resourceName: "carFaceRightFaded")
+            } else {
+                carImage.image = #imageLiteral(resourceName: "carFaceLeftFaded")
+            }
         }
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
