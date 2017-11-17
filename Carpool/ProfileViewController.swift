@@ -16,7 +16,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var onSignOutPressed: UIButton!
     @IBOutlet weak var childTableView: UITableView!
     
-    var user: User?
+    //var user: User?
+    var children: [Child] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,19 +26,19 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let children = user?.children {
-            return children.count
-        }
-        return 0
+        return children.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "childList", for: indexPath)
-        if let child = user?.children[indexPath.row].name{
-            cell.textLabel?.text = child
-        }
-        
+        cell.textLabel?.text = children[indexPath.row].name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        API.ruthlesslyKillChildWithoutRemorseOrMoralCompassLikeDudeWhatKindOfPersonAreYouQuestionMark(children[indexPath.row])
+        children.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
     @IBAction func onChildNameAdded(_ sender: UITextField) {
@@ -60,7 +61,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         API.fetchCurrentUser { result in
             switch result {
             case .success(let user):
-                self.user = user
+                self.children = user.children
                 self.userNameLabel.text = user.name
                 self.childTableView.reloadData()
             case .failure(let error):

@@ -7,8 +7,7 @@ public struct User: Codable, Keyed {
     public let _children: [Child]?  // optional for decodable
 
     enum CodingKeys: String, CodingKey {
-        case key
-        case name
+        case key, name, phoneNumber
         case _children = "children"
     }
 
@@ -17,6 +16,8 @@ public struct User: Codable, Keyed {
     public var isMe: Bool {
         return Auth.auth().currentUser?.uid == key
     }
+
+    public let phoneNumber: String?
 }
 
 public extension API {
@@ -69,6 +70,11 @@ public extension API {
                 return Child(key: ref1.key, name: name)
             }
         }
+    }
+    static func ruthlesslyKillChildWithoutRemorseOrMoralCompassLikeDudeWhatKindOfPersonAreYouQuestionMark(_ child: Child) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Database.database().reference().child("children").child(child.key).removeValue()
+        Database.database().reference().child("users").child(uid).child("children").child(child.key).removeValue()
     }
 
     static func addChildren(names: [String], completion: Result<[Child]>) {
@@ -126,7 +132,8 @@ public extension API {
                         _children: try snapshot.childSnapshot(forPath: "children").children.map { snapshot in
                             let snapshot = snapshot as! DataSnapshot
                             return Child(key: snapshot.key, name: try snapshot.string())
-                        })
+                        },
+                        phoneNumber: snapshot.string(for: "phoneNumber"))
                 } catch {
                     return nil
                 }
@@ -192,6 +199,11 @@ public extension API {
             observer(.failure($0))
         }
     }
+
+    static func set(phoneNumber: String) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Database.database().reference().child("users").child(uid).child("phoneNumber").setValue(phoneNumber)
+    }
 }
 
 extension API {
@@ -218,7 +230,7 @@ extension API {
                         try $0.value(key: key) as Child
                     }
                 }).then {
-                    User(key: uid, name: name, _children: $0)
+                    User(key: uid, name: name, _children: $0, phoneNumber: snap.string(for: "phoneNumber"))
                 }
         }
     }
