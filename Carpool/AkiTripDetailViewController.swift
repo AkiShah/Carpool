@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CarpoolKit
 import CoreLocation
+import MapKit
 
 class AkiTripDetailViewController: UITableViewController {
     
@@ -34,7 +35,7 @@ class AkiTripDetailViewController: UITableViewController {
     @IBOutlet weak var eventCommentTextView: UITextView!
     
     var trip: Trip!
-    
+    var location: CLPlacemark?
     enum TripLeg {
         case dropoff
         case pickup
@@ -79,7 +80,19 @@ class AkiTripDetailViewController: UITableViewController {
     
     @IBAction func onEventDestinationAddressButtonClicked(_ sender: UIButton) {
         //Go to map
-        
+            
+        guard let location = location else { return }
+            
+        let regionDistance:CLLocationDistance = 10000
+        let regionSpan = MKCoordinateRegionMakeWithDistance((location.location?.coordinate)!, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: location.location!.coordinate, addressDictionary: location.addressDictionary as! [String : Any])
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = trip.event.description
+        mapItem.openInMaps(launchOptions: options)
     }
     
     @IBAction func onDropoffButtonClicked(_ sender: UIButton) {
@@ -151,8 +164,17 @@ class AkiTripDetailViewController: UITableViewController {
         let geocoder = CLGeocoder()
         if let location = trip.event.clLocation {
             geocoder.reverseGeocodeLocation(location) { placemarks, error in
-                //Display Address
+                if let placemark = placemarks?.first, let subThoroughFare = placemark.subThoroughfare, let throughFare = placemark.thoroughfare, let city = placemark.locality, let state = placemark.administrativeArea, let zip = placemark.postalCode {
+                    self.eventDestinationAddressButton.isHidden = false
+                    self.eventDestinationAddressButton.setTitle("\(subThoroughFare) \(throughFare) \n \(city) \(state) \(zip)", for: .normal)
+                    self.location = placemark
+                    print(subThoroughFare,throughFare, city, state, zip)
+                } else {
+                    self.eventDestinationAddressButton.isHidden = true
+                }
             }
+        } else {
+            eventDestinationAddressButton.isHidden = true
         }
         
         let formatter = DateFormatter()
