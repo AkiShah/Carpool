@@ -207,6 +207,7 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         }
     }
     
+    
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         let results = completer.results
         
@@ -224,7 +225,9 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
                 self.resultingLocations.append(contentsOf: response.mapItems)
                 self.tripDestinationMapButton.titleLabel?.textColor = !completer.isSearching ? darkCream : darkBlue
                 
-                self.tripDestinationMapButton.isEnabled = !self.resultingLocations.isEmpty
+                self.tripDestinationMapButton.titleLabel?.text = "MAP IT"
+                self.tripDestinationMapButton.setTitleColor(darkBlue, for: .normal)
+                self.tripDestinationMapButton.isEnabled = true
             })
         }
         

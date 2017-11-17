@@ -37,7 +37,7 @@ class MapViewController: UIViewController {
             locationManager.requestWhenInUseAuthorization()
         }
         
-        mapView.showAnnotations(annotations, animated: true)
+        mapView.addAnnotations(annotations)
     }
     
     @IBAction func onCancelButtonPressed(_ sender: UIButton) {
