@@ -54,6 +54,7 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
         super.viewDidLoad()
         changeDatePicker(to: .day)
         self.tripDestinationMapButton.isEnabled = false
+        tripDestinationMapButton.titleLabel?.textColor = darkCream
         
         tripChildrenCollectionView.delegate = self
         tripChildrenCollectionView.dataSource = self
@@ -221,7 +222,9 @@ class AkiCreateTripViewController: UIViewController, MKLocalSearchCompleterDeleg
             search.start(completionHandler: { response, error in
                 guard let response = response else { return print(#function, error!) }
                 self.resultingLocations.append(contentsOf: response.mapItems)
-                self.tripDestinationMapButton.isEnabled = !completer.isSearching
+                self.tripDestinationMapButton.titleLabel?.textColor = !completer.isSearching ? darkCream : darkBlue
+                
+                self.tripDestinationMapButton.isEnabled = !self.resultingLocations.isEmpty
             })
         }
         

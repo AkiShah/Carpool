@@ -247,6 +247,12 @@
                                                 <state key="normal" title="MAP IT">
                                                     <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" red="0.97254901959999995" green="0.96078431369999995" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="onDestinationEntered:" destination="mOK-9U-HDr" eventType="touchUpOutside" id="Av5-RG-iJh"/>
                                                     <segue destination="D0t-DH-sWk" kind="presentation" id="6cF-5S-7LR"/>
